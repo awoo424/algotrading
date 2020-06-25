@@ -1,10 +1,20 @@
-Welcome to algotrading's documentation!
-=======================================
+Algo Trading repo documentation
+================================
+
+Code testing
+=============
+
+   print 'hello'
+   >> hello
+
+   
+Guide:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   introduction
+   how-to-use
 
 
 Indices and tables

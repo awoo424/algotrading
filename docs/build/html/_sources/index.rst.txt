@@ -1,15 +1,20 @@
-.. algotrading documentation master file, created by
-   sphinx-quickstart on Thu Jun 25 18:29:35 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Algo Trading repo documentation
+================================
 
-Welcome to algotrading's documentation!
-=======================================
+Code testing
+=============
+
+   print 'hello'
+   >> hello
+
+   
+Guide:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   introduction
+   how-to-use
 
 
 Indices and tables
