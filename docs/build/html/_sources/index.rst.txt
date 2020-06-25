@@ -1,5 +1,7 @@
-Algo Trading repo documentation
-================================
+Welcome to the algo trading learning repo
+==========================================
+
+(Picture: to-be-added)
 
 User documentation:
 
@@ -7,13 +9,26 @@ User documentation:
    :maxdepth: 2
 
    introduction
-   tutorial
+   installation
+   how-to-use-this
+
+Introduction to Algo Trading:
+
+(to-be-added)
+
+Algorithm Docs:
+
+(to-be-added)
+
+Resources:
+
+(to-be-added)
 
 Others:
 
 .. toctree::
    :maxdepth: 1
-   
+
    acknowledgement
    about-the-author
 

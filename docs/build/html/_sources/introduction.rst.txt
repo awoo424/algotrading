@@ -4,7 +4,7 @@ Introduction
 This is the introduction.
 
 
-Sub-heading
------------
+What is algo trading?
+---------------------
 
 This is content in intro's subsection.
