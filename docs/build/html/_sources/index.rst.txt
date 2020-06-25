@@ -1,9 +1,10 @@
 Welcome to the algo trading learning repo
-==========================================
+=========================================
 
-(Picture: to-be-added)
+   (Picture: to-be-added)
 
-User documentation:
+User documentation
+"""""""""""""""""""
 
 .. toctree::
    :maxdepth: 2
@@ -12,17 +13,30 @@ User documentation:
    installation
    how-to-use-this
 
-Introduction to Algo Trading:
+Part 1: Introduction to Algo Trading
+"""""""""""""""""""""""""""""""""""""
 
-(to-be-added)
+   (to-be-added)
 
-Algorithm Docs:
 
-(to-be-added)
+Part 2: Algorithm Docs
+"""""""""""""""""""""""
 
-Resources:
+   (to-be-added)
 
-(to-be-added)
+Part 3: Machine Learning for Stock Prices Prediction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. toctree::
+   :maxdepth: 2
+
+   sentiment-analysis
+   property-price-prediction
+
+Resources
+"""""""""""
+
+   (to-be-added)
 
 Others:
 
