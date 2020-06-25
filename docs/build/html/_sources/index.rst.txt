@@ -7,7 +7,7 @@ Code testing
    print 'hello'
    >> hello
 
-   
+
 Guide:
 
 .. toctree::
