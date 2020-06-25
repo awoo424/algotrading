@@ -1,20 +1,21 @@
 Algo Trading repo documentation
 ================================
 
-Code testing
-=============
-
-   print 'hello'
-   >> hello
-
-
-Guide:
+User documentation:
 
 .. toctree::
    :maxdepth: 2
 
    introduction
-   how-to-use
+   tutorial
+
+Others:
+
+.. toctree::
+   :maxdepth: 1
+   
+   acknowledgement
+   about-the-author
 
 
 Indices and tables

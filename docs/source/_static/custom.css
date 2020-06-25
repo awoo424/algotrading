@@ -4,5 +4,13 @@
 }
 
 nav {
-    background-color: #34495e;
+    background-color: #37474F !important;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #546E7A;
+}
+
+.wy-side-nav-search>a {
+    color: #263238;
 }
