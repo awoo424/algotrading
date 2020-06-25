@@ -1,4 +1,8 @@
 @import 'theme.css';
 .wy-side-nav-search, .wy-nav-top {
-    background-color: #0b750a;
+    background-color: #ECEFF1;
+}
+
+nav {
+    background-color: #34495e;
 }
