@@ -1,6 +1,6 @@
 {% extends "!layout.html" %}
 {% block footer %} {{ super() }}
-
+{% set css_files = css_files + ["_static/style.css"] %}
 <link rel="stylesheet" type="text/css" href="_static/custom.css">
 
 {% endblock %}
