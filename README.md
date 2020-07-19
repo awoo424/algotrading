@@ -1,1 +1,49 @@
-# algotrading
+![CC0-1.0 License][license-shield]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <h3 align="center">Algorithmic trading learning repo</h3>
+
+  <p align="center">
+    This repo features code and tutorials for beginners to learn algo trading.
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About this repo](#about-this-repo)
+* [How to use](#how-to-use)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+* [License](#license)
+
+## About this repo 
+
+This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of University of Hong Kong (HKU). 
+
+## How to use
+
+TO-WRITE
+
+## Contact
+
+Angel Woo - awoo424@connect.hku.hk
+
+Project Link: (TO-BE-ADDED)
+
+## Acknowledgements
+
+TO-EDIT
+* [yfinance](https://github.com/ranaroussi/yfinance) 
+* [BaoStock](http://baostock.com/baostock/index.php/%E9%A6%96%E9%A1%B5)
+* [IR Bank](https://irbank.net/download)
+
+## License
+Licensed under the Creative Commons Zero v1.0 Universal.
+[Copy of the license](https://github.com/awoo424/algotrading/blob/master/LICENSE).
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[license-shield]: https://img.shields.io/github/license/awoo424/algotrading
