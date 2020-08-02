@@ -2,3 +2,5 @@
 .jovianrc
 jupyter_example.ipynb
 tickers/
+database/
+__init__.py
