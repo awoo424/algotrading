@@ -20,7 +20,7 @@ Maximum dropdown
 
 :window: trailing 252 trading day window
 """
-def MaxDropdown(df, window=252):
+def MaxDrawdown(df, window=252):
     # Calculate the max drawdown in the past window days for each day 
     rolling_max = df['Close'].rolling(window, min_periods=1).max()
     daily_drawdown = df['Close']/rolling_max - 1.0
@@ -39,13 +39,21 @@ def MaxDropdown(df, window=252):
 
 """
 Compound Annual Growth Rate (CAGR)
+
+Formula
+-
+(Ending value / Beginning value) ** (1/n) - 1
 """
 
-def CAGR(df):
+def CAGR(portfolio):
     # Get the number of days in df
-    days = (df.index[-1] - df.index[0]).days
+    days = (portfolio.index[-1] - portfolio.index[0]).days
 
     # Calculate the CAGR 
-    cagr = ((((df['Close'][-1]) / df['Close'][1])) ** (365.0/days)) - 1
+    cagr = ((((portfolio['total'][-1]) / portfolio['total'][0])) ** (365.0/days)) - 1
 
     return cagr
+
+# TO-DO: distribution of returns
+
+# TO-DO: trade-level metrics

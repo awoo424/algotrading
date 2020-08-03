@@ -3,6 +3,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+"""
+Moving Average Crossover
+-
+"""
 class MovingAverageCrossover():
     def __init__(self, df, short_window=40, long_window=100):
         self.df = df

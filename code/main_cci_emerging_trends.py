@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from strategy.moving_average_crossover import MovingAverageCrossover
+from strategy.cci_emerging_trends import cciEmergingTrends
 from backtest import Backtest
 from evaluate import SharpeRatio, MaxDrawdown, CAGR
 
@@ -14,13 +14,18 @@ df = df.loc[pd.Timestamp('2017-01-01'):pd.Timestamp('2019-12-31')]
 
 ticker = "0005.HK"
 
-# Moving average crossover
+# CCI correction
 
-MAC = MovingAverageCrossover(df)
-signals = MAC.gen_signals()
-signal_fig = MAC.plot_signals()
-signal_fig.suptitle('Moving average crossover - Signals', fontsize=14)
-signal_fig.savefig('./figure/01-moving-average-crossover_signals')
+CCI_et = cciEmergingTrends(df)
+signals = CCI_et.gen_signals()
+signal_fig = CCI_et.plot_signals()
+signal_fig.suptitle('CCI emerging trends - Signals', fontsize=14)
+signal_fig.savefig('./figure/02-cci-emerging-trends_signals')
+plt.show()
+
+cci_fig = CCI_et.plot_CCI()
+cci_fig.suptitle('CCI emerging trends - CCI', fontsize=14)
+cci_fig.savefig('./figure/02-cci-emerging-trends_cci')
 plt.show()
 
 # Backtesting
@@ -29,8 +34,8 @@ portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
-backtest_fig.suptitle('Moving average crossover - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figure/01-moving-average-crossover_portfolio-value')
+backtest_fig.suptitle('CCI emerging trends - Portfolio value', fontsize=14)
+backtest_fig.savefig('./figure/02-cci-emerging-trends_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -39,10 +44,10 @@ plt.show()
 sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
-# 2. Maximum dropdown
+# 2. Maximum drawdown
 maxDropdown_fig = MaxDrawdown(df)
-maxDropdown_fig.suptitle('Moving average crossover - Maximum dropdown', fontsize=14)
-maxDropdown_fig.savefig('./figure/01-moving-average-crossover_maximum-dropdown')
+maxDropdown_fig.suptitle('CCI emerging trends - Maximum dropdown', fontsize=14)
+maxDropdown_fig.savefig('./figure/02-cci-emerging-trends_maximum-dropdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate
