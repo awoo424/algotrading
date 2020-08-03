@@ -1,6 +1,7 @@
+__pycache__/
 .ipynb_checkpoints/
 .jovianrc
 jupyter_example.ipynb
 tickers/
 database/
-__init__.py
+./code/main_*.py
