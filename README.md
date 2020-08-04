@@ -28,9 +28,9 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 
 TO-WRITE
 
-## Progress update
+## Tutorial overview
 
-Last update: 4 August 2020
+Last update: 5 August 2020
 
 #### Algorithmic trading basics
 * <b>Ch.0</b> Algo trading intro
@@ -41,9 +41,27 @@ Last update: 4 August 2020
 * <b>Ch.1</b> Trend analysis <i>(in progress)</i>
 * <b>Ch.2</b> Chart patterns <i>(in progress)</i>
 * <b>Ch.3</b> Technical indicators <i>(in progress)</i>
+* <b>Ch.4</b> Trend indicators <i>(TO-DO)</i>
+* <b>Ch.5</b> Momentum indicators <i>(TO-DO)</i>
 
 #### Fundamental analysis
 * (TO-DO)
+
+## Code overview
+
+### 1. Technical analysis
+#### Trend
+* Moving Average Crossovers <i>- (DONE)</i>
+* Moving Average Convergence Divergence (MACD)
+  * Crossovers <i>- (DONE)</i>
+  * Overbought & Oversold <i>- (in progress)</i>
+* Commodity Channel Index (CCI)
+  * Emerging trends <i>- (DONE)</i>
+  * Overbought & Oversold <i>- (DONE)</i>
+  
+### Momentum
+* Rate of Change (ROC) <i>- (TO-DO)</i>
+* Relative Strength Index (RSI) <i>- (TO-DO)</i>
 
 ## Contact
 
