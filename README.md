@@ -1,4 +1,6 @@
-![CC0-1.0 License][license-shield]
+![CC0-1.0 License][license-shield] 
+![Last commit][last-commit-shield]
+![Language][language-shield]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -87,3 +89,5 @@ Licensed under the Creative Commons Zero v1.0 Universal.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [license-shield]: https://img.shields.io/github/license/awoo424/algotrading
+[last-commit-shield]: https://img.shields.io/github/last-commit/awoo424/algotrading?color=blue
+[language-shield]: https://img.shields.io/github/languages/top/awoo424/algotrading?color=purple
