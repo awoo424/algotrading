@@ -32,8 +32,6 @@ TO-WRITE
 
 ## Tutorial overview
 
-Last update: 5 August 2020
-
 #### 1. Algorithmic trading basics
 * <b>Ch.0</b> Algo trading intro
 * <b>Ch.1</b> Data science basics
