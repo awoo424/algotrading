@@ -32,11 +32,11 @@ TO-WRITE
 
 Last update: 5 August 2020
 
-#### Algorithmic trading basics
+#### 1. Algorithmic trading basics
 * <b>Ch.0</b> Algo trading intro
 * <b>Ch.1</b> Data science basics
 
-#### Technical analysis
+#### 2. Technical analysis
 * <b>Ch.0</b> Technical analysis intro
 * <b>Ch.1</b> Trend analysis <i>(in progress)</i>
 * <b>Ch.2</b> Chart patterns <i>(in progress)</i>
@@ -44,12 +44,12 @@ Last update: 5 August 2020
 * <b>Ch.4</b> Trend indicators <i>(TO-DO)</i>
 * <b>Ch.5</b> Momentum indicators <i>(TO-DO)</i>
 
-#### Fundamental analysis
+#### 3. Fundamental analysis
 * (TO-DO)
 
 ## Code overview
 
-### 1. Technical analysis
+#### 1. Technical analysis
 The following indicators have been implemented in Python:
 
 #### Trend
@@ -65,7 +65,7 @@ The following indicators have been implemented in Python:
 * Rate of Change (ROC) <i>- (TO-DO)</i>
 * Relative Strength Index (RSI) <i>- (TO-DO)</i>
 
-### 2. Fundamental analysis
+#### 2. Fundamental analysis
 <i>(TO-DO)</i>
 
 ## Contact
