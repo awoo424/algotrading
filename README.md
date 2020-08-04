@@ -59,9 +59,12 @@ Last update: 5 August 2020
   * Emerging trends <i>- (DONE)</i>
   * Overbought & Oversold <i>- (DONE)</i>
   
-### Momentum
+#### Momentum
 * Rate of Change (ROC) <i>- (TO-DO)</i>
 * Relative Strength Index (RSI) <i>- (TO-DO)</i>
+
+### 2. Fundamental analysis
+<i>(TO-DO)</i>
 
 ## Contact
 
