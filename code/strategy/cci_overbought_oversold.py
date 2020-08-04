@@ -26,6 +26,28 @@ class cciOverboughtOversold():
     Constant = 0.015
     """
 
+    def plot_CCI(self):
+        # Initialize the plot figure
+        fig = plt.figure()
+
+        # Add a subplot and label for y-axis
+        ax1 = fig.add_subplot(111,  ylabel='Value')
+
+        # Plot CCI
+        self.signals['CCI'].plot(ax=ax1, lw=1.2)
+
+        # Plot the buy signals
+        ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,
+                    self.signals['CCI'][self.signals.positions == 1.0],
+                    '^', markersize=10, color='m')
+
+        # Plot the sell signals
+        ax1.plot(self.signals.loc[self.signals.positions == -1.0].index,
+                    self.signals['CCI'][self.signals.positions == -1.0],
+                    'v', markersize=10, color='k')
+
+        return fig
+
     def gen_signals(self):
         signals = pd.DataFrame(index=self.df.index)
         signals['label'] = 0.0
@@ -88,7 +110,7 @@ class cciOverboughtOversold():
         ax1 = fig.add_subplot(111,  ylabel='Price in $')
 
         # Plot the closing price
-        self.df['Close'].plot(ax=ax1, color='r', lw=2.)
+        self.df['Close'].plot(ax=ax1, color='r', lw=1.)
 
         # Plot the buy signals
         ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,
@@ -102,24 +124,3 @@ class cciOverboughtOversold():
 
         return fig
     
-    def plot_CCI(self):
-        # Initialize the plot figure
-        fig = plt.figure()
-
-        # Add a subplot and label for y-axis
-        ax1 = fig.add_subplot(111,  ylabel='Value')
-
-        # Plot CCI
-        self.signals['CCI'].plot(ax=ax1, lw=2.)
-
-        # Plot the buy signals
-        ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,
-                 self.signals['CCI'][self.signals.positions == 1.0],
-                 '^', markersize=10, color='m')
-
-        # Plot the sell signals
-        ax1.plot(self.signals.loc[self.signals.positions == -1.0].index,
-                 self.signals['CCI'][self.signals.positions == -1.0],
-                 'v', markersize=10, color='k')
-
-        return fig

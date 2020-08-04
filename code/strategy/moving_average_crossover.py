@@ -43,7 +43,7 @@ class MovingAverageCrossover():
         ax1 = fig.add_subplot(111,  ylabel='Price in $')
 
         # Plot the closing price
-        self.df['Close'].plot(ax=ax1, color='r', lw=2.)
+        self.df['Close'].plot(ax=ax1, color='r', lw=1.)
 
         # Plot the short and long moving averages
         self.signals[['short_mavg', 'long_mavg']].plot(ax=ax1, lw=2.)

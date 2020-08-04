@@ -1,4 +1,5 @@
-__pycache__/
+./code/__pycache__/
+./strategy/__pycache__/
 .ipynb_checkpoints/
 .jovianrc
 jupyter_example.ipynb
