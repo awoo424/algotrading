@@ -28,6 +28,21 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 
 TO-WRITE
 
+## Progress update
+
+#### Algorithmic trading basics
+* <b>Ch.0</b> Algo trading intro
+* <b>Ch.1</b> Data science basics
+
+#### Technical analysis
+* <b>Ch.0</b> Technical analysis intro
+* <b>Ch.1</b> Trend analysis <i>(in progress)</i>
+* <b>Ch.2</b> Chart patterns <i>(in progress)</i>
+* <b>Ch.3</b> Technical indicators <i>(in progress)</i>
+
+#### Fundamental analysis
+* (TO-DO)
+
 ## Contact
 
 Angel Woo - awoo424@connect.hku.hk
