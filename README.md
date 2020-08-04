@@ -50,6 +50,8 @@ Last update: 5 August 2020
 ## Code overview
 
 ### 1. Technical analysis
+The following indicators have been implemented in Python:
+
 #### Trend
 * Moving Average Crossovers <i>- (DONE)</i>
 * Moving Average Convergence Divergence (MACD)
