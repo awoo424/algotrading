@@ -53,16 +53,27 @@ TO-WRITE
 The following indicators have been implemented in Python:
 
 #### Trend
-* Moving Average Crossovers <i>- (DONE)</i>
-
+* Moving Average Crossovers
+* Moving Average Convergence Divergence (MACD)
+* Probabilistic Stop and Reverse (Parabolic SAR) <i>- (in progress)</i>
   
 #### Momentum
-* Moving Average Convergence Divergence (MACD) <i>- (DONE)</i>
 * Commodity Channel Index (CCI)
-  * Emerging trends <i>- (DONE)</i>
-  * Overbought & Oversold <i>- (DONE)</i>
-* Rate of Change (ROC) <i>- (in progress)</i>
-* Relative Strength Index (RSI) <i>- (in progress)</i>
+* Relative Strength Index (RSI)
+* Rate of Change (ROC) 
+* Stochastic Oscillator <i>- (in progress)</i>
+* True Strength Index (TSI) <i>- (TO-DO)</i>
+* Money Flow Index (MFI) <i>- (TO-DO)</i>
+
+### Volatility
+* Bollinger Bands <i>- (TO-DO)</i>
+* Average True Range <i>- (TO-DO)</i>
+* Standard Deviation <i>- (TO-DO)</i>
+
+### Volume
+* Chaikin Oscillator <i>- (TO-DO)</i>
+* On-Balance Volume (BOV) <i>- (TO-DO)</i>
+* Volume Rate of Changee <i>- (TO-DO)</i>
 
 #### 2. Fundamental analysis
 <i>(TO-DO)</i>
