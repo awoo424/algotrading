@@ -20,7 +20,7 @@ title = "{ticker} - CCI".format(ticker=ticker)
 CCI_et = cciEmergingTrends(df)
 
 signals = CCI_et.gen_signals()
-signal_fig = CCI_et.plot_signals()
+signal_fig = CCI_et.plot_signals(signals)
 signal_fig.suptitle('CCI emerging trends - Signals', fontsize=14)
 signal_fig.savefig('./figures/02-cci-emerging-trends_signals')
 plt.show()
@@ -47,9 +47,9 @@ sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
-maxDropdown_fig = MaxDrawdown(df)
-maxDropdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
-maxDropdown_fig.savefig('./figures/02-cci-emerging-trends_maximum-drawdown')
+maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
+maxDrawdown_fig.savefig('./figures/02-cci-emerging-trends_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate

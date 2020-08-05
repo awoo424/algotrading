@@ -18,7 +18,7 @@ ticker = "0005.HK"
 
 MAC = MovingAverageCrossover(df)
 signals = MAC.gen_signals()
-signal_fig = MAC.plot_signals()
+signal_fig = MAC.plot_signals(signals)
 signal_fig.suptitle('Moving average crossover - Signals', fontsize=14)
 signal_fig.savefig('./figures/01-moving-average-crossover_signals')
 plt.show()
@@ -39,10 +39,10 @@ plt.show()
 sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
-# 2. Maximum dropdown
-maxDropdown_fig = MaxDrawdown(df)
-maxDropdown_fig.suptitle('Moving average crossover - Maximum drawdown', fontsize=14)
-maxDropdown_fig.savefig('./figures/01-moving-average-crossover_maximum-drawdown')
+# 2. Maximum drawdown
+maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig.suptitle('Moving average crossover - Maximum drawdown', fontsize=14)
+maxDrawdown_fig.savefig('./figures/01-moving-average-crossover_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate

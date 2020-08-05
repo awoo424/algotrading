@@ -1,3 +1,4 @@
+from .indicator import Indicator 
 import sys
 import numpy as np
 import pandas as pd
@@ -8,7 +9,7 @@ Commodity Channel Index (CCI) emerging trends
 -
 Buy when CCI surges above +100, sell when it plunges below -100
 """
-class cciEmergingTrends():
+class cciEmergingTrends(Indicator):
     def __init__(self, df, window_size=14):
         self.df = df
         self.window_size = window_size
@@ -75,26 +76,3 @@ class cciEmergingTrends():
         self.signals = signals
 
         return signals
-
-    def plot_signals(self):
-        # Initialize the plot figure
-        fig = plt.figure()
-
-        # Add a subplot and label for y-axis
-        ax1 = fig.add_subplot(111,  ylabel='Price in $')
-
-        # Plot the closing price
-        self.df['Close'].plot(ax=ax1, color='r', lw=1.)
-
-        # Plot the buy signals
-        ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,
-                 self.df['Close'][self.signals.positions == 1.0],
-                 '^', markersize=10, color='m')
-
-        # Plot the sell signals
-        ax1.plot(self.signals.loc[self.signals.positions == -1.0].index,
-                 self.df['Close'][self.signals.positions == -1.0],
-                 'v', markersize=10, color='k')
-
-        return fig
-    

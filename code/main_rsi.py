@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from strategy.macd_crossover import macdCrossover
+from strategy.relative_strength_index import rsi
 from backtest import Backtest
 from evaluate import SharpeRatio, MaxDrawdown, CAGR
 
@@ -14,32 +14,29 @@ df = df.loc[pd.Timestamp('2018-10-01'):pd.Timestamp('2019-04-01')]
 
 ticker = "0005.HK"
 
-# MACD
+# RSI
 
-macd_cross = macdCrossover(df)
-macd_fig = macd_cross.plot_MACD()
-macd_fig.suptitle('HK.0005 - MACD', fontsize=14)
-macd_fig.savefig('./figures/04-macd-plot')
+rsi = rsi(df)
+rsi_fig = rsi.plot_RSI()
+rsi_fig.suptitle('HK.0005 - RSI', fontsize=14)
+rsi_fig.savefig('./figures/05-rsi-plot')
 plt.show()
 
-signals = macd_cross.gen_signals()
-signal_fig = macd_cross.plot_signals()
-signal_fig.suptitle('MACD crossovers - Signals', fontsize=14)
-signal_fig.savefig('./figures/04-macd-crossovers_signals')
-plt.show()
+signals = rsi.gen_signals()
 
-signal_fig = macd_cross.plot_signals_MACD()
-signal_fig.suptitle('MACD crossovers - Signals (Verify)', fontsize=14)
+signal_fig = rsi.plot_signals(signals)
+signal_fig.suptitle('RSI - Signals', fontsize=14)
+signal_fig.savefig('./figures/05-rsi_signals')
 plt.show()
 
 # Backtesting
 
 portfolio, backtest_fig = Backtest(ticker, signals, df)
-print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
+print("Final portfolio value (including cash): {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
-backtest_fig.suptitle('MACD crossovers - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/04-macd-crossovers_portfolio-value')
+backtest_fig.suptitle('RSI - Portfolio value', fontsize=14)
+backtest_fig.savefig('./figures/05-rsi_portfolio-value')
 plt.show()
 
 # Evaluate strategy

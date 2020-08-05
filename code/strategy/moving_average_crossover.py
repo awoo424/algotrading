@@ -1,3 +1,4 @@
+from .indicator import Indicator 
 import sys
 import numpy as np
 import pandas as pd
@@ -6,8 +7,9 @@ import matplotlib.pyplot as plt
 """
 Moving Average Crossover
 -
+(TO-WRITE)
 """
-class MovingAverageCrossover():
+class MovingAverageCrossover(Indicator):
     def __init__(self, df, short_window=40, long_window=100):
         self.df = df
         self.short_window = short_window
@@ -34,28 +36,3 @@ class MovingAverageCrossover():
         self.signals = signals
 
         return signals
-    
-    def plot_signals(self):
-        # Initialize the plot figure
-        fig = plt.figure()
-
-        # Add a subplot and label for y-axis
-        ax1 = fig.add_subplot(111,  ylabel='Price in $')
-
-        # Plot the closing price
-        self.df['Close'].plot(ax=ax1, color='r', lw=1.)
-
-        # Plot the short and long moving averages
-        self.signals[['short_mavg', 'long_mavg']].plot(ax=ax1, lw=2.)
-
-        # Plot the buy signals
-        ax1.plot(self.signals.loc[self.signals.positions == 1.0].index, 
-                self.signals.short_mavg[self.signals.positions == 1.0],
-                '^', markersize=10, color='m')
-                
-        # Plot the sell signals
-        ax1.plot(self.signals.loc[self.signals.positions == -1.0].index, 
-                self.signals.short_mavg[self.signals.positions == -1.0],
-                'v', markersize=10, color='k')
-
-        return fig

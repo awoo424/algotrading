@@ -41,9 +41,9 @@ def Backtest(ticker, signals, df, initial_capital=float(100000.0)):
 
     ax1.plot(portfolio.loc[signals.positions == 1.0].index, 
             portfolio.total[signals.positions == 1.0],
-            '^', markersize=10, color='m')
+            '^', markersize=8, color='g')
     ax1.plot(portfolio.loc[signals.positions == -1.0].index, 
             portfolio.total[signals.positions == -1.0],
-            'v', markersize=10, color='k')
+            'v', markersize=8, color='r')
     
     return portfolio, fig
