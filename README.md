@@ -55,7 +55,7 @@ The following indicators have been implemented in Python:
 #### Trend
 * Moving Average Crossovers
 * Moving Average Convergence Divergence (MACD)
-* Probabilistic Stop and Reverse (Parabolic SAR) <i>- (in progress)</i>
+* Parabolic Stop and Reverse (Parabolic SAR)
   
 #### Momentum
 * Commodity Channel Index (CCI)
