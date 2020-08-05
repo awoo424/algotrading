@@ -65,12 +65,12 @@ The following indicators have been implemented in Python:
 * True Strength Index (TSI) <i>- (TO-DO)</i>
 * Money Flow Index (MFI) <i>- (TO-DO)</i>
 
-### Volatility
+#### Volatility
 * Bollinger Bands <i>- (TO-DO)</i>
 * Average True Range <i>- (TO-DO)</i>
 * Standard Deviation <i>- (TO-DO)</i>
 
-### Volume
+#### Volume
 * Chaikin Oscillator <i>- (TO-DO)</i>
 * On-Balance Volume (BOV) <i>- (TO-DO)</i>
 * Volume Rate of Changee <i>- (TO-DO)</i>
