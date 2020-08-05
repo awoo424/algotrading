@@ -31,6 +31,7 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 TO-WRITE
 
 ## Tutorial overview
+⚠️ Work in progress
 
 #### 1. Algorithmic trading basics
 * <b>Ch.0</b> Algo trading intro
@@ -48,6 +49,7 @@ TO-WRITE
 * (TO-DO)
 
 ## Code overview
+⚠️ Work in progress
 
 #### 1. Technical analysis
 The following indicators have been implemented in Python:
