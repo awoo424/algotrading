@@ -10,7 +10,7 @@ from evaluate import SharpeRatio, MaxDrawdown, CAGR
 df = pd.read_csv('../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range
-df = df.loc[pd.Timestamp('2018-10-01'):pd.Timestamp('2019-04-01')]
+df = df.loc[pd.Timestamp('2018-01-01'):pd.Timestamp('2020-01-01')]
 
 ticker = "0005.HK"
 
@@ -19,13 +19,13 @@ ticker = "0005.HK"
 rsi = rsi(df)
 rsi_fig = rsi.plot_RSI()
 rsi_fig.suptitle('HK.0005 - RSI', fontsize=14)
-rsi_fig.savefig('./figures/05-rsi-plot')
+rsi_fig.savefig('./figures/momentum/03-rsi-plot')
 plt.show()
 
 signals = rsi.gen_signals()
 signal_fig = rsi.plot_signals(signals)
 signal_fig.suptitle('RSI - Signals', fontsize=14)
-signal_fig.savefig('./figures/05-rsi_signals')
+signal_fig.savefig('./figures/momentum/03-rsi_signals')
 plt.show()
 
 # Backtesting
@@ -35,7 +35,7 @@ print("Final portfolio value (including cash): {value:.4f} ".format(value = port
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
 backtest_fig.suptitle('RSI - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/05-rsi_portfolio-value')
+backtest_fig.savefig('./figures/momentum/03-rsi_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -47,7 +47,7 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 # 2. Maximum drawdown
 maxDrawdown_fig = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/05-rsi_maximum-drawdown')
+maxDrawdown_fig.savefig('./figures/momentum/03-rsi_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate

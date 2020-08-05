@@ -19,7 +19,7 @@ class macdCrossover(Indicator):
     -
     MACD = 12-Period EMA − 26-Period EMA
 
-    EMA = Exponential Moving Average
+    EMA: Exponential Moving Average
     """
     def plot_MACD(self):
         exp1 = self.df['Close'].ewm(span=12, adjust=False).mean()

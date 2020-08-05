@@ -10,7 +10,7 @@ from evaluate import SharpeRatio, MaxDrawdown, CAGR
 df = pd.read_csv('../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range
-df = df.loc[pd.Timestamp('2018-10-01'):pd.Timestamp('2019-04-01')]
+df = df.loc[pd.Timestamp('2017-01-01'):pd.Timestamp('2019-01-01')]
 
 ticker = "0005.HK"
 
@@ -19,13 +19,13 @@ ticker = "0005.HK"
 macd_cross = macdCrossover(df)
 macd_fig = macd_cross.plot_MACD()
 macd_fig.suptitle('HK.0005 - MACD', fontsize=14)
-macd_fig.savefig('./figures/04-macd-plot')
+macd_fig.savefig('./figures/trend/02-macd-plot')
 plt.show()
 
 signals = macd_cross.gen_signals()
 signal_fig = macd_cross.plot_signals(signals)
 signal_fig.suptitle('MACD crossovers - Signals', fontsize=14)
-signal_fig.savefig('./figures/04-macd-crossover_signals')
+signal_fig.savefig('./figures/trend/02-macd-crossover_signals')
 plt.show()
 
 signal_fig = macd_cross.plot_signals_MACD()
@@ -39,7 +39,7 @@ print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
 backtest_fig.suptitle('MACD crossovers - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/04-macd-crossover_portfolio-value')
+backtest_fig.savefig('./figures/trend/02-macd-crossover_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -51,7 +51,7 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 # 2. Maximum drawdown
 maxDrawdown_fig = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/04-macd-crossover_maximum-drawdown')
+maxDrawdown_fig.savefig('./figures/trend/02-macd-crossover_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate

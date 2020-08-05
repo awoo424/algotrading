@@ -21,10 +21,11 @@ class cciOverboughtOversold(Indicator):
     -
     CCI = (Typical Price - x-period SMA of TP) / (Constant x Mean Deviation)
 
-    x = Window size (default = 20)
-    SMA = Simple Moving Average
     Typical Price (TP) = (High + Low + Close) / 3
     Constant = 0.015
+    
+    x: Window size (default = 20)
+    SMA: Simple Moving Average
     """
 
     def plot_CCI(self):

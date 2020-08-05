@@ -20,10 +20,11 @@ class cciEmergingTrends(Indicator):
     -
     CCI = (Typical Price - x-period SMA of TP) / (Constant x Mean Deviation)
 
-    x = Window size (default = 14)
-    SMA = Simple Moving Average
     Typical Price (TP) = (High + Low + Close) / 3
     Constant = 0.015
+    
+    x: Window size (default = 14)
+    SMA: Simple Moving Average
     """
 
     def plot_CCI(self):
@@ -39,12 +40,12 @@ class cciEmergingTrends(Indicator):
         # Plot the buy signals
         ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,
                  self.signals['CCI'][self.signals.positions == 1.0],
-                 '^', markersize=10, color='m')
+                 '^', markersize=8, color='g')
 
         # Plot the sell signals
         ax1.plot(self.signals.loc[self.signals.positions == -1.0].index,
                  self.signals['CCI'][self.signals.positions == -1.0],
-                 'v', markersize=10, color='k')
+                 'v', markersize=8, color='r')
 
         return fig
 

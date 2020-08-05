@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from strategy.moving_average_crossover import MovingAverageCrossover
+from strategy.parabolic_stop_and_reverse import ParabolicSAR
 from backtest import Backtest
 from evaluate import SharpeRatio, MaxDrawdown, CAGR
 
@@ -14,23 +14,28 @@ df = df.loc[pd.Timestamp('2018-01-01'):pd.Timestamp('2020-01-01')]
 
 ticker = "0005.HK"
 
-# Moving average crossover
+# Parabolic SAR
 
-MAC = MovingAverageCrossover(df)
-signals = MAC.gen_signals()
-signal_fig = MAC.plot_signals(signals)
-signal_fig.suptitle('Moving average crossover - Signals', fontsize=14)
-signal_fig.savefig('./figures/trend/01-moving-average-crossover_signals')
+psar = ParabolicSAR(df)
+psar_fig = psar.plot_PSAR()
+psar_fig.suptitle('HK.0005 - Parabolic SAR', fontsize=14)
+psar_fig.savefig('./figures/trend/03-psar-plot')
+plt.show()
+
+signals = psar.gen_signals()
+signal_fig = psar.plot_signals(signals)
+signal_fig.suptitle('Parabolic SAR - Signals', fontsize=14)
+signal_fig.savefig('./figures/trend/03-psar_signals')
 plt.show()
 
 # Backtesting
 
 portfolio, backtest_fig = Backtest(ticker, signals, df)
-print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
+print("Final portfolio value (including cash): {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
-backtest_fig.suptitle('Moving average crossover - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/trend/01-moving-average-crossover_portfolio-value')
+backtest_fig.suptitle('Parabolic SAR - Portfolio value', fontsize=14)
+backtest_fig.savefig('./figures/trend/03-psar_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -41,8 +46,8 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
 maxDrawdown_fig = MaxDrawdown(df)
-maxDrawdown_fig.suptitle('Moving average crossover - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/trend/01-moving-average-crossover_maximum-drawdown')
+maxDrawdown_fig.suptitle('Parabolic SAR - Maximum drawdown', fontsize=14)
+maxDrawdown_fig.savefig('./figures/trend/03-psar_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate

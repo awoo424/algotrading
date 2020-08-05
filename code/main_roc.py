@@ -10,7 +10,7 @@ from evaluate import SharpeRatio, MaxDrawdown, CAGR
 df = pd.read_csv('../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range
-df = df.loc[pd.Timestamp('2017-01-01'):pd.Timestamp('2019-12-31')]
+df = df.loc[pd.Timestamp('2018-01-01'):pd.Timestamp('2020-01-01')]
 
 ticker = "0005.HK"
 
@@ -19,14 +19,14 @@ ticker = "0005.HK"
 roc = roc(df)
 roc_fig = roc.plot_ROC()
 roc_fig.suptitle('HK.0005 - ROC', fontsize=14)
-roc_fig.savefig('./figures/06-roc-plot')
+roc_fig.savefig('./figures/momentum/04-roc-plot')
 plt.show()
 
 
 signals = roc.gen_signals()
 signal_fig = roc.plot_signals(signals)
 signal_fig.suptitle('RSI - Signals', fontsize=14)
-signal_fig.savefig('./figures/06-roc_signals')
+signal_fig.savefig('./figures/momentum/04-roc_signals')
 plt.show()
 
 # Backtesting
@@ -36,7 +36,7 @@ print("Final portfolio value (including cash): {value:.4f} ".format(value = port
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
 backtest_fig.suptitle('RSI - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/06-roc_portfolio-value')
+backtest_fig.savefig('./figures/momentum/04-roc_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -48,7 +48,7 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 # 2. Maximum drawdown
 maxDrawdown_fig = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/06-roc_maximum-drawdown')
+maxDrawdown_fig.savefig('./figures/momentum/04-roc_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate
