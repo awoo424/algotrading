@@ -54,14 +54,15 @@ The following indicators have been implemented in Python:
 
 #### Trend
 * Moving Average Crossovers <i>- (DONE)</i>
+
+  
+#### Momentum
 * Moving Average Convergence Divergence (MACD)
   * Crossovers <i>- (DONE)</i>
   * Overbought & Oversold <i>- (in progress)</i>
 * Commodity Channel Index (CCI)
   * Emerging trends <i>- (DONE)</i>
   * Overbought & Oversold <i>- (DONE)</i>
-  
-#### Momentum
 * Rate of Change (ROC) <i>- (TO-DO)</i>
 * Relative Strength Index (RSI) <i>- (TO-DO)</i>
 
