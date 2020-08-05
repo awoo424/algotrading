@@ -11,11 +11,11 @@ Buy when RSI crosses the lower threshold (30),
 sell when RSI crosses the upper threshold (70).
 """
 class rsi(Indicator):
-    def __init__(self, df, window_length=14):
+    def __init__(self, df, window_size=14):
         super().__init__(df)
         self.df = df
         self.mean = 'ewma'
-        self.window_length = window_length
+        self.window_size = window_size
         self.lower = 30
         self.upper = 70
 
@@ -41,8 +41,8 @@ class rsi(Indicator):
 
         if self.mean == 'ewma':
             # Calculate the EWMA
-            roll_up = up.ewm(span=self.window_length).mean()
-            roll_down = down.abs().ewm(span=self.window_length).mean()
+            roll_up = up.ewm(span=self.window_size).mean()
+            roll_down = down.abs().ewm(span=self.window_size).mean()
 
             # Calculate the RSI based on EWMA
             RS = roll_up / roll_down
@@ -50,8 +50,8 @@ class rsi(Indicator):
 
         else:
             # Calculate the SMA
-            roll_up = up.rolling(self.window_length).mean()
-            roll_down = down.abs().rolling(self.window_length).mean()
+            roll_up = up.rolling(self.window_size).mean()
+            roll_down = down.abs().rolling(self.window_size).mean()
 
             # Calculate the RSI based on SMA
             RS = roll_up / roll_down

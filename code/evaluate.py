@@ -16,7 +16,7 @@ def SharpeRatio(portfolio):
     return sharpe_ratio
 
 """
-Maximum dropdown
+Maximum drawdown
 
 :window: trailing 252 trading day window
 """

@@ -23,7 +23,6 @@ rsi_fig.savefig('./figures/05-rsi-plot')
 plt.show()
 
 signals = rsi.gen_signals()
-
 signal_fig = rsi.plot_signals(signals)
 signal_fig.suptitle('RSI - Signals', fontsize=14)
 signal_fig.savefig('./figures/05-rsi_signals')
@@ -46,9 +45,9 @@ sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
-maxDropdown_fig = MaxDrawdown(df)
-maxDropdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
-maxDropdown_fig.savefig('./figures/04-macd-crossovers_maximum-drawdown')
+maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
+maxDrawdown_fig.savefig('./figures/05-rsi_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate
