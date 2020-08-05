@@ -24,7 +24,7 @@
 
 ## About this repo 
 
-This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of University of Hong Kong (HKU). 
+This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of The University of Hong Kong (HKU). 
 
 ## How to use
 
