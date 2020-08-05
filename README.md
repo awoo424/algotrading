@@ -18,6 +18,8 @@
 
 * [About this repo](#about-this-repo)
 * [How to use](#how-to-use)
+* [Tutorial overview](#tutorial-overview)
+* [Code overview](#code-overview)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
