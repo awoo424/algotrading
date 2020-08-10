@@ -66,8 +66,10 @@ The following indicators have been implemented in Python:
 * Relative Strength Index (RSI)
 * Rate of Change (ROC) 
 * Stochastic Oscillator (STC)
-* True Strength Index (TSI) <i>- (TO-DO)</i>
+* True Strength Index (TSI)
 * Money Flow Index (MFI) <i>- (TO-DO)</i>
+* Directional Movement Index (DMI) <i>- (TO-DO)</i>
+* Williams %R <i>- (TO-DO)</i>
 
 #### Volatility
 * Bollinger Bands <i>- (TO-DO)</i>
