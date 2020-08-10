@@ -50,10 +50,10 @@ class ParabolicSAR(Indicator):
     """
     def plot_PSAR(self):
         length = len(self.df)
-        dates = list(self.df.index)
-        high = list(self.df['High'])
-        low = list(self.df['Low'])
-        close = list(self.df['Close'])
+        array_dates = list(self.df.index)
+        array_high = list(self.df['High'])
+        array_low = list(self.df['Low'])
+        array_close = list(self.df['Close'])
 
         psar = self.df['Close'].copy()
         psarbull = [None] * len(self.df)
@@ -61,9 +61,9 @@ class ParabolicSAR(Indicator):
         
         bull = True
         af = self.initial_af # initialise acceleration factor
-        ep = low[0] # extreme price
-        hp = high[0] # extreme high
-        lp = low[0] # extreme low
+        ep = array_low[0] # extreme price
+        hp = array_high[0] # extreme high
+        lp = array_low[0] # extreme low
 
         for i in range(2, len(self.df)):
             if bull:
@@ -77,46 +77,46 @@ class ParabolicSAR(Indicator):
 
             # Check reversion point
             if bull:
-                if low[i] < psar[i]:
+                if array_low[i] < psar[i]:
                     bull = False
                     reverse = True
                     psar[i] = hp
-                    lp = low[i]
+                    lp = array_low[i]
                     af = self.initial_af
             else:
-                if high[i] > psar[i]:
+                if array_high[i] > psar[i]:
                     bull = True
                     reverse = True
                     psar[i] = lp
-                    hp = high[i]
+                    hp = array_high[i]
                     af = self.initial_af
 
             if not reverse:
                 if bull:
                     # Extreme high makes a new high
-                    if high[i] > hp:
-                        hp = high[i]
+                    if array_high[i] > hp:
+                        hp = array_high[i]
                         af = min(af + self.initial_af, self.max_af)
 
                     # Check if SAR goes abov prior two periods' lows. 
                     # If so, use the lowest of the two for SAR.
-                    if low[i-1] < psar[i]:
-                        psar[i] = low[i-1]
-                    if low[i-2] < psar[i]:
-                        psar[i] = low[i-2]
+                    if array_low[i-1] < psar[i]:
+                        psar[i] = array_low[i-1]
+                    if array_low[i-2] < psar[i]:
+                        psar[i] = array_low[i-2]
 
                 else:
                     # Extreme low makes a new low
-                    if low[i] < lp:
-                        lp = low[i]
+                    if array_low[i] < lp:
+                        lp = array_low[i]
                         af = min(af + self.initial_af, self.max_af)
 
                     # Check if SAR goes below prior two periods' highs. 
                     # If so, use the highest of the two for SAR.
-                    if high[i-1] > psar[i]:
-                        psar[i] = high[i-1]
-                    if high[i-2] > psar[i]:
-                        psar[i] = high[i-2]
+                    if array_high[i-1] > psar[i]:
+                        psar[i] = array_high[i-1]
+                    if array_high[i-2] > psar[i]:
+                        psar[i] = array_high[i-2]
 
             # Save rising SAR
             if bull:
