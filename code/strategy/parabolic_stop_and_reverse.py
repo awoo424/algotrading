@@ -131,9 +131,10 @@ class ParabolicSAR(Indicator):
 
         # Plot graph
         fig = plt.figure()
-        self.df['Close'].plot(lw=0.8, color='black')
-        self.df['psarbull'].plot(lw=1.2, color='green')
-        self.df['psarbear'].plot(lw=1.2, color='red')
+        self.df['Close'].plot(lw=0.8, color='black', label='Closing price')
+        self.df['psarbull'].plot(lw=1.2, color='green', label='Rising SAR')
+        self.df['psarbear'].plot(lw=1.2, color='red', label='Falling SAR')
+        plt.legend()
 
         return fig
 
