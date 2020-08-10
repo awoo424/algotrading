@@ -65,7 +65,7 @@ The following indicators have been implemented in Python:
 * Commodity Channel Index (CCI)
 * Relative Strength Index (RSI)
 * Rate of Change (ROC) 
-* Stochastic Oscillator <i>- (in progress)</i>
+* Stochastic Oscillator (STC)
 * True Strength Index (TSI) <i>- (TO-DO)</i>
 * Money Flow Index (MFI) <i>- (TO-DO)</i>
 
