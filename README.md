@@ -18,19 +18,22 @@
 
 * [About this repo](#about-this-repo)
 * [How to use](#how-to-use)
+* [Tutorial overview](#tutorial-overview)
+* [Code overview](#code-overview)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
 ## About this repo 
 
-This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of University of Hong Kong (HKU). 
+This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of The University of Hong Kong (HKU). 
 
 ## How to use
 
 TO-WRITE
 
 ## Tutorial overview
+⚠️ Work in progress
 
 #### 1. Algorithmic trading basics
 * <b>Ch.0</b> Algo trading intro
@@ -48,6 +51,7 @@ TO-WRITE
 * (TO-DO)
 
 ## Code overview
+⚠️ Work in progress
 
 #### 1. Technical analysis
 The following indicators have been implemented in Python:
@@ -55,7 +59,7 @@ The following indicators have been implemented in Python:
 #### Trend
 * Moving Average Crossovers
 * Moving Average Convergence Divergence (MACD)
-* Probabilistic Stop and Reverse (Parabolic SAR) <i>- (in progress)</i>
+* Parabolic Stop and Reverse (Parabolic SAR)
   
 #### Momentum
 * Commodity Channel Index (CCI)
