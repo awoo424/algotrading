@@ -93,9 +93,7 @@ Project Link: (TO-BE-ADDED)
 ## Acknowledgements
 
 TO-EDIT
-* [yfinance](https://github.com/ranaroussi/yfinance) 
-* [BaoStock](http://baostock.com/baostock/index.php/%E9%A6%96%E9%A1%B5)
-* [IR Bank](https://irbank.net/download)
+* [Technical Analysis Library in Python](https://github.com/bukosabino/ta) 
 
 ## License
 Licensed under the Creative Commons Zero v1.0 Universal.
