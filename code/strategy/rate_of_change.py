@@ -35,7 +35,8 @@ class roc(Indicator):
 
         # Plot graph
         fig = plt.figure()
-        self.df['ROC'].plot(lw=1.2)
+        self.df['ROC'].plot(lw=1.2, label='Rate of Change (ROC)')
+        plt.legend()
 
         return fig
 

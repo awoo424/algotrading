@@ -36,7 +36,8 @@ class cciOverboughtOversold(Indicator):
         ax1 = fig.add_subplot(111,  ylabel='Value')
 
         # Plot CCI
-        self.signals['CCI'].plot(ax=ax1, lw=1.2)
+        self.signals['CCI'].plot(ax=ax1, lw=1.2, label='Commodity Channel Index (CCI)')
+        plt.legend()
 
         # Plot the buy signals
         ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,

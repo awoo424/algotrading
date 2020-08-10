@@ -32,8 +32,9 @@ def MaxDrawdown(df, window=252):
     fig = plt.figure()
 
     # Plot the results
-    daily_drawdown.plot(lw=1.2)
-    max_daily_drawdown.plot(lw=1.2)
+    daily_drawdown.plot(lw=1.2, label='Daily drawdown')
+    max_daily_drawdown.plot(lw=1.2, label='Max daily drawdown')
+    plt.legend()
 
     return fig
 

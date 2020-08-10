@@ -15,7 +15,8 @@ class Indicator:
         ax1 = fig.add_subplot(111,  ylabel='Price in $')
 
         # Plot the closing price
-        self.df['Close'].plot(ax=ax1, lw=1.2)
+        self.df['Close'].plot(ax=ax1, lw=1.2, label='Closing price')
+        plt.legend()
 
         # Plot the buy signals
         ax1.plot(signals.loc[signals.positions == 1.0].index, 

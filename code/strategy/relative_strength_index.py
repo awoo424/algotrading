@@ -59,7 +59,8 @@ class rsi(Indicator):
         
         # Plot graph
         fig = plt.figure()
-        self.RSI.plot(lw=1.2)
+        self.RSI.plot(lw=1.2, label='Relative Strength Index (RSI)')
+        plt.legend()
 
         return fig
 
