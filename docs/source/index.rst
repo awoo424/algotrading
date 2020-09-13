@@ -15,10 +15,10 @@ Getting started
 Part 1: Introduction to Algo Trading
 """""""""""""""""""""""""""""""""""""
 
-   .. toctree::
+.. toctree::
    :maxdepth: 2
 
-      introduction
+   introduction
 
 
 Part 2: Algorithm Docs
