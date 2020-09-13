@@ -19,12 +19,16 @@ Part 1: Introduction to Algo Trading
    :maxdepth: 2
 
    introduction
+   data-science-basics
 
 
-Part 2: Algorithm Docs
-"""""""""""""""""""""""
+Part 2: Core trading strategies
+""""""""""""""""""""""""""""""""
 
-   (to-be-added)
+.. toctree::
+   :maxdepth: 2
+
+   technical-analysis
 
 Part 3: Machine Learning for Stock Prices Prediction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -44,7 +48,7 @@ Others
 """""""
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    acknowledgement
    about-the-author
@@ -56,3 +60,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. attention::
+   | All investments entail inherent risk. This repository seeks to solely educate 
+     people on methodologies to build and evaluate algorithmic trading strategies. 
+     All final investment decisions are yours and as a result you could make or lose money.
