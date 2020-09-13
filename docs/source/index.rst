@@ -3,20 +3,22 @@ Welcome to the algo trading learning repo
 
    (Picture: to-be-added)
 
-User documentation
+Getting started
 """""""""""""""""""
 
 .. toctree::
    :maxdepth: 2
 
-   introduction
    installation
    how-to-use-this
 
 Part 1: Introduction to Algo Trading
 """""""""""""""""""""""""""""""""""""
 
-   (to-be-added)
+   .. toctree::
+   :maxdepth: 2
+
+      introduction
 
 
 Part 2: Algorithm Docs

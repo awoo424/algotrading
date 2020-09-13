@@ -15,7 +15,7 @@ class roc(Indicator):
         super().__init__(df)
         self.df = df
         self.n = 12 # short-term smaller e.g. 9, long-term larger e.g. 200
-        self.lower = -8 # thesholds vary by asset traded
+        self.lower = -8 # thresholds vary by asset traded
         self.upper = 8
 
     """
