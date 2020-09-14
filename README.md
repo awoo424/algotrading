@@ -38,6 +38,7 @@ TO-WRITE
 #### 1. Algorithmic trading basics
 * <b>Ch.0</b> Algo trading intro
 * <b>Ch.1</b> Data science basics
+* <b>Ch.2</b> Data scraping for finance <i>(in progress)</i>
 
 #### 2. Technical analysis
 * <b>Ch.0</b> Technical analysis intro
@@ -67,12 +68,12 @@ The following indicators have been implemented in Python:
 * Rate of Change (ROC) 
 * Stochastic Oscillator (STC)
 * True Strength Index (TSI)
-* Money Flow Index (MFI) <i>- (TO-DO)</i>
+* Money Flow Index (MFI)
 * Directional Movement Index (DMI) <i>- (TO-DO)</i>
-* Williams %R <i>- (TO-DO)</i>
+* Williams %R
 
 #### Volatility
-* Bollinger Bands <i>- (TO-DO)</i>
+* Bollinger Bands
 * Average True Range <i>- (TO-DO)</i>
 * Standard Deviation <i>- (TO-DO)</i>
 
