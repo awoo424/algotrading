@@ -79,8 +79,8 @@ The following indicators have been implemented in Python:
 
 #### Volume
 * Chaikin Oscillator
-* On-Balance Volume (BOV) <i>- (TO-DO)</i>
-* Volume Rate of Change <i>- (TO-DO)</i>
+* On-Balance Volume (BOV)
+* Volume Rate of Change
 
 #### 2. Fundamental analysis
 <i>(TO-DO)</i>
