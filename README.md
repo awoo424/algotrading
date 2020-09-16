@@ -75,10 +75,10 @@ The following indicators have been implemented in Python:
 #### Volatility
 * Bollinger Bands
 * Average True Range (ATR)
-* Standard Deviation <i>- (TO-DO)</i>
+* Standard Deviation
 
 #### Volume
-* Chaikin Oscillator <i>- (TO-DO)</i>
+* Chaikin Oscillator
 * On-Balance Volume (BOV) <i>- (TO-DO)</i>
 * Volume Rate of Change <i>- (TO-DO)</i>
 
