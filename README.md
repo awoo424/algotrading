@@ -74,7 +74,7 @@ The following indicators have been implemented in Python:
 
 #### Volatility
 * Bollinger Bands
-* Average True Range
+* Average True Range (ATR)
 * Standard Deviation <i>- (TO-DO)</i>
 
 #### Volume

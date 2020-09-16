@@ -6,13 +6,6 @@ import matplotlib.pyplot as plt
 
 """
 Average True Range (ATR)
--
-Signal line crossover
-
-Buy when the TSI crosses above the signal line from below,
-sell when the TSI crosses below the signal line from above.
-
-* Signal line: usually a 7 to 12-period EMA of TSI
 """
 
 class atr(Indicator):
