@@ -69,7 +69,6 @@ The following indicators have been implemented in Python:
 * Stochastic Oscillator (STC)
 * True Strength Index (TSI)
 * Money Flow Index (MFI)
-* Directional Movement Index (DMI) <i>- (TO-DO)</i>
 * Williams %R
 
 #### Volatility
