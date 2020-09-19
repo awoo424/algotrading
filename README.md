@@ -52,7 +52,6 @@ TO-WRITE
 * (TO-DO)
 
 ## Code overview
-⚠️ Work in progress
 
 #### 1. Technical analysis
 The following indicators have been implemented in Python:
@@ -81,6 +80,7 @@ The following indicators have been implemented in Python:
 * On-Balance Volume (BOV)
 * Volume Rate of Change
 
+⚠️ Work in progress
 #### 2. Fundamental analysis
 <i>(TO-DO)</i>
 
