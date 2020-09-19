@@ -18,7 +18,6 @@
 
 * [About this repo](#about-this-repo)
 * [How to use](#how-to-use)
-* [Tutorial overview](#tutorial-overview)
 * [Code overview](#code-overview)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -32,26 +31,8 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 
 TO-WRITE
 
-## Tutorial overview
-⚠️ Work in progress
-
-#### 1. Algorithmic trading basics
-* <b>Ch.0</b> Algo trading intro
-* <b>Ch.1</b> Data science basics
-* <b>Ch.2</b> Data scraping for finance <i>(in progress)</i>
-
-#### 2. Technical analysis
-* <b>Ch.0</b> Technical analysis intro
-* <b>Ch.1</b> Trend analysis <i>(in progress)</i>
-* <b>Ch.2</b> Chart patterns <i>(in progress)</i>
-* <b>Ch.3</b> Technical indicators <i>(in progress)</i>
-* <b>Ch.4</b> Trend indicators <i>(TO-DO)</i>
-* <b>Ch.5</b> Momentum indicators <i>(TO-DO)</i>
-
-#### 3. Fundamental analysis
-* (TO-DO)
-
 ## Code overview
+⚠️ Work in progress
 
 #### 1. Technical analysis
 The following indicators have been implemented in Python:
@@ -80,7 +61,6 @@ The following indicators have been implemented in Python:
 * On-Balance Volume (BOV)
 * Volume Rate of Change
 
-⚠️ Work in progress
 #### 2. Fundamental analysis
 <i>(TO-DO)</i>
 
