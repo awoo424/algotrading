@@ -62,7 +62,33 @@ The following indicators have been implemented in Python:
 * Volume Rate of Change
 
 #### 2. Fundamental analysis
-<i>(TO-DO)</i>
+
+#### Short-term solvency ratios
+* Current ratio
+* Quick ratio
+* Cash ratio
+* Networking capital to current liabilities
+
+#### Turnover ratios
+* Average collection period
+* Inventory turnover ratios
+* Receivable turnover
+* Fixed asset turnover
+* Total asset turnover
+
+#### Financial leverage ratios
+* Total debt ratio
+* Debt/Equity
+* Equity ratio
+* Long-term debt ratio
+* Times interest earned ratio
+
+#### Profitability ratios
+* Gross profit margin
+* Net profit margin
+* Return on assets (ROA)
+* Return on equity (ROE)
+* Earning per share (EPS)
 
 ## Contact
 
