@@ -94,7 +94,7 @@ The following indicators have been implemented in Python:
 
 Angel Woo - awoo424@connect.hku.hk
 
-Project Link: (TO-BE-ADDED)
+Project Link: https://awoo424.github.io/algotrading_fyp/
 
 ## Acknowledgements
 
