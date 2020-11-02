@@ -6,3 +6,5 @@ jupyter_example.ipynb
 tickers/
 database/
 ./code/main_*.py
+.vscode/
+._.DS_Store
