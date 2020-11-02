@@ -1,4 +1,5 @@
 import sys
+import math
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -36,7 +37,7 @@ def MaxDrawdown(df, window=252):
     max_daily_drawdown.plot(lw=1.2, label='Max daily drawdown')
     plt.legend()
 
-    return fig
+    return fig, max_daily_drawdown, daily_drawdown
 
 """
 Compound Annual Growth Rate (CAGR)
@@ -54,6 +55,27 @@ def CAGR(portfolio):
     cagr = ((((portfolio['total'][-1]) / portfolio['total'][0])) ** (365.0/days)) - 1
 
     return cagr
+
+"""
+Standard Deviation (SD)
+
+Formula
+- 
+sqrt(sum[(r_i - r_avg)^2] / n-1)
+"""
+
+def StandardDeviation(portfolio):
+    # Isolate the returns of your strategy
+    returns = portfolio['returns']
+    
+    returns_diff = returns - returns.mean()
+    returns_diff = returns_diff * returns_diff
+    returns_diff_sum = returns_diff.sum()
+    
+    # annualized sd
+    sd = math.sqrt(returns_diff_sum / (len(returns) - 1))
+
+    return sd
 
 # TO-DO: distribution of returns
 

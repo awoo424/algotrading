@@ -42,12 +42,12 @@ class cciOverboughtOversold(Indicator):
         # Plot the buy signals
         ax1.plot(self.signals.loc[self.signals.positions == 1.0].index,
                     self.signals['CCI'][self.signals.positions == 1.0],
-                    '^', markersize=10, color='m')
+                    '^', markersize=10, color='m', label='Buy signal')
 
         # Plot the sell signals
         ax1.plot(self.signals.loc[self.signals.positions == -1.0].index,
                     self.signals['CCI'][self.signals.positions == -1.0],
-                    'v', markersize=10, color='k')
+                    'v', markersize=10, color='k', label='Sell signal')
 
         return fig
 

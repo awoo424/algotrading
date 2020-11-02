@@ -1,4 +1,4 @@
-./code/__pycache__/
+*/__pycache__/*
 ./strategy/__pycache__/
 .ipynb_checkpoints/
 .jovianrc

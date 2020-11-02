@@ -22,7 +22,7 @@ MAC = MovingAverageCrossover(df)
 signals = MAC.gen_signals()
 signal_fig = MAC.plot_signals(signals)
 signal_fig.suptitle('Moving average crossover - Signals', fontsize=14)
-signal_fig.savefig('./figures/trend/01-moving-average-crossover_signals')
+signal_fig.savefig('./figures/trend/01-moving-average-crossover_signals', dpi=100)
 plt.show()
 
 # Backtesting
@@ -32,7 +32,7 @@ print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
 
 backtest_fig.suptitle('Moving average crossover - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/trend/01-moving-average-crossover_portfolio-value')
+backtest_fig.savefig('./figures/trend/01-moving-average-crossover_portfolio-value', dpi=100)
 plt.show()
 
 # Evaluate strategy
@@ -42,9 +42,9 @@ sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
-maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('Moving average crossover - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/trend/01-moving-average-crossover_maximum-drawdown')
+maxDrawdown_fig.savefig('./figures/trend/01-moving-average-crossover_maximum-drawdown', dpi=100)
 plt.show()
 
 # 3. Compound Annual Growth Rate
