@@ -1,8 +1,9 @@
 ./code/__pycache__/
-./strategy/__pycache__/
 .ipynb_checkpoints/
+.__pycache__/
 .jovianrc
 jupyter_example.ipynb
+._jupyter_example.ipynb
 tickers/
 database/
 ./code/main_*.py
