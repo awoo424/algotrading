@@ -8,3 +8,4 @@ database/
 ./code/main_*.py
 .vscode/
 ._.DS_Store
+./images/._*.png
