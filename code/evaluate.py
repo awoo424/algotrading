@@ -5,6 +5,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 """
+Profit & Loss per trade
+"""
+def Pnlpertrade(portfolio):
+    # Isolate the returns of your strategy
+    returns = portfolio['returns']
+
+    # Create a figure
+    fig = plt.figure()
+
+    # Plot the results
+    returns.plot(lw=1.2, label='Profit & loss per trade')
+    plt.legend()
+
+    return fig
+
+"""
 Sharpe ratio
 """
 def SharpeRatio(portfolio):
@@ -76,7 +92,3 @@ def StandardDeviation(portfolio):
     sd = math.sqrt(returns_diff_sum / (len(returns) - 1))
 
     return sd
-
-# TO-DO: distribution of returns
-
-# TO-DO: trade-level metrics
