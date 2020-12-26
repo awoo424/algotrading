@@ -9,7 +9,7 @@ mpl.use('tkagg')  # issues with Big Sur
 import matplotlib.pyplot as plt
 from strategy.macd_crossover import macdCrossover
 from backtest import Backtest
-from evaluate import SharpeRatio, MaxDrawdown, CAGR
+from evaluate import Pnlpertrade, SharpeRatio, MaxDrawdown, CAGR
 
 # load data
 df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
@@ -34,7 +34,7 @@ signal_fig.savefig('./figures/trend/02-macd-crossover_signals')
 plt.show()
 
 signal_fig = macd_cross.plot_signals_MACD()
-signal_fig.suptitle('MACD crossovers - Signals (Verify)', fontsize=14)
+signal_fig.suptitle('MACD crossovers - Signals', fontsize=14)
 plt.show()
 
 # Backtesting
@@ -42,6 +42,7 @@ plt.show()
 portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
+print("Average daily return: {value:.4f}%".format(value = portfolio['returns'].mean()*100))
 
 backtest_fig.suptitle('MACD crossovers - Portfolio value', fontsize=14)
 backtest_fig.savefig('./figures/trend/02-macd-crossover_portfolio-value')
@@ -49,16 +50,22 @@ plt.show()
 
 # Evaluate strategy
 
-# 1. Sharpe ratio
+# 1. Profit and loss per trade
+returns_fig = Pnlpertrade(portfolio)
+returns_fig.suptitle('MACD crossovers - Profit & Loss per trade')
+returns_fig.savefig('./figures/trend/02-macd-crossover_pnl-per-trade')
+plt.show()
+
+# 2. Sharpe ratio
 sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
-# 2. Maximum drawdown
+# 3. Maximum drawdown
 maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
-maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
+maxDrawdown_fig.suptitle('MACD crossovers - Maximum drawdown', fontsize=14)
 maxDrawdown_fig.savefig('./figures/trend/02-macd-crossover_maximum-drawdown')
 plt.show()
 
-# 3. Compound Annual Growth Rate
+# 4. Compound Annual Growth Rate
 cagr = CAGR(portfolio)
 print("CAGR: {cagr:.4f} ".format(cagr = cagr))

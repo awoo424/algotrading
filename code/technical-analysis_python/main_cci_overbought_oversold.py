@@ -39,6 +39,7 @@ plt.show()
 portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
+print("Average daily return: {value:.4f}%".format(value = portfolio['returns'].mean()*100))
 
 backtest_fig.suptitle('CCI overbought & oversold - Portfolio value', fontsize=14)
 backtest_fig.savefig('./figures/momentum/02-cci-overbought-oversold_portfolio-value')

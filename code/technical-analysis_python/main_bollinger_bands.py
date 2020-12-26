@@ -40,6 +40,7 @@ plt.show()
 portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final portfolio value (including cash): {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
+print("Average daily return: {value:.4f}%".format(value = portfolio['returns'].mean()*100))
 
 backtest_fig.suptitle('Bollinger Bands - Portfolio value', fontsize=14)
 backtest_fig.savefig('./figures/volatility/01-bollinger-bands_portfolio-value')
@@ -47,12 +48,7 @@ plt.show()
 
 # Evaluate strategy
 
-# 1. Profit and loss per trade
-returns_fig = Pnlpertrade(portfolio)
-returns_fig.savefig('./figures/volatility/01-bollinger-bands_pnl-per-trade')
-plt.show()
-
-# 2. Sharpe ratio
+# 1. Sharpe ratio
 sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 

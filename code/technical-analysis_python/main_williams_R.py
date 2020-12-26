@@ -24,14 +24,14 @@ ticker = "0005.HK"
 wr = williamsR(df)
 wr_fig = wr.plot_wr()
 wr_fig.suptitle('HK.0005 - Williams %R', fontsize=14)
-wr_fig.savefig('./figures/momentum/09-williamsR-plot')
+wr_fig.savefig('./figures/momentum/08-williamsR-plot')
 plt.show()
 
 
 signals = wr.gen_signals()
 signal_fig = wr.plot_signals(signals)
 signal_fig.suptitle('Williams %R - Signals', fontsize=14)
-signal_fig.savefig('./figures/momentum/09-williamsR_signals')
+signal_fig.savefig('./figures/momentum/08-williamsR_signals')
 plt.show()
 
 # Backtesting
@@ -39,9 +39,10 @@ plt.show()
 portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final portfolio value (including cash): {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
+print("Average daily return: {value:.4f}%".format(value = portfolio['returns'].mean()*100))
 
 backtest_fig.suptitle('Williams %R - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/momentum/09-williamsR_portfolio-value')
+backtest_fig.savefig('./figures/momentum/08-williamsR_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -53,7 +54,7 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 # 2. Maximum drawdown
 maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('Williams %R - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/momentum/09-williamsR_maximum-drawdown')
+maxDrawdown_fig.savefig('./figures/momentum/08-williamsR_maximum-drawdown')
 plt.show()
 
 # 3. Compound Annual Growth Rate
