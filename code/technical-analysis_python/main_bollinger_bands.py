@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 from strategy.bollinger_bands import bollinger_bands
 from backtest import Backtest
-from evaluate import SharpeRatio, MaxDrawdown, CAGR
+from evaluate import Pnlpertrade, SharpeRatio, MaxDrawdown, CAGR
 
 # load data
 df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
@@ -47,16 +47,21 @@ plt.show()
 
 # Evaluate strategy
 
-# 1. Sharpe ratio
+# 1. Profit and loss per trade
+returns_fig = Pnlpertrade(portfolio)
+returns_fig.savefig('./figures/volatility/01-bollinger-bands_pnl-per-trade')
+plt.show()
+
+# 2. Sharpe ratio
 sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
-# 2. Maximum drawdown
+# 3. Maximum drawdown
 maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('Bollinger Bands - Maximum drawdown', fontsize=14)
 maxDrawdown_fig.savefig('./figures/volatility/01-bollinger-bands_maximum-drawdown')
 plt.show()
 
-# 3. Compound Annual Growth Rate
+# 4. Compound Annual Growth Rate
 cagr = CAGR(portfolio)
 print("CAGR: {cagr:.4f} ".format(cagr = cagr))
