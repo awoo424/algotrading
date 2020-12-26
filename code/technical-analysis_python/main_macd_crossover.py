@@ -1,8 +1,11 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl
+import pandas as pd
 import sys
 sys.path.append("..")
+mpl.use('tkagg')  # issues with Big Sur
 
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from strategy.macd_crossover import macdCrossover
 from backtest import Backtest
@@ -51,7 +54,7 @@ sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
-maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('CCI emerging trends - Maximum drawdown', fontsize=14)
 maxDrawdown_fig.savefig('./figures/trend/02-macd-crossover_maximum-drawdown')
 plt.show()

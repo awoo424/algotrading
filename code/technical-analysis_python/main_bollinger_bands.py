@@ -1,9 +1,13 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl
+import pandas as pd
 import sys
 sys.path.append("..")
+mpl.use('tkagg')  # issues with Big Sur
 
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
+
 from strategy.bollinger_bands import bollinger_bands
 from backtest import Backtest
 from evaluate import SharpeRatio, MaxDrawdown, CAGR
@@ -48,7 +52,7 @@ sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
-maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('Bollinger Bands - Maximum drawdown', fontsize=14)
 maxDrawdown_fig.savefig('./figures/volatility/01-bollinger-bands_maximum-drawdown')
 plt.show()

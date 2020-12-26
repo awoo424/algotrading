@@ -1,8 +1,11 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl
+import pandas as pd
 import sys
 sys.path.append("..")
+mpl.use('tkagg')  # issues with Big Sur
 
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from strategy.rate_of_change import roc
 from backtest import Backtest

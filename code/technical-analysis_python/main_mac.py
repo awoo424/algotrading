@@ -1,8 +1,11 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl
+import pandas as pd
 import sys
 sys.path.append("..")
+mpl.use('tkagg')  # issues with Big Sur
 
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from strategy.moving_average_crossover import MovingAverageCrossover
 from backtest import Backtest

@@ -1,15 +1,18 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl
+import pandas as pd
 import sys
 sys.path.append("..")
+mpl.use('tkagg')  # issues with Big Sur
 
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from strategy.cci_overbought_oversold import cciOverboughtOversold
 from backtest import Backtest
 from evaluate import SharpeRatio, MaxDrawdown, CAGR
 
 # load data
-df = pd.read_csv('../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
+df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range
 df = df.loc[pd.Timestamp('2018-01-01'):pd.Timestamp('2020-01-01')]
@@ -48,7 +51,7 @@ sharpe_ratio = SharpeRatio(portfolio)
 print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 2. Maximum drawdown
-maxDrawdown_fig = MaxDrawdown(df)
+maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('CCI overbought & oversold - Maximum drawdown', fontsize=14)
 maxDrawdown_fig.savefig('./figures/momentum/02-cci-overbought-oversold_maximum-drawdown')
 plt.show()
