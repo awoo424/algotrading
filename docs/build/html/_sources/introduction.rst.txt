@@ -10,7 +10,6 @@ In this tutorial, you will learn:
 * Definition of fundamental analysis
 * Difference between technical analysis and fundamental analysis
 
-
 What is algo trading?
 ---------------------
 
@@ -54,9 +53,11 @@ High-freqeuncy Trading
     * **Algorithmic Trading**: execution process based on an algorithm
     * **Automated Trading**: as its name implies, automate the trading process
     * **High-frequency Trading**: ultra-fast automated trading
-    | There are two major schools of methods for analysing the market, 
-      which are (1) technical analysis and (2) fundamental analysis. 
-      We'll go through both of these in detail respectively in the coming tutorials.
+
+
+| There are two major schools of methods for analysing the market, 
+  which are (1) technical analysis and (2) fundamental analysis. 
+  We'll go through both of these in detail respectively in the coming tutorials.
 
 What is technical analysis?
 ----------------------------
@@ -107,10 +108,6 @@ Rationale of technical analysis
   the past, and thus the analysis of historical patterns helps predict future 
   market movements.
 
-History of technical analysis
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-(TO-DO)
 
 Pros and cons of technical analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,10 +149,6 @@ What is fundamental analysis?
 Rationale of fundamental analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-History of fundamental analysis
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-(TO-DO)
 
 Pros and cons of fundamental analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -221,9 +214,14 @@ Conclusion
   would definitely bring you insights on how technolgy has been applied in stock 
   markets and learn how algorithms have been shaping our modern day world.
 
-References
------------
+**References**
+
 * Murphy, J. J. (1991). Technical analysis of the futures markets: A comprehensive guide to trading methods and applications. New York: New York Institute of Finance.
 * `CFI - Technical Analysis: A Beginner's Guide <https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/technical-analysis/>`_
 * `IG - Technical Analysis definition <https://www.ig.com/en/glossary-trading-terms/technical-analysis-definition)>`_
 * `FBS - Pros and Cons of Technical Analysis <https://fbs.com/analytics/tips/pros-and-cons-of-technical-analysis-and-indicators-21645>`_
+
+.. attention::
+   | All investments entail inherent risk. This repository seeks to solely educate 
+     people on methodologies to build and evaluate algorithmic trading strategies. 
+     All final investment decisions are yours and as a result you could make or lose money.

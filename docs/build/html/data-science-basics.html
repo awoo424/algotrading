@@ -91,16 +91,22 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data science basics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-manipulation">Data manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resampling">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculate-percentage-change">Calculate percentage change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualise-time-series-data">Visualise time series data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-windows">Moving windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 </ul>
 </li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="technical-analysis.html">Techinical analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental-analysis.html">Fundamental analysis</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgement.html">Acknowledgement</a></li>
@@ -172,15 +178,309 @@
             
   <div class="section" id="data-science-basics">
 <h1>Data science basics<a class="headerlink" href="#data-science-basics" title="Permalink to this headline">¶</a></h1>
-<p>This is the content for “data science basics” section.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span> <span class="n">testing</span><span class="o">.</span>
-</pre></div>
-</div>
+<p>In this tutorial, you will learn to:</p>
+<ul class="simple">
+<li><p>Conduct Exploratory Data Analysis (EDA)</p></li>
+<li><p>Carry out resampling</p></li>
+<li><p>Visualise time series data</p></li>
+<li><p>Calculate and plot distribution of percentage change</p></li>
+<li><p>Use moving windows</p></li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/pandas/">pandas</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a></p></li>
+</ul>
 <div class="section" id="exploratory-data-analysis">
 <h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="myownstyle admonition">
+<p class="admonition-title">Definition</p>
+<div class="line-block">
+<div class="line"><strong>Exploratory Data Analysis</strong> (a.k.a. EDA) is the process of performing initial investigations
+on the data so as to discover patterns, spot anomalies and to check assumptions with the help of
+summary statistics and graphical representations.</div>
 </div>
-<div class="section" id="data-manipulation">
-<h2>Data manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this headline">¶</a></h2>
+</div>
+<p>For example, in the process of EDA, aim to find the answer to these questions:</p>
+<ul class="simple">
+<li><p>What kind of data does the dataframe store?</p></li>
+<li><p>What is the range of each column?</p></li>
+<li><p>What is the data type of each column?</p></li>
+<li><p>Are there null values in the data?</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import AAPL csv file</span>
+<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../database/nasdaq_ticks_day/nasdaq_AAPL.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># inspect first 5 rows (default)</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># inspect first 3 rows</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check name of columns</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># output</span>
+<span class="c1"># aapl.columns</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate descriptive statistics, e.g. central tendency and dispersion of the dataset</span>
+<span class="c1"># (excl. NaN values)</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="c1"># prints a summary of the dataframe e.g. dtype, non-null values</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># print rows between two specific dates</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-17&#39;</span><span class="p">)])</span>
+
+<span class="c1"># select only data between 2006 and 2019</span>
+<span class="n">aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">)]</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resampling">
+<h2>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h2>
+<p>It is easy to mix up <strong>sampling</strong> and <strong>resampling</strong>, which are indeed referring to two different concepts.
+We will first take a look at the definition of the former:</p>
+<div class="myownstyle admonition">
+<p class="admonition-title">Definition</p>
+<div class="line-block">
+<div class="line"><strong>Sampling</strong> is the process of gathering observations with the intent to estimate a
+population variable.</div>
+</div>
+</div>
+<p>Assume that each row of data represents an observation about something in the world. When working with data,
+we usually do not have access to all possible observations since they might be hard to gather, or it might be
+to costly to process them altogether. Thus, we use sampling as a solution - to select some part of the population
+to observe, so that we can infer something about the whole population.</p>
+<p>For example, we can conduct <strong>Simple Random Sampling</strong>, which means that each row (or observation) is drawn
+with a uniform probability from the dataset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take 10 rows from the dataframe randomly</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now that we understand what sampling is, let’s go back to resampling.</p>
+<div class="myownstyle admonition">
+<p class="admonition-title">Definition</p>
+<div class="line-block">
+<div class="line"><strong>Resampling</strong> is a method that uses a data sample to improve the accuracy and
+quantify the uncertainty of a population parameter.</div>
+</div>
+</div>
+<p>As a data sample might not accurately represent the popultion, it introduces the problems of
+<strong>Selection Bias</strong> and <strong>Sampling Error</strong>.</p>
+<ul class="simple">
+<li><p><strong>Selection Bias</strong> occurs when the method of drawing observations skews the sample in some way.</p></li>
+<li><p><strong>Sampling Error*</strong> occurs when randomly drawing observations skews the sample in some way.</p></li>
+</ul>
+<p>To address this problem, we want to know how accruately the data sample is estimating the
+population parameter (e.g. the mean, or the standard deviation).</p>
+<p>If we only sample that data once, we will only have one single estimate of the population parameter,
+which makes it impossible to quantify the uncertainty of the estimate. (Assuming we do not have the population data)
+Therefore, we could try estimate the population parameter <em>multiple times</em> from our data sample - we call this action,
+<strong>resampling</strong>.</p>
+<p>With regards to the <em>resample</em> function in pandas, it is used for changing the time interval of a dataset. Thus, we
+need a datetime type index or column in order to use the function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to monthly level</span>
+<span class="n">monthly_aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">monthly_aapl</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As shown in the code above, there are two steps in calling the function:</p>
+<ol class="arabic simple">
+<li><p>Pass the <strong>‘Rule’</strong> argument to the function, which determines by what interval the data will be resampled by.
+In the example above, ‘M’ means by month end frequency.</p></li>
+<li><p>Decide how to <strong>reduce the old datapoints</strong> or fill in the new ones, by calling groupby aggregate functions including mean(), min(), max(), sum().</p></li>
+</ol>
+<p>In the above example, as we are resampling that data to a wider time frame (from days to months), we are actually
+<strong>“downsampling”</strong> the data.</p>
+<p>On the other hand, if we resample the data to a shorter time frame (from days to minutes), it will be called <strong>“upsampling”</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to minutely level</span>
+<span class="n">minutely_aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minutely_aapl</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As we end up having additional empty rows in the resulting table, we need to decide how to fill in them with numeric values:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">ffill()</span></code> ‘Forward filling’ or <code class="code docutils literal notranslate"><span class="pre">pad()</span></code>‘padding’ — Use the last known value.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">bfill()</span></code> or <code class="code docutils literal notranslate"><span class="pre">backfill()</span></code> ‘Backfilling’ — Use the next known value.</p></li>
+</ul>
+</div>
+<div class="section" id="calculate-percentage-change">
+<h2>Calculate percentage change<a class="headerlink" href="#calculate-percentage-change" title="Permalink to this headline">¶</a></h2>
+<p>We can just directly use the <code class="code docutils literal notranslate"><span class="pre">pct_change()</span></code> function to do this.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">daily_close</span> <span class="o">=</span> <span class="n">aapl</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Calculate daily returns</span>
+<span class="n">daily_pct_change</span> <span class="o">=</span> <span class="n">daily_close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+
+<span class="c1"># Replace NA values with 0</span>
+<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Inspect daily returns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate daily log returns</span>
+<span class="n">daily_log_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">daily_close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Print daily log returns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_log_returns</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>We can also combine with the operation of resampling to get the percentage change of different time intervals.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to business months, take last observation as value</span>
+<span class="n">monthly</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;BM&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Calculate monthly percentage change</span>
+<span class="n">monthly</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This example takes the mean instead of the last observation in each bin as the value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to quarters, take the mean as value per quarter</span>
+<span class="n">quarter</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;4M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Calculate quarterly percentage change</span>
+<span class="n">quarter</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It is also good to learn how to manually do the calculation, without using the <code class="code docutils literal notranslate"><span class="pre">pct_change()</span></code> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daily returns</span>
+<span class="n">daily_pct_change</span> <span class="o">=</span> <span class="n">daily_close</span> <span class="o">/</span> <span class="n">daily_close</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Print `daily_pct_change`</span>
+<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualise-time-series-data">
+<h2>Visualise time series data<a class="headerlink" href="#visualise-time-series-data" title="Permalink to this headline">¶</a></h2>
+<p>We will mainly use plotting functions provided by matplotlib. <strong>Line plot</strong> is the most common
+type of plot that we will use for analysis of stock data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the closing prices for `aapl`</span>
+<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the line plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here is an example of plotting a histogram:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distribution of `daily_pct_c`</span>
+<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Pull up summary statistics</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>We can also create a new column to store the cumulative daily returns and plot the data in a graph.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the cumulative daily returns</span>
+<span class="n">cum_daily_return</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">daily_pct_change</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+
+<span class="c1"># Plot the cumulative daily returns</span>
+<span class="n">cum_daily_return</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="moving-windows">
+<h2>Moving windows<a class="headerlink" href="#moving-windows" title="Permalink to this headline">¶</a></h2>
+<p><strong>Moving windows</strong> (also called “rolling windows”) are snapshots of a portion of a time series at an instant in time. It is common
+to use the moving window in a trading strategy, for example to calculate a moving average.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isolate the closing prices</span>
+<span class="n">close_px</span> <span class="o">=</span> <span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+
+<span class="c1"># Calculate the moving average</span>
+<span class="n">moving_avg</span> <span class="o">=</span> <span class="n">close_px</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Inspect the result</span>
+<span class="n">moving_avg</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We can now easily plot the short-term and long-term moving averages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Short moving window rolling mean</span>
+<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;42&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">close_px</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Long moving window rolling mean</span>
+<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;252&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">close_px</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">252</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Plot the adjusted closing price, the short and long windows of rolling means</span>
+<span class="n">aapl</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="s1">&#39;42&#39;</span><span class="p">,</span> <span class="s1">&#39;252&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="c1"># Show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Exploratory Data Analysis (EDA)</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">head()</span></code> and <code class="code docutils literal notranslate"><span class="pre">tail()</span></code> - check first or last rows</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">describe()</span></code> - mean, sd, range</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">info()</span></code> - dtype, non-null, count</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Resampling</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">df.resample('M').mean</span></code> - downsample to months (small to big, reduce values)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">df.resample('T').ffill()</span></code> - upsample to minutes (big to small, add values)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Percentage change</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">col.pct_change()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Visualise data</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">col.plot</span></code> - line plot</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">col.hist(bins=50)</span></code> - histogram</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Moving window</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">close_px.rolling(window=40).mean()</span></code> - moving average</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p><strong>References</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15">Towards Data Science - What is Exploratory Data Analysis?</a></p></li>
+<li><p><a class="reference external" href="https://machinelearningmastery.com/statistical-sampling-and-resampling/">Jason Brownlee - A Gentle Introduction to Statistical Sampling and Resampling</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/using-the-pandas-resample-function-a231144194c4">Towards Data Science - Using the Pandas “Resample” Function</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=73fnrywIhl8">Algorithmic trading explained</a></p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com/community/tutorials/finance-python-trading?utm_source=adwords_ppc&amp;utm_campaignid=898687156&amp;utm_adgroupid=48947256715&amp;utm_device=c&amp;utm_keyword=&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=&amp;utm_creative=255798340456&amp;utm_targetid=aud-299261629574:dsa-473406585355&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=1009279&amp;gclid=Cj0KCQjwrIf3BRD1ARIsAMuugNu2UkliuXEzSS4V08jCIQPtBByx7Eu8tEZh0J34NJ395kpOC_t0-MUaAtF5EALw_wcB)">DataCamp - Python for Finance: Algorithmic Trading</a></p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<div class="line-block">
+<div class="line">All investments entail inherent risk. This repository seeks to solely educate
+people on methodologies to build and evaluate algorithmic trading strategies.
+All final investment decisions are yours and as a result you could make or lose money.</div>
+</div>
+</div>
 </div>
 </div>
 

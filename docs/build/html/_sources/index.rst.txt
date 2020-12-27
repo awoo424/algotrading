@@ -29,6 +29,7 @@ Part 2: Core trading strategies
    :maxdepth: 2
 
    technical-analysis
+   fundamental-analysis
 
 Part 3: Machine Learning for Stock Prices Prediction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -36,8 +37,10 @@ Part 3: Machine Learning for Stock Prices Prediction
 .. toctree::
    :maxdepth: 2
 
-   sentiment-analysis
+   bankruptcy-prediction
    property-price-prediction
+   sentiment-analysis
+   
 
 Resources
 """""""""""
@@ -49,6 +52,7 @@ Others
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
 
    acknowledgement
    about-the-author

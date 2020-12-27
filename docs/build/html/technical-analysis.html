@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sentiment analysis" href="sentiment-analysis.html" />
+    <link rel="next" title="Fundamental analysis" href="fundamental-analysis.html" />
     <link rel="prev" title="Data science basics" href="data-science-basics.html" /> 
 </head>
 
@@ -93,17 +93,34 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Techinical analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#review-on-technical-analysis">Review on technical analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#trend-indicators">Trend indicators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#momentum-indicators">Momentum indicators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#volatility-indicators">Volatility indicators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#volume-indicators">Volume indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intro-to-technical-analysis">Intro to technical analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chart-patterns">Chart patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#line-chart">Line chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#candlesticks-chart">Candlesticks chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-high-low-close-ohcl-chart">Open-high-low-close (OHCL) chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scaling">Scaling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arithmetic-scaling">Arithmetic scaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#semi-logarithmic-scaling">Semi-logarithmic scaling</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trend-analysis">Trend analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-indicators">Technical indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trend-indicators">Trend indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#momentum-indicators">Momentum indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volatility-indicators">Volatility indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-indicators">Volume indicators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental-analysis.html">Fundamental analysis</a></li>
+</ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgement.html">Acknowledgement</a></li>
@@ -175,21 +192,154 @@
             
   <div class="section" id="techinical-analysis">
 <h1>Techinical analysis<a class="headerlink" href="#techinical-analysis" title="Permalink to this headline">¶</a></h1>
-<p>This is the content for “technical analysis” section.</p>
-<div class="section" id="review-on-technical-analysis">
-<h2>Review on technical analysis<a class="headerlink" href="#review-on-technical-analysis" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, you will learn:</p>
+<ul class="simple">
+<li><p>The basics of technical analysis</p></li>
+<li><p>Technical analysis charts</p></li>
+<li><p>What are the common technical indicators</p></li>
+<li><p>How to implement technical indicators</p></li>
+</ul>
+<div class="section" id="intro-to-technical-analysis">
+<h2>Intro to technical analysis<a class="headerlink" href="#intro-to-technical-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">As we have discussed in the first tutorial, technical analysis is a methodology for
+predicting price movement through the study of market action in the past. Technical
+analysis most commonly applies to price changes, but some technicians also track other
+data such as trading volume and open interest figures. Within the industry, there exist
+a tons of patterns and signals that have been developed by researchers in order to
+conduct technical analysis trading. Some technical indicators are primarily focused on
+identifying the current market trend, while some are aimed at spotting patterns in
+historical patterns.</div>
 </div>
+<p>In general, technicians consider the following types of indicators:</p>
+<ul class="simple">
+<li><p>Price trends</p></li>
+<li><p>Chart analysis</p></li>
+<li><p>Volume indicators</p></li>
+<li><p>Momentum indicators</p></li>
+<li><p>Oscillators</p></li>
+<li><p>Moving averages</p></li>
+</ul>
+<div class="line-block">
+<div class="line">In the upcoming tutorials for technical analysis, we will learn how to construct and
+analyse charts with the help of programming; and to build and implement different
+technical indicators widely used in the market.</div>
+</div>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/pandas/">pandas</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a></p></li>
+</ul>
+</div>
+<div class="section" id="chart-patterns">
+<h2>Chart patterns<a class="headerlink" href="#chart-patterns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="line-chart">
+<h3>Line chart<a class="headerlink" href="#line-chart" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="candlesticks-chart">
+<h3>Candlesticks chart<a class="headerlink" href="#candlesticks-chart" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Candlestick charts originated in Japan over 100 years before the West developed the
+bar and point-and-figure charts. In the 1700s, a Japanese man named Homma discovered
+that, while there was a link between price and the supply and demand of rice,
+the markets were strongly influenced by the emotions of traders. Candlesticks show
+that emotion by visually representing the size of price moves with different colors.
+Traders use the candlesticks to make trading decisions based on regularly
+occurring patterns that help forecast the short-term direction of the price.</div>
+</div>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/Candlestick.png"><img alt="&quot;Candlestick components.&quot;" src="_images/Candlestick.png" style="width: 500px; height: 320px;" /></a>
+<p class="caption"><span class="caption-text"><span class="raw-html"><br /></span>
+Explanation of candlestick components. <a class="footnote-reference brackets" href="#id2" id="id1">1</a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="open-high-low-close-ohcl-chart">
+<h3>Open-high-low-close (OHCL) chart<a class="headerlink" href="#open-high-low-close-ohcl-chart" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="scaling">
+<h3>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">There are two types of scales for plotting charts - <strong>arithmetic</strong> or <strong>semi-logarithmic</strong>.
+As most of us who have studied science/mathematics should know, examples of logarithmic
+scales include growth of microbes, mortality rate due to epidemics and so on. The
+difference in scale can completely alter the shape of the chart even though it is
+plotted using the same set of data. Semi-logarithmic charts are sometimes more
+preferrable in order to overcome the weaknesses inherent in arithmetic charts.</div>
+</div>
+<div class="section" id="arithmetic-scaling">
+<h4>Arithmetic scaling<a class="headerlink" href="#arithmetic-scaling" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">In arithmetic or linear charts, both x and y axes scales are plotted at an equal distance.</div>
+</div>
+<div class="myownstyle admonition">
+<p class="admonition-title">Key points</p>
+<ul class="simple">
+<li><p>On a linear scale, as the distance in the axis increases the corresponding
+value also increases linearly.</p></li>
+<li><p>When the values of data fluctuate between extremely small values and very
+large values – the linear scale will <strong>miss out the smaller values</strong> thus
+conveying a wrong picture of the underlying phenomenon.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="semi-logarithmic-scaling">
+<h4>Semi-logarithmic scaling<a class="headerlink" href="#semi-logarithmic-scaling" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">A semi-log plot is a graph where the data in one axis is on logarithmic scale
+(either x axis or y axis), and data in the other axis is on normal scale (i.e. linear scale).</div>
+</div>
+<div class="myownstyle admonition">
+<p class="admonition-title">Key points</p>
+<ul class="simple">
+<li><p>On a logarithmic scale, as the distance in the axis increases the corresponding
+value increases exponentially.</p></li>
+<li><p>With logarithmic scale, <strong>both smaller valued data and bigger valued data can be captured</strong>
+in the plot more accurately to provide a holistic view.</p></li>
+</ul>
+</div>
+<p>Therefore, semi-logarithmic charts can be of immense help especially when plotting <strong>long-term charts</strong>,
+or when the price points show significant volatility even in short-term charts. The underlying chart patterns
+will be revealed more clearly in semi-logarithmic scale charts.</p>
+</div>
+</div>
+</div>
+<div class="section" id="trend-analysis">
+<h2>Trend analysis<a class="headerlink" href="#trend-analysis" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="technical-indicators">
+<h2>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="trend-indicators">
-<h2>Trend indicators<a class="headerlink" href="#trend-indicators" title="Permalink to this headline">¶</a></h2>
+<h3>Trend indicators<a class="headerlink" href="#trend-indicators" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="momentum-indicators">
-<h2>Momentum indicators<a class="headerlink" href="#momentum-indicators" title="Permalink to this headline">¶</a></h2>
+<h3>Momentum indicators<a class="headerlink" href="#momentum-indicators" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="volatility-indicators">
-<h2>Volatility indicators<a class="headerlink" href="#volatility-indicators" title="Permalink to this headline">¶</a></h2>
+<h3>Volatility indicators<a class="headerlink" href="#volatility-indicators" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="volume-indicators">
-<h2>Volume indicators<a class="headerlink" href="#volume-indicators" title="Permalink to this headline">¶</a></h2>
+<h3>Volume indicators<a class="headerlink" href="#volume-indicators" title="Permalink to this headline">¶</a></h3>
+<p><strong>References</strong></p>
+<ul class="simple">
+<li><p>Murphy, J. J. (1991). Technical analysis of the futures markets: A comprehensive guide to trading methods and applications. New York: New York Institute of Finance.</p></li>
+<li><p><a class="reference external" href="https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/technical-analysis/">CFI - Technical Analysis: A Beginner’s Guide</a> # to delete</p></li>
+</ul>
+<p><strong>Image sources</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>By Probe-meteo.com - Probe-meteo.com, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=26048221">https://commons.wikimedia.org/w/index.php?curid=26048221</a></p>
+</dd>
+</dl>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<div class="line-block">
+<div class="line">All investments entail inherent risk. This repository seeks to solely educate
+people on methodologies to build and evaluate algorithmic trading strategies.
+All final investment decisions are yours and as a result you could make or lose money.</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -201,7 +351,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sentiment-analysis.html" class="btn btn-neutral float-right" title="Sentiment analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="fundamental-analysis.html" class="btn btn-neutral float-right" title="Fundamental analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="data-science-basics.html" class="btn btn-neutral float-left" title="Data science basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
