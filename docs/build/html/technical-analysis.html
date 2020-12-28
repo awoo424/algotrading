@@ -31,6 +31,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -107,10 +108,34 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#trend-analysis">Trend analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#technical-indicators">Technical indicators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#trend-indicators">Trend indicators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#momentum-indicators">Momentum indicators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#volatility-indicators">Volatility indicators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#volume-indicators">Volume indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trend-indicators">Trend indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#moving-average-convergence-divergence-macd">Moving Average Convergence Divergence (MACD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moving-averages">Moving averages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parabolic-stop-and-reverse-parabolic-sar">Parabolic Stop and Reverse (Parabolic SAR)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#momentum-indicators">Momentum indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#commodity-channel-index-cci">Commodity Channel Index (CCI)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relative-strength-index-rsi">Relative Strength Index (RSI)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rate-of-change-roc">Rate of Change (ROC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stochastic-oscillator-stc">Stochastic Oscillator (STC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#true-strength-index-tsi">True Strength Index (TSI)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#money-flow-index-mfi">Money Flow Index (MFI)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#william-r">William %R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#volatility-indicators">Volatility indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bollinger-bands">Bollinger Bands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#average-true-range">Average True Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#standard-deviation">Standard Deviation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-indicators">Volume indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chaikin-oscillator">Chaikin Oscillator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-balance-volume-obv">On-Balance Volume (OBV)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#volume-rate-of-change">Volume Rate of Change</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -234,6 +259,13 @@ technical indicators widely used in the market.</div>
 </div>
 <div class="section" id="chart-patterns">
 <h2>Chart patterns<a class="headerlink" href="#chart-patterns" title="Permalink to this headline">¶</a></h2>
+<div class="myownstyle admonition">
+<p class="admonition-title">Definition</p>
+<div class="line-block">
+<div class="line"><strong>Bullish signal</strong> means a signal to buy.</div>
+<div class="line"><strong>Bearish signal</strong> means a signal to sell.</div>
+</div>
+</div>
 <div class="section" id="line-chart">
 <h3>Line chart<a class="headerlink" href="#line-chart" title="Permalink to this headline">¶</a></h3>
 </div>
@@ -309,21 +341,202 @@ will be revealed more clearly in semi-logarithmic scale charts.</p>
 </div>
 <div class="section" id="technical-indicators">
 <h2>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this headline">¶</a></h2>
+<p>There are 2 categories of indicators:</p>
+<ul class="simple">
+<li><p><strong>Leading</strong> - They give trade signals when the trend is about to started, hence they use shorter
+periods in their calculations. Examples are MACD and RSI.</p></li>
+<li><p><strong>Lagging</strong> - They follow the price action, and thus gives a signal after a trend or a reversal
+started. Examples are Moving Averages and Bollinger Bands.</p></li>
+</ul>
 <div class="section" id="trend-indicators">
 <h3>Trend indicators<a class="headerlink" href="#trend-indicators" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Trend indicators measure the direction and strength of a trend, using
+some form of price averaging to establish a baseline.</div>
+</div>
+<div class="myownstyle admonition">
+<p class="admonition-title">Definition</p>
+<div class="line-block">
+<div class="line"><strong>Exponential Moving Average (EMA)</strong> (a.k.a. exponentially weighted moving average)
+is a type of moving average (MA) that places a greater weight and significance on the most recent data points.</div>
+</div>
+</div>
+<div class="section" id="moving-average-convergence-divergence-macd">
+<h4>Moving Average Convergence Divergence (MACD)<a class="headerlink" href="#moving-average-convergence-divergence-macd" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">They are used to reveal changes in strength, direction, momentum and
+duration of a trend in a stock’s price.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{MACD} = \text{12-Period EMA} − \text{26-Period EMA}\]</div>
+<p>One of the simplest strategy established with MACD, is to identify MACD <strong>crossovers</strong>. The rules are as follows.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: MACD rises above the signal line</p></li>
+<li><p><strong>Sell signal</strong>: MACD falls below the signal line</p></li>
+</ul>
+</div>
+<p>It is easy to calculate the EMA with pandas:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get adjusted close column</span>
+<span class="n">close</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+
+<span class="n">exp1</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">exp2</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;MACD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp1</span> <span class="o">-</span> <span class="n">exp2</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">span</span></code> specifies the time span, and <code class="code docutils literal notranslate"><span class="pre">adjust=False</span></code> means the
+exponentially weighted function is calculated recursively (as we do not need
+a decaying adjustment factor for beginning periods).</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{Signal Line} = \text{9-day EMA of MACD Line}\]</div>
+<p>To plot the signal line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Signal line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MACD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="moving-averages">
+<h4>Moving averages<a class="headerlink" href="#moving-averages" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">They are used to identify current trends and trend reversals, as well as
+to set up support and resistance levels.</div>
+</div>
+</div>
+<div class="section" id="parabolic-stop-and-reverse-parabolic-sar">
+<h4>Parabolic Stop and Reverse (Parabolic SAR)<a class="headerlink" href="#parabolic-stop-and-reverse-parabolic-sar" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">They are used to find potential reversals in the market price direction.</div>
+</div>
+</div>
 </div>
 <div class="section" id="momentum-indicators">
 <h3>Momentum indicators<a class="headerlink" href="#momentum-indicators" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="commodity-channel-index-cci">
+<h4>Commodity Channel Index (CCI)<a class="headerlink" href="#commodity-channel-index-cci" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">They help identify price reversals, price extremes, and trend strength.</div>
+</div>
+<div class="line-block">
+<div class="line">Developed by Donald Lambert, CCI is a momentum-based oscillator used to
+help determine when an investment vehicle is reaching a condition of
+being <strong>overbought or oversold</strong>. It is also used to assess price
+trend direction and strength. This information allows traders
+to determine if they want to enter or exit a trade, refrain
+from taking a trade, or add to an existing position.</div>
+</div>
+</div>
+<div class="section" id="relative-strength-index-rsi">
+<h4>Relative Strength Index (RSI)<a class="headerlink" href="#relative-strength-index-rsi" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">They measure recent trading strength, velocity of change in the trend,
+and magnitude of the move.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{RSI} = 100 - \frac{100}{(1 + \text{RS})} \\ \\
+\text{RS} = \frac{\text{Average Gain}}{\text{Average Loss}} \\\end{split}\]</div>
+<p>where <strong>Average Gain</strong> and <strong>Average Loss</strong> are calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\text{First Average Gain} = \frac{\text{Sum of gains over the past 14 periods}}{14} \\ \\
+\text{First Average Loss} = \frac{\text{Sum of losses over the past 14 periods}}{14} \\ \\\end{split}\\\begin{split}\text{Average Gain} = \frac{\text{Previous average gain} \times 13 + \text{Current gain}}{14} \\ \\
+\text{Average Loss} = \frac{[\text{Previous average loss} \times 13 + \text{Current loss}}{14} \\ \\\end{split}\end{aligned}\end{align} \]</div>
+<div class="line-block">
+<div class="line">Note that the first calculations are just simple 14-period averages. Subsequent averages
+take the prior value plus the current value to compute the average. This is a smoothing technique
+similar to that used in calculating an exponential moving average. Thus, the RSI values become
+more accurate as the calculation period extends.</div>
+</div>
+<p>In the dataset, we need to extract gains and losses from the price column respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get adjusted close column</span>
+<span class="n">close</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+
+<span class="c1"># Get the difference in price from previous step</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="c1"># Get rid of the first row</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="c1"># Make the positive gains (up) and negative gains (down) series</span>
+<span class="n">up</span><span class="p">,</span> <span class="n">down</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">delta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">up</span><span class="p">[</span><span class="n">up</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">down</span><span class="p">[</span><span class="n">down</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>To calculate RS, as well as RSI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate SMA using &#39;rolling&#39; function</span>
+<span class="n">roll_up</span> <span class="o">=</span> <span class="n">up</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window_size</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">roll_down</span> <span class="o">=</span> <span class="n">down</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window_size</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Calculate RSI based on SMA</span>
+<span class="n">RS</span> <span class="o">=</span> <span class="n">roll_up</span> <span class="o">/</span> <span class="n">roll_down</span>
+<span class="n">RSI</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">-</span> <span class="p">(</span><span class="mf">100.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">RS</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The output of the RSI is a number on a scale <strong>from 0 to 100</strong> and it is
+typically calculated on a 14-day basis. To generate the trading signals,
+it is common to <strong>specify the low and high levels of the RSI</strong> (e.g. at 30 and 70 respectively).
+The interpretation of the thresholds is that the lower one
+indicates that the asset is oversold, and the upper one that the asset is
+overbought.</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Oversold</strong>: when RSI crosses the lower threshold (e.g. 30).</p></li>
+<li><p><strong>Overbought</strong>: when RSI crosses the upper threshold (e.g. 70).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rate-of-change-roc">
+<h4>Rate of Change (ROC)<a class="headerlink" href="#rate-of-change-roc" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="stochastic-oscillator-stc">
+<h4>Stochastic Oscillator (STC)<a class="headerlink" href="#stochastic-oscillator-stc" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="true-strength-index-tsi">
+<h4>True Strength Index (TSI)<a class="headerlink" href="#true-strength-index-tsi" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="money-flow-index-mfi">
+<h4>Money Flow Index (MFI)<a class="headerlink" href="#money-flow-index-mfi" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="william-r">
+<h4>William %R<a class="headerlink" href="#william-r" title="Permalink to this headline">¶</a></h4>
+</div>
 </div>
 <div class="section" id="volatility-indicators">
 <h3>Volatility indicators<a class="headerlink" href="#volatility-indicators" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">These indicators measure the rate of price movement, regardless of direction.
+Generally, they are based on a change in the highest and lowest historical prices.
+They provide useful information about the range of buying and selling that takes
+place in a given market, and help traders determine points where the market may change direction.</div>
+</div>
+<div class="section" id="bollinger-bands">
+<h4>Bollinger Bands<a class="headerlink" href="#bollinger-bands" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="average-true-range">
+<h4>Average True Range<a class="headerlink" href="#average-true-range" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="standard-deviation">
+<h4>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h4>
+</div>
 </div>
 <div class="section" id="volume-indicators">
 <h3>Volume indicators<a class="headerlink" href="#volume-indicators" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="chaikin-oscillator">
+<h4>Chaikin Oscillator<a class="headerlink" href="#chaikin-oscillator" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="on-balance-volume-obv">
+<h4>On-Balance Volume (OBV)<a class="headerlink" href="#on-balance-volume-obv" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="volume-rate-of-change">
+<h4>Volume Rate of Change<a class="headerlink" href="#volume-rate-of-change" title="Permalink to this headline">¶</a></h4>
 <p><strong>References</strong></p>
 <ul class="simple">
-<li><p>Murphy, J. J. (1991). Technical analysis of the futures markets: A comprehensive guide to trading methods and applications. New York: New York Institute of Finance.</p></li>
-<li><p><a class="reference external" href="https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/technical-analysis/">CFI - Technical Analysis: A Beginner’s Guide</a> # to delete</p></li>
+<li><p><a class="reference external" href="https://www.investopedia.com">Investopedia</a></p></li>
+<li><p><a class="reference external" href="https://school.stockcharts.com">StockCharts</a></p></li>
 </ul>
 <p><strong>Image sources</strong></p>
 <dl class="footnote brackets">
@@ -337,6 +550,7 @@ will be revealed more clearly in semi-logarithmic scale charts.</p>
 <div class="line">All investments entail inherent risk. This repository seeks to solely educate
 people on methodologies to build and evaluate algorithmic trading strategies.
 All final investment decisions are yours and as a result you could make or lose money.</div>
+</div>
 </div>
 </div>
 </div>
