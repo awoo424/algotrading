@@ -737,8 +737,9 @@ and decreasing values indicate waning momentum.</div>
 <div class="line">Stochastic Oscillators (STC) are used to predict price turning points by comparing the closing price to its price range.</div>
 </div>
 <div class="math notranslate nohighlight">
-\[\begin{split}\text{%K} = \frac{\text{Current Close} - \text{Lowest Low})}{\text{Highest High} - \text{Lowest Low}} \times 100 \\
-\text{%D} = \text{3-day SMA of %K}\end{split}\]</div>
+\[\begin{split}\text{%K} &amp;= \frac{\text{Current Close} - \text{Lowest Low})}{\text{Highest High} - \text{Lowest Low}} \times 100 \\
+\\
+\text{%D} &amp;= \text{3-day SMA of %K}\end{split}\]</div>
 <div class="line-block">
 <div class="line">where:</div>
 </div>
@@ -796,12 +797,136 @@ and decreasing values indicate waning momentum.</div>
 </div>
 <div class="section" id="true-strength-index-tsi">
 <h4>True Strength Index (TSI)<a class="headerlink" href="#true-strength-index-tsi" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The True Strength Index (TSI) is a momentum oscillator based on a double smoothing of price changes.
+By smoothing price changes, it captures the ebbs and flows of price action with a steadier line that
+tries to filter out noises.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{TSI} = \frac{\text{Double Smoothed PC}}{\text{Double Smoothed Absolute PC}} \times 100\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<p><strong>(i) Double Smoothed Price Change (PC)</strong></p>
+<ul class="simple">
+<li><p>PC = Current Price - Prior Price</p></li>
+<li><p>First Smoothing = 25-period EMA of PC</p></li>
+<li><p>Second Smoothing = 13-period EMA of 25-period EMA of PC</p></li>
+</ul>
+<p><strong>(ii) Double Smoothed Absolute Price Change (PC)</strong></p>
+<ul class="simple">
+<li><p>Absolute Price Change | PC | = Absolute Value of Current Price minus Prior Price</p></li>
+<li><p>First Smoothing = 25-period EMA of | PC |</p></li>
+<li><p>Second Smoothing = 13-period EMA of 25-period EMA of | PC |</p></li>
+</ul>
+<p>Based on the above formulae, the code is shown as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed PC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span>
+                                <span class="n">span</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed Abs PC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span>
+                                    <span class="n">span</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;TSI&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed PC&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed Abs PC&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>In order to interpret the TSI, we could define a signal line:</p>
+<div class="math notranslate nohighlight">
+\[\text{Signal line} = \text{10-period EMA of TSI}\]</div>
+<p>And we could observe signal line crossovers:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: when TSI crosses above the signal line from below</p></li>
+<li><p><strong>Sell signal</strong>: when TSI crosses below the signal line from above</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="money-flow-index-mfi">
 <h4>Money Flow Index (MFI)<a class="headerlink" href="#money-flow-index-mfi" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The Money Flow Index (MFI) is an oscillator that generates overbought or
+oversold signals using both prices and volume data.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Money Flow Index} &amp;= 100 - \frac{100}{(1 + \text{Money Flow Ratio})} \\
+\\
+\text{Raw Money Flow} &amp;= \text{Typical Price} \times \text{Volume} \\
+\\
+\text{Typical Price} &amp;= \frac{(\text{High} + \text{Low} + \text{Close})}{3} \\
+\\
+\text{Money Flow Ratio} &amp;= \frac{\text{14-period Positive Money Flow}}{\text{14-period Negative Money Flow}} \\\end{split}\]</div>
+<p>It is pretty straightforward to calculate typical price:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical price</span>
+<span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mf">3.0</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">With regards to the positive and negative money flows, we will first want to compute the raw money flow,
+then label which of them belong to positive / negative respectively:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># positive = 1, negative = -1</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sign&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tp</span> <span class="o">&gt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tp</span> <span class="o">&lt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="c1"># Raw money flow</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Money flow&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sign&#39;</span><span class="p">]</span>
+
+<span class="c1"># Positive money flow with n periods</span>
+<span class="n">n_positive_mf</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Money flow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span>
+                <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Negative money flow with n periods</span>
+<span class="n">n_negative_mf</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Money flow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span>
+                <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>With the money flows, it would be easy to compute the MFI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mf_ratio</span> <span class="o">=</span> <span class="n">n_positive_mf</span> <span class="o">/</span> <span class="n">n_negative_mf</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="mi">100</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mf_ratio</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>By way of example, we could use MFI to identify overbought and oversold conditions:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Oversold</strong>: when MFI crosses the upper threshold</p></li>
+<li><p><strong>Overbought</strong>: when MFI crosses the lower threshold</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="william-r">
 <h4>William %R<a class="headerlink" href="#william-r" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">William %R reflects the level of the close relative to the highest high for the look-back period.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{%R} = \frac{\text{Highest High} - \text{Close}}{\text{Highest High} - \text{Lowest Low}} \times -100\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<ul class="simple">
+<li><p>Lowest Low = lowest low for the look-back period</p></li>
+<li><p>Highest High = highest high for the look-back period</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Note that in the formula, %R is multiplied by -100 to correct the inversion and move the decimal.
+The default setting for the lookback period is 14, which can be days, weeks, months or an intraday timeframe.</div>
+</div>
+<p>The code for implementing %R is shown as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lbp</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># set lookback period</span>
+
+<span class="n">hh</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">lbp</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>  <span class="c1"># highest high over lookback period</span>
+<span class="n">ll</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">lbp</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># lowest low over lookback period</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;%R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">hh</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">hh</span> <span class="o">-</span> <span class="n">ll</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, we could use %R to identify overbought and oversold conditions:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Oversold</strong>: when %R goes below -80</p></li>
+<li><p><strong>Overbought</strong>: when %R goes above -20</p></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section" id="volatility-indicators">
@@ -814,12 +939,118 @@ place in a given market, and help traders determine points where the market may 
 </div>
 <div class="section" id="bollinger-bands">
 <h4>Bollinger Bands<a class="headerlink" href="#bollinger-bands" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The Bollinger Bands indicator is used to measure the “highness” or “lowness” of the price,
+relative to previous trades.</div>
+</div>
+<div class="line-block">
+<div class="line">The Bollinger Bands consist of a middle band with two outer bands:</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Middle Band} &amp;= \text{20-day simple moving average (SMA)} \\
+\text{Upper Band} &amp;= \text{20-day SMA} + (\text{20-day standard deviation of price} \times 2) \\
+\text{Lower Band} &amp;= \text{20-day SMA} - (\text{20-day standard deviation of price} \times 2)\end{split}\]</div>
+<div class="line-block">
+<div class="line">We could first compute the middle band and the 20-day standard deviation:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># Compute middle band</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Middle band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Compute 20-day s.d.</span>
+<span class="n">mstd</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Then we could get the outer bands:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computer upper and lower bands</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Upper band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Middle band&#39;</span><span class="p">]</span>  <span class="o">+</span> <span class="n">mstd</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lower band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Middle band&#39;</span><span class="p">]</span>  <span class="o">-</span> <span class="n">mstd</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The signals could be derived from observing the below conditions:</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: when price goes below lower band</p></li>
+<li><p><strong>Sell signal</strong>: when price goes above upper band</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="average-true-range">
 <h4>Average True Range<a class="headerlink" href="#average-true-range" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">Average True Range (ATR) is an indicator that tries to measure the degree of price volatility.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{Current ATR} = \frac{(Prior ATR \times 13) + Current TR}{n}\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<ul class="simple">
+<li><p>1st True Range (TR) value = High - Low</p></li>
+<li><p>1st n-day ATR = average of the daily TR values for the last n days</p></li>
+</ul>
+<div class="line-block">
+<div class="line">The True Range could be computed by:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array_high</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
+<span class="n">array_low</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span>
+
+<span class="n">tr</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># initialisation</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+    <span class="n">tr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">We would first calculate the first n-day ATR:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atr</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># initialisation</span>
+<span class="n">window</span> <span class="o">=</span> <span class="mi">14</span>
+
+<span class="n">atr</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">])</span> <span class="o">/</span> <span class="n">window</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Then for the following ATRs:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
+    <span class="n">atr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">atr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">window</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">window</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">We could determine whether the stock is <strong>highly volatile</strong> by checking the following conditions:</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{50-day EMA} &amp;&gt; \text{200-day EMA} \\
+\\
+&amp;\textbf{AND} \\
+\\
+\frac{\text{250-day ATR}}{\text{20-day SMA}} &amp;\times 100 &lt; 4\end{split}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We could use ATR to filter out stocks that are <strong>highly volatile</strong>.</p>
+</div>
 </div>
 <div class="section" id="standard-deviation">
 <h4>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">Standard Deviation measures expected risk and determines the significance of certain price movements.</div>
+</div>
+<p>As an example, we could set <code class="code docutils literal notranslate"><span class="pre">window=21</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;SD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We could use Standard Deviation to measure the <strong>expected risk</strong> of stocks.</p>
+</div>
 </div>
 </div>
 <div class="section" id="volume-indicators">

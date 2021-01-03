@@ -542,8 +542,9 @@ Stochastic Oscillator (STC)
 
 .. math::
 
-  \text{%K} = \frac{\text{Current Close} - \text{Lowest Low})}{\text{Highest High} - \text{Lowest Low}} \times 100 \\
-  \text{%D} = \text{3-day SMA of %K}
+  \text{%K} &= \frac{\text{Current Close} - \text{Lowest Low})}{\text{Highest High} - \text{Lowest Low}} \times 100 \\ 
+  \\
+  \text{%D} &= \text{3-day SMA of %K}
 
 | where:
 
@@ -598,14 +599,146 @@ Note that in the formula %K is multiplied by 100 so as to move the decimal point
 True Strength Index (TSI)
 """"""""""""""""""""""""""""
 
+| The True Strength Index (TSI) is a momentum oscillator based on a double smoothing of price changes. 
+  By smoothing price changes, it captures the ebbs and flows of price action with a steadier line that 
+  tries to filter out noises.
+
+.. math::
+
+  \text{TSI} = \frac{\text{Double Smoothed PC}}{\text{Double Smoothed Absolute PC}} \times 100
+
+| where:
+
+**(i) Double Smoothed Price Change (PC)**
+
+* PC = Current Price - Prior Price
+* First Smoothing = 25-period EMA of PC
+* Second Smoothing = 13-period EMA of 25-period EMA of PC
+
+**(ii) Double Smoothed Absolute Price Change (PC)**
+
+* Absolute Price Change | PC | = Absolute Value of Current Price minus Prior Price
+* First Smoothing = 25-period EMA of | PC |
+* Second Smoothing = 13-period EMA of 25-period EMA of | PC |
+
+Based on the above formulae, the code is shown as follow:
+
+:: 
+
+  df['Double Smoothed PC'] = pc.ewm(span=25, adjust=False).mean().ewm(
+                                  span=13, adjust=False).mean()
+
+  df['Double Smoothed Abs PC'] = abs(pc).ewm(span=25, adjust=False).mean().ewm(
+                                      span=13, adjust=False).mean()
+
+  df['TSI'] =  df['Double Smoothed PC'] / df['Double Smoothed Abs PC'] * 100
+
+
+In order to interpret the TSI, we could define a signal line:
+
+.. math::
+  
+    \text{Signal line} = \text{10-period EMA of TSI}
+
+And we could observe signal line crossovers:
+
+.. tip:: 
+    * **Buy signal**: when TSI crosses above the signal line from below
+    * **Sell signal**: when TSI crosses below the signal line from above
+
 
 
 Money Flow Index (MFI)
 """"""""""""""""""""""""""""""
 
+| The Money Flow Index (MFI) is an oscillator that generates overbought or 
+  oversold signals using both prices and volume data.
+
+
+.. math::
+
+  \text{Money Flow Index} &= 100 - \frac{100}{(1 + \text{Money Flow Ratio})} \\
+  \\
+  \text{Raw Money Flow} &= \text{Typical Price} \times \text{Volume} \\
+  \\
+  \text{Typical Price} &= \frac{(\text{High} + \text{Low} + \text{Close})}{3} \\
+  \\
+  \text{Money Flow Ratio} &= \frac{\text{14-period Positive Money Flow}}{\text{14-period Negative Money Flow}} \\
+
+It is pretty straightforward to calculate typical price:
+
+::
+
+  # Typical price
+  tp = (df['High'] + df['Low'] + df['Close']) / 3.0
+
+
+| With regards to the positive and negative money flows, we will first want to compute the raw money flow,
+  then label which of them belong to positive / negative respectively:
+
+::
+
+  # positive = 1, negative = -1
+  self.df['Sign'] = np.where(tp > tp.shift(1), 1, np.where(tp < tp.shift(1), -1, 0))
+
+  # Raw money flow
+  df['Money flow'] = tp * df['Volume'] * df['Sign']
+
+  # Positive money flow with n periods
+  n_positive_mf = df['Money flow'].rolling(n).apply
+                  (lambda x: np.sum(np.where(x >= 0.0, x, 0.0)), raw=True)
+  
+  # Negative money flow with n periods
+  n_negative_mf = abs(df['Money flow'].rolling(self.n).apply
+                  (lambda x: np.sum(np.where(x < 0.0, x, 0.0)), raw=True))
+
+With the money flows, it would be easy to compute the MFI:
+
+::
+
+  mf_ratio = n_positive_mf / n_negative_mf
+  df['MFI'] = (100 - (100 / (1 + mf_ratio)))
+
+
+By way of example, we could use MFI to identify overbought and oversold conditions:
+
+.. tip:: 
+    * **Oversold**: when MFI crosses the upper threshold
+    * **Overbought**: when MFI crosses the lower threshold
+
+
 William %R
 """"""""""""""""""""""""""""""
 
+| William %R reflects the level of the close relative to the highest high for the look-back period.
+
+.. math::
+
+  \text{%R} = \frac{\text{Highest High} - \text{Close}}{\text{Highest High} - \text{Lowest Low}} \times -100
+
+| where:
+
+* Lowest Low = lowest low for the look-back period
+* Highest High = highest high for the look-back period
+
+| Note that in the formula, %R is multiplied by -100 to correct the inversion and move the decimal. 
+  The default setting for the lookback period is 14, which can be days, weeks, months or an intraday timeframe.
+
+The code for implementing %R is shown as follows:
+
+:: 
+
+  lbp = 14 # set lookback period
+  
+  hh = df['High'].rolling(lbp).max()  # highest high over lookback period
+  ll = df['Low'].rolling(lbp).min()  # lowest low over lookback period
+  df['%R'] = -100 * (hh - df['Close']) / (hh - ll)
+
+Similarly, we could use %R to identify overbought and oversold conditions:
+
+.. tip:: 
+    * **Oversold**: when %R goes below -80
+    * **Overbought**: when %R goes above -20
 
 
 Volatility indicators
@@ -619,12 +752,115 @@ Volatility indicators
 Bollinger Bands
 """"""""""""""""""""""""""""""
 
+| The Bollinger Bands indicator is used to measure the “highness” or “lowness” of the price, 
+  relative to previous trades.
+
+| The Bollinger Bands consist of a middle band with two outer bands:
+
+.. math::
+
+    \text{Middle Band} &= \text{20-day simple moving average (SMA)} \\
+    \text{Upper Band} &= \text{20-day SMA} + (\text{20-day standard deviation of price} \times 2) \\
+    \text{Lower Band} &= \text{20-day SMA} - (\text{20-day standard deviation of price} \times 2)
+
+
+| We could first compute the middle band and the 20-day standard deviation:
+
+::
+
+  window = 20
+
+  # Compute middle band
+  df['Middle band'] = self.df['Close'].rolling(window).mean()
+
+  # Compute 20-day s.d.
+  mstd = df['Close'].rolling(window).std(ddof=0)
+
+| Then we could get the outer bands:
+
+::
+
+  # Computer upper and lower bands
+  df['Upper band'] = df['Middle band']  + mstd * 2
+  df['Lower band'] = df['Middle band']  - mstd * 2
+
+
+| The signals could be derived from observing the below conditions:
+
+.. tip:: 
+    * **Buy signal**: when price goes below lower band
+    * **Sell signal**: when price goes above upper band
+
+
 Average True Range
 """"""""""""""""""""""""""""""
+
+| Average True Range (ATR) is an indicator that tries to measure the degree of price volatility.
+
+.. math::
+
+  \text{Current ATR} = \frac{(Prior ATR \times 13) + Current TR}{n}
+
+| where:
+
+* 1st True Range (TR) value = High - Low
+* 1st n-day ATR = average of the daily TR values for the last n days
+
+| The True Range could be computed by:
+
+::
+
+  array_high = list(df['High'])
+  array_low = list(df['Low'])
+
+  tr = [None] * len(df) # initialisation
+
+  for i in range(len(df)):
+      tr[i] = array_high[i] - array_low[i]
+
+| We would first calculate the first n-day ATR:
+
+::
+
+    atr = [None] * len(self.df) # initialisation
+    window = 14
+
+    atr[15] = sum(tr[0:15]) / window
+    
+| Then for the following ATRs:
+
+::
+
+  for i in range(16,len(self.df)):
+      atr[i] = (atr[i-1] * (window-1) + tr[i]) / window
+
+| We could determine whether the stock is **highly volatile** by checking the following conditions:
+
+.. math::
+    \text{50-day EMA} &> \text{200-day EMA} \\
+    \\
+    &\textbf{AND} \\
+    \\
+    \frac{\text{250-day ATR}}{\text{20-day SMA}} &\times 100 < 4
+
+.. tip:: 
+  We could use ATR to filter out stocks that are **highly volatile**.
+
 
 Standard Deviation
 """"""""""""""""""""""""""""""
 
+| Standard Deviation measures expected risk and determines the significance of certain price movements.
+
+As an example, we could set :code:`window=21`:
+
+::
+
+  window = 21
+  df['SD'] = df['Close'].rolling(window).std(ddof=0)
+
+.. tip:: 
+  We could use Standard Deviation to measure the **expected risk** of stocks.
 
 Volume indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
