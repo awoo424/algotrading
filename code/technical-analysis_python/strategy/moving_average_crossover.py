@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 """
 Moving Average Crossover
 -
-(TO-WRITE)
+Buy when short-term moving average > long-term moving average,
+sell when short-term moving average < long-term moving average.
 """
 class MovingAverageCrossover(Indicator):
     def __init__(self, df, short_window=40, long_window=100):

@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 """
 Rate of Change (ROC)
 -
-Buy when RSI crosses the lower threshold (-30), (oversold)
+Buy when ROC crosses the lower threshold (-30), (oversold)
 sell when ROC crosses the upper threshold (+30). (overbought)
 """
 class roc(Indicator):

@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#technical-indicators">Technical indicators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#trend-indicators">Trend indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#moving-average-convergence-divergence-macd">Moving Average Convergence Divergence (MACD)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#moving-averages">Moving averages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moving-averages-ma">Moving Averages (MA)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parabolic-stop-and-reverse-parabolic-sar">Parabolic Stop and Reverse (Parabolic SAR)</a></li>
 </ul>
 </li>
@@ -364,7 +364,7 @@ is a type of moving average (MA) that places a greater weight and significance o
 <div class="section" id="moving-average-convergence-divergence-macd">
 <h4>Moving Average Convergence Divergence (MACD)<a class="headerlink" href="#moving-average-convergence-divergence-macd" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line">They are used to reveal changes in strength, direction, momentum and
+<div class="line">The Moving Average Convergence Divergence (MACD) indicator is used to reveal changes in strength, direction, momentum and
 duration of a trend in a stock’s price.</div>
 </div>
 <div class="math notranslate nohighlight">
@@ -398,26 +398,184 @@ a decaying adjustment factor for beginning periods).</div>
 </pre></div>
 </div>
 </div>
-<div class="section" id="moving-averages">
-<h4>Moving averages<a class="headerlink" href="#moving-averages" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="moving-averages-ma">
+<h4>Moving Averages (MA)<a class="headerlink" href="#moving-averages-ma" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line">They are used to identify current trends and trend reversals, as well as
+<div class="line">Moving Averages (MA) are used to identify current trends and trend reversals, as well as
 to set up support and resistance levels.</div>
+</div>
+<p>We could estalish a simple trading strategy making use of two moving averages:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: shorter-term MA crosses above the longer-term MA <strong>(golden cross)</strong></p></li>
+<li><p><strong>Sell signal</strong>: shorter-term MA crosses below the longer-term MA <strong>(dead/death cross)</strong></p></li>
+</ul>
+</div>
+<p>Here is an example of how to plotting the two MAs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create short simple moving average over the short window</span>
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;short_mavg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">short_window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Create long simple moving average over the long window</span>
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;long_mavg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">long_window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">We could define the <code class="code docutils literal notranslate"><span class="pre">short_window</span></code> and <code class="code docutils literal notranslate"><span class="pre">long_window</span></code> on our own, for example as setting
+<code class="code docutils literal notranslate"><span class="pre">short_window</span> <span class="pre">=</span> <span class="pre">40</span></code> and <code class="code docutils literal notranslate"><span class="pre">long_window</span> <span class="pre">=</span> <span class="pre">40</span></code>.</div>
+</div>
+<p>And then we could generate signals based on the two line plots:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate signals</span>
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">][</span><span class="n">short_window</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;short_mavg&#39;</span><span class="p">][</span><span class="n">short_window</span><span class="p">:]</span>
+                                            <span class="o">&gt;</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;long_mavg&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">short_window</span><span class="p">:],</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;positions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="parabolic-stop-and-reverse-parabolic-sar">
 <h4>Parabolic Stop and Reverse (Parabolic SAR)<a class="headerlink" href="#parabolic-stop-and-reverse-parabolic-sar" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line">They are used to find potential reversals in the market price direction.</div>
+<div class="line">The Parabolic Stop and Reverse (Parabolic SAR) indicator used to find potential reversals in the market price direction.</div>
+</div>
+<div class="line-block">
+<div class="line">We need to calculate the <strong>rising SAR</strong> and <strong>falling SAR</strong> respectively:</div>
+</div>
+<p><strong>(i) Rising SAR (Uptrend)</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Current SAR} = \text{Prior SAR} + \text{Prior AF} \times (\text{Prior EP} - \text{Prior SAR})\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<ul class="simple">
+<li><p><strong>Prior SAR</strong>: The SAR value for previous period.</p></li>
+<li><p><strong>Extreme Point (EP)</strong>: The highest high of the current uptrend.</p></li>
+<li><p><strong>Acceleration Factor (AF)</strong>: Starting at 0.02, increases by 0.02 each time the extreme point makes a new high.
+AF can only reach a maximum of 0.2, no matter how long the uptrend extends.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Note that for rising SAR, the SAR can never be above the prior two periods’ lows.
+Should SAR be above one of those lows, use the lowest of the two for SAR.</div>
+</div>
+<p><strong>(ii) Falling SAR (Downtrend)</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Current SAR} = \text{Prior SAR} + \text{Prior AF} \times (\text{Prior EP} - \text{Prior SAR})\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<ul class="simple">
+<li><p><strong>Prior SAR:</strong> The SAR value for previous period.</p></li>
+<li><p><strong>Extreme Point (EP):</strong> The lowest low of the current downtrend.</p></li>
+<li><p><strong>Acceleration Factor (AF):</strong> Starting at 0.02, increases by 0.02 each time the extreme point
+makes a new low. AF can only reach a maximum of 0.2, no matter how long the downtrend extends.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Note that for falling SAR, the SAR can never be below the prior two periods’ highs.
+Should SAR be below one of those highs, use the highest of the two for SAR.</div>
+</div>
+<p>We generate signals based on the rising and falling SARs.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: if falling SAR goes below the price</p></li>
+<li><p><strong>Sell signal</strong>: if rising SAR goes above the price</p></li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line">In the code, we first need to extract the high / low / closing prices column from the dataframe,
+and initialise the arrays for storing the rising SAR and falling SAR:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array_high</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
+<span class="n">array_low</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span>
+<span class="n">array_close</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+
+<span class="n">psar</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">psarbull</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">psarbear</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">bull</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># flag to indicate saving value for rising SAR</span>
+<span class="n">af</span> <span class="o">=</span> <span class="n">initial_af</span> <span class="c1"># initialise acceleration factor</span>
+<span class="n">max_af</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">ep</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># extreme price</span>
+<span class="n">hp</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># extreme high</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># extreme low</span>
+</pre></div>
+</div>
+<p>Then, traversing each row in the dataframe, we could calculate rising SAR and falling SAR at the same time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
+  <span class="k">if</span> <span class="n">bull</span><span class="p">:</span>
+      <span class="c1"># Rising SAR</span>
+      <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">af</span> <span class="o">*</span> <span class="p">(</span><span class="n">hp</span> <span class="o">-</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># Falling SAR</span>
+      <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">af</span> <span class="o">*</span> <span class="p">(</span><span class="n">lp</span> <span class="o">-</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">reverse</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Check reversion point</span>
+    <span class="k">if</span> <span class="n">bull</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">bull</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span>
+            <span class="n">lp</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">af</span> <span class="o">=</span> <span class="n">initial_af</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">bull</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lp</span>
+            <span class="n">hp</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">af</span> <span class="o">=</span> <span class="n">initial_af</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">reverse</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">bull</span><span class="p">:</span>
+            <span class="c1"># Extreme high makes a new high</span>
+            <span class="k">if</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">hp</span><span class="p">:</span>
+                <span class="n">hp</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">af</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">af</span> <span class="o">+</span> <span class="n">initial_af</span><span class="p">,</span> <span class="n">max_af</span><span class="p">)</span>
+
+            <span class="c1"># Check if SAR goes abov prior two periods&#39; lows.</span>
+            <span class="c1"># If so, use the lowest of the two for SAR.</span>
+            <span class="k">if</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Extreme low makes a new low</span>
+            <span class="k">if</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lp</span><span class="p">:</span>
+                <span class="n">lp</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">af</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">af</span> <span class="o">+</span> <span class="n">initial_af</span><span class="p">,</span> <span class="n">max_af</span><span class="p">)</span>
+
+            <span class="c1"># Check if SAR goes below prior two periods&#39; highs.</span>
+            <span class="c1"># If so, use the highest of the two for SAR.</span>
+            <span class="k">if</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># Save rising SAR</span>
+    <span class="k">if</span> <span class="n">bull</span><span class="p">:</span>
+        <span class="n">psarbull</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1"># Save falling SAR</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">psarbear</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="momentum-indicators">
 <h3>Momentum indicators<a class="headerlink" href="#momentum-indicators" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Momentum indicators help identify the speed of price movement by comparing prices
+over time. Typically when there is a divergence between price and a momentum indicator,
+it can signal a change in future prices.</div>
+</div>
 <div class="section" id="commodity-channel-index-cci">
 <h4>Commodity Channel Index (CCI)<a class="headerlink" href="#commodity-channel-index-cci" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line">They help identify price reversals, price extremes, and trend strength.</div>
+<div class="line">The Commodity Channel Index (CCI) helps identify price reversals, price extremes, and trend strength.</div>
 </div>
 <div class="line-block">
 <div class="line">Developed by Donald Lambert, CCI is a momentum-based oscillator used to
@@ -427,11 +585,60 @@ trend direction and strength. This information allows traders
 to determine if they want to enter or exit a trade, refrain
 from taking a trade, or add to an existing position.</div>
 </div>
+<p>The formula for calculating CCI is given as follow.</p>
+<div class="math notranslate nohighlight">
+\[\text{CCI} = \frac{(\text{Typical Price} - \text{x-period SMA of TP})}{(\text{Constant} \times \text{Mean Deviation})}\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<ul class="simple">
+<li><p>Typical Price (TP) = (High + Low + Close) / 3</p></li>
+<li><p>Constant = 0.015</p></li>
+<li><p>x = Window size (default set as 20)</p></li>
+<li><p>SMA: Simple Moving Average</p></li>
+</ul>
+<div class="line-block">
+<div class="line">We could first compute the the subcomponents of CCI:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;SMA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
+                 <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;mean_deviation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
+                            <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Then calculate CCI using the formula:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;CCI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;SMA&#39;</span><span class="p">])</span> <span class="o">/</span>
+                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">*</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;mean_deviation&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>A simple strategy formulated by using CCI is (the thresholds only serve as examples:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: when CCI surges above +100</p></li>
+<li><p><strong>Sell signal</strong>: when CCI plunges below -100</p></li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line">To implement this rule in code:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate buy signal</span>
+<span class="n">signals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;CCI&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;signal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Generate sell signal</span>
+<span class="n">signals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;CCI&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;signal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="relative-strength-index-rsi">
 <h4>Relative Strength Index (RSI)<a class="headerlink" href="#relative-strength-index-rsi" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line">They measure recent trading strength, velocity of change in the trend,
+<div class="line">The Relative Strength Index (RSI) measures recent trading strength, velocity of change in the trend,
 and magnitude of the move.</div>
 </div>
 <div class="math notranslate nohighlight">
@@ -441,7 +648,7 @@ and magnitude of the move.</div>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}\begin{split}\text{First Average Gain} = \frac{\text{Sum of gains over the past 14 periods}}{14} \\ \\
 \text{First Average Loss} = \frac{\text{Sum of losses over the past 14 periods}}{14} \\ \\\end{split}\\\begin{split}\text{Average Gain} = \frac{\text{Previous average gain} \times 13 + \text{Current gain}}{14} \\ \\
-\text{Average Loss} = \frac{[\text{Previous average loss} \times 13 + \text{Current loss}}{14} \\ \\\end{split}\end{aligned}\end{align} \]</div>
+\text{Average Loss} = \frac{\text{Previous average loss} \times 13 + \text{Current loss}}{14} \\ \\\end{split}\end{aligned}\end{align} \]</div>
 <div class="line-block">
 <div class="line">Note that the first calculations are just simple 14-period averages. Subsequent averages
 take the prior value plus the current value to compute the average. This is a smoothing technique
@@ -484,16 +691,108 @@ overbought.</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
-<li><p><strong>Oversold</strong>: when RSI crosses the lower threshold (e.g. 30).</p></li>
-<li><p><strong>Overbought</strong>: when RSI crosses the upper threshold (e.g. 70).</p></li>
+<li><p><strong>Oversold</strong>: when RSI crosses the lower threshold (e.g. 30)</p></li>
+<li><p><strong>Overbought</strong>: when RSI crosses the upper threshold (e.g. 70)</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="rate-of-change-roc">
 <h4>Rate of Change (ROC)<a class="headerlink" href="#rate-of-change-roc" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The Rate of Change (ROC) measures the strength of price momentum.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Positive values</strong> of the ROC indicates upward buying pressure or momentum, while
+<strong>negative values</strong> below zero indicate selling pressure or downward momentum.
+Increasing values in either direction, positive or negative, indicate increasing momentum,
+and decreasing values indicate waning momentum.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{ROC} =
+\frac{(\text{Closing price} - \text{Closing price n periods ago})}{(\text{Closing price n periods ago})} \times 100\]</div>
+<p>As you could see from above, it’s just the simple percentage change formula.</p>
+<p>We could identify overbought and oversold conditions using ROC:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Oversold</strong>: when ROC crosses the lower threshold (e.g. -30)</p></li>
+<li><p><strong>Overbought</strong>: when ROC crosses the upper threshold (e.g. +30)</p></li>
+</ul>
+</div>
+<p>And here is one of the possible ways to calculate ROC:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># set time period</span>
+
+<span class="n">diff</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Calculate closing price n periods ago</span>
+<span class="n">closing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ROC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">diff</span> <span class="o">/</span> <span class="n">closing</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="stochastic-oscillator-stc">
 <h4>Stochastic Oscillator (STC)<a class="headerlink" href="#stochastic-oscillator-stc" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">Stochastic Oscillators (STC) are used to predict price turning points by comparing the closing price to its price range.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{%K} = \frac{\text{Current Close} - \text{Lowest Low})}{\text{Highest High} - \text{Lowest Low}} \times 100 \\
+\text{%D} = \text{3-day SMA of %K}\end{split}\]</div>
+<div class="line-block">
+<div class="line">where:</div>
+</div>
+<ul class="simple">
+<li><p>Lowest Low = lowest low for the look-back period</p></li>
+<li><p>Highest High = highest high for the look-back period</p></li>
+</ul>
+<p>Note that in the formula %K is multiplied by 100 so as to move the decimal point by two places.</p>
+<div class="line-block">
+<div class="line">We could traverse the dataframe and store all highests highs, lowest lows in two separate arrays:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array_highest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span> <span class="c1"># store highest highs</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="n">highest</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">13</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># k-day lookback period</span>
+        <span class="k">if</span> <span class="n">array_high</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">highest</span><span class="p">:</span>
+            <span class="n">highest</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">array_highest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">highest</span>
+
+<span class="n">array_lowest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span> <span class="c1"># store lowest lows</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="n">lowest</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">13</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># k-day lookback period</span>
+        <span class="k">if</span> <span class="n">array_low</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lowest</span><span class="p">:</span>
+            <span class="n">lowest</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">array_lowest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lowest</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Then, we can calculate %K and %D:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># find %K line values</span>
+<span class="n">kvalues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="p">((</span><span class="n">array_close</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">array_lowest</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">array_highest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">array_lowest</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">kvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;%K&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kvalues</span>
+
+<span class="c1"># find %D line values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;%D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;%K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">A strategy established with %K and %D is as follows:</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: when %K line crosses above the %D line</p></li>
+<li><p><strong>Sell signal</strong>: when %K line crosses below the %D line</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="true-strength-index-tsi">
 <h4>True Strength Index (TSI)<a class="headerlink" href="#true-strength-index-tsi" title="Permalink to this headline">¶</a></h4>
@@ -537,6 +836,7 @@ place in a given market, and help traders determine points where the market may 
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.investopedia.com">Investopedia</a></p></li>
 <li><p><a class="reference external" href="https://school.stockcharts.com">StockCharts</a></p></li>
+<li><p><a class="reference external" href="https://virtualizedfrog.wordpress.com/2014/12/09/parabolic-sar-implementation-in-python/">Parabolic SAR</a></p></li>
 </ul>
 <p><strong>Image sources</strong></p>
 <dl class="footnote brackets">

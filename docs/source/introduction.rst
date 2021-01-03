@@ -148,6 +148,25 @@ What is fundamental analysis?
 
 Rationale of fundamental analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+| One of the primary assumptions of fundamental analysis is that the current price from the stock market 
+  often does not fully reflect the value of a company. Thus, a fundamentalist would look at a company's 
+  publicly available information and other economic data in order to gain an understanding of the company's 
+  ability to create products and services, and to evaluate whether it is generating earnings in aproductive way.
+
+| This approach stems from the assumption that the reported financial information is legitimate and correct. 
+  A fundamentalist may also assume that a company's past performance and metrics may continue into the future. 
+
+
+| Fundamental analysis consists of three main parts:
+
+* **Economic analysis** - focuses on analysing various macroeconomic factors such as interest rates, inflation, and GDP levels
+* **Industry analysis** - focuses on assessing specific prospects and potential opportunities within the identified industries and sectors
+* **Company analysis** - focuses on analysing and selecting individual stocks within the most promising industries
+
+| We could conduct fundamental analysis either in a **top-down approach** or **bottom-up approach**. By following the former, the investor
+  will start with analysing the health of the overall economy, and then to determine the industry trends, and thus filter out promising companies
+  within the industry. With regards to latter, it will be the reverse - beginning with individual stock analysis first, to find out stocks
+  that could outperform the industry.
 
 
 Pros and cons of fundamental analysis
@@ -155,11 +174,18 @@ Pros and cons of fundamental analysis
 
 Pros:
 
-* (TO-DO)
+* Seeks to understand the value of an asset
+* Long-term view
+* Comprehensive
 
 Cons:
 
-* (TO-DO)
+* Time-consuming
+* Results not suitable for quick decisions
+* Does not provide info about entry points*
+
+| With regards to the last point, some investors would try to complement fundamental analysis by
+  making use of technical analysis to decide entry points in the identified stocks.
 
 Technical analysis vs Fundamental analysis
 -------------------------------------------
@@ -220,6 +246,7 @@ Conclusion
 * `CFI - Technical Analysis: A Beginner's Guide <https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/technical-analysis/>`_
 * `IG - Technical Analysis definition <https://www.ig.com/en/glossary-trading-terms/technical-analysis-definition)>`_
 * `FBS - Pros and Cons of Technical Analysis <https://fbs.com/analytics/tips/pros-and-cons-of-technical-analysis-and-indicators-21645>`_
+* `CFI - What is Fundamental Analysis? <https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/fundamental-analysis/>`_
 
 .. attention::
    | All investments entail inherent risk. This repository seeks to solely educate 

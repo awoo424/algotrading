@@ -110,7 +110,7 @@ As a data sample might not accurately represent the popultion, it introduces the
 **Selection Bias** and **Sampling Error**.
 
 * **Selection Bias** occurs when the method of drawing observations skews the sample in some way.
-* **Sampling Error*** occurs when randomly drawing observations skews the sample in some way.
+* **Sampling Error** occurs when randomly drawing observations skews the sample in some way.
 
 To address this problem, we want to know how accruately the data sample is estimating the 
 population parameter (e.g. the mean, or the standard deviation).

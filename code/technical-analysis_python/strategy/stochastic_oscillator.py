@@ -26,6 +26,7 @@ class stc_oscillator(Indicator):
 
     Lowest Low = lowest low for the look-back period
     Highest High = highest high for the look-back period
+    
     %K is multiplied by 100 to move the decimal point two places
     """
 
@@ -55,7 +56,7 @@ class stc_oscillator(Indicator):
             lowest = array_low[i]
 
             for j in range(i - 13, i + 1): # k-day lookback period
-                if array_low[j] > lowest:
+                if array_low[j] < lowest:
                     lowest = array_low[j]
             
             array_lowest[i] = lowest

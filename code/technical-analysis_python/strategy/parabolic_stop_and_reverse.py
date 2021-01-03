@@ -12,6 +12,8 @@ sell if rising SAR goes above the price. (bearish signal)
 
 :initial_af: initial acceleration factor
 :max_af: maximum acceleration factor  
+
+Code ref: https://virtualizedfrog.wordpress.com/2014/12/09/parabolic-sar-implementation-in-python/
 """
 class ParabolicSAR(Indicator):
     def __init__(self, df, initial_af=0.02, max_af=0.2):
