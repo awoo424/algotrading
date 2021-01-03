@@ -37,10 +37,16 @@ class co(Indicator):
         self.df['MFM'] = ((self.df['Close'] - self.df['Low']) - self.df['High'] - self.df['Close']) / (self.df['High'] - self.df['Low'])
         # Compute money flow volume
         self.df['MFV'] = self.df['MFM'] * self.df['Volume']
-        # Compute ADL
+        
+        # mfm = self.df['MFM']
+        
         # adl = [None] * len(self.df)
+        # adl[0] = self.df['Close'][0] * self.df['Volume'][0]
         # for i in range (1,len(self.df)):
         #     adl[i] = adl[i-1] + mfm[i]
+        # self.df['ADL'] = adl
+
+        # Compute ADL
         self.df['ADL'] = self.df['Close'].shift(1) + self.df['MFV']
 
         ema_long = self.df['ADL'].ewm(ignore_na=False, min_periods=0, com=self.short_w, adjust=True).mean()

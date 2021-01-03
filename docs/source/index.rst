@@ -11,6 +11,7 @@ Getting started
 
    installation
    how-to-use-this
+   
 
 Part 1: Introduction to Algo Trading
 """""""""""""""""""""""""""""""""""""
@@ -30,8 +31,10 @@ Part 2: Core trading strategies
 
    technical-analysis
    fundamental-analysis
+   evaluation-metrics
 
-Part 3: Machine Learning for Stock Prices Prediction
+
+Part 3: Machine Learning for Stock Analysis
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. toctree::
@@ -40,7 +43,7 @@ Part 3: Machine Learning for Stock Prices Prediction
    bankruptcy-prediction
    property-price-prediction
    sentiment-analysis
-   
+
 
 Resources
 """""""""""
@@ -64,6 +67,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 
 .. attention::
    | All investments entail inherent risk. This repository seeks to solely educate 

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 from strategy.bollinger_bands import bollinger_bands
 from backtest import Backtest
-from evaluate import Pnlpertrade, SharpeRatio, MaxDrawdown, CAGR
+from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 
 # load data
 df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)

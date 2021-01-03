@@ -135,12 +135,36 @@ Trend analysis
 Technical indicators
 ----------------------
 
-There are 2 categories of indicators:
+| The implementation of the below indicators could all be found in :code:`code/technical-analysis_python/` in
+  the repository.
+
+In general, there are 2 categories of indicators:
 
 * **Leading** - They give trade signals when the trend is about to started, hence they use shorter
   periods in their calculations. Examples are MACD and RSI.
 * **Lagging** - They follow the price action, and thus gives a signal after a trend or a reversal
   started. Examples are Moving Averages and Bollinger Bands.
+
+| By calculating the technical indicators, we could create rules in order to generate entry points (i.e. buy and sell
+  signals) in the market, and evaluate the performance of such a strategy using a **backtester**.
+
+.. admonition:: Definition
+   :class: myOwnStyle
+   
+   | **Backtesting** is the process of applying a trading strategy 
+     to historical data in order to evaluate the performance of the strategy.
+
+
+| You could try running a strategy in the repository by:
+
+:: 
+
+  # in terminal
+  cd code/technical-analysis_python
+  python main_macd_crossover.py # run macd in the backtester
+
+| The following provides the explanation and equations for all the example strategies featured
+  in the repository.
 
 Trend indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -865,14 +889,141 @@ As an example, we could set :code:`window=21`:
 Volume indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+| Volume indicators measure the strength of a trend or confirm a trading direction 
+  based on some form of averaging or smoothing of raw volume. The strongest 
+  trends often occur while volume increases; in other words, some would assume that
+  it is the increase in trading volume that can lead to large movements in price.
+
+
+
 Chaikin Oscillator
 """"""""""""""""""""""""""""""
+
+| The Chaikin Oscillator indicator monitors the flow of money in and out of the market.
+  By comparing money flow to price action, it helps identify tops and bottoms in short and intermediate cycles.
+
+.. math::
+
+  \text{Chaikin Oscillator} &= \text{3-day EMA of ADL} - \text{10-day EMA of ADL} \\
+  \\
+  \text{Accumulation Distribution Line (ADL)} &= \text{Previous ADL} \\
+  &+ \text{Current Period's Money Flow Volume} \\
+  \\
+  \text{Money Flow Volume} &= \text{Money Flow Multiplier} \\
+  &\times \text{Volume for the Period} \\
+  \\
+  \text{Money Flow Multiplier} &= \frac{(\text{Close} - \text{Low}) - (\text{High} - \text{Close})}{(\text{High} - \text{Low})} 
+
+
+| We would first calculate the Money Flow Multiplier:
+
+::
+
+  df['MFM'] = ((df['Close'] - df['Low']) - df['High'] - df['Close']) 
+              / (df['High'] - df['Low'])
+
+| Then use it to calculate Money Flow Volume:
+
+::
+
+  df['MFV'] = df['MFM'] * df['Volume']
+
+| Following, we could compute ADL and the Chaikin Oscillator:
+
+::
+
+  df['ADL'] = df['Close'].shift(1) + df['MFV']
+
+  short_w = 3
+  long_w = 10
+  ema_long = df['ADL'].ewm(ignore_na=False, min_periods=0, com=short_w, adjust=True).mean()
+  ema_short = df['ADL'].ewm(ignore_na=False, min_periods=0, com=long_w, adjust=True).mean()
+  
+  df['Chaikin'] = ema_short - ema_long
+
+| We could establish the following simple strategy, as an example:
+
+.. tip:: 
+    * **Buy signal**: when the oscillator is positive
+    * **Sell signal**: when the oscillator is negative
+
 
 On-Balance Volume (OBV)
 """"""""""""""""""""""""""""""
 
-Volume Rate of Change
-""""""""""""""""""""""""""""""
+| The On Balance Volume indicator attempts to measure the level of accumulation or 
+  distribution by comparing volume to price movements.
+
+
+The formula for OBC changes according to the following 3 cases:
+
+**1) If closing price > prior close price:**
+
+.. math::
+
+    \text{Current OBV} = \text{Previous OBV} + \text{Current Volume}
+
+**2) If closing price < prior close price:**
+
+.. math::
+
+    \text{Current OBV} = \text{Previous OBV} - \text{Current Volume}
+
+**3) If closing price = prior close price then:**
+
+.. math::
+
+    \text{Current OBV} = \text{Previous OBV (no change)}
+
+We could traverse the dataframe, and use if-else statements to capture the 3 conditions: 
+
+::
+
+    obv = [0] * len(self.df) # for storing the on-balance volume
+
+    array_close = list(df['Close'])
+    array_volume = list(df['Volume'])
+
+    for i in range(1, len(self.df)):
+        if (array_close[i] > array_close[i-1]):
+            obv[i] = obv[i-1] + array_volume[i]
+        elif (array_close[i] < array_close[i-1]):
+            obv[i] = obv[i-1] - array_volume[i]
+        else:
+            obv[i] = obv[i-1]
+
+| The absolute value of OBV is not important. We should instead focus on the characteristics of the OBV line
+  and its the trend.
+  
+.. tip::
+  * A rising OBV reflects positive volume pressure that can lead to **higher prices**
+  * A falling OBV reflects negative volume pressure that can foreshadow **lower prices** 
+
+
+Volume Rate of Change 
+"""""""""""""""""""""""""""""""""""
+
+| The Volume Rate of Change (Volume ROC) highlights increases in volume, which normally occurs 
+  at most significant market tops, bottoms and breakouts.
+
+.. math::
+
+  \text{Volume Rate of Change} = \frac{\text{Volume (today)} - \text{Volume (n days ago)}}{\text{Volume (n days ago)}}
+
+
+The way of calculating Volume ROC is similar to ROC:
+
+::
+
+  n = 25 # example time period
+  df['Volume ROC'] = ((df['Close'] - df['Close'].shift(n)) / 
+                      df['Close'].shift(n))
+
+Here is a simple example strategy based on Volume ROC:
+
+.. tip:: 
+    * **Buy signal**: if Volume ROC goes below zero
+    * **Sell signal**: if Volume ROC is negative
 
 
 **References**

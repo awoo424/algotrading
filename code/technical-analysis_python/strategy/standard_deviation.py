@@ -18,10 +18,7 @@ class sd(Indicator):
     """
     Formula
     -
-    Current ATR = [(Prior ATR x 13) + Current TR] / n
-
-    1st TR value = High - Low
-    1st n-day ATR = average of the daily TR values for the last n days
+    Use std function
     """
 
     def cal_SD(self, window=21, r_demeaned=True):

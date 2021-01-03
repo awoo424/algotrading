@@ -38,10 +38,10 @@ class mfi(Indicator):
         self.df['Sign'] = np.where(tp > tp.shift(
             1), 1, np.where(tp < tp.shift(1), -1, 0))
 
-        # Money flow
+        # Raw money flow
         self.df['Money flow'] = tp * self.df['Volume'] * self.df['Sign']
 
-        # 4 positive and negative money flow with n periods
+        # Positive and negative money flow with n periods
         n_positive_mf = self.df['Money flow'].rolling(
             self.n).apply(lambda x: np.sum(np.where(x >= 0.0, x, 0.0)), raw=True)
         n_negative_mf = abs(

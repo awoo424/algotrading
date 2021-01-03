@@ -5,9 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 """
-Profit & Loss per trade
+Portfolio return
 """
-def Pnlpertrade(portfolio):
+def PortfolioReturn(portfolio):
     # Isolate the returns of your strategy
     returns = portfolio['returns']
 
@@ -15,7 +15,7 @@ def Pnlpertrade(portfolio):
     fig = plt.figure()
 
     # Plot the results
-    returns.plot(lw=1.2, label='Profit & loss per trade')
+    returns.plot(lw=1.2, label='Portfolio return')
     plt.legend()
 
     return fig
@@ -68,7 +68,7 @@ def CAGR(portfolio):
     days = (portfolio.index[-1] - portfolio.index[0]).days
 
     # Calculate the CAGR 
-    cagr = ((((portfolio['total'][-1]) / portfolio['total'][0])) ** (365.0/days)) - 1
+    cagr = ((((portfolio['total'][-1]) / portfolio['total'][0])) ** (252.0/days)) - 1
 
     return cagr
 

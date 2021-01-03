@@ -341,13 +341,40 @@ will be revealed more clearly in semi-logarithmic scale charts.</p>
 </div>
 <div class="section" id="technical-indicators">
 <h2>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this headline">¶</a></h2>
-<p>There are 2 categories of indicators:</p>
+<div class="line-block">
+<div class="line">The implementation of the below indicators could all be found in <code class="code docutils literal notranslate"><span class="pre">code/technical-analysis_python/</span></code> in
+the repository.</div>
+</div>
+<p>In general, there are 2 categories of indicators:</p>
 <ul class="simple">
 <li><p><strong>Leading</strong> - They give trade signals when the trend is about to started, hence they use shorter
 periods in their calculations. Examples are MACD and RSI.</p></li>
 <li><p><strong>Lagging</strong> - They follow the price action, and thus gives a signal after a trend or a reversal
 started. Examples are Moving Averages and Bollinger Bands.</p></li>
 </ul>
+<div class="line-block">
+<div class="line">By calculating the technical indicators, we could create rules in order to generate entry points (i.e. buy and sell
+signals) in the market, and evaluate the performance of such a strategy using a <strong>backtester</strong>.</div>
+</div>
+<div class="myownstyle admonition">
+<p class="admonition-title">Definition</p>
+<div class="line-block">
+<div class="line"><strong>Backtesting</strong> is the process of applying a trading strategy
+to historical data in order to evaluate the performance of the strategy.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">You could try running a strategy in the repository by:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># in terminal</span>
+<span class="n">cd</span> <span class="n">code</span><span class="o">/</span><span class="n">technical</span><span class="o">-</span><span class="n">analysis_python</span>
+<span class="n">python</span> <span class="n">main_macd_crossover</span><span class="o">.</span><span class="n">py</span> <span class="c1"># run macd in the backtester</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The following provides the explanation and equations for all the example strategies featured
+in the repository.</div>
+</div>
 <div class="section" id="trend-indicators">
 <h3>Trend indicators<a class="headerlink" href="#trend-indicators" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
@@ -1055,14 +1082,130 @@ relative to previous trades.</div>
 </div>
 <div class="section" id="volume-indicators">
 <h3>Volume indicators<a class="headerlink" href="#volume-indicators" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Volume indicators measure the strength of a trend or confirm a trading direction
+based on some form of averaging or smoothing of raw volume. The strongest
+trends often occur while volume increases; in other words, some would assume that
+it is the increase in trading volume that can lead to large movements in price.</div>
+</div>
 <div class="section" id="chaikin-oscillator">
 <h4>Chaikin Oscillator<a class="headerlink" href="#chaikin-oscillator" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The Chaikin Oscillator indicator monitors the flow of money in and out of the market.
+By comparing money flow to price action, it helps identify tops and bottoms in short and intermediate cycles.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Chaikin Oscillator} &amp;= \text{3-day EMA of ADL} - \text{10-day EMA of ADL} \\
+\\
+\text{Accumulation Distribution Line (ADL)} &amp;= \text{Previous ADL} \\
+&amp;+ \text{Current Period's Money Flow Volume} \\
+\\
+\text{Money Flow Volume} &amp;= \text{Money Flow Multiplier} \\
+&amp;\times \text{Volume for the Period} \\
+\\
+\text{Money Flow Multiplier} &amp;= \frac{(\text{Close} - \text{Low}) - (\text{High} - \text{Close})}{(\text{High} - \text{Low})}\end{split}\]</div>
+<div class="line-block">
+<div class="line">We would first calculate the Money Flow Multiplier:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+            <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Then use it to calculate Money Flow Volume:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Following, we could compute ADL and the Chaikin Oscillator:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFV&#39;</span><span class="p">]</span>
+
+<span class="n">short_w</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">long_w</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ema_long</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">ignore_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">com</span><span class="o">=</span><span class="n">short_w</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ema_short</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">ignore_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">com</span><span class="o">=</span><span class="n">long_w</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Chaikin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ema_short</span> <span class="o">-</span> <span class="n">ema_long</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">We could establish the following simple strategy, as an example:</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: when the oscillator is positive</p></li>
+<li><p><strong>Sell signal</strong>: when the oscillator is negative</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="on-balance-volume-obv">
 <h4>On-Balance Volume (OBV)<a class="headerlink" href="#on-balance-volume-obv" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The On Balance Volume indicator attempts to measure the level of accumulation or
+distribution by comparing volume to price movements.</div>
+</div>
+<p>The formula for OBC changes according to the following 3 cases:</p>
+<p><strong>1) If closing price &gt; prior close price:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Current OBV} = \text{Previous OBV} + \text{Current Volume}\]</div>
+<p><strong>2) If closing price &lt; prior close price:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Current OBV} = \text{Previous OBV} - \text{Current Volume}\]</div>
+<p><strong>3) If closing price = prior close price then:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Current OBV} = \text{Previous OBV (no change)}\]</div>
+<p>We could traverse the dataframe, and use if-else statements to capture the 3 conditions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obv</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># for storing the on-balance volume</span>
+
+<span class="n">array_close</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="n">array_volume</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array_close</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array_close</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">obv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">array_volume</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">array_close</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">array_close</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">obv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">array_volume</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">obv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The absolute value of OBV is not important. We should instead focus on the characteristics of the OBV line
+and its the trend.</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>A rising OBV reflects positive volume pressure that can lead to <strong>higher prices</strong></p></li>
+<li><p>A falling OBV reflects negative volume pressure that can foreshadow <strong>lower prices</strong></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="volume-rate-of-change">
 <h4>Volume Rate of Change<a class="headerlink" href="#volume-rate-of-change" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">The Volume Rate of Change (Volume ROC) highlights increases in volume, which normally occurs
+at most significant market tops, bottoms and breakouts.</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\text{Volume Rate of Change} = \frac{\text{Volume (today)} - \text{Volume (n days ago)}}{\text{Volume (n days ago)}}\]</div>
+<p>The way of calculating Volume ROC is similar to ROC:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># example time period</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume ROC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">/</span>
+                    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Here is a simple example strategy based on Volume ROC:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Buy signal</strong>: if Volume ROC goes below zero</p></li>
+<li><p><strong>Sell signal</strong>: if Volume ROC is negative</p></li>
+</ul>
+</div>
 <p><strong>References</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.investopedia.com">Investopedia</a></p></li>

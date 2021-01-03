@@ -5,10 +5,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 """
-Bollinger Bands (TSI)
+Bollinger Bands
 -
-Signal line crossover
-
 Buy when price goes below lower band,
 sell when price goes above upper band.
 """

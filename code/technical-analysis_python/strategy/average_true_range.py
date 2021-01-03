@@ -28,6 +28,7 @@ class atr(Indicator):
     def cal_ATR(self, window=14):
         self.window = window
 
+        # compute TR
         tr = [None] * len(self.df)
 
         for i in range(len(self.df)):

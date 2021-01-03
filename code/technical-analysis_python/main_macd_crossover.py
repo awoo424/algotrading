@@ -9,7 +9,7 @@ mpl.use('tkagg')  # issues with Big Sur
 import matplotlib.pyplot as plt
 from strategy.macd_crossover import macdCrossover
 from backtest import Backtest
-from evaluate import Pnlpertrade, SharpeRatio, MaxDrawdown, CAGR
+from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 
 # load data
 df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
@@ -50,10 +50,10 @@ plt.show()
 
 # Evaluate strategy
 
-# 1. Profit and loss per trade
-returns_fig = Pnlpertrade(portfolio)
-returns_fig.suptitle('MACD crossovers - Profit & Loss per trade')
-returns_fig.savefig('./figures/trend/02-macd-crossover_pnl-per-trade')
+# 1. Portfolio return
+returns_fig = PortfolioReturn(portfolio)
+returns_fig.suptitle('MACD crossovers - Portfolio return')
+returns_fig.savefig('./figures/trend/02-macd-crossover_portfolo-return')
 plt.show()
 
 # 2. Sharpe ratio

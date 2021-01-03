@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 """
 Williams %R (or just %R)
 -
-Signal line crossover
-
 Buy when %R goes below -80, (oversold)
 sell when %R goes above -20. (overbought)
 """
