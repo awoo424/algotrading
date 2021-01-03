@@ -1,7 +1,11 @@
 Welcome to the algo trading learning repo
 =========================================
 
-   (Picture: to-be-added)
+.. image:: ../images/Cover.png
+    :width: 500px
+    :align: center
+    :height: 380px
+    :alt: "Algorithmic Trading repo"
 
 Getting started
 """""""""""""""""""
@@ -48,7 +52,8 @@ Part 3: Machine Learning for Stock Analysis
 Resources
 """""""""""
 
-   (to-be-added)
+* `Investopedia <https://www.investopedia.com>`_
+* `StockCharts <https://school.stockcharts.com>`_
 
 Others
 """""""
