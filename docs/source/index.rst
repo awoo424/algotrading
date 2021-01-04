@@ -7,42 +7,35 @@ Welcome to the algo trading learning repo
     :height: 380px
     :alt: "Algorithmic Trading repo"
 
-Getting started
-"""""""""""""""""""
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: Getting started
 
    installation
    how-to-use-this
    
 
-Part 1: Introduction to Algo Trading
-"""""""""""""""""""""""""""""""""""""
-
 .. toctree::
    :maxdepth: 2
+   :caption: Part 1: Intro to Algo Trading
 
    introduction
    data-science-basics
 
 
-Part 2: Core trading strategies
-""""""""""""""""""""""""""""""""
-
 .. toctree::
    :maxdepth: 2
+   :caption: Part 2: Core trading strategies
 
    technical-analysis
    fundamental-analysis
    evaluation-metrics
 
 
-Part 3: Machine Learning for Stock Analysis
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. toctree::
    :maxdepth: 2
+   :caption: Part 3: Machine Learning
 
    bankruptcy-prediction
    property-price-prediction
@@ -55,11 +48,11 @@ Resources
 * `Investopedia <https://www.investopedia.com>`_
 * `StockCharts <https://school.stockcharts.com>`_
 
-Others
-"""""""
+
 
 .. toctree::
    :maxdepth: 2
+   :caption: Others
    :titlesonly:
 
    acknowledgement
