@@ -11,8 +11,8 @@ Welcome to the algo trading learning repo
    :maxdepth: 1
    :caption: Getting started
 
-   installation
    how-to-use-this
+   installation
    
 
 .. toctree::

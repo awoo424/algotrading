@@ -31,6 +31,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -83,21 +84,34 @@
               
             
             
-              <ul class="current">
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use this</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use this</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-this-is">What this is</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-we-built-this">Why we built this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#report-bugs-support-history">Report bugs &amp; Support history</a></li>
 </ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Part 1: Intro to Algo Trading</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-science-basics.html">Data science basics</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Part 2: Core trading strategies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="technical-analysis.html">Techinical analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental-analysis.html">Fundamental analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation-metrics.html">Evaluation metrics</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Others</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgement.html">Acknowledgement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about-the-author.html">About the author</a></li>
@@ -168,7 +182,64 @@
             
   <div class="section" id="how-to-use-this">
 <h1>How to use this<a class="headerlink" href="#how-to-use-this" title="Permalink to this headline">¶</a></h1>
-<p>This is the content for “how to use this” section.</p>
+<div class="section" id="what-this-is">
+<h2>What this is<a class="headerlink" href="#what-this-is" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Welcome to the <strong>Algo Trading Learning Repo</strong>! This is an educational resource produced by
+undergraduate students at the University of Hong Kong (HKU) to make it easier
+to learn about algorithmic trading.</div>
+</div>
+<div class="line-block">
+<div class="line">The code repository could be accessed <a class="reference external" href="https://github.com/awoo424/algotrading">here</a>.
+It contains a variety of helpful resources, including:</div>
+</div>
+<ul class="simple">
+<li><p>a short introduction to algo trading terminology, basic theory and data science</p></li>
+<li><p>explanation and equation of common technical indicators</p></li>
+<li><p>code implementation of technical &amp; fundamental analysis strategies in Python</p></li>
+<li><p>code examples of using machine learning for stock screening and trend analysis</p></li>
+</ul>
+<div class="line-block">
+<div class="line">We recommend beginners to start with the <a class="reference internal" href="introduction.html#introduction"><span class="std std-ref">Introduction</span></a>, and for coders who have a
+basic understanding of technical analysis &amp; fundamental analysis could
+jump right into <a class="reference internal" href="technical-analysis.html#techinical-analysis"><span class="std std-ref">Techinical analysis</span></a>.</div>
+</div>
+</div>
+<div class="section" id="why-we-built-this">
+<h2>Why we built this<a class="headerlink" href="#why-we-built-this" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Algorithmic trading is a multidisciplinary field that involves knowledge in three domains,
+which are finance, programming and statistics. While one could easily look for online
+learning resources on the Internet nowadays, they still present various challenges to a
+beginner who would like to learn the field from scratch:</div>
+</div>
+<ul class="simple">
+<li><p>There are lots of blog posts and online materials about algo trading, but
+they are scattered; and are usually just focusing on a few concepts or topics.</p></li>
+<li><p>There exist open-source repositories that feature the implementation of a wide
+selection of algo trading strategies, but they do not come along with explanations
+and assume that the user knows the financial logic behind.</p></li>
+<li><p>On the other hand, there exist good resources that provide detailed discussions about
+financial concepts and rationale of trading strategies <a class="reference external" href="https://www.investopedia.com/}{Investopedia">Investopedia</a>,
+but they are not accompanied by any code examples.</p></li>
+<li><p>Majority of the resources do not fit the local context (e.g. about trade execution in Hong Kong)
+and are merely focusing on the US market.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Personally, we also find this process inefficient and daunting.
+Being a group of students who are majoring in Computer Science and Finance at the
+university right now, we are eager to dedicate our efforts into
+creating learning resources that could align with the financial setting of
+Hong Kong, and could pique the interest of beginners.</div>
+</div>
+</div>
+<div class="section" id="report-bugs-support-history">
+<h2>Report bugs &amp; Support history<a class="headerlink" href="#report-bugs-support-history" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">If you find any bugs or mistakes, feel free to <a class="reference external" href="https://github.com/awoo424/algotrading/issues">report</a>
+and we’ll repair them to ensure that the repository is working properly.</div>
+</div>
+</div>
 </div>
 
 
