@@ -130,11 +130,10 @@ What is fundamental analysis?
 -----------------------------
 
 | While technical analysis concentrates on the study of market action, 
-  the fundamental analysis focuses on the economic forces of supply 
+  fundamental analysis focuses on the economic forces of supply 
   and demand that leads to price movements.
 
 .. admonition:: Definition
-   :class: myOwnStyle
    
    | The **fundamental analysis** approach examines all of the relevant factors affecting 
      the price of a stock in order to determine the intrinsic value of that 
