@@ -29,10 +29,10 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 
 ## How to use
 
-TO-WRITE
+⚠️ Work in progress
+All the code could be found in the `/code` directory and the documentation could be accessed at [https://algo-trading.readthedocs.io/](https://algo-trading.readthedocs.io/).
 
 ## Code overview
-⚠️ Work in progress
 
 #### 1. Technical analysis
 The following indicators have been implemented in Python:
