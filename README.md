@@ -78,7 +78,7 @@ The following indicators have been implemented in Python:
 
 #### Financial leverage ratios
 * Total debt ratio
-* Debt/Equity
+* Debt to equity
 * Equity ratio
 * Long-term debt ratio
 * Times interest earned ratio
