@@ -32,8 +32,7 @@ plt.show()
 
 portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
-print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
-print("Average daily return: {value:.4f}%".format(value = portfolio['returns'].mean()*100))
+print("Total return: {value:.4f}%".format(value = (portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]*100))
 
 backtest_fig.suptitle('Moving average crossover - Portfolio value', fontsize=14)
 backtest_fig.savefig('./figures/trend/01-moving-average-crossover_portfolio-value', dpi=100)
