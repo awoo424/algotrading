@@ -15,7 +15,7 @@ from evaluate import SharpeRatio, MaxDrawdown, CAGR
 df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range
-df = df.loc[pd.Timestamp('2018-01-01'):pd.Timestamp('2020-01-01')]
+df = df.loc[pd.Timestamp('2017-01-01'):pd.Timestamp('2019-01-01')]
 
 ticker = "0005.HK"
 
@@ -37,9 +37,10 @@ plt.show()
 # Backtesting
 
 portfolio, backtest_fig = Backtest(ticker, signals, df)
-print("Final portfolio value (including cash): {value:.4f} ".format(value = portfolio['total'][-1]))
-print("Total return: {value:.4f}".format(value = portfolio['total'][-1] - portfolio['total'][0]))
-print("Average daily return: {value:.4f}%".format(value = portfolio['returns'].mean()*100))
+print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
+print("Total return: {value:.4f}%".format(value = (portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]*100))
+# for analysis
+print("No. of trade: {value}".format(value = len(signals[signals.positions == 1])))
 
 backtest_fig.suptitle('Williams %R - Portfolio value', fontsize=14)
 backtest_fig.savefig('./figures/momentum/08-williamsR_portfolio-value')
