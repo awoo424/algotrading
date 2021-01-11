@@ -305,6 +305,36 @@ Earning per share (EPS)
 Ratio analysis for stock screening
 ----------------------------------------
 
+| The ratio analysis example could be found in :code: `code/fundamental-analysis/ratio-analysis.ipynb`.
+
+| With the equations above, it would be easy to compute the ratios just with column manipulations:
+
+::
+
+  # take equity ratio as an example
+  equity_ratio = df["Total stockholders\' equity"].astype(int) 
+                 / df['Total Assets'].astype(int) # Total stockholders' equity / Total Assets
+  
+  # store all the ratios in the `ratios` dataframe
+  ratios["Equity ratio"] = equity_ratio
+
+
+| After calculating these ratios, we would want to create screening masks to filter out stocks that
+  have a relatively better performance. 
+
+::
+
+  # e.g. filter out stocks with profitability ratio greater than overall mean
+  mask1 = (ratios['EPS'] > ratios['EPS'].mean())
+  mask2 = (ratios['ROE'] > ratios['ROE'].mean())
+  mask3 = (ratios['ROA'] > ratios['ROA'].mean())
+
+| We could apply these masks on the ratios dataframe to get the filtered stocks eventually:
+
+::
+
+  # apply the masks
+  ratios[(mask1) & (mask2) & (mask3)]
 
 
 **References**

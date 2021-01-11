@@ -525,6 +525,37 @@ to its total assets.</div>
 </div>
 <div class="section" id="ratio-analysis-for-stock-screening">
 <h2>Ratio analysis for stock screening<a class="headerlink" href="#ratio-analysis-for-stock-screening" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">The ratio analysis example could be found in :code: <cite>code/fundamental-analysis/ratio-analysis.ipynb</cite>.</div>
+</div>
+<div class="line-block">
+<div class="line">With the equations above, it would be easy to compute the ratios just with column manipulations:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># take equity ratio as an example</span>
+<span class="n">equity_ratio</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total stockholders</span><span class="se">\&#39;</span><span class="s2"> equity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+               <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Total Assets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># Total stockholders&#39; equity / Total Assets</span>
+
+<span class="c1"># store all the ratios in the `ratios` dataframe</span>
+<span class="n">ratios</span><span class="p">[</span><span class="s2">&quot;Equity ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">equity_ratio</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">After calculating these ratios, we would want to create screening masks to filter out stocks that
+have a relatively better performance.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># e.g. filter out stocks with profitability ratio greater than overall mean</span>
+<span class="n">mask1</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;EPS&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;EPS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">mask2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROE&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">mask3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">We could apply these masks on the ratios dataframe to get the filtered stocks eventually:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># apply the masks</span>
+<span class="n">ratios</span><span class="p">[(</span><span class="n">mask1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mask2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mask3</span><span class="p">)]</span>
+</pre></div>
+</div>
 <p><strong>References</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.nasdaq.com/glossary/s/short-term-solvency-ratios#:~:text=Terms%20By%3A%20s-,Short%2Dterm%20solvency%20ratios,Beta">NASDAQ - Short-term solvency ratios</a></p></li>
