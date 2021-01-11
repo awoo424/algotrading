@@ -98,10 +98,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Techinical analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#intro-to-technical-analysis">Intro to technical analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chart-patterns">Chart patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chart-analysis">Chart analysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#line-chart">Line chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#candlesticks-chart">Candlesticks chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#open-high-low-close-ohcl-chart">Open-high-low-close (OHCL) chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scaling">Scaling</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#arithmetic-scaling">Arithmetic scaling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#semi-logarithmic-scaling">Semi-logarithmic scaling</a></li>
@@ -109,7 +108,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#trend-analysis">Trend analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#technical-indicators">Technical indicators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#trend-indicators">Trend indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#moving-average-convergence-divergence-macd">Moving Average Convergence Divergence (MACD)</a></li>
@@ -263,8 +261,8 @@ technical indicators widely used in the market.</div>
 <li><p><a class="reference external" href="https://numpy.org/">numpy</a></p></li>
 </ul>
 </div>
-<div class="section" id="chart-patterns">
-<h2>Chart patterns<a class="headerlink" href="#chart-patterns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chart-analysis">
+<h2>Chart analysis<a class="headerlink" href="#chart-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="myownstyle admonition">
 <p class="admonition-title">Definition</p>
 <div class="line-block">
@@ -274,6 +272,39 @@ technical indicators widely used in the market.</div>
 </div>
 <div class="section" id="line-chart">
 <h3>Line chart<a class="headerlink" href="#line-chart" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Line chart is the most basic type of chart used in finance, and we typically use it
+to plot a security’s closing prices over time.</div>
+</div>
+<div class="line-block">
+<div class="line">Using matplotlib, we could also plot the moving average and volume of a security:</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+<span class="c1"># Initialise the plot figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">18.5</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">)</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;50ma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;50ma&#39;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id3">
+<img alt="&quot;Line chart.&quot;" src="_images/Line-chart.png" style="width: 800px; height: 420px;" />
+<p class="caption"><span class="caption-text">Example of a line chart and a bar chart showing price and volume changes respectively.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="candlesticks-chart">
 <h3>Candlesticks chart<a class="headerlink" href="#candlesticks-chart" title="Permalink to this headline">¶</a></h3>
@@ -286,14 +317,52 @@ that emotion by visually representing the size of price moves with different col
 Traders use the candlesticks to make trading decisions based on regularly
 occurring patterns that help forecast the short-term direction of the price.</div>
 </div>
-<div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="_images/Candlestick.png"><img alt="&quot;Candlestick components.&quot;" src="_images/Candlestick.png" style="width: 500px; height: 320px;" /></a>
+<div class="figure align-center" id="id4">
+<img alt="&quot;Candlestick components.&quot;" src="_images/Candlestick.png" style="width: 500px; height: 320px;" />
 <p class="caption"><span class="caption-text"><span class="raw-html"><br /></span>
-Explanation of candlestick components. <a class="footnote-reference brackets" href="#id2" id="id1">1</a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+Explanation of candlestick components. <a class="footnote-reference brackets" href="#id2" id="id1">1</a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
+<div class="line-block">
+<div class="line">We could use <code class="code docutils literal notranslate"><span class="pre">mpl_finance</span></code> to plot candlestick charts:</div>
 </div>
-<div class="section" id="open-high-low-close-ohcl-chart">
-<h3>Open-high-low-close (OHCL) chart<a class="headerlink" href="#open-high-low-close-ohcl-chart" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">18.5</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">)</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+
+<span class="c1"># plot candlesticks</span>
+<span class="n">mpl_finance</span><span class="o">.</span><span class="n">candlestick_ohlc</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">colorup</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">colordown</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span> <span class="c1"># show grids</span>
+
+<span class="c1">############# x-axis locater settings #################</span>
+
+<span class="n">locator</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">AutoDateLocator</span><span class="p">()</span> <span class="c1">#  interval automically set</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span> <span class="c1"># as as interval in a-axis</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">())</span>
+
+<span class="c1">############# x-axis locater settings #################</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">AutoDateFormatter</span><span class="p">(</span><span class="n">locator</span><span class="p">))</span> <span class="c1"># set x-axis label as date format</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span> <span class="c1"># rotate date labels on x-axis</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="n">neg</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pos</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">][</span><span class="n">pos</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">neg</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">][</span><span class="n">neg</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id5">
+<img alt="&quot;Candlestick chart.&quot;" src="_images/Candlestick-chart.png" style="width: 900px; height: 440px;" />
+<p class="caption"><span class="caption-text">Example of a candlestick chart.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="scaling">
 <h3>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h3>
@@ -339,11 +408,45 @@ in the plot more accurately to provide a holistic view.</p></li>
 <p>Therefore, semi-logarithmic charts can be of immense help especially when plotting <strong>long-term charts</strong>,
 or when the price points show significant volatility even in short-term charts. The underlying chart patterns
 will be revealed more clearly in semi-logarithmic scale charts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">18.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">)</span>
+
+<span class="c1">### Subplot 1 - Semi-logarithmic ###</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+
+<span class="c1"># Linear X axis, Logarithmic Y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">500</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Semi-logarithmic scale&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="c1">### Subplot 2 - Arithmetic ###</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Arithmetic scale&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="c1"># show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id6">
+<img alt="&quot;Log vs arith scale.&quot;" src="_images/Log-vs-arith-chart.png" style="width: 900px; height: 290px;" />
+<p class="caption"><span class="caption-text">The same data plotted with semi-logarithmic and arithmetic scales.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
 </div>
 </div>
-<div class="section" id="trend-analysis">
-<h2>Trend analysis<a class="headerlink" href="#trend-analysis" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="technical-indicators">
 <h2>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this headline">¶</a></h2>

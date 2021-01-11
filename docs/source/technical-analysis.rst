@@ -42,7 +42,7 @@ In general, technicians consider the following types of indicators:
 * `numpy <https://numpy.org/>`__
 
 
-Chart patterns
+Chart analysis
 ------------------
 
 .. admonition:: Definition
@@ -53,6 +53,46 @@ Chart patterns
 
 Line chart
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+| Line chart is the most basic type of chart used in finance, and we typically use it
+  to plot a security's closing prices over time.
+
+| Using matplotlib, we could also plot the moving average and volume of a security:
+
+::
+
+  plt.style.use('ggplot')
+
+  # Initialise the plot figure
+  fig = plt.figure()
+  fig.set_size_inches(18.5, 10.5)
+
+  ax1 = plt.subplot2grid((6,1), (0,0), rowspan=5, colspan=1)
+  ax2 = plt.subplot2grid((6,1), (5,0), rowspan=1, colspan=1, sharex=ax1)
+
+  df['50ma'] = df['Close'].rolling(window=50, min_periods=0).mean()
+  df.dropna(inplace=True)
+
+  ax1.plot(df.index, df['Close'])
+  ax1.plot(df.index, df['50ma'])
+  ax2.bar(df.index, df['Volume'])
+
+  plt.show()
+
+.. role:: raw-html(raw)
+    :format: html
+
+.. figure:: ../images/Line-chart.png
+    :width: 800px
+    :align: center
+    :height: 420px
+    :alt: "Line chart."
+
+    Example of a line chart and a bar chart showing price and volume changes respectively.
+
+
+|
+
 
 Candlesticks chart
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,8 +105,6 @@ Candlesticks chart
   Traders use the candlesticks to make trading decisions based on regularly 
   occurring patterns that help forecast the short-term direction of the price. 
   
-.. role:: raw-html(raw)
-    :format: html
 
 .. figure:: ../images/Candlestick.png
     :width: 500px
@@ -77,11 +115,52 @@ Candlesticks chart
     :raw-html:`<br />`
     Explanation of candlestick components. [1]_
     
+| We could use :code:`mpl_finance` to plot candlestick charts:
+
+::
+
+  fig = plt.figure()
+  fig.set_size_inches(18.5, 10.5)
+
+  ax1 = plt.subplot2grid((6,1), (0,0), rowspan=5, colspan=1)
+  ax2 = plt.subplot2grid((6,1), (5,0), rowspan=1, colspan=1, sharex=ax1)
+
+  # plot candlesticks
+  mpl_finance.candlestick_ohlc(ax1, data, width=0.7, colorup='g', colordown='r')
+
+  ax.grid() # show grids
+
+  ############# x-axis locater settings #################
+
+  locator = mdates.AutoDateLocator() #  interval automically set
+  ax1.xaxis.set_major_locator(locator) # as as interval in a-axis
+  ax1.xaxis.set_minor_locator(mdates.DayLocator())
+
+  ############# x-axis locater settings #################
+
+  ax1.xaxis.set_major_formatter(mdates.AutoDateFormatter(locator)) # set x-axis label as date format
+
+  fig.autofmt_xdate() # rotate date labels on x-axis
+
+  pos = df['Open'] - df['Close'] < 0
+  neg = df['Open'] - df['Close'] > 0
+  ax2.bar(df.index[pos],df['Volume'][pos],color='green',width=1,align='center')
+  ax2.bar(df.index[neg],df['Volume'][neg],color='red',width=1,align='center')
+
+  plt.show()
 
 
+.. figure:: ../images/Candlestick-chart.png
+    :width: 900px
+    :align: center
+    :height: 440px
+    :alt: "Candlestick chart."
 
-Open-high-low-close (OHCL) chart
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    Example of a candlestick chart.
+
+
+|
+
 
 Scaling 
 ^^^^^^^^^^
@@ -126,10 +205,48 @@ or when the price points show significant volatility even in short-term charts. 
 will be revealed more clearly in semi-logarithmic scale charts.
 
 
-Trend analysis
-------------------
+::
+
+  plt.style.use('ggplot')
+
+  fig, (ax1, ax2) = plt.subplots(1, 2)
+  fig.set_size_inches(18.5, 7.0)
+
+  ### Subplot 1 - Semi-logarithmic ###
+  plt.subplot(121)
+  plt.grid(True, which="both")
+
+  # Linear X axis, Logarithmic Y axis
+  plt.semilogy(df.index, df['Close'], 'r')
+  plt.ylim([10,500])
+
+  plt.xlabel("Date")
+  plt.title('Semi-logarithmic scale')
+  fig.autofmt_xdate()
+
+  ### Subplot 2 - Arithmetic ###
+  plt.subplot(122)
+
+  plt.plot(df.index, df['Close'], 'b')
+
+  plt.xlabel("Date")
+  plt.title('Arithmetic scale')
+  fig.autofmt_xdate()
+
+  # show plot
+  plt.show()
 
 
+.. figure:: ../images/Log-vs-arith-chart.png
+    :width: 900px
+    :align: center
+    :height: 290px
+    :alt: "Log vs arith scale."
+
+    The same data plotted with semi-logarithmic and arithmetic scales.
+
+
+|
 
 
 Technical indicators
