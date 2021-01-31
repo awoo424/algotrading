@@ -109,10 +109,12 @@
 <li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Sentiment analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-basics-in-sentiment-analysis">The basics in sentiment analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-tweets">Methods of collecting tweets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-tweets">Methods of collecting tweets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apply-for-developer-account-from-twitter-use-tweepy">Apply for developer account from Twitter use Tweepy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#apply-for-developer-account-from-twitter-use-tweepy">Apply for developer account from Twitter use Tweepy</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#collect-data-from-cashtag-in-tweepy">Collect data from Cashtag($) in Tweepy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-financial-headlines-from-finviz-com">Methods of collecting financial headlines from finviz.com</a></li>
 </ul>
@@ -212,16 +214,14 @@
 </div>
 <div class="section" id="methods-of-collecting-tweets">
 <h2>Methods of collecting tweets<a class="headerlink" href="#methods-of-collecting-tweets" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
 <div class="section" id="apply-for-developer-account-from-twitter-use-tweepy">
-<h1>Apply for developer account from Twitter use Tweepy<a class="headerlink" href="#apply-for-developer-account-from-twitter-use-tweepy" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li><p>Click and apply through this link: <a class="reference external" href="https://developer.twitter.com/en/apply-for-access">https://developer.twitter.com/en/apply-for-access</a></p></li>
-<li><p>After successful application, enter into the project and enable App permissions ( Read and  Write )</p></li>
-</ol>
-<p>3. Navigate to Keys and token section, reterive the API key, API secret, Access token and Access secret
-Code illustration</p>
+<h3>Apply for developer account from Twitter use Tweepy<a class="headerlink" href="#apply-for-developer-account-from-twitter-use-tweepy" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">1. Click and apply through this link: <a class="reference external" href="https://developer.twitter.com/en/apply-for-access">https://developer.twitter.com/en/apply-for-access</a></div>
+<div class="line">2. After successful application, enter into the project and enable App permissions ( Read and  Write )</div>
+<div class="line">3. Navigate to Keys and token section, reterive the API key, API secret, Access token and Access secret</div>
+</div>
+<p>Code illustration</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
 <span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
 <span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
@@ -237,24 +237,21 @@ Code illustration</p>
 </pre></div>
 </div>
 </div>
+</div>
+</div>
 <div class="section" id="collect-data-from-cashtag-in-tweepy">
 <h1>Collect data from Cashtag($) in Tweepy<a class="headerlink" href="#collect-data-from-cashtag-in-tweepy" title="Permalink to this headline">¶</a></h1>
 <p>Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn’t given any context about the stocks
 themselves. Related text were found in the extension of the output.</p>
-<dl>
-<dt>::</dt><dd><dl>
-<dt>def get_tagtweets(ticker)</dt><dd><p>allhashtag=[]
-hashtags=tweepy.Cursor(api.search,q=ticker,lang=’en’,tweet_mode=’extended’).items(200)
-for status in hashtags:</p>
-<blockquote>
-<div><p>tweet_text = status.full_text
-allhashtag.append(tweet_text)</p>
-</div></blockquote>
-<p>print(allhashtag)</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_tagtweets</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+    <span class="n">allhashtag</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">hashtags</span><span class="o">=</span><span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="n">ticker</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">hashtags</span><span class="p">:</span>
+        <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">full_text</span>
+        <span class="n">allhashtag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tweet_text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">allhashtag</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="figure align-default">
 <img alt="_images/tweets_example.png" src="_images/tweets_example.png" />
 </div>
@@ -268,67 +265,45 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
 <h1>How to extract financial news of each stock ticker?<a class="headerlink" href="#how-to-extract-financial-news-of-each-stock-ticker" title="Permalink to this headline">¶</a></h1>
 <p>Before the tutorial, it is important to a look of the front-end code of the website</p>
 <div class="figure align-default">
-<img alt="_images/apple_website.png" src="_images/apple_website.png" />
+<img alt="_images/apple_finviz_example.png" src="_images/apple_finviz_example.png" />
 </div>
-<ol class="arabic simple">
-<li><p>Access the website of each ticker through urllib.request module</p></li>
-</ol>
-<dl class="simple">
-<dt>::</dt><dd><p>allnews=[]
-finviz_url = ‘<a class="reference external" href="https://finviz.com/quote.ashx?t=">https://finviz.com/quote.ashx?t=</a>’
-url = finviz_url + ticker
-req = Request(url=url,headers={‘user-agent’: ‘my-app/0.0.1’})</p>
-</dd>
-</dl>
-<ol class="arabic simple" start="2">
-<li><p>Access the data from the HTML using Beautiful soup</p></li>
-</ol>
-<dl class="simple">
-<dt>::</dt><dd><p>html = BeautifulSoup(resp, features=”lxml”)</p>
-</dd>
-</dl>
-<ol class="arabic simple" start="3">
-<li><p>Get the information of  &lt;div&gt; id=’news-table’ in the website</p></li>
-</ol>
-<dl class="simple">
-<dt>::</dt><dd><p>news_table = html.find(id=’news-table’)
-news_tables[ticker] = news_table</p>
-</dd>
-</dl>
-<ol class="arabic simple" start="4">
-<li><p>Find All the news under the &lt;tr&gt; tag in the news-table</p></li>
-</ol>
-<dl>
-<dt>::</dt><dd><dl>
-<dt>for info in df.findAll(‘tr’):</dt><dd><p>text=info.a.get_text()
-date_scrape= info.td.text.split()
-if(len(date_scrape)==1):</p>
-<blockquote>
-<div><p>time=date_scrape[0]</p>
-</div></blockquote>
-<dl class="simple">
-<dt>else:</dt><dd><p>date= date_scrape[0]
-time=date_scrape[1]
-news_time_str= date+” “+time</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-<ol class="arabic simple" start="5">
-<li><dl class="simple">
-<dt>Convert the date type into ‘YYYY-MM-dd’</dt><dd><p>date_time_obj = datetime.datetime.strptime(news_time_str, ‘%b-%d-%y %I:%M%p’)
-date_time=date_time_obj.strftime(‘%Y-%m-%d’)</p>
-</dd>
-</dl>
-</li>
-<li><p>Append all the news together</p></li>
-</ol>
-<dl class="simple">
-<dt>::</dt><dd><p>allnews.append([date_time,text])</p>
-</dd>
-</dl>
+<p>1. Access the website of each ticker through urllib.request module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">finviz_url</span> <span class="o">=</span> <span class="s1">&#39;https://finviz.com/quote.ashx?t=&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">finviz_url</span> <span class="o">+</span> <span class="n">ticker</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>2. Access the data from the HTML using Beautiful soup</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>3. Get the information of  &lt;div&gt; id=’news-table’ in the website</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">news_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;news-table&#39;</span><span class="p">)</span>
+<span class="n">news_tables</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_table</span>
+</pre></div>
+</div>
+<p>4. Find All the news under the &lt;tr&gt; tag in the news-table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+    <span class="n">text</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+    <span class="n">date_scrape</span><span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">date_scrape</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">date</span><span class="o">=</span> <span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">date_scrape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">news_time_str</span><span class="o">=</span> <span class="n">date</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>5. Convert the date type into ‘YYYY-MM-dd’</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_time_str</span><span class="p">,</span> <span class="s1">&#39;%b-</span><span class="si">%d</span><span class="s1">-%y %I:%M%p&#39;</span><span class="p">)</span>
+<span class="n">date_time</span><span class="o">=</span><span class="n">date_time_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>6. Append all the news together</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">date_time</span><span class="p">,</span><span class="n">text</span><span class="p">])</span>
+</pre></div>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <div class="line-block">
