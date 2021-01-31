@@ -235,23 +235,6 @@
 <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Collect data from Cashtag($) in Tweepy
-Methods of collecting tweets
-————————————</p>
-<p>Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn’t given any context about the stocks
-themselves. Related text were found in the extension of the output.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_tagtweets</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
-    <span class="n">allhashtag</span><span class="o">=</span><span class="p">[]</span>
-    <span class="n">hashtags</span><span class="o">=</span><span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="n">ticker</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">hashtags</span><span class="p">:</span>
-        <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">full_text</span>
-        <span class="n">allhashtag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tweet_text</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">allhashtag</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<img alt="_images/tweets_example.png" src="_images/tweets_example.png" />
-</div>
 </div>
 </div>
 <div class="section" id="methods-of-collecting-financial-headlines-from-finviz-com">

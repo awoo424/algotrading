@@ -43,22 +43,7 @@ Code illustration
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 
-Collect data from Cashtag($) in Tweepy
-Methods of collecting tweets
-------------------------------------
 
-Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn't given any context about the stocks
-themselves. Related text were found in the extension of the output.
-::
-    def get_tagtweets(ticker)
-        allhashtag=[]
-        hashtags=tweepy.Cursor(api.search,q=ticker,lang='en',tweet_mode='extended').items(200)
-        for status in hashtags:
-            tweet_text = status.full_text
-            allhashtag.append(tweet_text)
-        print(allhashtag)
-
-.. figure:: ../images/tweets_example.png
 
 Methods of collecting financial headlines from finviz.com
 ---------------------------------------------------------
@@ -103,8 +88,6 @@ Before the tutorial, it is important to a look of the front-end code of the webs
 6. Append all the news together
 ::
             allnews.append([date_time,text])
-
-
 
 
 
