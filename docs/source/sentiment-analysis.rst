@@ -44,7 +44,8 @@ Code illustration
     api = tweepy.API(auth, wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 
 Collect data from Cashtag($) in Tweepy
-===================================================
+Methods of collecting tweets
+------------------------------------
 
 Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn't given any context about the stocks
 themselves. Related text were found in the extension of the output.
@@ -64,8 +65,8 @@ Methods of collecting financial headlines from finviz.com
 Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
 collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.
 
-How to extract financial news of each stock ticker?
-===================================================
+Notes
+~~~~~
 Before the tutorial, it is important to a look of the front-end code of the website
 
 .. figure:: ../images/apple_finviz_example.png

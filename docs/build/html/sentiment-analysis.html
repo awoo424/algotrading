@@ -113,13 +113,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#apply-for-developer-account-from-twitter-use-tweepy">Apply for developer account from Twitter use Tweepy</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-financial-headlines-from-finviz-com">Methods of collecting financial headlines from finviz.com</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#collect-data-from-cashtag-in-tweepy">Collect data from Cashtag($) in Tweepy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-financial-headlines-from-finviz-com">Methods of collecting financial headlines from finviz.com</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#how-to-extract-financial-news-of-each-stock-ticker">How to extract financial news of each stock ticker?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Others</span></p>
 <ul>
@@ -236,11 +235,9 @@
 <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="collect-data-from-cashtag-in-tweepy">
-<h1>Collect data from Cashtag($) in Tweepy<a class="headerlink" href="#collect-data-from-cashtag-in-tweepy" title="Permalink to this headline">¶</a></h1>
+<p>Collect data from Cashtag($) in Tweepy
+Methods of collecting tweets
+————————————</p>
 <p>Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn’t given any context about the stocks
 themselves. Related text were found in the extension of the output.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_tagtweets</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
@@ -255,14 +252,14 @@ themselves. Related text were found in the extension of the output.</p>
 <div class="figure align-default">
 <img alt="_images/tweets_example.png" src="_images/tweets_example.png" />
 </div>
+</div>
+</div>
 <div class="section" id="methods-of-collecting-financial-headlines-from-finviz-com">
 <h2>Methods of collecting financial headlines from finviz.com<a class="headerlink" href="#methods-of-collecting-financial-headlines-from-finviz-com" title="Permalink to this headline">¶</a></h2>
 <p>Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
 collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.</p>
-</div>
-</div>
-<div class="section" id="how-to-extract-financial-news-of-each-stock-ticker">
-<h1>How to extract financial news of each stock ticker?<a class="headerlink" href="#how-to-extract-financial-news-of-each-stock-ticker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
 <p>Before the tutorial, it is important to a look of the front-end code of the website</p>
 <div class="figure align-default">
 <img alt="_images/apple_finviz_example.png" src="_images/apple_finviz_example.png" />
@@ -311,6 +308,8 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
 people on methodologies to build and evaluate algorithmic trading strategies.
 All final investment decisions are yours and as a result you could make or lose money.
 All final investment decisions are yours and as a result you could make or lose money.</div>
+</div>
+</div>
 </div>
 </div>
 </div>
