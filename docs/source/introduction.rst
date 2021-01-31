@@ -227,6 +227,14 @@ Technical analysis vs Fundamental analysis
   on technial approach, it is doubtful that anyone could trade off the fundamentals 
   alone without any consideration of the technical side of the market.
 
+
+What is sentiment analysis in stock market?
+-------------------------------------------
+Market sentiment refers to the overall attitude of investors toward a particular security. Investors profit by finding
+stocks that are overvalued based on market sentiment
+
+
+
 Conclusion
 -----------
 

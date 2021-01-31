@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Sentiment analysis &mdash; algotrading 0.0.1 documentation</title>
   
@@ -17,7 +17,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -27,11 +30,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -53,7 +56,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> algotrading
+            <a href="index.html" class="icon icon-home"> algotrading
           
 
           
@@ -104,7 +107,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sentiment analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sentiment analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-basics-in-sentiment-analysis">The basics in sentiment analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-tweets">Methods of collecting tweets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#apply-for-developer-account-from-twitter-use-tweepy">Apply for developer account from Twitter use Tweepy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#collect-data-from-cashtag-in-tweepy">Collect data from Cashtag($) in Tweepy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#methods-of-collecting-financial-headlines-from-finviz-com">Methods of collecting financial headlines from finviz.com</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#how-to-extract-financial-news-of-each-stock-ticker">How to extract financial news of each stock ticker?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Others</span></p>
 <ul>
@@ -150,6 +163,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -161,7 +176,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/sentiment-analysis.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -177,12 +192,149 @@
             
   <div class="section" id="sentiment-analysis">
 <h1>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h1>
-<p><em>Under construction</em></p>
+<p>In this tutorial, you will learn:</p>
+<ul class="simple">
+<li><p>The basics in sentiment analysis</p></li>
+<li><p>Methods of collecting tweets</p></li>
+<li><p>Methods of collecting financial headlines</p></li>
+<li><p>What are the common ways of analyzing sentiment</p></li>
+<li><p>How do you measure the accuracy of the sentiment</p></li>
+</ul>
+<div class="section" id="the-basics-in-sentiment-analysis">
+<h2>The basics in sentiment analysis<a class="headerlink" href="#the-basics-in-sentiment-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">As we have discussed in the first tutorial, Sentiment analysis is a natural language processing technique used to determine whether data is positive, negative or neutral.</div>
+</div>
+<p>This websites aim to explore the daily sentiment of each stock by combining financial headlines and relevant tweets, to find out the market sentiment.</p>
+<div class="line-block">
+<div class="line">In the upcoming tutorial, market sentiment will be analysed through data collected from Twitter and from news article relevant to respective stock markets.</div>
+</div>
+</div>
+<div class="section" id="methods-of-collecting-tweets">
+<h2>Methods of collecting tweets<a class="headerlink" href="#methods-of-collecting-tweets" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="apply-for-developer-account-from-twitter-use-tweepy">
+<h1>Apply for developer account from Twitter use Tweepy<a class="headerlink" href="#apply-for-developer-account-from-twitter-use-tweepy" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Click and apply through this link: <a class="reference external" href="https://developer.twitter.com/en/apply-for-access">https://developer.twitter.com/en/apply-for-access</a></p></li>
+<li><p>After successful application, enter into the project and enable App permissions ( Read and  Write )</p></li>
+</ol>
+<p>3. Navigate to Keys and token section, reterive the API key, API secret, Access token and Access secret
+Code illustration</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">token</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">secret</span>
+
+
+<span class="c1"># authorization of consumer key and consumer secret</span>
+<span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+<span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collect-data-from-cashtag-in-tweepy">
+<h1>Collect data from Cashtag($) in Tweepy<a class="headerlink" href="#collect-data-from-cashtag-in-tweepy" title="Permalink to this headline">¶</a></h1>
+<p>Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn’t given any context about the stocks
+themselves. Related text were found in the extension of the output.</p>
+<dl>
+<dt>::</dt><dd><dl>
+<dt>def get_tagtweets(ticker)</dt><dd><p>allhashtag=[]
+hashtags=tweepy.Cursor(api.search,q=ticker,lang=’en’,tweet_mode=’extended’).items(200)
+for status in hashtags:</p>
+<blockquote>
+<div><p>tweet_text = status.full_text
+allhashtag.append(tweet_text)</p>
+</div></blockquote>
+<p>print(allhashtag)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="figure align-default">
+<img alt="_images/tweets_example.png" src="_images/tweets_example.png" />
+</div>
+<div class="section" id="methods-of-collecting-financial-headlines-from-finviz-com">
+<h2>Methods of collecting financial headlines from finviz.com<a class="headerlink" href="#methods-of-collecting-financial-headlines-from-finviz-com" title="Permalink to this headline">¶</a></h2>
+<p>Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
+collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.</p>
+</div>
+</div>
+<div class="section" id="how-to-extract-financial-news-of-each-stock-ticker">
+<h1>How to extract financial news of each stock ticker?<a class="headerlink" href="#how-to-extract-financial-news-of-each-stock-ticker" title="Permalink to this headline">¶</a></h1>
+<p>Before the tutorial, it is important to a look of the front-end code of the website</p>
+<div class="figure align-default">
+<img alt="_images/apple_website.png" src="_images/apple_website.png" />
+</div>
+<ol class="arabic simple">
+<li><p>Access the website of each ticker through urllib.request module</p></li>
+</ol>
+<dl class="simple">
+<dt>::</dt><dd><p>allnews=[]
+finviz_url = ‘<a class="reference external" href="https://finviz.com/quote.ashx?t=">https://finviz.com/quote.ashx?t=</a>’
+url = finviz_url + ticker
+req = Request(url=url,headers={‘user-agent’: ‘my-app/0.0.1’})</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="2">
+<li><p>Access the data from the HTML using Beautiful soup</p></li>
+</ol>
+<dl class="simple">
+<dt>::</dt><dd><p>html = BeautifulSoup(resp, features=”lxml”)</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>Get the information of  &lt;div&gt; id=’news-table’ in the website</p></li>
+</ol>
+<dl class="simple">
+<dt>::</dt><dd><p>news_table = html.find(id=’news-table’)
+news_tables[ticker] = news_table</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="4">
+<li><p>Find All the news under the &lt;tr&gt; tag in the news-table</p></li>
+</ol>
+<dl>
+<dt>::</dt><dd><dl>
+<dt>for info in df.findAll(‘tr’):</dt><dd><p>text=info.a.get_text()
+date_scrape= info.td.text.split()
+if(len(date_scrape)==1):</p>
+<blockquote>
+<div><p>time=date_scrape[0]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>else:</dt><dd><p>date= date_scrape[0]
+time=date_scrape[1]
+news_time_str= date+” “+time</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<ol class="arabic simple" start="5">
+<li><dl class="simple">
+<dt>Convert the date type into ‘YYYY-MM-dd’</dt><dd><p>date_time_obj = datetime.datetime.strptime(news_time_str, ‘%b-%d-%y %I:%M%p’)
+date_time=date_time_obj.strftime(‘%Y-%m-%d’)</p>
+</dd>
+</dl>
+</li>
+<li><p>Append all the news together</p></li>
+</ol>
+<dl class="simple">
+<dt>::</dt><dd><p>allnews.append([date_time,text])</p>
+</dd>
+</dl>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <div class="line-block">
 <div class="line">All investments entail inherent risk. This repository seeks to solely educate
 people on methodologies to build and evaluate algorithmic trading strategies.
+All final investment decisions are yours and as a result you could make or lose money.
 All final investment decisions are yours and as a result you could make or lose money.</div>
 </div>
 </div>
@@ -193,37 +345,29 @@ All final investment decisions are yours and as a result you could make or lose 
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="acknowledgement.html" class="btn btn-neutral float-right" title="Acknowledgement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="property-price-prediction.html" class="btn btn-neutral float-left" title="Property Price Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="acknowledgement.html" class="btn btn-neutral float-right" title="Acknowledgement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="property-price-prediction.html" class="btn btn-neutral float-left" title="Property Price Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Angel Woo
+        &#169; Copyright 2020, Angel Woo.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
