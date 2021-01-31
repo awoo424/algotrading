@@ -23,10 +23,11 @@ This websites aim to explore the daily sentiment of each stock by combining fina
 Methods of collecting tweets
 ------------------------------------
 Apply for developer account from Twitter use Tweepy
-===================================================
-1. Click and apply through this link: https://developer.twitter.com/en/apply-for-access
-2. After successful application, enter into the project and enable App permissions ( Read and  Write )
-3. Navigate to Keys and token section, reterive the API key, API secret, Access token and Access secret
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+| 1. Click and apply through this link: https://developer.twitter.com/en/apply-for-access
+| 2. After successful application, enter into the project and enable App permissions ( Read and  Write )
+| 3. Navigate to Keys and token section, reterive the API key, API secret, Access token and Access secret
+
 Code illustration
 ::
     import tweepy
@@ -44,9 +45,9 @@ Code illustration
 
 Collect data from Cashtag($) in Tweepy
 ===================================================
+
 Cashtag($) were used in Twitter to track tweets on stock tickers, but doesn't given any context about the stocks
 themselves. Related text were found in the extension of the output.
-
 ::
     def get_tagtweets(ticker)
         allhashtag=[]
@@ -67,27 +68,23 @@ How to extract financial news of each stock ticker?
 ===================================================
 Before the tutorial, it is important to a look of the front-end code of the website
 
-.. figure:: ../images/apple_website.png
+.. figure:: ../images/apple_finviz_example.png
 
 1. Access the website of each ticker through urllib.request module
-
 ::
     allnews=[]
     finviz_url = 'https://finviz.com/quote.ashx?t='
     url = finviz_url + ticker
     req = Request(url=url,headers={'user-agent': 'my-app/0.0.1'})
 2. Access the data from the HTML using Beautiful soup
-
 ::
     html = BeautifulSoup(resp, features="lxml")
 3. Get the information of  <div> id='news-table' in the website
-
 ::
     news_table = html.find(id='news-table')
     news_tables[ticker] = news_table
 
 4. Find All the news under the <tr> tag in the news-table
-
 ::
             for info in df.findAll('tr'):
                 text=info.a.get_text()
@@ -99,10 +96,10 @@ Before the tutorial, it is important to a look of the front-end code of the webs
                     time=date_scrape[1]
                     news_time_str= date+" "+time
 5. Convert the date type into 'YYYY-MM-dd'
+::
                 date_time_obj = datetime.datetime.strptime(news_time_str, '%b-%d-%y %I:%M%p')
                 date_time=date_time_obj.strftime('%Y-%m-%d')
 6. Append all the news together
-
 ::
             allnews.append([date_time,text])
 
