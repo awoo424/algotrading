@@ -11,8 +11,8 @@ In this tutorial, you will learn:
 * How do you measure the accuracy of the sentiment
 
 
-The basics in sentiment analysis
---------------------------------
+Intro to sentiment analysis
+---------------------------
 
 | As we have discussed in the first tutorial, Sentiment analysis is a natural language processing technique used to determine whether data is positive, negative or neutral.
 This websites aim to explore the daily sentiment of each stock by combining financial headlines and relevant tweets, to find out the market sentiment.
@@ -20,19 +20,18 @@ This websites aim to explore the daily sentiment of each stock by combining fina
 
 | In the upcoming tutorial, market sentiment will be analysed through data collected from Twitter and from news article relevant to respective stock markets.
 
-Methods of collecting tweets
+Collect tweets
 ------------------------------------
 
-******************************************************
+
 Apply for developer account from Twitter use Tweepy
-******************************************************
+
 | 1. Click and apply for a developer account through this link: https://developer.twitter.com/en/apply-for-access
 | 2. Create a project and associated with developer App in the developer portal
 | 3. Enable App permissions ( Read and  Write )
 | 4. Navigate to 'Keys and token' page, save your API key, API secret, Access token and Access secret
 
 Code illustration
-################
 ::
     import tweepy
     # do not share the API key in any public platform (e.g github, public website)
@@ -47,34 +46,34 @@ Code illustration
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 
-******************************************************
+
 Access the relevant tweets using the Twitter API
-******************************************************
+
 | There are different types of API provided by Twitter with various rare limitations. Please visit this link for further
 information https://developer.twitter.com/en/docs/twitter-api .In the following tutorials, you will be learning how to
 retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream data that contains real time tweets.
 
-Collect Tweets from Timeline
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Timeline tweets
+^^^^^^^^^^^^^^^^
 
 
 
-Collect Tweets from Hashtag/Cashtag
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Hashtag/Cashtag tweets
+^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
-Collect Tweets from Twitter Stream API
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+stream tweets
+^^^^^^^^^^^^^^^
 
 
 
 
-Methods of collecting financial headlines
+Collect financial headlines
 ------------------------------------------
 
-Collect news headlines from Finviz.com for US news
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+US news
+^^^^^^^
 
 Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
 collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.
@@ -119,8 +118,8 @@ Before the tutorial, it is important to a look of the front-end code of the webs
             allnews.append([date_time,text])
 
 
-Collect news headlines from aastock.com for HK news
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+HK news
+^^^^^^^
 
 
 
