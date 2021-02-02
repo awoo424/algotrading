@@ -33,6 +33,8 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 
 All the code could be found in the `/code` directory and the documentation could be accessed at [https://algo-trading.readthedocs.io/](https://algo-trading.readthedocs.io/).
 
+*Note that the `\database` directory only contains example files. The actual database is stored in the HKU Department of Computer Science server.*  
+
 ## Code overview
 
 #### 1. Technical analysis
