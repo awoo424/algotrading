@@ -120,9 +120,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#hk-news">HK news</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hk-news">HK news</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vader-sentiment-prediction">Vader sentiment prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -252,12 +256,92 @@ retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream dat
 </div>
 <div class="section" id="timeline-tweets">
 <h3>Timeline tweets<a class="headerlink" href="#timeline-tweets" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Returns the 20 most recent statuses posted from the authenticating user. It is also possible to request another
+user’s timeline via the the id parameter.</div>
+<div class="line">Pass in the user_id or screen_name to access the user specified tweets. For more information regarding the paramter.
+Please visit the following links <a class="reference external" href="https://docs.tweepy.org/en/v3.5.0/api.html">https://docs.tweepy.org/en/v3.5.0/api.html</a></div>
+</div>
+<p>Code illustration</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># declare an empty list</span>
+<span class="n">alltweets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># extract data from the API</span>
+<span class="n">timeline</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">userid</span><span class="p">,</span><span class="n">count</span><span class="o">=</span><span class="n">number_of_tweets</span><span class="p">)</span>
+<span class="n">alltweets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">timeline</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span><span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">alltweets</span><span class="p">:</span>
+         <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+         <span class="n">dates</span><span class="o">=</span><span class="n">tweet</span><span class="o">.</span><span class="n">created_at</span>
+         <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">dates</span><span class="p">,</span><span class="n">tweet_text</span><span class="p">])</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="hashtag-cashtag-tweets">
 <h3>Hashtag/Cashtag tweets<a class="headerlink" href="#hashtag-cashtag-tweets" title="Permalink to this headline">¶</a></h3>
+<p>Use tweepy.Cursor() to access data from hashtag and cashtags</p>
+<p>Code illustration</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract data from the API</span>
+<span class="n">hashtags</span><span class="o">=</span><span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span><span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">hashtags</span><span class="p">:</span>
+         <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">full_text</span>
+         <span class="n">dates</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+         <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">dates</span><span class="p">,</span><span class="n">tweet_text</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>** want to collect tweets within a period of time? **</p>
+<p>Follow up on the previous example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span><span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">hashtags</span><span class="p">:</span>
+        <span class="o">**</span> <span class="k">if</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span><span class="o">.</span><span class="n">days</span><span class="o">&lt;=</span><span class="n">day_required</span><span class="p">:</span> <span class="o">**</span>
+             <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">full_text</span>
+             <span class="n">dates</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+             <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">dates</span><span class="p">,</span><span class="n">tweet_text</span><span class="p">])</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="stream-tweets">
 <h3>stream tweets<a class="headerlink" href="#stream-tweets" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">The Twitter streaming API is used to download twitter message in real tome. It is useful for obtaining a high volume of
+tweets, or for creating a live feed using a site stream. For more information with the API, please visit this link
+<a class="reference external" href="https://docs.tweepy.org/en/v3.5.0/streaming_how_to.html">https://docs.tweepy.org/en/v3.5.0/streaming_how_to.html</a></div>
+</div>
+<p>1. Create a class inheriting from StreamListener</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># orverride tweepy.StreamListener</span>
+<span class="k">class</span> <span class="nc">MyStreamListener</span><span class="p">(</span><span class="n">tweepy</span><span class="o">.</span><span class="n">StreamListener</span><span class="p">):</span>
+    <span class="c1"># add logic to the on_staus method</span>
+    <span class="k">def</span> <span class="nf">on_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tweet_count</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tweets</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="c1"># collect tweets</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_file</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span><span class="n">status</span><span class="o">.</span><span class="n">extended_tweet</span><span class="p">[</span><span class="s1">&#39;full_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tweet_count</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="c1"># add logic to the initialize function</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyStreamListener</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tweets</span><span class="o">=</span><span class="mi">200</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tweet_count</span><span class="o">=</span><span class="mi">100</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_name</span><span class="o">=</span><span class="n">input_name</span>
+</pre></div>
+</div>
+<p>2. Creating a stream</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a output_file parameter to store the output tweets</span>
+<span class="n">myStreamListener</span> <span class="o">=</span> <span class="n">MyStreamListener</span><span class="p">(</span><span class="n">output_file</span><span class="o">=</span><span class="n">f</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="n">firm</span><span class="p">)</span>
+<span class="n">myStream</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="n">auth</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">,</span><span class="n">listener</span><span class="o">=</span><span class="n">myStreamListener</span><span class="p">,</span><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>3. Starting a stream</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">target_firm</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="collect-financial-headlines">
@@ -315,6 +399,196 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
 </div>
 <div class="section" id="hk-news">
 <h3>HK news<a class="headerlink" href="#hk-news" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">We will be learning how to collect news headlines from aastock.com. The website has been one of the highest- ranking
+financial information platform in Hong Kong for more than a decade. It offers real-time international information
+relevant to Hong Kong shares, which are useful for analysing sentiment and trends in the local market.</div>
+</div>
+<div class="section" id="id1">
+<h4>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">Before the tutorial, it is important to a look of the front-end code of the website. Take tencent (00700.HK) as an example.
+Please visit this link <a class="reference external" href="http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1">http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1</a>. click ‘inspect’ and you can
+view the front-end code of the website</div>
+</div>
+<div class="figure align-default">
+<img alt="../images/tencent_aastock_example" src="../images/tencent_aastock_example" />
+</div>
+<div class="line-block">
+<div class="line">you can see from this figure, the ‘date’ attribute are stored within the &lt;div class =’inline_block&gt; under the
+&lt;div class=’newstime 4’&gt;, while the news headlines are stored within the &lt; div class = ‘newscontent4 mar8T’&gt;</div>
+</div>
+<p>1. Access the website of each ticker through urllib.request module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefix_url</span><span class="o">=</span><span class="s1">&#39;http://www.aastocks.com/en/stocks/analysis/stock-aafn/&#39;</span>
+<span class="n">postfix_url</span><span class="o">=</span><span class="s1">&#39;/0/all/1&#39;</span>
+<span class="n">url</span><span class="o">=</span><span class="n">prefix_url</span><span class="o">+</span><span class="n">fill_ticker</span><span class="o">+</span><span class="n">postfix_url</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>2. Access the data from the HTML using Beautiful soup</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+<span class="c1"># get the html code containing the dates and news</span>
+<span class="n">dates</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;inline_block&quot;</span><span class="p">})</span>
+<span class="n">news</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;newshead4&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>3. Find All the news and corresponding dates from the html code from step 2</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># track the index in the news list</span>
+<span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span><span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+        <span class="c1"># as the dates are in yyyy/mm/dd format</span>
+        <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get_text</span><span class="p">()):</span>
+            <span class="n">date</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+            <span class="c1"># the front-end code is not standardize and sometimes contains &#39;Release Time&#39; String</span>
+            <span class="k">if</span> <span class="s2">&quot;Release Time&quot;</span> <span class="ow">in</span> <span class="n">date</span><span class="p">:</span>
+                <span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">[</span><span class="mi">13</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">date</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">date</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">news</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+            <span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;%Y/%m/</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="c1"># standardize the date format into &#39;YYYY-mm-dd&#39; format</span>
+            <span class="n">date_time</span><span class="o">=</span><span class="n">date_time_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="c1"># limit to the number of days you want to collect</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">date_time_obj</span><span class="p">)</span><span class="o">.</span><span class="n">days</span><span class="o">&lt;=</span><span class="n">day_required</span><span class="p">:</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">date_time</span><span class="p">,</span><span class="n">text</span><span class="p">])</span>
+                <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vader-sentiment-prediction">
+<h2>Vader sentiment prediction<a class="headerlink" href="#vader-sentiment-prediction" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">After you have finish collecting data from the above tutorial. It is time for you now to carry out the analysis on
+on the database</div>
+</div>
+<div class="line-block">
+<div class="line">VADER ( Valence Aware Dictionary for Sentiment Reasoning) is a model used for text sentiment analysis that is
+sensitive to both polarity (positive/negative) and intensity (strength) of emotion. It is available in the NLTK
+package and can be applied directly to unlabeled text data.</div>
+</div>
+<div class="line-block">
+<div class="line">The sentiment labels are generated from the VADER Compound score according to the following rules:</div>
+</div>
+<ul class="simple">
+<li><p>Positive sentiment (= 2): compound score &gt; 0.01</p></li>
+<li><p>Neutral sentiment (= 1): −0.01 ≥ compound score ≤ 0.01</p></li>
+<li><p>Negative sentiment (= 0): compound score &lt; −0.01</p></li>
+</ul>
+<p>** Note 1% was set as the threshold value accounting for the average stock movement in the US market, feel free to set
+any value for your own analysis**</p>
+<p>1. Import these libraries</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="k">import</span> <span class="n">SentimentIntensityAnalyzer</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">twitter_samples</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of four categories:</dt><dd><p><a href="#id2"><span class="problematic" id="id3">*</span></a>negative
+<a href="#id4"><span class="problematic" id="id5">*</span></a>neutral
+<a href="#id6"><span class="problematic" id="id7">*</span></a>positive
+<a href="#id8"><span class="problematic" id="id9">*</span></a>compound (computed by normalizing the scores above, ranging from -1 to 1)</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Let us analyze the data we have collected through our sentimental analyzer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the path when you stored the csv file containing the data</span>
+<span class="k">def</span> <span class="nf">read_tweets_us_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="c1"># I used the path to join the relative directories to the path I stored my data</span>
+    <span class="n">path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_name</span><span class="p">,</span><span class="s1">&#39;train-data/&#39;</span><span class="o">+</span><span class="n">path</span><span class="p">)</span>
+    <span class="c1"># read in data as pandas dataframe</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">cs</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+        <span class="n">cs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tweets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">])[</span><span class="s1">&#39;compound&#39;</span><span class="p">])</span>
+    <span class="c1"># create a new column for the calculated results</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">cs</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+<p>3. Label the sentiment for each tweets
+| parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>grouped_data: consolidated data with features including (dates,tweets,compound_vader_score)</p></li>
+<li><p>file_name: the output name after the label function</p></li>
+<li><p>perc_change: the threshold valuefor label the sentiment</p></li>
+</ul>
+</div></blockquote>
+<p>Code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_tweets_pred_label</span><span class="p">(</span><span class="n">grouped_data</span><span class="p">,</span><span class="n">file_name</span><span class="p">,</span><span class="n">perc_change</span><span class="p">):</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;find_pred_label&#39;</span><span class="p">)</span>
+<span class="n">tweets</span><span class="o">=</span><span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;tweets&#39;</span><span class="p">]</span>
+<span class="c1"># group the tweets within the csv using [&#39;dates&#39;,&#39;ticker&#39;] index,</span>
+<span class="n">grouped_data</span><span class="o">=</span><span class="n">grouped_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;dates&#39;</span><span class="p">,</span><span class="s1">&#39;ticker&#39;</span><span class="p">])[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">final_label</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grouped_data</span><span class="p">)):</span>
+
+    <span class="k">if</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">perc_change</span><span class="p">:</span>
+        <span class="n">final_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">perc_change</span><span class="p">:</span>
+        <span class="n">final_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;=-</span><span class="n">perc_change</span>  <span class="ow">and</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">perc_change</span><span class="p">):</span>
+        <span class="n">final_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># add the column of vader_label</span>
+<span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;vader_label&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">final_label</span>
+<span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;tweets&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">tweets</span>
+<span class="n">grouped_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>merge all the data together</p></li>
+</ol>
+<ul class="simple">
+<li><p>actual label (= 2): price movement ≥ 0.01</p></li>
+<li><p>actual label (= 1):  −0.01 ≥ price movement ≤ 0.01</p></li>
+<li><p>actual label (= 0): price movement ≤ −0.01</p></li>
+</ul>
+<div class="line-block">
+<div class="line">parameters:
+* file_name: consolidated data with features including (dates,tweets,compound_vader_score)
+* label_data: the label data contains the actual label from yahoo finance</div>
+</div>
+<p>code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_actual_label</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">label_data</span><span class="p">):</span>
+
+    <span class="n">vader_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">vader_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span><span class="s2">&quot;ticker&quot;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">label_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">label_data</span><span class="p">)</span>
+    <span class="n">label_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span><span class="s2">&quot;ticker&quot;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># merge the actual label and the predicted label into a single pandas data frame</span>
+    <span class="n">merge</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">vader_data</span><span class="p">,</span><span class="n">label_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">merge</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0_y&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">merge</span>
+</pre></div>
+</div>
+<p>5. Validation using confusion matrix
+parameter
+* df: the final merged pandas dataframe
+* name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label</p>
+<p>code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">def</span> <span class="nf">validation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">pred_label</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;vader_label&#39;</span><span class="p">])</span>
+    <span class="n">actual_label</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">cm</span><span class="o">=</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">actual_label</span><span class="p">,</span> <span class="n">pred_label</span><span class="p">,</span><span class="n">labels</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;True Neg&#39;</span><span class="p">,</span><span class="s1">&#39;False Pos&#39;</span><span class="p">,</span><span class="s1">&#39;False Neg&#39;</span><span class="p">,</span><span class="s1">&#39;True Pos&#39;</span><span class="p">]</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span><span class="s1">&#39;Neutral&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive&#39;</span><span class="p">]</span>
+    <span class="n">make_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">group_names</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="n">categories</span> <span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <div class="line-block">
@@ -322,7 +596,6 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
 people on methodologies to build and evaluate algorithmic trading strategies.
 All final investment decisions are yours and as a result you could make or lose money.
 All final investment decisions are yours and as a result you could make or lose money.</div>
-</div>
 </div>
 </div>
 </div>
