@@ -27,7 +27,7 @@ Collect tweets
 ------------------------------------
 
 
-Apply for developer account from Twitter use Tweepy
+**Apply for developer account from Twitter use Tweepy**
 
 | 1. Click and apply for a developer account through this link: https://developer.twitter.com/en/apply-for-access
 | 2. Create a project and associated with developer App in the developer portal
@@ -50,7 +50,7 @@ Code illustration
     api = tweepy.API(auth, wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 
 
-Access the relevant tweets using the Twitter API
+**Access the relevant tweets using the Twitter API**
 
 | There are different types of API provided by Twitter with various rare limitations. Please visit this link for further
   information https://developer.twitter.com/en/docs/twitter-api .In the following tutorials, you will be learning how to
@@ -87,21 +87,21 @@ Before the tutorial, it is important to a look of the front-end code of the webs
 
 .. figure:: ../images/apple_finviz_example.png
 
-| 1. Access the website of each ticker through urllib.request module
+1. Access the website of each ticker through urllib.request module
 ::
     allnews=[]
     finviz_url = 'https://finviz.com/quote.ashx?t='
     url = finviz_url + ticker
     req = Request(url=url,headers={'user-agent': 'my-app/0.0.1'})
-| 2. Access the data from the HTML using Beautiful soup
+2. Access the data from the HTML using Beautiful soup
 ::
     html = BeautifulSoup(resp, features="lxml")
-| 3. Get the information of  <div> id='news-table' in the website
+3. Get the information of  <div> id='news-table' in the website
 ::
     news_table = html.find(id='news-table')
     news_tables[ticker] = news_table
 
-| 4. Find All the news under the <tr> tag in the news-table
+4. Find All the news under the <tr> tag in the news-table
 ::
             for info in df.findAll('tr'):
                 text=info.a.get_text()

@@ -222,7 +222,7 @@ relevant to respective stock markets.</div>
 </div>
 <div class="section" id="collect-tweets">
 <h2>Collect tweets<a class="headerlink" href="#collect-tweets" title="Permalink to this headline">¶</a></h2>
-<p>Apply for developer account from Twitter use Tweepy</p>
+<p><strong>Apply for developer account from Twitter use Tweepy</strong></p>
 <div class="line-block">
 <div class="line">1. Click and apply for a developer account through this link: <a class="reference external" href="https://developer.twitter.com/en/apply-for-access">https://developer.twitter.com/en/apply-for-access</a></div>
 <div class="line">2. Create a project and associated with developer App in the developer portal</div>
@@ -244,7 +244,7 @@ relevant to respective stock markets.</div>
 <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Access the relevant tweets using the Twitter API</p>
+<p><strong>Access the relevant tweets using the Twitter API</strong></p>
 <div class="line-block">
 <div class="line">There are different types of API provided by Twitter with various rare limitations. Please visit this link for further
 information <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api">https://developer.twitter.com/en/docs/twitter-api</a> .In the following tutorials, you will be learning how to
@@ -274,52 +274,34 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
 <div class="figure align-default">
 <img alt="_images/apple_finviz_example.png" src="_images/apple_finviz_example.png" />
 </div>
-<div class="line-block">
-<div class="line">1. Access the website of each ticker through urllib.request module</div>
+<p>1. Access the website of each ticker through urllib.request module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">finviz_url</span> <span class="o">=</span> <span class="s1">&#39;https://finviz.com/quote.ashx?t=&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">finviz_url</span> <span class="o">+</span> <span class="n">ticker</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
+</pre></div>
 </div>
-<dl class="simple">
-<dt>::</dt><dd><p>allnews=[]
-finviz_url = ‘<a class="reference external" href="https://finviz.com/quote.ashx?t=">https://finviz.com/quote.ashx?t=</a>’
-url = finviz_url + ticker
-req = Request(url=url,headers={‘user-agent’: ‘my-app/0.0.1’})</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">2. Access the data from the HTML using Beautiful soup</div>
+<p>2. Access the data from the HTML using Beautiful soup</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
-<dl class="simple">
-<dt>::</dt><dd><p>html = BeautifulSoup(resp, features=”lxml”)</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">3. Get the information of  &lt;div&gt; id=’news-table’ in the website</div>
+<p>3. Get the information of  &lt;div&gt; id=’news-table’ in the website</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">news_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;news-table&#39;</span><span class="p">)</span>
+<span class="n">news_tables</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_table</span>
+</pre></div>
 </div>
-<dl class="simple">
-<dt>::</dt><dd><p>news_table = html.find(id=’news-table’)
-news_tables[ticker] = news_table</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">4. Find All the news under the &lt;tr&gt; tag in the news-table</div>
+<p>4. Find All the news under the &lt;tr&gt; tag in the news-table</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+    <span class="n">text</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+    <span class="n">date_scrape</span><span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">date_scrape</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">date</span><span class="o">=</span> <span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">date_scrape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">news_time_str</span><span class="o">=</span> <span class="n">date</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">time</span>
+</pre></div>
 </div>
-<dl>
-<dt>::</dt><dd><dl>
-<dt>for info in df.findAll(‘tr’):</dt><dd><p>text=info.a.get_text()
-date_scrape= info.td.text.split()
-if(len(date_scrape)==1):</p>
-<blockquote>
-<div><p>time=date_scrape[0]</p>
-</div></blockquote>
-<dl class="simple">
-<dt>else:</dt><dd><p>date= date_scrape[0]
-time=date_scrape[1]
-news_time_str= date+” “+time</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
 <p>5. Convert the date type into ‘YYYY-MM-dd’</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_time_str</span><span class="p">,</span> <span class="s1">&#39;%b-</span><span class="si">%d</span><span class="s1">-%y %I:%M%p&#39;</span><span class="p">)</span>
 <span class="n">date_time</span><span class="o">=</span><span class="n">date_time_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
