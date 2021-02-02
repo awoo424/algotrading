@@ -233,19 +233,19 @@ relevant to respective stock markets.</div>
 <div class="line">3. Enable App permissions ( Read and  Write )</div>
 <div class="line">4. Navigate to ‘Keys and token’ page, save your API key, API secret, Access token and Access secret</div>
 </div>
-<p>Code illustration</p>
+<p><strong>Code illustration</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
-  <span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
-  <span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
-  <span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
-  <span class="n">access_token</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">token</span>
-  <span class="n">access_token_secret</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">secret</span>
+<span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">token</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">secret</span>
 
 
-  <span class="c1"># authorization of consumer key and consumer secret</span>
-  <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
-  <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-  <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># authorization of consumer key and consumer secret</span>
+<span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+<span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Access the relevant tweets using the Twitter API</strong></p>
@@ -262,7 +262,7 @@ user’s timeline via the the id parameter.</div>
 <div class="line">Pass in the user_id or screen_name to access the user specified tweets. For more information regarding the paramter.
 Please visit the following links <a class="reference external" href="https://docs.tweepy.org/en/v3.5.0/api.html">https://docs.tweepy.org/en/v3.5.0/api.html</a></div>
 </div>
-<p>Code illustration</p>
+<p><strong>Code illustration</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># declare an empty list</span>
 <span class="n">alltweets</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># extract data from the API</span>
@@ -280,7 +280,7 @@ Please visit the following links <a class="reference external" href="https://doc
 <div class="section" id="hashtag-cashtag-tweets">
 <h3>Hashtag/Cashtag tweets<a class="headerlink" href="#hashtag-cashtag-tweets" title="Permalink to this headline">¶</a></h3>
 <p>Use tweepy.Cursor() to access data from hashtag and cashtags</p>
-<p>Code illustration</p>
+<p><strong>Code illustration</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract data from the API</span>
 <span class="n">hashtags</span><span class="o">=</span><span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -291,7 +291,7 @@ Please visit the following links <a class="reference external" href="https://doc
          <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">dates</span><span class="p">,</span><span class="n">tweet_text</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>** want to collect tweets within a period of time? **</p>
+<p>Want to collect tweets within a period of time?</p>
 <p>Follow up on the previous example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">writer</span><span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -412,7 +412,7 @@ Please visit this link <a class="reference external" href="http://www.aastocks.c
 view the front-end code of the website</div>
 </div>
 <div class="figure align-default">
-<img alt="../images/tencent_aastock_example" src="../images/tencent_aastock_example" />
+<img alt="_images/tencent_aastock_example.png" src="_images/tencent_aastock_example.png" />
 </div>
 <div class="line-block">
 <div class="line">you can see from this figure, the ‘date’ attribute are stored within the &lt;div class =’inline_block&gt; under the
@@ -491,13 +491,11 @@ any value for your own analysis</p>
 <ol class="arabic simple" start="2">
 <li><p>VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of</p></li>
 </ol>
-<dl class="simple">
-<dt>Four categories:</dt><dd><p><a href="#id2"><span class="problematic" id="id3">*</span></a>negative
+<p>Four categories:
+<a href="#id2"><span class="problematic" id="id3">*</span></a>negative
 <a href="#id4"><span class="problematic" id="id5">*</span></a>neutral
 <a href="#id6"><span class="problematic" id="id7">*</span></a>positive
 <a href="#id8"><span class="problematic" id="id9">*</span></a>compound (computed by normalizing the scores above, ranging from -1 to 1)</p>
-</dd>
-</dl>
 <p>Let us analyze the data we have collected through our sentimental analyzer</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the path when you stored the csv file containing the data</span>
 <span class="k">def</span> <span class="nf">read_tweets_us_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
@@ -514,15 +512,17 @@ any value for your own analysis</p>
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 </div>
-<p>3. Label the sentiment for each tweets
-parameters:</p>
-<blockquote>
-<div><ul class="simple">
+<ol class="arabic simple" start="3">
+<li><p>Label the sentiment for each tweets</p></li>
+</ol>
+<dl class="simple">
+<dt>parameters:</dt><dd><ul class="simple">
 <li><p>grouped_data: consolidated data with features including (dates,tweets,compound_vader_score)</p></li>
 <li><p>file_name: the output name after the label function</p></li>
 <li><p>perc_change: the threshold valuefor label the sentiment</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <p>Code</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_tweets_pred_label</span><span class="p">(</span><span class="n">grouped_data</span><span class="p">,</span><span class="n">file_name</span><span class="p">,</span><span class="n">perc_change</span><span class="p">):</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;find_pred_label&#39;</span><span class="p">)</span>
@@ -544,24 +544,15 @@ parameters:</p>
 <span class="n">grouped_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic" start="4">
-<li><p>merge all the data together</p>
-<blockquote>
-<div><ul class="simple">
+<p><a href="#id10"><span class="problematic" id="id11">|</span></a>4. merge all the data together</p>
+<ul class="simple">
 <li><p>actual label (= 2): price movement ≥ 0.01</p></li>
 <li><p>actual label (= 1):  −0.01 ≥ price movement ≤ 0.01</p></li>
 <li><p>actual label (= 0): price movement ≤ −0.01</p></li>
 </ul>
-</div></blockquote>
-</li>
-</ol>
-<p>parameters:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>file_name: consolidated data with features including (dates,tweets,compound_vader_score)</p></li>
-<li><p>label_data: the label data contains the actual label from yahoo finance</p></li>
-</ul>
-</div></blockquote>
+<p><a href="#id12"><span class="problematic" id="id13">|</span></a>parameters:
+* file_name: consolidated data with features including (dates,tweets,compound_vader_score)
+* label_data: the label data contains the actual label from yahoo finance</p>
 <p>Code</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_actual_label</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">label_data</span><span class="p">):</span>
 
@@ -576,17 +567,13 @@ parameters:</p>
     <span class="k">return</span> <span class="n">merge</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Validation using confusion matrix</p></li>
-</ol>
+<p><a href="#id14"><span class="problematic" id="id15">|</span></a>5. Validation using confusion matrix</p>
 <p>parameter:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>df: the final merged pandas dataframe</p></li>
 <li><p>name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label</p></li>
 </ul>
-</div></blockquote>
-<p>Code</p>
+<p><strong>Code illustration</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="k">def</span> <span class="nf">validation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>

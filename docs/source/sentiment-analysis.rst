@@ -34,7 +34,7 @@ Collect tweets
 | 3. Enable App permissions ( Read and  Write )
 | 4. Navigate to 'Keys and token' page, save your API key, API secret, Access token and Access secret
 
-Code illustration
+**Code illustration**
 ::
     import tweepy
     # do not share the API key in any public platform (e.g github, public website)
@@ -63,7 +63,7 @@ Timeline tweets
 | Pass in the user_id or screen_name to access the user specified tweets. For more information regarding the paramter.
   Please visit the following links https://docs.tweepy.org/en/v3.5.0/api.html
 
-Code illustration
+**Code illustration**
 ::
     # declare an empty list
     alltweets = []
@@ -82,7 +82,7 @@ Hashtag/Cashtag tweets
 Use tweepy.Cursor() to access data from hashtag and cashtags
 
 
-Code illustration
+**Code illustration**
 ::
     # extract data from the API
     hashtags=tweepy.Cursor(api.search,q=name,lang='en',tweet_mode='extended').items(200)
@@ -93,7 +93,7 @@ Code illustration
              dates=str(status.created_at)[:10]
              writer.writerow([dates,tweet_text])
 
-** want to collect tweets within a period of time? **
+Want to collect tweets within a period of time?
 
 Follow up on the previous example
 ::
@@ -204,7 +204,7 @@ Notes
   Please visit this link http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1. click 'inspect' and you can
   view the front-end code of the website
 
-.. figure:: ../images/tencent_aastock_example
+.. figure:: ../images/tencent_aastock_example.png
 | you can see from this figure, the 'date' attribute are stored within the <div class ='inline_block> under the
   <div class='newstime 4'>, while the news headlines are stored within the < div class = 'newscontent4 mar8T'>
 
@@ -276,10 +276,10 @@ any value for your own analysis
 2. VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of
 
 Four categories:
-    *negative
-    *neutral
-    *positive
-    *compound (computed by normalizing the scores above, ranging from -1 to 1)
+*negative
+*neutral
+*positive
+*compound (computed by normalizing the scores above, ranging from -1 to 1)
 
 Let us analyze the data we have collected through our sentimental analyzer
 ::
@@ -298,6 +298,7 @@ Let us analyze the data we have collected through our sentimental analyzer
         return df
 
 3. Label the sentiment for each tweets
+
 parameters:
     * grouped_data: consolidated data with features including (dates,tweets,compound_vader_score)
     * file_name: the output name after the label function
@@ -325,16 +326,15 @@ Code
     grouped_data['tweets']=tweets
     grouped_data.to_csv(file_name)
 
-4. merge all the data together
+|4. merge all the data together
 
-    * actual label (= 2): price movement ≥ 0.01
-    * actual label (= 1):  −0.01 ≥ price movement ≤ 0.01
-    * actual label (= 0): price movement ≤ −0.01
+* actual label (= 2): price movement ≥ 0.01
+* actual label (= 1):  −0.01 ≥ price movement ≤ 0.01
+* actual label (= 0): price movement ≤ −0.01
 
-parameters:
-
-    * file_name: consolidated data with features including (dates,tweets,compound_vader_score)
-    * label_data: the label data contains the actual label from yahoo finance
+|parameters:
+* file_name: consolidated data with features including (dates,tweets,compound_vader_score)
+* label_data: the label data contains the actual label from yahoo finance
 
 
 Code
@@ -352,14 +352,14 @@ Code
         return merge
 
 
-5. Validation using confusion matrix
+|5. Validation using confusion matrix
 
 parameter:
 
-    * df: the final merged pandas dataframe
-    * name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label
+* df: the final merged pandas dataframe
+* name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label
 
-Code
+**Code illustration**
 ::
     from sklearn.metrics import confusion_matrix
     import matplotlib.pyplot as plt
