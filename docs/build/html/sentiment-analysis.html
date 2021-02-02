@@ -235,17 +235,17 @@ relevant to respective stock markets.</div>
 </div>
 <p>Code illustration</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
-<span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
-<span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
-<span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
-<span class="n">access_token</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">token</span>
-<span class="n">access_token_secret</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">secret</span>
+  <span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
+  <span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
+  <span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
+  <span class="n">access_token</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">token</span>
+  <span class="n">access_token_secret</span> <span class="o">=</span> <span class="n">Access</span> <span class="n">secret</span>
 
 
-<span class="c1"># authorization of consumer key and consumer secret</span>
-<span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
-<span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="c1"># authorization of consumer key and consumer secret</span>
+  <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+  <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+  <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Access the relevant tweets using the Twitter API</strong></p>
@@ -479,8 +479,8 @@ package and can be applied directly to unlabeled text data.</div>
 <li><p>Neutral sentiment (= 1): −0.01 ≥ compound score ≤ 0.01</p></li>
 <li><p>Negative sentiment (= 0): compound score &lt; −0.01</p></li>
 </ul>
-<p>** Note 1% was set as the threshold value accounting for the average stock movement in the US market, feel free to set
-any value for your own analysis**</p>
+<p>Note 1% was set as the threshold value accounting for the average stock movement in the US market, feel free to set
+any value for your own analysis</p>
 <p>1. Import these libraries</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
@@ -489,15 +489,15 @@ any value for your own analysis**</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><dl class="simple">
-<dt>VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of four categories:</dt><dd><p><a href="#id2"><span class="problematic" id="id3">*</span></a>negative
+<li><p>VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of</p></li>
+</ol>
+<dl class="simple">
+<dt>Four categories:</dt><dd><p><a href="#id2"><span class="problematic" id="id3">*</span></a>negative
 <a href="#id4"><span class="problematic" id="id5">*</span></a>neutral
 <a href="#id6"><span class="problematic" id="id7">*</span></a>positive
 <a href="#id8"><span class="problematic" id="id9">*</span></a>compound (computed by normalizing the scores above, ranging from -1 to 1)</p>
 </dd>
 </dl>
-</li>
-</ol>
 <p>Let us analyze the data we have collected through our sentimental analyzer</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the path when you stored the csv file containing the data</span>
 <span class="k">def</span> <span class="nf">read_tweets_us_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
@@ -515,7 +515,7 @@ any value for your own analysis**</p>
 </pre></div>
 </div>
 <p>3. Label the sentiment for each tweets
-| parameters:</p>
+parameters:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>grouped_data: consolidated data with features including (dates,tweets,compound_vader_score)</p></li>
@@ -544,20 +544,25 @@ any value for your own analysis**</p>
 <span class="n">grouped_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>merge all the data together</p></li>
-</ol>
-<ul class="simple">
+<ol class="arabic" start="4">
+<li><p>merge all the data together</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>actual label (= 2): price movement ≥ 0.01</p></li>
 <li><p>actual label (= 1):  −0.01 ≥ price movement ≤ 0.01</p></li>
 <li><p>actual label (= 0): price movement ≤ −0.01</p></li>
 </ul>
-<div class="line-block">
-<div class="line">parameters:
-* file_name: consolidated data with features including (dates,tweets,compound_vader_score)
-* label_data: the label data contains the actual label from yahoo finance</div>
-</div>
-<p>code</p>
+</div></blockquote>
+</li>
+</ol>
+<p>parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>file_name: consolidated data with features including (dates,tweets,compound_vader_score)</p></li>
+<li><p>label_data: the label data contains the actual label from yahoo finance</p></li>
+</ul>
+</div></blockquote>
+<p>Code</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_actual_label</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">label_data</span><span class="p">):</span>
 
     <span class="n">vader_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
@@ -571,11 +576,17 @@ any value for your own analysis**</p>
     <span class="k">return</span> <span class="n">merge</span>
 </pre></div>
 </div>
-<p>5. Validation using confusion matrix
-parameter
-* df: the final merged pandas dataframe
-* name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label</p>
-<p>code</p>
+<ol class="arabic simple" start="5">
+<li><p>Validation using confusion matrix</p></li>
+</ol>
+<p>parameter:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>df: the final merged pandas dataframe</p></li>
+<li><p>name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label</p></li>
+</ul>
+</div></blockquote>
+<p>Code</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="k">def</span> <span class="nf">validation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>

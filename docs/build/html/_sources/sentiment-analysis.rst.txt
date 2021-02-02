@@ -36,7 +36,7 @@ Collect tweets
 
 Code illustration
 ::
-    import tweepy
+  import tweepy
     # do not share the API key in any public platform (e.g github, public website)
     consumer_key = API secret
     consumer_secret = API secret
@@ -263,8 +263,8 @@ Vader sentiment prediction
 * Neutral sentiment (= 1): −0.01 ≥ compound score ≤ 0.01
 * Negative sentiment (= 0): compound score < −0.01
 
-** Note 1% was set as the threshold value accounting for the average stock movement in the US market, feel free to set
-any value for your own analysis**
+Note 1% was set as the threshold value accounting for the average stock movement in the US market, feel free to set
+any value for your own analysis
 
 1. Import these libraries
 ::
@@ -273,7 +273,9 @@ any value for your own analysis**
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
     from nltk.corpus import twitter_samples
 
-2. VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of four categories:
+2. VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of
+
+Four categories:
     *negative
     *neutral
     *positive
@@ -296,7 +298,7 @@ Let us analyze the data we have collected through our sentimental analyzer
         return df
 
 3. Label the sentiment for each tweets
-| parameters:
+parameters:
     * grouped_data: consolidated data with features including (dates,tweets,compound_vader_score)
     * file_name: the output name after the label function
     * perc_change: the threshold valuefor label the sentiment
@@ -325,16 +327,17 @@ Code
 
 4. merge all the data together
 
-* actual label (= 2): price movement ≥ 0.01
-* actual label (= 1):  −0.01 ≥ price movement ≤ 0.01
-* actual label (= 0): price movement ≤ −0.01
+    * actual label (= 2): price movement ≥ 0.01
+    * actual label (= 1):  −0.01 ≥ price movement ≤ 0.01
+    * actual label (= 0): price movement ≤ −0.01
 
-| parameters:
+parameters:
+
     * file_name: consolidated data with features including (dates,tweets,compound_vader_score)
     * label_data: the label data contains the actual label from yahoo finance
 
 
-code
+Code
 ::
     def merge_actual_label (file_name,label_data):
 
@@ -350,11 +353,13 @@ code
 
 
 5. Validation using confusion matrix
-parameter
-* df: the final merged pandas dataframe
-* name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label
 
-code
+parameter:
+
+    * df: the final merged pandas dataframe
+    * name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label
+
+Code
 ::
     from sklearn.metrics import confusion_matrix
     import matplotlib.pyplot as plt
