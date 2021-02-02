@@ -14,11 +14,14 @@ In this tutorial, you will learn:
 Intro to sentiment analysis
 ---------------------------
 
-| As we have discussed in the first tutorial, Sentiment analysis is a natural language processing technique used to determine whether data is positive, negative or neutral.
-This websites aim to explore the daily sentiment of each stock by combining financial headlines and relevant tweets, to find out the market sentiment.
+| As we have discussed in the first tutorial, Sentiment analysis is a natural language processing technique used to
+  determine whether data is positive, negative or neutral.
+  This websites aim to explore the daily sentiment of each stock by combining financial headlines and relevant tweets,
+  to find out the market sentiment.
 
 
-| In the upcoming tutorial, market sentiment will be analysed through data collected from Twitter and from news article relevant to respective stock markets.
+| In the upcoming tutorial, market sentiment will be analysed through data collected from Twitter and from news article
+  relevant to respective stock markets.
 
 Collect tweets
 ------------------------------------
@@ -50,8 +53,8 @@ Code illustration
 Access the relevant tweets using the Twitter API
 
 | There are different types of API provided by Twitter with various rare limitations. Please visit this link for further
-information https://developer.twitter.com/en/docs/twitter-api .In the following tutorials, you will be learning how to
-retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream data that contains real time tweets.
+  information https://developer.twitter.com/en/docs/twitter-api .In the following tutorials, you will be learning how to
+  retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream data that contains real time tweets.
 
 Timeline tweets
 ^^^^^^^^^^^^^^^^
@@ -75,8 +78,8 @@ Collect financial headlines
 US news
 ^^^^^^^
 
-Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
-collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.
+| Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
+  collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.
 
 Notes
 *****
@@ -84,21 +87,21 @@ Before the tutorial, it is important to a look of the front-end code of the webs
 
 .. figure:: ../images/apple_finviz_example.png
 
-1. Access the website of each ticker through urllib.request module
+| 1. Access the website of each ticker through urllib.request module
 ::
     allnews=[]
     finviz_url = 'https://finviz.com/quote.ashx?t='
     url = finviz_url + ticker
     req = Request(url=url,headers={'user-agent': 'my-app/0.0.1'})
-2. Access the data from the HTML using Beautiful soup
+| 2. Access the data from the HTML using Beautiful soup
 ::
     html = BeautifulSoup(resp, features="lxml")
-3. Get the information of  <div> id='news-table' in the website
+| 3. Get the information of  <div> id='news-table' in the website
 ::
     news_table = html.find(id='news-table')
     news_tables[ticker] = news_table
 
-4. Find All the news under the <tr> tag in the news-table
+| 4. Find All the news under the <tr> tag in the news-table
 ::
             for info in df.findAll('tr'):
                 text=info.a.get_text()

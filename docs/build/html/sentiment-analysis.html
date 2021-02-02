@@ -210,11 +210,14 @@
 <div class="section" id="intro-to-sentiment-analysis">
 <h2>Intro to sentiment analysis<a class="headerlink" href="#intro-to-sentiment-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
-<div class="line">As we have discussed in the first tutorial, Sentiment analysis is a natural language processing technique used to determine whether data is positive, negative or neutral.</div>
+<div class="line">As we have discussed in the first tutorial, Sentiment analysis is a natural language processing technique used to
+determine whether data is positive, negative or neutral.
+This websites aim to explore the daily sentiment of each stock by combining financial headlines and relevant tweets,
+to find out the market sentiment.</div>
 </div>
-<p>This websites aim to explore the daily sentiment of each stock by combining financial headlines and relevant tweets, to find out the market sentiment.</p>
 <div class="line-block">
-<div class="line">In the upcoming tutorial, market sentiment will be analysed through data collected from Twitter and from news article relevant to respective stock markets.</div>
+<div class="line">In the upcoming tutorial, market sentiment will be analysed through data collected from Twitter and from news article
+relevant to respective stock markets.</div>
 </div>
 </div>
 <div class="section" id="collect-tweets">
@@ -243,10 +246,10 @@
 </div>
 <p>Access the relevant tweets using the Twitter API</p>
 <div class="line-block">
-<div class="line">There are different types of API provided by Twitter with various rare limitations. Please visit this link for further</div>
+<div class="line">There are different types of API provided by Twitter with various rare limitations. Please visit this link for further
+information <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api">https://developer.twitter.com/en/docs/twitter-api</a> .In the following tutorials, you will be learning how to
+retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream data that contains real time tweets.</div>
 </div>
-<p>information <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api">https://developer.twitter.com/en/docs/twitter-api</a> .In the following tutorials, you will be learning how to
-retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream data that contains real time tweets.</p>
 <div class="section" id="timeline-tweets">
 <h3>Timeline tweets<a class="headerlink" href="#timeline-tweets" title="Permalink to this headline">¶</a></h3>
 </div>
@@ -261,42 +264,62 @@ retrieve tweets from their Twitter timeline, hashtag/cashtag and also stream dat
 <h2>Collect financial headlines<a class="headerlink" href="#collect-financial-headlines" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="us-news">
 <h3>US news<a class="headerlink" href="#us-news" title="Permalink to this headline">¶</a></h3>
-<p>Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
-collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.</p>
+<div class="line-block">
+<div class="line">Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
+collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.</div>
+</div>
 <div class="section" id="notes">
 <h4>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
 <p>Before the tutorial, it is important to a look of the front-end code of the website</p>
 <div class="figure align-default">
 <img alt="_images/apple_finviz_example.png" src="_images/apple_finviz_example.png" />
 </div>
-<p>1. Access the website of each ticker through urllib.request module</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">finviz_url</span> <span class="o">=</span> <span class="s1">&#39;https://finviz.com/quote.ashx?t=&#39;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="n">finviz_url</span> <span class="o">+</span> <span class="n">ticker</span>
-<span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
-</pre></div>
+<div class="line-block">
+<div class="line">1. Access the website of each ticker through urllib.request module</div>
 </div>
-<p>2. Access the data from the HTML using Beautiful soup</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
-</pre></div>
+<dl class="simple">
+<dt>::</dt><dd><p>allnews=[]
+finviz_url = ‘<a class="reference external" href="https://finviz.com/quote.ashx?t=">https://finviz.com/quote.ashx?t=</a>’
+url = finviz_url + ticker
+req = Request(url=url,headers={‘user-agent’: ‘my-app/0.0.1’})</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">2. Access the data from the HTML using Beautiful soup</div>
 </div>
-<p>3. Get the information of  &lt;div&gt; id=’news-table’ in the website</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">news_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;news-table&#39;</span><span class="p">)</span>
-<span class="n">news_tables</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_table</span>
-</pre></div>
+<dl class="simple">
+<dt>::</dt><dd><p>html = BeautifulSoup(resp, features=”lxml”)</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">3. Get the information of  &lt;div&gt; id=’news-table’ in the website</div>
 </div>
-<p>4. Find All the news under the &lt;tr&gt; tag in the news-table</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
-    <span class="n">text</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-    <span class="n">date_scrape</span><span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">date_scrape</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">time</span><span class="o">=</span><span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">date</span><span class="o">=</span> <span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">time</span><span class="o">=</span><span class="n">date_scrape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">news_time_str</span><span class="o">=</span> <span class="n">date</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">time</span>
-</pre></div>
+<dl class="simple">
+<dt>::</dt><dd><p>news_table = html.find(id=’news-table’)
+news_tables[ticker] = news_table</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">4. Find All the news under the &lt;tr&gt; tag in the news-table</div>
 </div>
+<dl>
+<dt>::</dt><dd><dl>
+<dt>for info in df.findAll(‘tr’):</dt><dd><p>text=info.a.get_text()
+date_scrape= info.td.text.split()
+if(len(date_scrape)==1):</p>
+<blockquote>
+<div><p>time=date_scrape[0]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>else:</dt><dd><p>date= date_scrape[0]
+time=date_scrape[1]
+news_time_str= date+” “+time</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
 <p>5. Convert the date type into ‘YYYY-MM-dd’</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_time_str</span><span class="p">,</span> <span class="s1">&#39;%b-</span><span class="si">%d</span><span class="s1">-%y %I:%M%p&#39;</span><span class="p">)</span>
 <span class="n">date_time</span><span class="o">=</span><span class="n">date_time_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
