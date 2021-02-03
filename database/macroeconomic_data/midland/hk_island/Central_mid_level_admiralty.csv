@@ -1,0 +1,481 @@
+,region,subregion,district,estate,building,first_op_date,floor_level,bedroom,sitting_room,floor,flat,area,net_area,price,tx_date,last_tx_date,last_price,gain,lat,lon
+0,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Best View Court,Block B,1959-05-11,M,,,,68,0,1311,22000000,2021-01-06,,0.0,0.0,22.274964999999998,114.16006
+1,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,L,,,3,F,566,419,7000000,2021-01-06,2012-08-27,1980000.0,253.54,22.275772,114.16891
+2,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wealthy Heights,Wealthy Heights,1987-06-27,L,,,,A,0,1584,38500000,2021-01-05,,0.0,0.0,22.275665999999998,114.158758
+3,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,L,2,,16,B,2020,1547,38000000,2020-12-31,2012-06-15,29500000.0,28.810000000000002,22.274673,114.152627
+4,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,L,,,,B,1234,1119,20800000,2020-12-28,,0.0,0.0,22.274134,114.17223
+5,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,14,C,0,636,12800000,2020-12-24,2009-02-23,5400000.0,137.04,22.275067999999997,114.16818
+6,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,H,2,,27,F,1007,793,30200000,2020-12-24,2014-01-16,21000000.0,43.81,22.2763169,114.167744
+7,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Albany,The Albany,1989-04-06,M,3,,,A1,2404,1948,103500000,2020-12-22,,0.0,0.0,22.277768,114.154861
+8,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,H,0,,24,A,0,314,6900000,2020-12-22,2007-01-26,2900000.0,137.93,22.275555999999998,114.156828
+9,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,M,2,,22,B,931,761,21500000,2020-12-21,,0.0,0.0,22.275081,114.152337
+10,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,H,,,28,A,568,415,9530000,2020-12-17,2015-03-26,8900000.0,7.08,22.275772,114.16891
+11,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,L,2,,11,C,938,738,19750000,2020-12-16,2001-07-31,6100000.0,223.77,22.275081,114.152337
+12,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,M,,,,C,411,306,7780000,2020-12-14,2007-11-27,3500000.0,122.29,22.275555999999998,114.156828
+13,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,H,,,28,D,0,636,15800000,2020-12-11,2010-02-05,8500000.0,85.88,22.275067999999997,114.16818
+14,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,M,1,,15,E,0,452,9800000,2020-12-09,2015-05-20,10100000.0,-2.97,22.275555999999998,114.156828
+15,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,M,1,,19,E,730,573,17000000,2020-12-07,1999-03-27,5200000.0,226.92000000000002,22.2763169,114.167744
+16,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,H,,,42,A,0,1520,64200000,2020-12-04,2005-09-15,27000000.0,137.78,22.273272,114.15288
+17,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,L,2,,1,A,841,657,16500000,2020-11-30,1997-08-13,8159775.0,102.21000000000001,22.2755279,114.152324
+18,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 1,1991-09-25,L,4,,,A,2691,2153,76180000,2020-11-30,2003-05-17,13000000.0,486.0,22.276208,114.152624
+19,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,46,1,0,1607,56500000,2020-11-30,2003-01-11,15850000.0,256.47,22.280714,114.17205
+20,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,H,2,,28,D,821,673,19000000,2020-11-30,2000-10-16,7300000.0,160.27,22.2755279,114.152324
+21,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,M,0,,13,A,0,314,7680000,2020-11-27,2012-08-30,6100000.0,25.900000000000002,22.275555999999998,114.156828
+22,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,,,,36,A,2018,1596,54000000,2020-11-27,1996-11-20,17380000.0,210.70000000000002,22.27514,114.160966
+23,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kennedy Apartment,Kennedy Apartment,1962-10-25,H,,,9,,0,2123,46500000,2020-11-20,,0.0,0.0,22.276142,114.159985
+24,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,H,,,27,A,0,493,12600000,2020-11-20,,0.0,0.0,22.275067999999997,114.16818
+25,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block F,1969-08-11,M,3,,12,,1261,1075,23880000,2020-11-20,1997-08-26,9800000.0,143.67000000000002,22.274523,114.168104
+26,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,,,,36,C,2018,1539,64780000,2020-11-20,2004-08-30,17200000.0,276.63,22.27514,114.160966
+27,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower,1990-03-07,M,1,,,11,972,744,16800000,2020-11-19,,0.0,0.0,22.280714,114.17205
+28,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-11,M,,,17,C,2586,1942,62000000,2020-11-18,,0.0,0.0,22.2742,114.155754
+29,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,21,5,0,922,19800000,2020-11-17,2016-12-05,18500000.0,7.03,22.280714,114.17205
+30,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monmouth Place,Monmouth Place,1994-11-21,M,,,10,A,1483,962,18000000,2020-11-13,,0.0,0.0,22.275344999999998,114.16769
+31,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,19,2,0,1115,26380000,2020-11-12,2007-07-19,16180000.0,63.04,22.280714,114.17205
+32,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-31,,0,,22,C,0,226,5030000,2020-11-10,,0.0,0.0,22.276076999999997,114.16787
+33,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,L,2,,7,D,821,646,18800000,2020-11-09,1996-11-26,8238000.0,128.21,22.2755279,114.152324
+34,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Valverde,Valverde,1998-01-07,L,,,17,A,0,721,26200000,2020-11-06,2012-11-19,21800000.0,20.18,22.273847999999997,114.15279
+35,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,L,4,,3,A,2691,2153,89200000,2020-11-04,,0.0,0.0,22.276265,114.152336
+36,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,H,4,,39,B,2256,1794,88100000,2020-11-04,,0.0,0.0,22.276265,114.152336
+37,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,H,4,,33,B,2256,1794,85400000,2020-11-04,,0.0,0.0,22.276265,114.152336
+38,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,L,4,,12,A,2691,2153,93400000,2020-11-04,,0.0,0.0,22.276265,114.152336
+39,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,M,4,,24,B,2256,1794,81500000,2020-11-04,,0.0,0.0,22.276265,114.152336
+40,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,H,4,,30,B,2256,1794,84100000,2020-11-04,,0.0,0.0,22.276265,114.152336
+41,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,H,4,,30,A,2680,2141,101900000,2020-11-04,,0.0,0.0,22.276265,114.152336
+42,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 2,1991-09-25,H,4,,39,A,2680,2141,106700000,2020-11-04,,0.0,0.0,22.276265,114.152336
+43,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,L,,,1,D,542,397,7500000,2020-11-02,2011-04-06,5278000.0,42.1,22.275772,114.16891
+44,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Ewan Court,Ewan Court,1978-06-23,M,,,8,C,1485,1213,30000000,2020-10-29,,0.0,0.0,22.2743797,114.1689464
+45,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Ewan Court,Ewan Court,1978-06-23,M,,,8,D,1468,1197,30000000,2020-10-29,,0.0,0.0,22.2743797,114.1689464
+46,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 1,1981-06-10,H,3,,31,B,0,2330,59800000,2020-10-29,2009-08-24,30000000.0,99.33,22.273999,114.15217200000001
+47,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,M,2,,14,B,931,761,21000000,2020-10-28,2015-10-09,16400000.0,28.05,22.275081,114.152337
+48,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,H,3,,27,F,1130,898,20000000,2020-10-27,2010-05-19,11000000.0,81.82000000000001,22.276526,114.167354
+49,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,30,18,0,623,16280000,2020-10-20,2016-10-19,14000000.0,16.29,22.280714,114.17205
+50,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block B,1969-08-11,L,3,,3,,1453,1232,24000000,2020-10-20,2016-12-16,19500000.0,23.080000000000002,22.274762,114.16841
+51,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Yuen Garden,Man Yuen Garden,1971-01-12,M,,,7,,2000,1669,36000000,2020-10-16,,0.0,0.0,22.27442,114.1685226
+52,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,21,16,0,978,25500000,2020-10-16,2008-04-11,12472604.3,104.45,22.280714,114.17205
+53,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 2,1977-09-12,M,,,6,C,0,915,14800000,2020-10-15,2010-08-31,8580000.0,72.49,22.274075999999997,114.17242
+54,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 5,1977-09-12,H,,,14,D,0,890,16650000,2020-10-12,2013-05-15,15500000.0,7.42,22.273906999999998,114.17304
+55,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Glory Mansion,Glory Mansion,1961-06-01,H,,,10,106,0,1880,41880000,2020-10-12,2015-10-14,38500000.0,8.78,22.2745355,114.1617584
+56,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,M,2,,14,B,783,625,14400000,2020-10-12,1996-10-31,6800000.0,111.76,22.2755279,114.152324
+57,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 4,1977-09-12,M,,,10,A,0,1119,16600000,2020-10-08,,0.0,0.0,22.27396,114.17284
+58,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hollywood Heights,Hollywood Heights,1977-11-18,L,,,5,A,2466,2272,68000000,2020-10-06,2015-06-03,57500000.0,18.26,22.276545,114.15446299999999
+59,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Best View Court,Block A,1959-05-11,H,,,9,,0,1415,23300000,2020-09-30,,0.0,0.0,22.2749511,114.1600329
+60,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 1,1983-08-26,L,3,,5,A,3347,2888,81000000,2020-09-30,2015-10-07,60650000.0,33.55,22.275494,114.155385
+61,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,H,2,,32,A,841,677,18900000,2020-09-29,1997-02-27,13000000.0,45.38,22.2755279,114.152324
+62,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,L,1,,4,E,0,452,9928000,2020-09-25,1996-12-24,5500000.0,80.51,22.275555999999998,114.156828
+63,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,10,A,841,657,18550000,2020-09-23,2015-02-04,14450000.0,28.37,22.275344,114.152366
+64,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wealthy Heights,Wealthy Heights,1987-06-27,M,,,14,A,1760,1584,37200000,2020-09-22,,0.0,0.0,22.275665999999998,114.158758
+65,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,M,3,,22,A,1158,919,26000000,2020-09-16,2007-05-07,14650000.0,77.47,22.276526,114.167354
+66,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,32,13,0,409,9600000,2020-09-15,2013-09-06,7500000.0,28.0,22.280714,114.17205
+67,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,L,0,,4,A,0,314,6500000,2020-09-15,2012-12-31,6450000.0,0.78,22.275555999999998,114.156828
+68,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,M,2,,16,D,821,646,16200000,2020-09-11,2017-07-12,16880000.0,-4.03,22.275344,114.152366
+69,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Beau Cloud Mansion,Beau Cloud Mansion,1965-09-04,L,,,1,C,0,1437,29800000,2020-09-10,2009-10-21,16600000.0,79.52,22.2750955,114.159629
+70,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,L,,,12,B,2018,1596,49500000,2020-09-10,2008-10-08,24500000.0,102.04,22.27514,114.160966
+71,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,H,,,36,C,0,636,19000000,2020-09-09,2010-04-14,10360000.0,83.4,22.275067999999997,114.16818
+72,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,L,2,,2,B,783,625,14500000,2020-09-08,2015-06-26,11800000.0,22.88,22.2755279,114.152324
+73,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,H,,,39,B,0,1236,50000000,2020-09-07,,0.0,0.0,22.273272,114.15288
+74,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Yuen Mansion,Kam Yuen Mansion,1963-08-09,M,,,4,D,0,2400,46500000,2020-09-02,,0.0,0.0,22.275886,114.15379899999999
+75,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Tung Building,Man Tung Building,1979-06-05,H,,,5,B,0,535,10400000,2020-08-31,2013-10-25,8000000.0,30.0,22.2737829,114.1732816
+76,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 1,1991-09-25,H,4,,29,A,2680,2141,100800000,2020-08-24,1997-01-13,46000000.0,119.13,22.276208,114.152624
+77,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Chenyu Court,Chenyu Court,1965-11-29,L,,,3,B,0,1133,23000000,2020-08-24,,0.0,0.0,22.276072,114.15841
+78,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hollywood Heights,Hollywood Heights,1977-11-18,M,,,9,B,2466,2270,64280000,2020-08-21,2002-04-13,14800000.0,334.32,22.276545,114.15446299999999
+79,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,H,,,13,A,0,1119,20500000,2020-08-20,2004-01-27,3730000.0,449.6,22.274134,114.17223
+80,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Camelot Heights,Camelot Heights,1979-08-30,M,3,,8,A,0,1198,24500000,2020-08-13,2016-09-20,19000000.0,28.95,22.274174,114.170922
+81,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,H,,,29,C,2018,1539,54000000,2020-08-13,2006-09-28,19800000.0,172.73,22.27514,114.160966
+82,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 4,1977-09-12,H,,,16,C,0,915,21980000,2020-08-12,1999-12-09,4900000.0,348.57,22.27396,114.17284
+83,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,M,,,42,C,0,2429,92300000,2020-08-12,,0.0,0.0,22.274673,114.152627
+84,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Fook Court,Wing Fook Court,1981-03-12,H,,,15,B,904,787,20000000,2020-08-06,2007-12-21,6750000.0,196.3,22.273927999999998,114.17105
+85,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Borrett Mansions,Borrett Mansions,1966-11-29,H,,,20,,0,2449,88000000,2020-08-05,,0.0,0.0,22.2740686,114.1618556
+86,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kennedy Apartment,Kennedy Apartment,1962-10-25,M,,,5,,0,2123,65000000,2020-08-05,,0.0,0.0,22.276142,114.159985
+87,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Glory Mansion,Glory Mansion,1961-06-01,M,,,5,108,0,1880,36000000,2020-07-31,1998-12-10,6600000.0,445.45,22.2745355,114.1617584
+88,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-31,M,0,,13,C,0,251,4950000,2020-07-31,2013-04-18,4500000.0,10.0,22.276076999999997,114.16787
+89,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 5,1991-09-25,L,3,,8,A,1970,1522,57000000,2020-07-30,2001-06-01,13480000.0,322.85,22.275123,114.15284199999999
+90,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,3,,13,F,1131,890,30700000,2020-07-29,2000-03-09,8880000.0,245.72,22.276526,114.167354
+91,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Glory Mansion,Glory Mansion,1961-06-01,M,,,4,108,0,1880,38000000,2020-07-28,,0.0,0.0,22.2745355,114.1617584
+92,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Fook Court,Wing Fook Court,1981-03-12,H,,,17,B,904,787,19000000,2020-07-24,2008-05-26,7800000.0,143.59,22.273927999999998,114.17105
+93,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Tung Building,Man Tung Building,1979-06-05,L,,,1,A,0,529,7080000,2020-07-21,2012-11-05,5400000.0,31.11,22.2737829,114.1732816
+94,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grosvenor House,Grosvenor House,1958-04-14,M,,,5,703,0,1347,27500000,2020-07-21,,0.0,0.0,22.275201,114.1618056
+95,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,2,,6,E,929,719,18500000,2020-07-20,2006-05-25,8100000.0,128.4,22.276526,114.167354
+96,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 1,1991-09-25,M,4,,26,A,2680,2141,95000000,2020-07-17,2003-01-17,21800000.0,335.78000000000003,22.276208,114.152624
+97,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,M,,,35,D,3001,2407,86000000,2020-07-16,2019-11-20,86000000.0,0.0,22.274673,114.152627
+98,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,M,3,,42,A,0,1602,44000000,2020-07-16,2007-10-23,22800000.0,92.98,22.274673,114.152627
+99,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estella Court,70D Macdonnell Road,1956-08-03,L,,,2,,0,1707,32000000,2020-07-13,,0.0,0.0,22.278793,114.172902
+100,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Beau Cloud Mansion,Beau Cloud Mansion,1965-09-04,M,,,8,C,0,1437,28200000,2020-07-07,2005-08-23,8980000.0,214.03,22.2750955,114.159629
+101,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,M,3,,21,D,1385,1104,16500000,2020-07-03,2019-05-22,16500000.0,0.0,22.275081,114.152337
+102,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,L,3,,11,B,1970,1522,54800000,2020-07-03,1997-03-04,32800000.0,67.07000000000001,22.275343,114.1529
+103,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Tung Building,Man Tung Building,1979-06-05,M,,,4,D,0,487,7350000,2020-06-30,2013-07-26,5450000.0,34.86,22.2737829,114.1732816
+104,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Century Tower,Block 2,1992-04-24,H,,,22,,0,2786,133800000,2020-06-30,2011-06-03,128000000.0,4.53,22.273218,114.15545
+105,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,H,3,,29,B,1902,1525,44380000,2020-06-29,2017-11-29,55580000.0,-20.150000000000002,22.276526,114.167354
+106,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,H,2,,37,D,711,511,13900000,2020-06-29,2000-12-19,3129000.0,344.23,22.275868,114.168523
+107,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block E,1969-08-11,L,3,,3,,1275,1107,22800000,2020-06-24,,0.0,0.0,22.274528,114.168171
+108,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,3,,10,A,1158,912,29000000,2020-06-24,1999-05-04,7880000.0,268.02,22.276526,114.167354
+109,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monmouth Place,Monmouth Place,1994-11-21,L,,,1,B,1072,689,13500000,2020-06-24,2009-05-25,5360000.0,151.87,22.275344999999998,114.16769
+110,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-15,H,,,17,B,1999,1485,55000000,2020-06-21,2015-10-25,53500000.0,2.8000000000000003,22.273822,114.164488
+111,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,L,0,,4,F,0,318,7200000,2020-06-19,2010-07-13,4000000.0,80.0,22.275555999999998,114.156828
+112,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block F,1969-08-11,H,3,,15,,1261,1075,24800000,2020-06-19,,0.0,0.0,22.274523,114.168104
+113,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,M,,,7,D,0,890,14900000,2020-06-19,1998-11-09,3280000.0,354.27,22.274134,114.17223
+114,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,L,,,2,A,0,1119,18700000,2020-06-18,,0.0,0.0,22.274134,114.17223
+115,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,H,,,14,B,0,1119,18500000,2020-06-12,2004-12-31,5000000.0,270.0,22.274134,114.17223
+116,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Amber Garden,Amber Garden ( Block A ),1981-07-27,M,,,17,A,1732,1404,38500000,2020-06-11,2009-07-31,20000000.0,92.5,22.27317,114.172585
+117,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 1,1983-08-26,L,3,,7,A,3347,2888,68500000,2020-06-10,2006-12-11,25800000.0,165.5,22.275494,114.155385
+118,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,L,,,5,D,0,890,13800000,2020-06-10,2015-12-10,11800000.0,16.95,22.274134,114.17223
+119,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block D,1969-08-11,H,3,,16,,1329,1107,22800000,2020-06-09,2004-04-02,3000000.0,660.0,22.274573999999998,114.168251
+120,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Yuen Garden,Man Yuen Garden,1971-01-12,H,,,10,,2000,1669,36500000,2020-06-09,2007-11-09,17500000.0,108.57000000000001,22.27442,114.1685226
+121,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,South Garden Mansion,South Garden Mansion,1960-05-22,L,,,2,,0,1348,32000000,2020-06-08,,0.0,0.0,22.275807999999998,114.160559
+122,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-15,H,,,17,A,1945,1445,50000000,2020-06-08,2007-03-06,20500000.0,143.9,22.273822,114.164488
+123,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hoover Court,Hoover Court,1980-05-29,M,,,13,,2654,2320,60180000,2020-06-08,2010-04-09,28000000.0,114.93,22.2760415,114.156539
+124,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Way Court,Wing Way Court,1989-12-29,H,,,24,,1860,1478,28500000,2020-06-08,2016-08-05,20700000.0,37.68,22.273773,114.171974
+125,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,0,,10,A,0,314,7500000,2020-06-03,2009-07-28,3950000.0,89.87,22.275555999999998,114.156828
+126,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,H,,,33,D,0,636,16180000,2020-06-03,2014-08-27,11800000.0,37.12,22.275067999999997,114.16818
+127,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,M,3,,37,A,0,1602,43580000,2020-06-03,2011-03-03,30000000.0,45.27,22.274673,114.152627
+128,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,May Tower,Block 1,1974-07-04,H,,,16,2,0,2218,86000000,2020-06-02,2004-02-09,17560000.0,389.75,22.273471,114.153996
+129,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Robinson Garden Apartment,3F-3G Robinson Road,1962-03-13,M,,,6,,0,1587,30800000,2020-06-01,2006-09-21,14100000.0,118.44,22.278574,114.15263
+130,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,M,,,16,B,2018,1596,47500000,2020-06-01,2009-12-03,28100000.0,69.04,22.27514,114.160966
+131,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Greenland Court,Greenland Court,1976-03-31,M,,,8,A,1300,1083,23880000,2020-05-27,2005-04-28,8600000.0,177.67000000000002,22.2750345,114.1591356
+132,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Fai Mansion,Kam Fai Mansion,1962-07-17,M,,,4,E,0,622,6500000,2020-05-26,2014-04-15,9100000.0,-28.57,22.274714,114.16009
+133,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,8 Kennedy Terrace,8 Kennedy Terrace,2016-06-15,H,,,24,A,0,1809,94000000,2020-05-18,,0.0,0.0,22.275965,114.1577
+134,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,8 Kennedy Terrace,8 Kennedy Terrace,2016-06-15,H,,,20,A,0,2890,130000000,2020-05-18,,0.0,0.0,22.275965,114.1577
+135,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,8 Kennedy Terrace,8 Kennedy Terrace,2016-06-15,L,,,9,A,0,5656,126000000,2020-05-18,,0.0,0.0,22.275965,114.1577
+136,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,41,7,0,574,12800000,2020-05-08,2005-10-28,5800000.0,120.69,22.280714,114.17205
+137,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand House,Grand House,1957-05-09,L,,,3,,0,2087,46380000,2020-05-08,,0.0,0.0,22.274898999999998,114.161854
+138,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Century Tower,Block 2,1992-04-24,L,,,4,,0,2786,91600000,2020-04-28,2014-12-16,81000000.0,13.09,22.273218,114.15545
+139,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,,2,,24,A,0,307,6150000,2020-04-23,2008-02-21,2630000.0,133.84,22.276076999999997,114.16787
+140,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,H,0,,20,A,0,314,7630000,2020-04-13,2011-02-10,5130000.0,48.730000000000004,22.275555999999998,114.156828
+141,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-11,H,,,23,A,2596,1943,62000000,2020-04-06,,0.0,0.0,22.2742,114.155754
+142,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Clovelly Court,Block 2,1994-03-10,M,3,,16,B,1881,1562,51500000,2020-04-01,2006-10-05,17000000.0,202.94,22.274317999999997,114.153082
+143,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,L,2,,3,D,0,353,6080000,2020-03-30,2009-12-22,2750000.0,121.09,22.276076999999997,114.16787
+144,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-15,H,,,21,A,2642,1686,68000000,2020-03-26,,0.0,0.0,22.273822,114.164488
+145,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,M,2,,16,A,0,357,6380000,2020-03-23,2010-07-18,3900000.0,63.59,22.276076999999997,114.16787
+146,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-11,M,,,14,C,2586,1942,57500000,2020-03-19,2017-03-02,44800000.0,28.35,22.2742,114.155754
+147,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Morning Light Apartments,Morning Light Apartments,1954-08-16,,,,4,,0,1370,25500000,2020-03-18,,0.0,0.0,22.275059,114.157591
+148,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Robinson Garden Apartment,3B-3C Robinson Road,1959-12-24,L,,,4,,0,1587,25000000,2020-03-17,,0.0,0.0,22.278574,114.15263
+149,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Albany,The Albany,1989-04-05,H,,,28,A1,2412,1948,38000000,2020-03-11,2019-10-20,99800000.0,-61.92,22.277768,114.154861
+150,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Macdonnell House,Macdonnell House,1982-12-28,,,,21,A,2519,2302,61800000,2020-03-11,2008-06-05,32800000.0,88.41,22.275724999999998,114.155706
+151,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,H,0,,19,D,0,306,7280000,2020-03-05,1997-07-11,5120000.0,42.19,22.275555999999998,114.156828
+152,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,M,3,,27,A,1970,1522,59780000,2020-03-04,2000-04-05,19100000.0,212.98000000000002,22.275343,114.1529
+153,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Mayfair,The Mayfair,1997-08-14,,,,32,B,2838,2144,50700000,2020-02-28,1998-12-14,35191200.0,44.07,22.273595999999998,114.15698
+154,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Mansion,Bowen Mansion,1957-10-14,,,,2,4,0,3273,73500000,2020-02-27,,0.0,0.0,22.274117999999998,114.16120000000001
+155,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,L,1,,3,E,0,452,9680000,2020-02-26,1996-01-30,3980000.0,143.22,22.275555999999998,114.156828
+156,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 2,1983-08-26,L,3,,6,C,3347,2888,68500000,2020-02-17,1996-08-15,18500000.0,270.27,22.275277,114.156027
+157,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,M,,,23,F,0,482,14080000,2020-02-14,2007-05-11,5250000.0,168.19,22.275067999999997,114.16818
+158,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,16,6,0,560,10800000,2020-02-13,2007-12-27,6200000.0,74.19,22.280714,114.17205
+159,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 2,1983-08-26,L,3,,6,D,3347,2888,65000000,2020-02-12,,0.0,0.0,22.275277,114.156027
+160,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Way Court,Wing Way Court,1989-12-28,L,,,13,,1860,1478,25000000,2020-02-03,2016-06-06,21200000.0,17.92,22.273773,114.171974
+161,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1989-09-12,L,,,6,A,0,1107,21800000,2020-02-02,2010-12-30,19500000.0,11.790000000000001,22.276619999999998,114.158394
+162,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monmouth Place,Monmouth Place,1994-11-21,L,,,5,B,1072,689,15500000,2020-01-24,2008-02-18,7468000.0,107.55,22.275344999999998,114.16769
+163,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fairlane Tower,Fairlane Tower,1998-10-15,L,,,13,A,0,1282,42000000,2020-01-22,2011-06-29,33500000.0,25.37,22.274200999999998,114.1605
+164,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,H,1,,38,B,410,295,7100000,2020-01-20,2011-10-18,6200000.0,14.52,22.275868,114.168523
+165,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,M,2,,14,D,0,353,6000000,2020-01-16,2006-08-29,1780000.0,237.08,22.276076999999997,114.16787
+166,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Donnell Court,Donnell Court,1956-07-13,H,,,7,,0,2728,47500000,2020-01-16,,0.0,0.0,22.275131,114.158683
+167,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fortune Court,Fortune Court,1985-10-24,M,,,5,B,0,615,11700000,2020-01-09,2014-09-04,9180000.0,27.45,22.273623999999998,114.173485
+168,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,2 Tramway Path,2 Tramway Path,1953-07-19,,,,3,,0,1051,12200000,2020-01-07,,0.0,0.0,22.276697,114.15828
+169,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dragon View,Dragon View,1964-09-10,H,,,15,B,0,2351,44000000,2020-01-07,,0.0,0.0,22.3436449,114.1759928
+170,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,L,2,,7,C,698,518,9380000,2020-01-07,2000-03-14,2965000.0,216.36,22.275868,114.168523
+171,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,L,2,,6,A,841,657,16700000,2020-01-02,2004-02-13,5500000.0,203.64000000000001,22.2755279,114.152324
+172,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fujiya Mansion,Fujiya Mansion,1965-01-26,L,,,2,,0,1367,23300000,2019-12-31,,0.0,0.0,22.274203,114.171477
+173,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 1,1981-06-10,M,3,,12,B,0,2330,51000000,2019-12-27,2007-03-20,23800000.0,114.29,22.273999,114.15217200000001
+174,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,L,0,,1,D,0,306,6500000,2019-12-17,2013-05-16,5750000.0,13.040000000000001,22.275555999999998,114.156828
+175,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,H,2,,30,B,783,652,12600000,2019-12-17,2009-08-14,8900000.0,41.57,22.275344,114.152366
+176,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,L,3,,10,C,0,2361,60000000,2019-12-11,2016-02-25,46500000.0,29.03,22.274673,114.152627
+177,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hoover Court,Hoover Court,1980-05-29,H,,,20,,2654,2320,55000000,2019-12-09,,0.0,0.0,22.2760415,114.156539
+178,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Camelot Heights,Camelot Heights,1979-08-30,L,3,,1,A,0,1198,25600000,2019-12-06,2015-01-05,19000000.0,34.74,22.274174,114.170922
+179,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,H,,,32,B,0,702,20500000,2019-12-05,2002-10-16,5050000.0,305.94,22.275067999999997,114.16818
+180,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,M,,,30,A,0,1520,69000000,2019-12-03,2006-08-14,30000000.0,130.0,22.273272,114.15288
+181,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,L,3,,9,A,1970,1522,55250000,2019-12-02,2016-10-27,42300000.0,30.61,22.275343,114.1529
+182,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,M,0,,11,B,0,251,5000000,2019-11-27,2010-08-31,2850000.0,75.44,22.276076999999997,114.16787
+183,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Hong Mansion,Wing Hong Mansion,1974-05-16,H,,,14,A,0,1353,30288333,2019-11-27,,0.0,0.0,22.2750854,114.1593765
+184,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 3,1977-09-12,L,,,2,D,0,890,13080000,2019-11-22,2012-08-15,11000000.0,18.91,22.274008,114.17264
+185,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Hong Mansion,Wing Hong Mansion,1974-05-16,H,,,13,A,0,1353,29990833,2019-11-22,,0.0,0.0,22.2750854,114.1593765
+186,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hong Lok Mansion,44E Macdonnell Road,1956-05-03,,,,5,,0,1000,17085000,2019-11-22,,0.0,0.0,22.274843,114.157779
+187,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dragon View,Dragon View,1964-09-10,M,,,10,A,0,2351,59000000,2019-11-21,,0.0,0.0,22.3436449,114.1759928
+188,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-10,M,,,16,B,2567,1940,52500000,2019-11-18,2004-12-20,21000000.0,150.0,22.2742,114.155754
+189,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Nos.2 And 3 Garden Terrace,8A Garden Terrace ( Block 2 ),1983-09-25,L,,,3,B,0,2580,86500000,2019-11-12,2001-10-03,15500000.0,458.06,22.276024,114.15433
+190,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Robinson Garden Apartment,3B-3C Robinson Road,1959-12-24,M,,,6,,0,1587,25500000,2019-11-12,,0.0,0.0,22.278574,114.15263
+191,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,L,2,,5,D,711,511,10500000,2019-10-28,2000-04-11,3055000.0,243.70000000000002,22.275868,114.168523
+192,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Chenyu Court,Chenyu Court,1965-11-29,H,,,9,B,0,1133,25000000,2019-10-28,,0.0,0.0,22.276072,114.15841
+193,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Catalina Mansions,Catalina Mansions,1957-01-16,,,,G,,2000,1697,30300000,2019-10-25,,0.0,0.0,22.274707,114.161245
+194,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,M,,,21,D,0,636,16000000,2019-10-21,2017-07-27,12600000.0,26.98,22.275067999999997,114.16818
+195,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,0,,18,D,0,306,7250000,2019-10-17,,0.0,0.0,22.275555999999998,114.156828
+196,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,28,13,0,409,9500000,2019-10-16,2011-06-09,7298000.0,30.17,22.280714,114.17205
+197,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,16,9,0,618,12450000,2019-10-14,1998-11-11,4500000.0,176.67000000000002,22.280714,114.17205
+198,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,M,,,20,E,0,702,18500000,2019-10-11,2016-05-12,14100000.0,31.21,22.275067999999997,114.16818
+199,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,H,3,,32,F,1130,901,35000000,2019-10-10,2016-10-17,33000000.0,6.0600000000000005,22.276526,114.167354
+200,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,2,D,821,646,15500000,2019-10-10,,0.0,0.0,22.275344,114.152366
+201,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,M,,,13,F,566,419,8250000,2019-10-09,2005-10-06,2380000.0,246.64000000000001,22.275772,114.16891
+202,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grosvenor House,Grosvenor House,1958-04-14,L,,,2,403,0,1347,22000000,2019-10-04,2001-06-14,6550000.0,235.88,22.275201,114.1618056
+203,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 1,1983-08-26,L,3,,6,A,3347,2888,79000000,2019-09-30,2005-04-16,24083000.0,228.03,22.275494,114.155385
+204,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.5 Star Street,5 Star Street,2010-08-30,L,,,12,,676,408,11000000,2019-09-25,2010-02-23,11756000.0,-6.43,22.276194,114.16807
+205,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,5J Bowen Road,5J Bowen Road,1956-12-20,,,,G,,0,948,17500000,2019-09-23,,0.0,0.0,22.274753999999998,114.15790000000001
+206,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Albany,The Albany,1989-04-05,H,,,29,A2,2412,1948,83380000,2019-09-16,2011-12-05,83800000.0,-0.5,22.277768,114.154861
+207,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 2,1977-09-12,L,,,2,A,0,1119,16200000,2019-09-12,1996-10-18,4500000.0,260.0,22.274075999999997,114.17242
+208,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Best View Court,Block C,1959-05-10,L,,,1,,0,1250,21800000,2019-09-04,,0.0,0.0,22.274964999999998,114.16006
+209,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,L,0,,6,C,0,306,7250000,2019-08-29,2011-05-31,5850000.0,23.93,22.275555999999998,114.156828
+210,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,H,,,24,E,686,503,12000000,2019-08-19,,0.0,0.0,22.275772,114.16891
+211,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fortune Court,Fortune Court,1985-10-24,L,,,2,B,0,1183,23800000,2019-08-15,2012-01-04,10500000.0,126.67,22.273623999999998,114.173485
+212,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fortune Court,Fortune Court,1985-10-24,M,,,3,A,0,775,13600000,2019-08-15,,0.0,0.0,22.273623999999998,114.173485
+213,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-15,L,,,7,B,1999,1485,51500000,2019-08-08,2003-02-12,9600000.0,436.46000000000004,22.273822,114.164488
+214,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 2,1977-09-12,M,,,10,A,0,1119,16000000,2019-08-08,2003-08-28,2500000.0,540.0,22.274075999999997,114.17242
+215,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Fai Mansion,Kam Fai Mansion,1962-07-16,,,,G,E,0,622,13000000,2019-08-06,2017-10-09,8680000.0,49.77,22.274714,114.16009
+216,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Mansions,Park Mansions,1986-09-05,M,4,,15,A,0,1723,45600000,2019-08-05,2008-02-25,26800000.0,70.15,22.275854,114.15729
+217,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,31,10,0,990,23000000,2019-08-02,2009-08-18,13300000.0,72.93,22.280714,114.17205
+218,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,H,1,,41,B,410,295,9100000,2019-08-02,2006-08-09,3150000.0,188.89000000000001,22.275868,114.168523
+219,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,M,,,23,B,2018,1596,53000000,2019-07-31,,0.0,0.0,22.27514,114.160966
+220,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Robinson Garden Apartment,3F-3G Robinson Road,1962-03-13,L,,,1,,0,1587,18000000,2019-07-31,,0.0,0.0,22.278574,114.15263
+221,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,H,,,27,C,2018,1539,53800000,2019-07-30,2009-03-27,24080000.0,123.42,22.27514,114.160966
+222,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,L,,,1,B,686,503,12100000,2019-07-29,2010-01-11,5415000.0,123.45,22.275772,114.16891
+223,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,14,F,0,482,12800000,2019-07-25,2010-08-09,6830000.0,87.41,22.275067999999997,114.16818
+224,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,M,2,,12,A,841,657,17000000,2019-07-23,1996-11-01,7380000.0,130.35,22.275344,114.152366
+225,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,M,3,,20,A,1962,1513,65800000,2019-07-19,2013-10-03,43250000.0,52.14,22.275343,114.1529
+226,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,0,,11,C,0,306,7650000,2019-07-17,2010-02-28,4280000.0,78.74,22.275555999999998,114.156828
+227,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,27,1,0,748,22500000,2019-07-16,1998-07-24,7700000.0,192.21,22.280714,114.17205
+228,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Suncrest Tower,Suncrest Tower,1986-04-01,M,4,,9,A,2005,1646,35500000,2019-07-07,1998-01-21,13036000.0,172.32,22.275893,114.167642
+229,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block F,1969-08-11,H,3,,17,,1261,1075,26680000,2019-07-05,1996-12-07,7230000.0,269.02,22.274523,114.168104
+230,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estella Court,70D Macdonnell Road,1956-08-03,H,,,6,,0,1707,27300000,2019-07-02,,0.0,0.0,22.278793,114.172902
+231,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Welsby Court,Welsby Court,1955-04-06,,,,1,103,0,1274,22500000,2019-06-24,,0.0,0.0,22.2752733,114.1604558
+232,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Rose Gardens,Rose Gardens,1964-01-17,M,,,7,B,0,2235,83700000,2019-06-19,,0.0,0.0,22.272887,114.159301
+233,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,14,7,0,560,11000000,2019-06-17,,0.0,0.0,22.280714,114.17205
+234,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,L,2,,11,A,0,1547,37500000,2019-06-14,2007-10-03,19500000.0,92.31,22.274673,114.152627
+235,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,M,,,8,B,0,1119,23100000,2019-06-12,2008-01-28,7400000.0,212.16,22.274134,114.17223
+236,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Camelot Heights,Camelot Heights,1979-08-30,H,3,,16,B,0,1204,32000000,2019-06-06,2008-02-13,11800000.0,171.19,22.274174,114.170922
+237,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Fai Mansion,Kam Fai Mansion,1962-07-17,M,,,3,E,0,622,11300000,2019-06-06,,0.0,0.0,22.274714,114.16009
+238,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grenville House,Block Ij,1971-03-22,L,,,4,J,0,3366,138000000,2019-06-06,,0.0,0.0,22.274202,114.15690000000001
+239,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,L,0,,1,A,0,314,7200000,2019-06-05,2009-03-23,3100000.0,132.26,22.275555999999998,114.156828
+240,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Clovelly Court,Block 1,1994-03-10,H,,,36,A,2809,2348,91000000,2019-06-05,2005-02-23,40500000.0,124.69,22.2744,114.15331
+241,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,H,2,,25,B,931,761,22700000,2019-06-05,2015-03-16,17200000.0,31.98,22.275081,114.152337
+242,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block A,1966-08-18,H,3,,16,,1447,1232,27200000,2019-06-03,,0.0,0.0,22.274825999999997,114.168252
+243,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Seaview Mansion,Seaview Mansion,1961-07-17,L,,,1,B,0,1426,28000000,2019-05-30,,0.0,0.0,22.275828999999998,114.15988899999999
+244,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hong Villa,Hong Villa,1988-08-15,L,,,9,B,1916,1579,61800000,2019-05-30,,0.0,0.0,22.272866999999998,114.164764
+245,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Cameron House,Cameron House,1983-11-22,H,,,7,B,2847,2643,280000000,2019-05-28,1997-01-08,39500000.0,608.86,22.269562,114.1682
+246,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 1,1977-09-12,H,,,13,B,0,1119,21600000,2019-05-28,,0.0,0.0,22.274134,114.17223
+247,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fairlane Tower,Fairlane Tower,1998-10-15,M,3,,20,D,0,1266,43880000,2019-05-22,2012-10-21,38300000.0,14.57,22.274200999999998,114.1605
+248,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,May Tower,Block 2,1992-03-11,M,,,11,,0,2669,120000000,2019-05-22,1996-11-14,40000000.0,200.0,22.273578999999998,114.154286
+249,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regence Royale,Block 2,2001-09-14,L,,,16,A,2697,1933,100000000,2019-05-22,2007-11-02,43152000.0,131.74,22.274366,114.159584
+250,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regence Royale,Block 2,2001-09-14,L,,,16,B,2522,1805,90000000,2019-05-22,2007-11-02,40352000.0,123.04,22.274366,114.159584
+251,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block A,1966-08-18,L,3,,4,,1447,1232,28180000,2019-05-20,1997-05-21,8500000.0,231.53,22.274825999999997,114.168252
+252,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 1,1983-08-26,L,3,,4,A,3347,2888,71380000,2019-05-20,2007-11-16,36000000.0,98.28,22.275494,114.155385
+253,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,33,18,0,623,17380000,2019-05-20,1998-04-01,9900000.0,75.56,22.280714,114.17205
+254,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Camelot Heights,Camelot Heights,1979-08-30,H,,,21,B,0,1204,36000000,2019-05-17,2011-02-18,22500000.0,60.0,22.274174,114.170922
+255,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,L,2,,9,E,711,511,14200000,2019-05-17,2010-03-05,7000000.0,102.86,22.275868,114.168523
+256,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Rose Gardens,Rose Gardens,1964-01-17,H,,,11,A,0,2235,95000000,2019-05-16,2010-02-19,60000000.0,58.33,22.272887,114.159301
+257,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,M,2,,16,B,783,625,16500000,2019-05-15,,0.0,0.0,22.2755279,114.152324
+258,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,M,0,,10,D,0,306,7760000,2019-05-10,2002-06-06,1950000.0,297.95,22.275555999999998,114.156828
+259,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand House,Grand House,1957-05-08,,,,G,,0,2006,41280000,2019-05-09,,0.0,0.0,22.274898999999998,114.161854
+260,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,M,,,32,A,0,1520,70000000,2019-05-09,,0.0,0.0,22.273272,114.15288
+261,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kennedy Park At Central,Kennedy Park At Central,2014-03-10,L,3,,7,B,2007,1452,59600000,2019-05-07,2012-09-26,55795000.0,6.82,22.276352,114.15682
+262,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand House,Grand House,1957-05-08,M,,,7,,0,2087,49000000,2019-05-06,,0.0,0.0,22.274898999999998,114.161854
+263,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grenville House,Block Ef,1971-03-22,L,,,2,F,0,3349,118000000,2019-05-06,,0.0,0.0,22.274345,114.15751
+264,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,M,2,,27,C,698,518,13900000,2019-04-26,2016-04-29,10850000.0,28.11,22.275868,114.168523
+265,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 5,1977-09-12,L,,,6,A,0,1119,22500000,2019-04-23,,0.0,0.0,22.273906999999998,114.17304
+266,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Century Tower,Block 1,1971-04-16,L,,,6,A,2565,2041,60500000,2019-04-23,1999-03-19,13880000.0,335.88,22.2734239,114.155557
+267,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,M,3,,18,F,1130,898,32680000,2019-04-23,2013-07-05,29000000.0,12.69,22.276526,114.167354
+268,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,South Garden Mansion,South Garden Mansion,1960-05-22,M,,,6,,0,1348,36000000,2019-04-22,,0.0,0.0,22.275807999999998,114.160559
+269,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,5,C,976,771,19500000,2019-04-17,1998-02-21,8680000.0,124.65,22.275344,114.152366
+270,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-10,L,,,8,B,2576,1940,50400000,2019-04-16,2001-06-04,13000000.0,287.69,22.2742,114.155754
+271,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,M,2,,15,C,976,771,19700000,2019-04-16,1997-08-28,14500000.0,35.86,22.2755279,114.152324
+272,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regent On The Park,Block 2,1985-08-22,M,,,14,B,1350,1094,38000000,2019-04-16,2001-12-21,7750000.0,390.32,22.275803,114.1645
+273,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Ewan Court,Ewan Court,1978-06-22,M,,,5,B,1485,1213,6800000,2019-04-15,2007-03-21,9600000.0,-29.17,22.2743797,114.1689464
+274,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Best View Court,Block B,1959-05-10,H,,,9,,0,1311,22000000,2019-04-14,,0.0,0.0,22.274964999999998,114.16006
+275,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 2,1981-06-10,H,3,,23,A,3052,2330,57000000,2019-04-12,2012-12-14,43000000.0,32.56,22.274435999999998,114.152136
+276,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,L,3,,6,B,1970,1522,58000000,2019-04-11,,0.0,0.0,22.275343,114.1529
+277,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,H,3,,27,C,1089,865,29800000,2019-04-10,2009-04-15,12200000.0,144.26,22.2763169,114.167744
+278,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 1,1983-08-26,H,3,,34,A,3347,2888,101000000,2019-04-09,2014-01-22,95000000.0,6.32,22.275494,114.155385
+279,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Mayfair,The Mayfair,1997-08-14,M,,,23,A,2870,2155,160880000,2019-04-09,1998-03-27,2476000.0,6397.58,22.273595999999998,114.15698
+280,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Pak Fai Mansion,Pak Fai Mansion,1960-05-11,L,,,2,,0,713,11200000,2019-04-09,2011-09-28,10650000.0,5.16,22.2746875,114.1606165
+281,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,41,18,0,625,16180000,2019-04-08,2010-07-07,12000000.0,34.83,22.280714,114.17205
+282,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Borrett Mansions,Borrett Mansions,1966-11-29,H,,,16,,0,2449,85680000,2019-04-02,2008-01-23,53000000.0,61.660000000000004,22.2740686,114.1618556
+283,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,30,7,0,565,12680000,2019-04-01,2010-12-24,7800000.0,62.56,22.280714,114.17205
+284,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,H,2,,28,D,980,780,25000000,2019-03-28,2013-03-11,18700000.0,33.69,22.2763169,114.167744
+285,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Mayfair,The Mayfair,1997-08-14,M,,,23,B,2838,2131,147800000,2019-03-28,2013-07-29,92000000.0,60.65,22.273595999999998,114.15698
+286,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,7,D,821,646,16000000,2019-03-27,,0.0,0.0,22.275344,114.152366
+287,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Greenland Court,Greenland Court,1976-03-31,M,,,7,A,1300,1083,23800000,2019-03-22,2006-11-22,10800000.0,120.37,22.2750345,114.1591356
+288,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Greenland Court,Greenland Court,1976-03-31,L,,,5,A,1300,1083,24780000,2019-03-20,,0.0,0.0,22.2750345,114.1591356
+289,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,L,0,,6,C,0,251,5300000,2019-03-19,2015-07-06,4600000.0,15.22,22.276076999999997,114.16787
+290,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-15,M,,,13,B,1999,1485,50500000,2019-03-17,2004-02-10,14300000.0,253.15,22.273822,114.164488
+291,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,28,11,0,744,16160000,2019-03-15,,0.0,0.0,22.280714,114.17205
+292,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Beau Cloud Mansion,Beau Cloud Mansion,1965-09-04,L,,,4,C,0,1437,24100000,2019-03-12,,0.0,0.0,22.2750955,114.159629
+293,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 2,1981-06-10,M,3,,22,B,3052,2330,56500000,2019-03-12,2007-02-02,24600000.0,129.67000000000002,22.274435999999998,114.152136
+294,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,L,2,,12,B,850,659,20700000,2019-03-08,2007-03-03,7800000.0,165.38,22.2763169,114.167744
+295,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grosvenor House,Grosvenor House,1958-04-14,M,,,5,702,0,1947,35000000,2019-02-28,2011-01-12,19000000.0,84.21000000000001,22.275201,114.1618056
+296,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Glory Mansion,Glory Mansion,1961-06-01,L,,,2,108,0,1880,34900000,2019-02-28,,0.0,0.0,22.2745355,114.1617584
+297,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Mansions,Park Mansions,1986-09-05,L,4,,3,B,2013,1723,39500000,2019-02-28,,0.0,0.0,22.275854,114.15729
+298,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Best View Court,Block B,1959-05-11,L,,,2,,0,1311,19800000,2019-02-28,,0.0,0.0,22.274964999999998,114.16006
+299,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,South Mansion,South Mansion,1956-08-21,,,,G,,1200,1206,20700000,2019-02-25,,0.0,0.0,22.275951,114.156413
+300,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hong Lok Mansion,44B Macdonnell Road,1956-05-03,,,,4,,0,1526,27880000,2019-02-22,,0.0,0.0,22.274843,114.157779
+301,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,H,3,,33,B,1962,1513,65500000,2019-02-20,2001-06-29,16180000.0,304.82,22.275343,114.1529
+302,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,2,,11,C,1033,815,27500000,2019-02-14,2003-11-03,6300000.0,336.51,22.276526,114.167354
+303,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fujiya Mansion,Fujiya Mansion,1965-01-26,L,,,2,,0,1367,21500000,2019-02-14,,0.0,0.0,22.274203,114.171477
+304,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 3,1983-08-26,M,3,,28,F,3347,2888,92500000,2019-02-13,2009-03-12,35800000.0,158.38,22.275212999999997,114.156553
+305,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,May Tower,Block 1,1974-07-05,M,,,9,3,0,2278,78000000,2019-02-12,1996-08-17,22500000.0,246.67000000000002,22.273471,114.153996
+306,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,M,3,,18,A,1962,1513,54000000,2019-01-31,1997-05-01,34200000.0,57.89,22.275343,114.1529
+307,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,M,2,,15,D,821,646,16660000,2019-01-23,1998-04-16,9500000.0,75.37,22.275344,114.152366
+308,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,45,10,0,998,25500000,2019-01-21,2012-09-26,23180000.0,10.01,22.280714,114.17205
+309,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Pak Fai Mansion,Pak Fai Mansion,1960-05-11,M,,,4,,0,1364,21000000,2019-01-08,2010-11-12,18500000.0,13.51,22.2746875,114.1606165
+310,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,5,B,783,625,14500000,2019-01-07,2012-05-15,10800000.0,34.26,22.275344,114.152366
+311,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,0,,14,C,0,306,3700000,2019-01-02,2011-02-20,4950000.0,-25.25,22.275555999999998,114.156828
+312,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,L,,,13,C,2018,1539,44500000,2018-12-31,1997-08-16,19800000.0,124.75,22.27514,114.160966
+313,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kennedy Heights,Kennedy Heights,1989-08-04,L,,,7,A,0,2929,37950000,2018-12-30,2011-10-26,72000000.0,-47.29,22.276239999999998,114.157413
+314,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,May Tower,Block 2,1992-03-11,L,,,6,,0,2669,89000000,2018-12-26,,0.0,0.0,22.273578999999998,114.154286
+315,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bayview Mansion,Bayview Mansion,1960-01-19,L,,,1,,0,1690,25500000,2018-12-20,,0.0,0.0,22.275135,114.158934
+316,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,May Tower,Block 2,1992-03-11,L,,,7,,0,2669,90800000,2018-12-18,,0.0,0.0,22.273578999999998,114.154286
+317,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1989-09-12,L,,,14,A,0,1107,28800000,2018-12-09,2004-12-27,12300000.0,134.15,22.276619999999998,114.158394
+318,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,M,3,,24,A,1962,1513,62000000,2018-12-04,2009-07-31,28500000.0,117.54,22.275343,114.1529
+319,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-10,L,,,11,B,2572,1940,50000000,2018-12-02,1997-07-10,21680000.0,130.63,22.2742,114.155754
+320,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Visalia Garden,Visalia Garden,1986-01-28,M,,,14,B,2195,1848,48800000,2018-11-29,,0.0,0.0,22.275358,114.15833
+321,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Nos.2 And 3 Garden Terrace,8A Garden Terrace ( Block 3 ),1983-09-25,H,,,27,B,3307,2828,100000000,2018-11-29,,0.0,0.0,22.27571,114.15418
+322,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fairlane Tower,Fairlane Tower,1998-10-15,M,,,28,A,0,2159,22950000,2018-11-20,2009-07-05,45900000.0,-50.0,22.274200999999998,114.1605
+323,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Mansions,Park Mansions,1986-09-05,M,4,,12,A,0,1723,41500000,2018-11-15,2008-02-28,29500000.0,40.68,22.275854,114.15729
+324,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bayview Mansion,Bayview Mansion,1960-01-19,,,,UB,,0,1591,25000000,2018-11-11,,0.0,0.0,22.275135,114.158934
+325,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,29,13,0,409,10380000,2018-11-07,2011-02-22,6500000.0,59.69,22.280714,114.17205
+326,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 1,1991-09-25,H,4,,37,B,2256,1794,70000000,2018-11-07,1996-11-09,29500000.0,137.29,22.276208,114.152624
+327,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand Bowen,Grand Bowen,1992-10-29,M,,,17,A,0,1089,28800000,2018-11-01,,0.0,0.0,22.2735025,114.1646554
+328,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,L,1,,9,B,410,295,7500000,2018-10-26,2005-03-08,2500000.0,200.0,22.275868,114.168523
+329,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Albany,The Albany,1989-04-06,L,,,12,A2,2412,1948,89800000,2018-10-11,,0.0,0.0,22.277768,114.154861
+330,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Rise,Park Rise,1995-04-11,L,,,6,,1256,869,18400000,2018-10-10,2011-07-06,18212000.0,1.03,22.275959999999998,114.156873
+331,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Mayfair,The Mayfair,1997-08-14,M,,,26,A,2905,2155,139800000,2018-10-09,2008-06-23,66300000.0,110.86,22.273595999999998,114.15698
+332,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,2 Tramway Path,2 Tramway Path,1953-07-19,,,,2,,0,1051,15200000,2018-10-08,,0.0,0.0,22.276697,114.15828
+333,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,11 Macdonnell Road,11 Macdonnell Road,2002-06-06,M,,,16,,2313,1552,35000000,2018-10-08,2007-10-12,23658000.0,47.94,22.276052,114.15669
+334,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,M,,,26,C,0,1282,42700000,2018-09-26,,0.0,0.0,22.273272,114.15288
+335,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,39,8,0,418,8000000,2018-09-19,2010-11-26,5800000.0,37.93,22.280714,114.17205
+336,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,4,B,783,625,16000000,2018-09-18,,0.0,0.0,22.275344,114.152366
+337,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Mansions,Park Mansions,1986-09-05,L,4,,1,A,2013,1723,39000000,2018-09-18,2005-12-14,12200000.0,219.67000000000002,22.275854,114.15729
+338,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 4,1977-09-12,M,,,8,D,0,890,15900000,2018-09-17,,0.0,0.0,22.27396,114.17284
+339,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,2,,8,C,1033,815,28280000,2018-09-14,1999-04-08,6265000.0,351.40000000000003,22.276526,114.167354
+340,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,M,,,29,A,0,1520,64300000,2018-09-10,2012-09-14,48880000.0,31.55,22.273272,114.15288
+341,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,M,2,,,B,852,671,20500000,2018-09-10,,0.0,0.0,22.2763169,114.167744
+342,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,H,1,,37,B,410,295,8700000,2018-09-07,2015-03-11,7050000.0,23.400000000000002,22.275868,114.168523
+343,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,13,B,919,702,15900000,2018-08-30,2012-09-11,11000000.0,44.550000000000004,22.275067999999997,114.16818
+344,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Yuen Garden,Man Yuen Garden,1971-01-12,M,,,6,,2000,1669,36300000,2018-08-24,,0.0,0.0,22.27442,114.1685226
+345,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,The Albany,The Albany,1989-04-05,L,,,14,A2,2412,1948,88080000,2018-08-23,,0.0,0.0,22.277768,114.154861
+346,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dragon View,Dragon View,1964-09-10,M,,,6,D,0,2351,58500000,2018-08-23,1999-04-14,8000000.0,631.25,22.3436449,114.1759928
+347,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Phoenix Court,Block 3,1977-09-12,L,,,5,C,0,915,18180000,2018-08-23,2014-08-27,13080000.0,38.99,22.274008,114.17264
+348,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,20,13,0,417,9680000,2018-08-23,2014-09-11,8250000.0,17.330000000000002,22.280714,114.17205
+349,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Beau Cloud Mansion,Beau Cloud Mansion,1965-09-04,H,,,9,C,0,1437,28000000,2018-08-20,2010-07-26,16980000.0,64.9,22.2750955,114.159629
+350,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,L,2,,9,B,783,625,14800000,2018-08-20,2003-05-28,3228000.0,358.49,22.275344,114.152366
+351,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,27,7,0,565,10380000,2018-08-16,,0.0,0.0,22.280714,114.17205
+352,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-16,M,,,14,B,1999,1485,38000000,2018-08-15,,0.0,0.0,22.273822,114.164488
+353,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,M,0,,15,F,0,318,7480000,2018-08-15,2006-11-30,2845800.0,162.84,22.275555999999998,114.156828
+354,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,41,8,0,418,9200000,2018-08-14,2010-07-30,5700000.0,61.4,22.280714,114.17205
+355,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Tung Building,Man Tung Building,1979-06-05,H,,,5,D,0,326,5000000,2018-08-13,,0.0,0.0,22.2737829,114.1732816
+356,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,M,2,,15,A,841,657,17000000,2018-08-08,1997-10-14,12800000.0,32.81,22.275344,114.152366
+357,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regent On The Park,Block 1,1985-08-22,H,,,33,A,2720,2072,85000000,2018-08-03,2008-08-26,44550000.0,90.8,22.275873,114.16425
+358,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Catalina Mansions,Catalina Mansions,1957-01-16,,,,G,,2000,1697,32000000,2018-07-30,,0.0,0.0,22.274707,114.161245
+359,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,M,,,18,F,0,482,12480000,2018-07-30,1997-06-25,6900000.0,80.87,22.275067999999997,114.16818
+360,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Mansion,Bowen Mansion,1957-10-14,,,,2,2,0,2638,69250000,2018-07-27,,0.0,0.0,22.274117999999998,114.16120000000001
+361,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 4,1993-08-12,H,2,,26,B,931,772,23890000,2018-07-26,,0.0,0.0,22.2757685,114.1522065
+362,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hollywood Heights,Hollywood Heights,1977-11-18,M,,,13,A,2466,2272,74000000,2018-07-25,,0.0,0.0,22.276545,114.15446299999999
+363,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Yuen Mansion,Kam Yuen Mansion,1963-08-09,L,,,2,B,0,2139,53500000,2018-07-25,,0.0,0.0,22.275886,114.15379899999999
+364,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,H,,,25,C,542,397,10500000,2018-07-25,2010-12-06,5500000.0,90.91,22.275772,114.16891
+365,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regence Royale,Block 2,2001-09-14,M,,,27,B,2522,1805,89000000,2018-07-24,2012-04-18,79800000.0,11.53,22.274366,114.159584
+366,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Best View Court,Block B,1959-05-11,M,,,6,,0,1311,24500000,2018-07-24,2010-02-11,16500000.0,48.480000000000004,22.274964999999998,114.16006
+367,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Mansions,Park Mansions,1986-09-05,H,4,,24,A,0,1723,48000000,2018-07-17,2013-10-16,35000000.0,37.14,22.275854,114.15729
+368,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,M,,,24,D,840,636,15800000,2018-07-13,2010-11-22,9600000.0,64.58,22.275067999999997,114.16818
+369,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Century Tower,Block 2,1992-04-24,L,,,6,,0,2786,100000000,2018-07-12,2010-09-22,66000000.0,51.52,22.273218,114.15545
+370,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,0,,17,A,0,314,7500000,2018-07-11,2005-08-26,2780000.0,169.78,22.275555999999998,114.156828
+371,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,2,,7,C,1033,815,28200000,2018-07-10,1999-05-14,6598800.0,327.35,22.276526,114.167354
+372,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,L,,,20,5,0,922,21300000,2018-07-10,2011-05-04,15000000.0,42.0,22.280714,114.17205
+373,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,L,,,8,C,542,397,8500000,2018-07-10,2007-10-24,2300000.0,269.57,22.275772,114.16891
+374,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,L,2,,2,C,938,738,19000000,2018-07-09,1996-08-22,8100000.0,134.57,22.275081,114.152337
+375,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Sakura Court,Sakura Court,1978-10-26,H,,,12,B,0,1903,58000000,2018-07-06,,0.0,0.0,22.274369,114.169401
+376,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Glory Mansion,Glory Mansion,1961-06-01,M,,,5,106,0,1880,35500000,2018-07-06,2017-10-24,35500000.0,0.0,22.2745355,114.1617584
+377,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Nos.2 And 3 Garden Terrace,8A Garden Terrace ( Block 2 ),1983-09-25,L,,,4,B,0,2580,84000000,2018-07-02,2002-11-27,15280000.0,449.74,22.276024,114.15433
+378,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Beau Cloud Mansion,Beau Cloud Mansion,1965-09-04,L,,,2,C,0,1437,24000000,2018-06-29,,0.0,0.0,22.2750955,114.159629
+379,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 4,1991-09-25,H,3,,32,A,1970,1522,65800000,2018-06-26,,0.0,0.0,22.275343,114.1529
+380,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,H,2,,29,B,783,652,16000000,2018-06-25,2000-02-16,6230000.0,156.82,22.2755279,114.152324
+381,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Clovelly Court,Block 1,1994-03-10,M,,,19,B,2809,2348,100300000,2018-06-22,1996-07-12,28000000.0,258.21,22.2744,114.15331
+382,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Clovelly Court,Block 1,1994-03-10,M,,,19,A,2809,2348,102500000,2018-06-22,2002-07-12,20200000.0,407.43,22.2744,114.15331
+383,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,,0,,20,C,0,251,6000000,2018-06-20,,0.0,0.0,22.276076999999997,114.16787
+384,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,26,6,0,565,12000000,2018-06-20,1996-11-14,7350000.0,63.27,22.280714,114.17205
+385,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 3,1983-08-26,L,3,,6,F,3347,2888,69800000,2018-06-19,1997-04-21,25000000.0,179.20000000000002,22.275212999999997,114.156553
+386,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regence Royale,Block 1,2001-09-14,L,,,19,B,2522,1805,88000000,2018-06-19,2005-10-26,39000000.0,125.64,22.274534,114.15922499999999
+387,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,13,D,840,636,14200000,2018-06-19,2012-08-02,9600000.0,47.92,22.275067999999997,114.16818
+388,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Rise,Park Rise,1995-04-11,H,,,22,,1256,869,19000000,2018-06-14,2012-09-26,21970000.0,-13.52,22.275959999999998,114.156873
+389,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bo Kwong Apartments,Bo Kwong Apartments,1963-06-17,,,,LG,B,0,1623,29300000,2018-06-14,,0.0,0.0,22.274801,114.15751399999999
+390,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Suncrest Tower,Suncrest Tower,1986-04-01,L,4,,3,B,2005,1646,35000000,2018-06-13,2009-09-06,18004000.0,94.4,22.275893,114.167642
+391,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hong Lok Mansion,44A Macdonnell Road,1956-05-02,,,,1,,0,1470,24500000,2018-06-11,,0.0,0.0,22.274843,114.157779
+392,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Horizon Mansion,Horizon Mansion,1958-07-15,H,,,9,,0,1864,42800000,2018-06-11,2011-05-23,32300000.0,32.51,22.2747285,114.161491
+393,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Rose Gardens,Rose Gardens,1964-01-17,H,,,11,B,0,2235,86500000,2018-06-07,,0.0,0.0,22.272887,114.159301
+394,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Manrich Court,Manrich Court,1990-08-29,L,,,1,A,568,415,9300000,2018-06-05,2012-08-09,7200000.0,29.17,22.275772,114.16891
+395,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 3,1993-08-12,M,2,,12,A,841,657,17480000,2018-06-04,1999-11-24,6900000.0,153.33,22.2755279,114.152324
+396,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Ewan Court,Ewan Court,1978-06-22,L,,,2,C,1485,1213,27800000,2018-06-03,2006-11-10,9570000.0,190.49,22.2743797,114.1689464
+397,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block C,1969-08-11,L,3,,4,,1293,1090,21000000,2018-06-01,,0.0,0.0,22.274736,114.16832
+398,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Fai Mansion,Kam Fai Mansion,1962-07-16,L,,,1,A,0,1254,21830000,2018-05-31,2008-01-22,11100000.0,96.67,22.274714,114.16009
+399,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 5,1991-09-25,M,3,,29,A,1962,1513,64000000,2018-05-31,,0.0,0.0,22.275123,114.15284199999999
+400,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Century Tower,Block 1,1971-04-16,L,,,1,B,2565,1682,49500000,2018-05-28,2007-03-06,20800000.0,137.98,22.2734239,114.155557
+401,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Valverde,Valverde,1998-01-06,H,,,33,A,0,788,31000000,2018-05-27,2009-02-09,13980000.0,121.75,22.273847999999997,114.15279
+402,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,H,2,,33,C,1032,823,27500000,2018-05-25,2013-12-24,23000000.0,19.57,22.276526,114.167354
+403,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 2,1981-06-10,H,3,,24,B,0,2330,60000000,2018-05-25,2008-01-31,35000000.0,71.43,22.274435999999998,114.152136
+404,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Yale Lodge,Yale Lodge,1964-11-23,L,,,2,2,0,2669,72800000,2018-05-24,2012-05-02,56000000.0,30.0,22.276139999999998,114.15933
+405,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 2,1993-08-12,M,2,,21,C,976,771,21500000,2018-05-24,2015-04-15,17480000.0,23.0,22.275344,114.152366
+406,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Nos.2 And 3 Garden Terrace,8A Garden Terrace ( Block 2 ),1983-09-25,L,,,1,A,0,2580,79000000,2018-05-20,,0.0,0.0,22.276024,114.15433
+407,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand Bowen,Grand Bowen,1992-10-29,L,,,15,A,0,1089,28800000,2018-05-18,,0.0,0.0,22.2735025,114.1646554
+408,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grenville House,Block Gh,1971-03-22,H,,,11,H,0,3349,170000000,2018-05-18,2004-12-06,30000000.0,466.67,22.274372,114.157166
+409,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-11,L,,,6,A,2605,1943,56000000,2018-05-16,1999-04-23,13300000.0,321.05,22.2742,114.155754
+410,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,M,2,,20,C,938,738,19500000,2018-05-16,2004-04-21,7950000.0,145.28,22.275081,114.152337
+411,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,27,6,0,565,10380000,2018-05-15,2014-10-03,9380000.0,10.66,22.280714,114.17205
+412,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,1,,11,E,0,452,11500000,2018-05-13,2009-11-11,5750000.0,100.0,22.275555999999998,114.156828
+413,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block D,1969-08-11,M,3,,9,,1329,1107,25550000,2018-05-09,,0.0,0.0,22.274573999999998,114.168251
+414,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,L,,,25,B,0,1265,49000000,2018-05-09,,0.0,0.0,22.273272,114.15288
+415,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Seaview Mansion,Seaview Mansion,1961-07-18,H,,,11,C,0,1459,33800000,2018-05-08,2004-11-19,9688888.0,248.85,22.275828999999998,114.15988899999999
+416,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Fairlane Tower,Fairlane Tower,1998-10-15,L,2,,15,C,0,879,26500000,2018-04-25,2007-10-01,12700000.0,108.66,22.274200999999998,114.1605
+417,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-16,H,,,18,A,1945,1445,50750000,2018-04-25,2002-12-28,13000000.0,290.38,22.273822,114.164488
+418,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Park Mansions,Park Mansions,1986-09-05,H,4,,19,A,0,1723,46600000,2018-04-24,,0.0,0.0,22.275854,114.15729
+419,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,M,,,22,A,2018,1596,48000000,2018-04-24,1998-12-11,11600000.0,313.79,22.27514,114.160966
+420,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Birchwood Place,Birchwood Place,1989-08-31,M,,,17,C,2018,1539,43999000,2018-04-23,,0.0,0.0,22.27514,114.160966
+421,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kenville Building,Kenville Building,1973-02-23,H,,,12,A,0,1700,63000000,2018-04-22,2010-10-20,32020000.0,96.75,22.276107,114.15951
+422,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,6,C,840,636,12200000,2018-04-20,1996-07-03,5710000.0,113.66,22.275067999999997,114.16818
+423,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Visalia Garden,Visalia Garden,1986-01-28,L,,,10,A,2195,1848,47000000,2018-04-16,,0.0,0.0,22.275358,114.15833
+424,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,L,2,,16,A,665,495,10000000,2018-04-16,1999-04-10,3580000.0,179.33,22.275868,114.168523
+425,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Amber Garden,Amber Garden ( Block C ),1981-07-27,L,,,14,C,0,1404,39980000,2018-04-13,,0.0,0.0,22.273294,114.172386
+426,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand Bowen,Grand Bowen,1992-10-29,L,,,12,B,0,1089,30000000,2018-04-12,,0.0,0.0,22.2735025,114.1646554
+427,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grand Bowen,Grand Bowen,1992-10-29,M,,,20,,0,2182,57600000,2018-04-12,,0.0,0.0,22.2735025,114.1646554
+428,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,15,E,0,702,16618000,2018-04-09,2009-09-17,8500000.0,95.51,22.275067999999997,114.16818
+429,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,26,14,0,984,24500000,2018-04-09,2002-03-26,9280000.0,164.01,22.280714,114.17205
+430,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Hong Mansion,Wing Hong Mansion,1974-05-16,L,,,4,B,0,1353,31300000,2018-04-06,,0.0,0.0,22.2750854,114.1593765
+431,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,13,A,651,493,11980000,2018-04-04,2007-11-12,4728000.0,153.38,22.275067999999997,114.16818
+432,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estoril Court,Block 3,1983-08-26,L,3,,10,F,3347,2888,71500000,2018-03-29,1999-06-28,19450000.0,267.61,22.275212999999997,114.156553
+433,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,M,2,,23,B,951,749,22600000,2018-03-28,2007-02-01,9880000.0,128.74,22.276526,114.167354
+434,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Po Garden,Po Garden,1990-10-10,M,,,17,B,2567,1940,59800000,2018-03-26,1999-04-07,18000000.0,232.22,22.2742,114.155754
+435,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,,2,,18,D,0,353,6765000,2018-03-25,2011-03-29,4830000.0,40.06,22.276076999999997,114.16787
+436,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,1 Robinson Road,1 Robinson Road,1979-09-19,M,,,24,U,0,1798,49000000,2018-03-25,2006-10-30,24800000.0,97.58,22.276598,114.154824
+437,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Estella Court,70A Macdonnell Road,1956-08-03,L,,,1,,0,1428,27800000,2018-03-22,,0.0,0.0,22.278793,114.172902
+438,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Nos.2 And 3 Garden Terrace,8A Garden Terrace ( Block 2 ),1983-09-25,L,,,7,B,0,2580,85000000,2018-03-19,2004-06-28,19200000.0,342.71,22.276024,114.15433
+439,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block C,1969-08-11,M,3,,8,,1293,1090,21500000,2018-03-16,,0.0,0.0,22.274736,114.16832
+440,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monmouth Place,Monmouth Place,1994-11-21,L,,,6,A,1483,962,19000000,2018-03-15,2010-05-26,12000000.0,58.33,22.275344999999998,114.16769
+441,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,No.1 Star Street,No.1 Star Street,2001-02-09,L,2,,10,A,665,495,11480000,2018-03-15,2008-02-20,6500000.0,76.62,22.275868,114.168523
+442,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,H,,,34,C,0,636,14550000,2018-03-09,2010-11-01,9980000.0,45.79,22.275067999999997,114.16818
+443,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,42,7,0,574,12200000,2018-03-08,,0.0,0.0,22.280714,114.17205
+444,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1989-09-12,M,2,,21,C,0,856,25800000,2018-03-07,2009-06-16,13900000.0,85.61,22.276619999999998,114.158394
+445,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,H,,,38,6,0,715,13180000,2018-03-07,,0.0,0.0,22.280714,114.17205
+446,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,L,,,9,F,0,482,11450000,2018-03-06,2010-11-22,7700000.0,48.7,22.275067999999997,114.16818
+447,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Kam Yuen Mansion,Kam Yuen Mansion,1963-08-09,M,,,5,D,0,2400,46500000,2018-03-06,,0.0,0.0,22.275886,114.15379899999999
+448,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Bowen Place,Bowen Place,1989-02-15,H,,,16,A,1945,1445,48200000,2018-03-05,2005-09-26,20000000.0,141.0,22.273822,114.164488
+449,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Brewin Court,Brewin Court,1965-05-17,L,,,2,B,0,2145,50000000,2018-03-05,1996-08-17,14500000.0,244.83,22.2743065,114.1561154
+450,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Man Tung Building,Man Tung Building,1979-06-05,M,,,3,D,0,412,6980000,2018-03-05,2013-07-26,5200000.0,34.230000000000004,22.2737829,114.1732816
+451,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wealthy Heights,Wealthy Heights,1987-06-27,H,,,26,A,1987,1695,43000000,2018-03-02,1999-01-06,10800000.0,298.15000000000003,22.275665999999998,114.158758
+452,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Pak Fai Mansion,Pak Fai Mansion,1960-05-11,M,,,3,,0,1364,24380000,2018-03-01,,0.0,0.0,22.2746875,114.1606165
+453,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Convention Plaza,Apartment Tower ( Apar ),1990-03-07,M,,,30,9,0,618,13000000,2018-03-01,2001-12-21,4065000.0,219.8,22.280714,114.17205
+454,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grenville House,Block Ef,1971-03-22,H,,,12,E,0,3349,160000000,2018-03-01,,0.0,0.0,22.274345,114.15751
+455,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,L,2,,12,D,1016,801,25000000,2018-02-28,2007-03-06,10300000.0,142.72,22.276526,114.167354
+456,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Royal Court,Royal Court,1995-07-21,M,,,18,C,0,636,13200000,2018-02-28,,0.0,0.0,22.275067999999997,114.16818
+457,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Century Tower,Block 2,1992-04-24,L,,,3,,0,2792,105000000,2018-02-27,2013-03-15,27053524.0,288.12,22.273218,114.15545
+458,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Nos.2 And 3 Garden Terrace,8A Garden Terrace ( Block 2 ),1983-09-25,L,,,2,A,0,2580,82800000,2018-02-25,2013-12-23,62800000.0,31.85,22.276024,114.15433
+459,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-20,M,0,,10,F,0,318,7000000,2018-02-25,1997-07-09,4500000.0,55.56,22.275555999999998,114.156828
+460,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 1,1993-08-12,M,2,,14,C,938,738,18000000,2018-02-23,1997-08-13,13000000.0,38.46,22.275081,114.152337
+461,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,High Block,1989-01-30,,2,,19,A,0,357,6630000,2018-02-21,2009-12-07,3050000.0,117.38,22.276076999999997,114.16787
+462,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,M,2,,17,D,1015,807,24500000,2018-02-21,2008-05-08,15850000.0,54.57,22.276526,114.167354
+463,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block D,1969-08-11,L,3,,1,,1329,1107,20500000,2018-02-15,2010-08-26,13600000.0,50.74,22.274573999999998,114.168251
+464,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Monticello,Block B,1969-08-11,L,3,,5,,1453,1232,24300000,2018-02-13,2005-02-07,7500000.0,224.0,22.274762,114.16841
+465,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Wing Hong Mansion,Wing Hong Mansion,1974-05-16,L,,,4,A,0,1353,29000000,2018-02-13,,0.0,0.0,22.2750854,114.1593765
+466,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Clovelly Court,Block 1,1994-03-10,L,3,,11,C,2276,1916,56000000,2018-02-13,2005-08-17,20780000.0,169.49,22.2744,114.15331
+467,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hillsborough Court,Block 4,1993-08-12,M,3,,17,A,1369,1083,33800000,2018-02-12,,0.0,0.0,22.2757685,114.1522065
+468,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,L,3,,11,C,1090,859,27930000,2018-02-12,2000-03-11,6310000.0,342.63,22.2763169,114.167744
+469,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tregunter,Tower 3,1993-11-11,L,3,,23,C,0,2361,69200000,2018-02-08,1997-08-15,39600000.0,74.75,22.274673,114.152627
+470,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,11 Macdonnell Road,11 Macdonnell Road,2002-06-06,M,,,20,,2313,1552,37800000,2018-02-07,2007-10-29,23130000.0,63.42,22.276052,114.15669
+471,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Dynasty Court,Block 5,1991-09-25,M,3,,16,A,1970,1522,55000000,2018-02-05,1998-03-25,20000000.0,175.0,22.275123,114.15284199999999
+472,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 2,1999-11-08,H,1,,30,E,730,578,19800000,2018-02-05,2000-10-18,5540000.0,257.4,22.2763169,114.167744
+473,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,St. Louis Mansion,St. Louis Mansion,1993-05-21,H,0,,19,C,0,306,7290000,2018-01-25,2014-09-30,7050000.0,3.4,22.275555999999998,114.156828
+474,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Regent On The Park,Block 1,1985-08-22,L,,,9,B,1350,1094,32000000,2018-01-18,2000-02-18,10128000.0,215.96,22.275873,114.16425
+475,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Tavistock,Block 2 ( T2 ),1999-05-04,M,,,28,C,0,1282,42800000,2018-01-18,2009-09-16,26000000.0,64.62,22.273272,114.15288
+476,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Hollywood Heights,Hollywood Heights,1977-11-18,H,,,20,A,2466,2272,76000000,2018-01-17,2004-02-27,11000000.0,590.91,22.276545,114.15446299999999
+477,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Grenville House,Block CD,1971-07-26,H,,,9,D,0,3349,149000000,2018-01-15,2004-04-22,27800000.0,435.97,22.274145,114.15777
+478,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Vincent Mansion,Lower Block,1989-01-30,M,1,,4,E,398,321,5380000,2018-01-14,,0.0,0.0,22.276237,114.167984
+479,Hong Kong Island,Central And Western,Central Mid-Levels / Admiralty,Starcrest,Block 1,1999-11-08,M,3,,16,A,1158,912,30000000,2018-01-11,2006-06-01,12000000.0,150.0,22.276526,114.167354
