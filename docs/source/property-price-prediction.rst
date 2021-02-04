@@ -1,7 +1,22 @@
 Property Price Prediction
 ==========================
 
-*Under construction*.
+
+In this tutorial, you will learn:
+
+* The basics in macroeconomic analysis
+* The ways of analyzing macroeconomic indicators
+* The relationship between the stock prices and macroeconomic indicators
+
+Intro to macroeconomic analysis
+-------------------------------
+
+*Under construction*
+
+Data exploration 
+----------------
+
+*Under construction*
 
 
 .. attention::

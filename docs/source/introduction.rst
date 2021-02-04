@@ -229,7 +229,7 @@ Technical analysis vs Fundamental analysis
 
 
 What is macroeconomic analysis in stock market?
--------------------------------------------
+-----------------------------------------------
 | The stock prices are often moved by some macroeconomic indicators, and hence it is 
   good to keep track of macroeconomic indicators. 
 
