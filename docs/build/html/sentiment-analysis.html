@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Sentiment analysis &mdash; algotrading 0.0.1 documentation</title>
   
@@ -17,10 +17,7 @@
 
   
   
-
   
-  
-
   
 
   
@@ -30,11 +27,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -56,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> algotrading
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> algotrading
           
 
           
@@ -116,14 +113,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#collect-financial-headlines">Collect financial headlines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#us-news">US news</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#hk-news">HK news</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#us-news">US news</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hk-news">HK news</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#vader-sentiment-prediction">Vader sentiment prediction</a></li>
@@ -174,8 +165,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -187,7 +176,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/sentiment-analysis.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -310,7 +299,9 @@ Please visit the following links <a class="reference external" href="https://doc
 tweets, or for creating a live feed using a site stream. For more information with the API, please visit this link
 <a class="reference external" href="https://docs.tweepy.org/en/v3.5.0/streaming_how_to.html">https://docs.tweepy.org/en/v3.5.0/streaming_how_to.html</a></div>
 </div>
-<p>1. Create a class inheriting from StreamListener</p>
+<ol class="arabic simple">
+<li><p>Create a class inheriting from StreamListener</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># orverride tweepy.StreamListener</span>
 <span class="k">class</span> <span class="nc">MyStreamListener</span><span class="p">(</span><span class="n">tweepy</span><span class="o">.</span><span class="n">StreamListener</span><span class="p">):</span>
     <span class="c1"># add logic to the on_staus method</span>
@@ -332,13 +323,17 @@ tweets, or for creating a live feed using a site stream. For more information wi
         <span class="bp">self</span><span class="o">.</span><span class="n">input_name</span><span class="o">=</span><span class="n">input_name</span>
 </pre></div>
 </div>
-<p>2. Creating a stream</p>
+<ol class="arabic simple" start="2">
+<li><p>Creating a stream</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a output_file parameter to store the output tweets</span>
 <span class="n">myStreamListener</span> <span class="o">=</span> <span class="n">MyStreamListener</span><span class="p">(</span><span class="n">output_file</span><span class="o">=</span><span class="n">f</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="n">firm</span><span class="p">)</span>
 <span class="n">myStream</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="n">auth</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">,</span><span class="n">listener</span><span class="o">=</span><span class="n">myStreamListener</span><span class="p">,</span><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>3. Starting a stream</p>
+<ol class="arabic simple" start="3">
+<li><p>Starting a stream</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">target_firm</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -352,29 +347,36 @@ tweets, or for creating a live feed using a site stream. For more information wi
 <div class="line">Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
 collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.</div>
 </div>
-<div class="section" id="notes">
-<h4>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
+<p><strong>Notes</strong></p>
 <p>Before the tutorial, it is important to a look of the front-end code of the website</p>
 <div class="figure align-default">
 <img alt="_images/apple_finviz_example.png" src="_images/apple_finviz_example.png" />
 </div>
-<p>1. Access the website of each ticker through urllib.request module</p>
+<ol class="arabic simple">
+<li><p>Access the website of each ticker through urllib.request module</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">finviz_url</span> <span class="o">=</span> <span class="s1">&#39;https://finviz.com/quote.ashx?t=&#39;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="n">finviz_url</span> <span class="o">+</span> <span class="n">ticker</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>2. Access the data from the HTML using Beautiful soup</p>
+<ol class="arabic simple" start="2">
+<li><p>Access the data from the HTML using Beautiful soup</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>3. Get the information of  &lt;div&gt; id=’news-table’ in the website</p>
+<ol class="arabic simple" start="3">
+<li><p>Get the information of  &lt;div&gt; id=’news-table’ in the website</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">news_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;news-table&#39;</span><span class="p">)</span>
 <span class="n">news_tables</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_table</span>
 </pre></div>
 </div>
-<p>4. Find All the news under the &lt;tr&gt; tag in the news-table</p>
+<ol class="arabic simple" start="4">
+<li><p>Find All the news under the &lt;tr&gt; tag in the news-table</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
     <span class="n">text</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
     <span class="n">date_scrape</span><span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -386,15 +388,18 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
         <span class="n">news_time_str</span><span class="o">=</span> <span class="n">date</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">time</span>
 </pre></div>
 </div>
-<p>5. Convert the date type into ‘YYYY-MM-dd’</p>
+<ol class="arabic simple" start="5">
+<li><p>Convert the date type into ‘YYYY-MM-dd’</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_time_str</span><span class="p">,</span> <span class="s1">&#39;%b-</span><span class="si">%d</span><span class="s1">-%y %I:%M%p&#39;</span><span class="p">)</span>
 <span class="n">date_time</span><span class="o">=</span><span class="n">date_time_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>6. Append all the news together</p>
+<ol class="arabic simple" start="6">
+<li><p>Append all the news together</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">date_time</span><span class="p">,</span><span class="n">text</span><span class="p">])</span>
 </pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="hk-news">
@@ -404,8 +409,7 @@ collected from different major newsagents such as Yahoo! finance, Accesswire, an
 financial information platform in Hong Kong for more than a decade. It offers real-time international information
 relevant to Hong Kong shares, which are useful for analysing sentiment and trends in the local market.</div>
 </div>
-<div class="section" id="id1">
-<h4>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><strong>Notes</strong></p>
 <div class="line-block">
 <div class="line">Before the tutorial, it is important to a look of the front-end code of the website. Take tencent (00700.HK) as an example.
 Please visit this link <a class="reference external" href="http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1">http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1</a>. click ‘inspect’ and you can
@@ -418,7 +422,9 @@ view the front-end code of the website</div>
 <div class="line">you can see from this figure, the ‘date’ attribute are stored within the &lt;div class =’inline_block&gt; under the
 &lt;div class=’newstime 4’&gt;, while the news headlines are stored within the &lt; div class = ‘newscontent4 mar8T’&gt;</div>
 </div>
-<p>1. Access the website of each ticker through urllib.request module</p>
+<ol class="arabic simple">
+<li><p>Access the website of each ticker through urllib.request module</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefix_url</span><span class="o">=</span><span class="s1">&#39;http://www.aastocks.com/en/stocks/analysis/stock-aafn/&#39;</span>
 <span class="n">postfix_url</span><span class="o">=</span><span class="s1">&#39;/0/all/1&#39;</span>
 <span class="n">url</span><span class="o">=</span><span class="n">prefix_url</span><span class="o">+</span><span class="n">fill_ticker</span><span class="o">+</span><span class="n">postfix_url</span>
@@ -426,14 +432,18 @@ view the front-end code of the website</div>
 <span class="n">resp</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>2. Access the data from the HTML using Beautiful soup</p>
+<ol class="arabic simple" start="2">
+<li><p>Access the data from the HTML using Beautiful soup</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
 <span class="c1"># get the html code containing the dates and news</span>
 <span class="n">dates</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;inline_block&quot;</span><span class="p">})</span>
 <span class="n">news</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;newshead4&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>3. Find All the news and corresponding dates from the html code from step 2</p>
+<ol class="arabic simple" start="3">
+<li><p>Find All the news and corresponding dates from the html code from step 2</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># track the index in the news list</span>
 <span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -459,7 +469,6 @@ view the front-end code of the website</div>
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="vader-sentiment-prediction">
 <h2>Vader sentiment prediction<a class="headerlink" href="#vader-sentiment-prediction" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
@@ -481,7 +490,9 @@ package and can be applied directly to unlabeled text data.</div>
 </ul>
 <p>Note 1% was set as the threshold value accounting for the average stock movement in the US market, feel free to set
 any value for your own analysis</p>
-<p>1. Import these libraries</p>
+<ol class="arabic simple">
+<li><p>Import these libraries</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="k">import</span> <span class="n">SentimentIntensityAnalyzer</span>
@@ -491,11 +502,13 @@ any value for your own analysis</p>
 <ol class="arabic simple" start="2">
 <li><p>VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of</p></li>
 </ol>
-<p>Four categories:
-<a href="#id2"><span class="problematic" id="id3">*</span></a>negative
-<a href="#id4"><span class="problematic" id="id5">*</span></a>neutral
-<a href="#id6"><span class="problematic" id="id7">*</span></a>positive
-<a href="#id8"><span class="problematic" id="id9">*</span></a>compound (computed by normalizing the scores above, ranging from -1 to 1)</p>
+<p>Four categories:</p>
+<ul class="simple">
+<li><p>negative</p></li>
+<li><p>neutral</p></li>
+<li><p>positive</p></li>
+<li><p>compound (computed by normalizing the scores above, ranging from -1 to 1)</p></li>
+</ul>
 <p>Let us analyze the data we have collected through our sentimental analyzer</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the path when you stored the csv file containing the data</span>
 <span class="k">def</span> <span class="nf">read_tweets_us_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
@@ -544,15 +557,21 @@ any value for your own analysis</p>
 <span class="n">grouped_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a href="#id10"><span class="problematic" id="id11">|</span></a>4. merge all the data together</p>
+<div class="line-block">
+<div class="line">4. merge all the data together</div>
+</div>
 <ul class="simple">
 <li><p>actual label (= 2): price movement ≥ 0.01</p></li>
 <li><p>actual label (= 1):  −0.01 ≥ price movement ≤ 0.01</p></li>
 <li><p>actual label (= 0): price movement ≤ −0.01</p></li>
 </ul>
-<p><a href="#id12"><span class="problematic" id="id13">|</span></a>parameters:
-* file_name: consolidated data with features including (dates,tweets,compound_vader_score)
-* label_data: the label data contains the actual label from yahoo finance</p>
+<div class="line-block">
+<div class="line">parameters:</div>
+</div>
+<ul class="simple">
+<li><p>file_name: consolidated data with features including (dates,tweets,compound_vader_score)</p></li>
+<li><p>label_data: the label data contains the actual label from yahoo finance</p></li>
+</ul>
 <p>Code</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_actual_label</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">label_data</span><span class="p">):</span>
 
@@ -567,7 +586,9 @@ any value for your own analysis</p>
     <span class="k">return</span> <span class="n">merge</span>
 </pre></div>
 </div>
-<p><a href="#id14"><span class="problematic" id="id15">|</span></a>5. Validation using confusion matrix</p>
+<div class="line-block">
+<div class="line">5. Validation using confusion matrix</div>
+</div>
 <p>parameter:</p>
 <ul class="simple">
 <li><p>df: the final merged pandas dataframe</p></li>
@@ -604,29 +625,37 @@ All final investment decisions are yours and as a result you could make or lose 
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="acknowledgement.html" class="btn btn-neutral float-right" title="Acknowledgement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="property-price-prediction.html" class="btn btn-neutral float-left" title="Property Price Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="acknowledgement.html" class="btn btn-neutral float-right" title="Acknowledgement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="property-price-prediction.html" class="btn btn-neutral float-left" title="Property Price Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Angel Woo.
+        
+        &copy; Copyright 2020, Angel Woo
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

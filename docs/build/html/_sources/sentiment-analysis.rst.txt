@@ -35,7 +35,9 @@ Collect tweets
 | 4. Navigate to 'Keys and token' page, save your API key, API secret, Access token and Access secret
 
 **Code illustration**
+
 ::
+
     import tweepy
     # do not share the API key in any public platform (e.g github, public website)
     consumer_key = API secret
@@ -64,7 +66,9 @@ Timeline tweets
   Please visit the following links https://docs.tweepy.org/en/v3.5.0/api.html
 
 **Code illustration**
+
 ::
+
     # declare an empty list
     alltweets = []
     # extract data from the API
@@ -77,13 +81,16 @@ Timeline tweets
              dates=tweet.created_at
              writer.writerow([dates,tweet_text])
 
+
 Hashtag/Cashtag tweets
 ^^^^^^^^^^^^^^^^^^^^^^^
 Use tweepy.Cursor() to access data from hashtag and cashtags
 
 
 **Code illustration**
+
 ::
+
     # extract data from the API
     hashtags=tweepy.Cursor(api.search,q=name,lang='en',tweet_mode='extended').items(200)
     with open('%s_tweets.csv' % screen_name, 'a') as f:
@@ -96,7 +103,9 @@ Use tweepy.Cursor() to access data from hashtag and cashtags
 Want to collect tweets within a period of time?
 
 Follow up on the previous example
+
 ::
+
         with open('%s_tweets.csv' % screen_name, 'a') as f:
             writer= csv.writer(f)
             for status in hashtags:
@@ -112,7 +121,9 @@ stream tweets
   https://docs.tweepy.org/en/v3.5.0/streaming_how_to.html
 
 1. Create a class inheriting from StreamListener
+
 ::
+
     # orverride tweepy.StreamListener
     class MyStreamListener(tweepy.StreamListener):
         # add logic to the on_staus method
@@ -134,13 +145,17 @@ stream tweets
             self.input_name=input_name
 
 2. Creating a stream
+
 ::
+
     # add a output_file parameter to store the output tweets
     myStreamListener = MyStreamListener(output_file=f,input_name=firm)
     myStream = tweepy.Stream(auth = api.auth, tweet_mode='extended',listener=myStreamListener,languages = ["en"])
 
 3. Starting a stream
+
 ::
+
     myStream.filter(track=target_firm)
 
 Collect financial headlines
@@ -152,65 +167,86 @@ US news
 | Finviz.com is a browser-based stock market research platform that allows visitors to see the latest financial news
   collected from different major newsagents such as Yahoo! finance, Accesswire, and Newsfile.
 
-Notes
-*****
+**Notes**
+
 Before the tutorial, it is important to a look of the front-end code of the website
 
 .. figure:: ../images/apple_finviz_example.png
 
 1. Access the website of each ticker through urllib.request module
+
 ::
+
     allnews=[]
     finviz_url = 'https://finviz.com/quote.ashx?t='
     url = finviz_url + ticker
     req = Request(url=url,headers={'user-agent': 'my-app/0.0.1'})
+
 2. Access the data from the HTML using Beautiful soup
+
 ::
+
     html = BeautifulSoup(resp, features="lxml")
+
 3. Get the information of  <div> id='news-table' in the website
+
 ::
+
     news_table = html.find(id='news-table')
     news_tables[ticker] = news_table
 
 4. Find All the news under the <tr> tag in the news-table
+
 ::
-            for info in df.findAll('tr'):
-                text=info.a.get_text()
-                date_scrape= info.td.text.split()
-                if(len(date_scrape)==1):
-                    time=date_scrape[0]
-                else:
-                    date= date_scrape[0]
-                    time=date_scrape[1]
-                    news_time_str= date+" "+time
+
+    for info in df.findAll('tr'):
+        text=info.a.get_text()
+        date_scrape= info.td.text.split()
+        if(len(date_scrape)==1):
+            time=date_scrape[0]
+        else:
+            date= date_scrape[0]
+            time=date_scrape[1]
+            news_time_str= date+" "+time
+
 5. Convert the date type into 'YYYY-MM-dd'
+
 ::
-                date_time_obj = datetime.datetime.strptime(news_time_str, '%b-%d-%y %I:%M%p')
-                date_time=date_time_obj.strftime('%Y-%m-%d')
+
+    date_time_obj = datetime.datetime.strptime(news_time_str, '%b-%d-%y %I:%M%p')
+    date_time=date_time_obj.strftime('%Y-%m-%d')
+
 6. Append all the news together
+
 ::
-            allnews.append([date_time,text])
+
+    allnews.append([date_time,text])
+
 
 
 HK news
 ^^^^^^^
+
 | We will be learning how to collect news headlines from aastock.com. The website has been one of the highest- ranking
   financial information platform in Hong Kong for more than a decade. It offers real-time international information
   relevant to Hong Kong shares, which are useful for analysing sentiment and trends in the local market.
 
-Notes
-*****
+**Notes**
+
 | Before the tutorial, it is important to a look of the front-end code of the website. Take tencent (00700.HK) as an example.
   Please visit this link http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1. click 'inspect' and you can
   view the front-end code of the website
 
 .. figure:: ../images/tencent_aastock_example.png
+
 | you can see from this figure, the 'date' attribute are stored within the <div class ='inline_block> under the
   <div class='newstime 4'>, while the news headlines are stored within the < div class = 'newscontent4 mar8T'>
 
 
 1. Access the website of each ticker through urllib.request module
+
 ::
+
     prefix_url='http://www.aastocks.com/en/stocks/analysis/stock-aafn/'
     postfix_url='/0/all/1'
     url=prefix_url+fill_ticker+postfix_url
@@ -218,14 +254,18 @@ Notes
     resp = urlopen(req)
 
 2. Access the data from the HTML using Beautiful soup
+
 ::
+
     html = BeautifulSoup(resp, features="lxml")
     # get the html code containing the dates and news
     dates=html.findAll("div", {"class": "inline_block"})
     news=html.findAll("div", {"class": "newshead4"})
 
 3. Find All the news and corresponding dates from the html code from step 2
+
 ::
+
     # track the index in the news list
     idx=0
     with open('%s_tweets.csv' % screen_name, 'a') as f:
@@ -259,6 +299,7 @@ Vader sentiment prediction
   package and can be applied directly to unlabeled text data.
 
 | The sentiment labels are generated from the VADER Compound score according to the following rules:
+
 * Positive sentiment (= 2): compound score > 0.01
 * Neutral sentiment (= 1): −0.01 ≥ compound score ≤ 0.01
 * Negative sentiment (= 0): compound score < −0.01
@@ -267,7 +308,9 @@ Note 1% was set as the threshold value accounting for the average stock movement
 any value for your own analysis
 
 1. Import these libraries
+
 ::
+
     import pandas as pd
     import nltk
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -276,13 +319,16 @@ any value for your own analysis
 2. VADER’s SentimentIntensityAnalyzer() takes in a string and returns a dictionary of scores in each of
 
 Four categories:
-*negative
-*neutral
-*positive
-*compound (computed by normalizing the scores above, ranging from -1 to 1)
+
+* negative
+* neutral
+* positive
+* compound (computed by normalizing the scores above, ranging from -1 to 1)
 
 Let us analyze the data we have collected through our sentimental analyzer
+
 ::
+
     # pass in the path when you stored the csv file containing the data
     def read_tweets_us_path(path):
         # I used the path to join the relative directories to the path I stored my data
@@ -305,6 +351,7 @@ parameters:
     * perc_change: the threshold valuefor label the sentiment
 
 Code
+
 ::
 
     def find_tweets_pred_label(grouped_data,file_name,perc_change):
@@ -326,19 +373,22 @@ Code
     grouped_data['tweets']=tweets
     grouped_data.to_csv(file_name)
 
-|4. merge all the data together
+| 4. merge all the data together
 
 * actual label (= 2): price movement ≥ 0.01
 * actual label (= 1):  −0.01 ≥ price movement ≤ 0.01
 * actual label (= 0): price movement ≤ −0.01
 
-|parameters:
+| parameters:
+
 * file_name: consolidated data with features including (dates,tweets,compound_vader_score)
 * label_data: the label data contains the actual label from yahoo finance
 
 
 Code
+
 ::
+
     def merge_actual_label (file_name,label_data):
 
         vader_data=pd.read_csv(file_name)
@@ -352,7 +402,7 @@ Code
         return merge
 
 
-|5. Validation using confusion matrix
+| 5. Validation using confusion matrix
 
 parameter:
 
@@ -360,7 +410,9 @@ parameter:
 * name: the output csv file contains all the merged information with dates, tweets, vader_label and actual label
 
 **Code illustration**
+
 ::
+
     from sklearn.metrics import confusion_matrix
     import matplotlib.pyplot as plt
     def validation(df,name):
