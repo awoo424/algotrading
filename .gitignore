@@ -4,8 +4,6 @@ __pycache__/
 jupyter_example.ipynb
 ._jupyter_example.ipynb
 tickers/
-./code/main_*.py
 .vscode/
 ._.DS_Store
-./images/._*.png
 .idea/
