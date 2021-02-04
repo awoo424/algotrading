@@ -228,6 +228,15 @@ Technical analysis vs Fundamental analysis
   alone without any consideration of the technical side of the market.
 
 
+What is macroeconomic analysis in stock market?
+-------------------------------------------
+| The stock prices are often moved by some macroeconomic indicators, and hence it is 
+  good to keep track of macroeconomic indicators. 
+
+| Macroeconomic analysis is the study of relation between stock prices and macroeconomic
+  indicators. 
+
+
 What is sentiment analysis in stock market?
 -------------------------------------------
 Market sentiment refers to the overall attitude of investors toward a particular security. Investors profit by finding
