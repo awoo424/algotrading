@@ -64,6 +64,8 @@ The following indicators have been implemented in Python:
 * On-Balance Volume (BOV)
 * Volume Rate of Change
 
+<br/>
+
 #### 2. Fundamental analysis
 
 #### Short-term solvency ratios
@@ -92,6 +94,14 @@ The following indicators have been implemented in Python:
 * Return on assets (ROA)
 * Return on equity (ROE)
 * Earning per share (EPS)
+
+<br/>
+
+#### 3. Machine Learning
+
+* Bankruptcy prediction
+* Property price prediction
+* Sentiment analysis
 
 ## Contact
 
