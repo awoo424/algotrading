@@ -25,15 +25,41 @@ Intro to macroeconomic analysis
 
 Macroeconomic indicators in Hong Kong
 -------------------------------------
+| Let's have a look at the data first. 
+
+
+*data figure (data columns)*
+
+
 Univariate analysis
 ^^^^^^^^^^^^^^^^^^^
+| The distribution of the numerical features can be examined by calling pandas 
+  Dataframe.describe() function. By calling this function, statistical summary 
+  such as mean, standard deviation, min, and max of a data frame can be viewed. 
 
-*Under construction*
+| For a better understanding of the statistics summary, seaborn.distplot() function 
+  can be used to visualise the results with histograms.
+
+  *code, figure*
 
 Bivariate analysis
 ^^^^^^^^^^^^^^^^^^^
+| In bivariate analysis, correlations between the features can be studied. Using 
+  scatter plot and regression line, the relationship between two features were 
+  visualised.
 
-*Under construction*
+  *code, figure*
+
+| Then, pandas.Dataframe.corr() and seaborn.heatmap() functions can be used to compute 
+  a pairwise correlation of features and visualize the correlation matrix.
+
+  *code, heatmeap*
+
+| According to the above figure, GDP, composite consumer price index, population, 
+  year, imports, month, and total exports are positively correlated to the 
+  Hang Seng index, while both seasonally adjusted unemployment rate and not seasonally 
+  adjusted unemployment rate are negatively correlated to the Hang Seng index.
+
 
 The Hong Kong real estate market
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
