@@ -1,4 +1,4 @@
-Property Price Prediction
+Property price prediction
 ==========================
 
 *Under construction*.

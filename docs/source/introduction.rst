@@ -228,10 +228,23 @@ Technical analysis vs Fundamental analysis
   alone without any consideration of the technical side of the market.
 
 
-What is sentiment analysis in stock market?
--------------------------------------------
-Market sentiment refers to the overall attitude of investors toward a particular security. Investors profit by finding
-stocks that are overvalued based on market sentiment
+The use of machine learning
+----------------------------
+
+*(To-be edited)*
+
+Macroeconomic data
+^^^^^^^^^^^^^^^^^^^^^^
+
+*(To-be edited)*
+
+Sentiment analysis
+^^^^^^^^^^^^^^^^^^^
+
+| Market sentiment refers to the overall attitude of investors toward a particular security. Investors profit by finding
+  stocks that are overvalued based on market sentiment.
+
+*(To-be edited)*
 
 
 
@@ -240,7 +253,7 @@ Conclusion
 
 | Algorithmic Trading has become increasingly popular in the recent decade, and 
   it now accounts for the majority of trades in the market globally and has attributed 
-  to the success of some of the world's best-performing hedgee funds. Indeed, 84% of 
+  to the success of some of the world's best-performing hedge funds. Indeed, 84% of 
   trades that happened in New York Stock Exchange (NYSE), and 60% in London Stock 
   Exchange (LSE) were all done using algorithmic trading. Therefore, whether one 
   is interested in making money with algo trading or not, studying algo trading 
