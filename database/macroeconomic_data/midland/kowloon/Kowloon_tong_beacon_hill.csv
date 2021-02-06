@@ -1,0 +1,570 @@
+,region,subregion,district,estate,building,first_op_date,floor_level,bedroom,sitting_room,floor,flat,area,net_area,price,tx_date,last_tx_date,last_price,gain,lat,lon
+0,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Belmont Heights,Belmont Heights,1977-02-07,L,4,2,1,B,1085,944,15600000,2021-01-04,2012-04-26,9330000,67.2,22.341223,114.18206
+1,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Avon Court,Avon Court,1974-01-18,H,3,2,7,A,920,823,14200000,2020-12-31,,0,0.0,22.342081,114.182945
+2,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block E,1977-10-18,M,2,,4,E1,0,589,9800000,2020-12-30,2017-09-27,8800000,11.36,22.342173,114.18191
+3,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,House D,2016-03-18,,3,,-,-,0,3436,116280000,2020-12-29,,0,0.0,,
+4,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block B (Clifford Mansion),1978-08-15,M,,,3,D,0,728,12600000,2020-12-28,2007-09-27,4368000,188.46,22.3429,114.182699
+5,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eight College,Eight College,2011-04-08,L,,,2,,2420,1777,52580000,2020-12-24,2012-06-18,63000000,-16.54,22.327966999999997,114.18431
+6,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D1,1987-01-13,,3,,3,A,1202,1009,18380000,2020-12-22,2016-08-23,14380000,27.82,22.329985,114.183105
+7,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-25,L,3,2,,B,0,531,7000000,2020-12-21,,0,0.0,22.340737999999998,114.18152
+8,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1974-09-05,L,3,2,2,G,766,658,12000000,2020-12-18,2010-10-13,5600000,114.29,22.34098,114.18137
+9,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-25,,1,1,G,E,440,440,8200000,2020-12-17,,0,0.0,22.340737999999998,114.18152
+10,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-09,H,3,,12,D,1468,1084,28200000,2020-12-16,2004-09-09,14387000,96.01,22.3410134,114.174675
+11,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block F,1977-10-18,L,1,,1,F2,0,487,8780000,2020-12-14,1997-10-15,3330000,163.66,22.342271999999998,114.182014
+12,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 8,2004-02-09,H,3,,10,B,1469,1114,28000000,2020-12-11,2003-09-23,7780000,259.9,22.341552,114.175236
+13,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-31,H,1,2,6,D3,530,445,7200000,2020-12-02,2012-09-03,4550000,58.24,22.341606,114.181915
+14,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Gala Garden,Gala Garden,1963-05-21,,,,3,D,0,1119,14380000,2020-11-25,,0,0.0,22.32951,114.18624
+15,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-26,L,3,,2,B1,781,638,9850000,2020-11-25,1996-10-24,3480000,183.05,22.341475,114.18212
+16,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 8,2004-02-09,L,3,,3,B,1469,1114,28000000,2020-11-25,2003-10-15,7200000,288.89,22.341552,114.175236
+17,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,College Crest,Block A,1978-11-02,H,,,8,3,0,769,15500000,2020-11-19,2010-09-27,7500000,106.67,22.328236,114.18385
+18,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D3,1987-01-13,,3,,3,A,1156,1004,18000000,2020-11-18,2016-12-06,5500000,227.27,22.329739999999997,114.18330399999999
+19,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,L,3,,1,B,1469,1121,28500000,2020-11-17,2003-09-19,6708000,324.87,22.341952,114.175237
+20,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1974-09-05,L,3,2,1,G,766,658,11000000,2020-11-16,2009-08-25,4500000,144.44,22.34098,114.18137
+21,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 1,2019-09-29,M,,,6,A,0,1188,44079000,2020-11-13,,0,0.0,22.330961,114.18567
+22,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,H,,,7,E,0,283,8569000,2020-11-10,,0,0.0,22.330969,114.18579
+23,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,M,,,6,E,0,283,8408000,2020-11-09,,0,0.0,22.330969,114.18579
+24,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,2,E,0,283,7839000,2020-11-06,,0,0.0,22.330969,114.18579
+25,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,15 Grampian Road,15 Grampian Road,1966-07-08,M,,,4,B,0,610,10000000,2020-11-05,,0,0.0,22.3292037,114.186434
+26,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,H,,,39,B,2300,1764,42000000,2020-11-04,2003-10-03,14980000,180.37,22.34216,114.18356
+27,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,5,E,0,297,7676000,2020-11-04,,0,0.0,22.32613,114.18214
+28,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-31,M,1,2,5,3,530,445,7600000,2020-11-04,2017-04-28,6980000,8.88,22.341606,114.181915
+29,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Belmont Heights,Belmont Heights,1977-02-07,L,3,2,3,B,1085,944,16380000,2020-11-03,,0,0.0,22.341223,114.18206
+30,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block C,1977-05-04,M,3,,4,C1,0,735,12280000,2020-10-29,2006-11-23,3700000,231.89000000000001,22.342747,114.18206
+31,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,H,,,7,C,0,265,8205000,2020-10-23,,0,0.0,22.330969,114.18579
+32,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-31,H,3,2,7,B1,1100,950,17680000,2020-10-23,1999-05-11,4688000,277.13,22.341606,114.181915
+33,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,3,E,0,283,7999000,2020-10-23,,0,0.0,22.330969,114.18579
+34,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,M,,,5,E,0,283,8248000,2020-10-22,,0,0.0,22.330969,114.18579
+35,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 2,1971-11-24,H,3,2,9,G,900,698,10000000,2020-10-22,2008-02-06,4020000,148.76,22.342558,114.18066999999999
+36,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,No.1 Oxford Road,House 2,2009-12-03,,,,,,7292,5325,196000000,2020-10-22,2017-08-14,190000000,3.16,22.330488,114.18056
+37,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 10,1980-12-24,M,3,2,7,D,1308,1212,16000000,2020-10-22,2003-06-27,4700000,240.43,22.327439,114.183459
+38,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,M,,,6,D,0,278,8481000,2020-10-21,,0,0.0,22.330969,114.18579
+39,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 5,1985-06-28,H,3,2,9,B,1021,882,15800000,2020-10-21,2002-11-21,4000000,295.0,22.327441999999998,114.18083
+40,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,M,,,6,C,0,265,8047000,2020-10-19,,0,0.0,22.330969,114.18579
+41,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,M,,,5,C,0,265,7897000,2020-10-19,,0,0.0,22.330969,114.18579
+42,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 1,2019-09-29,M,,,5,D,0,651,21175000,2020-10-19,,0,0.0,22.330961,114.18567
+43,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverley Heights,Beverley Heights,1970-03-11,M,4,2,7,B2,1350,1090,13000000,2020-10-16,,0,0.0,22.344451,114.17722
+44,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,L,3,,1,3,0,623,9820000,2020-10-16,2004-10-13,2060000,376.7,22.341953,114.18215000000001
+45,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,M,,,9,A,0,420,11906000,2020-10-12,,0,0.0,22.32613,114.18214
+46,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Happy Garden,Block B,1976-02-05,M,2,2,5,3,696,598,11300000,2020-10-12,2014-12-17,8380000,34.84,22.341569999999997,114.183264
+47,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,6,B,0,414,11071000,2020-10-08,,0,0.0,22.32613,114.18214
+48,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,M,,,8,B,0,414,11495000,2020-10-08,,0,0.0,22.32613,114.18214
+49,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marple Court,Marple Court,1972-04-04,M,3,2,4,A,1050,900,14680000,2020-10-05,2005-08-31,5138000,185.71,22.342674,114.180984
+50,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block B,1971-10-12,M,3,2,4,E,850,654,9900000,2020-09-29,2012-11-22,7300000,35.62,22.342668999999997,114.18130000000001
+51,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-31,L,1,2,1,2,563,496,7100000,2020-09-29,2012-04-17,4230000,67.85,22.341606,114.181915
+52,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 3,2016-03-18,H,2,,10,C,0,883,21424800,2020-09-28,,0,0.0,22.333755,114.18652
+53,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block D,1977-05-04,L,2,,2,D3,0,385,6860000,2020-09-25,2005-10-08,1900000,261.05,22.342662999999998,114.18217
+54,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Mayfair Gardens,Mayfair Gardens,1964-09-24,L,,,2,B,0,1082,18280000,2020-09-24,2014-12-17,14500000,26.07,22.328342,114.18521
+55,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,M,3,,6,6,0,784,13300000,2020-09-22,,0,0.0,22.342283,114.18151
+56,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block C,1977-05-04,L,3,,1,C2,0,661,11000000,2020-09-22,2011-03-04,5600000,96.43,22.342747,114.18206
+57,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Manhattan Court,Manhattan Court,1975-07-31,H,,,7,8D,0,934,15000000,2020-09-21,,0,0.0,22.3429194,114.177707
+58,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Happy Garden,Block B,1976-02-05,H,2,2,6,3,696,598,10680000,2020-09-21,2015-06-18,8000000,33.5,22.341569999999997,114.183264
+59,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,H,,,16,5,1450,1137,20000000,2020-09-17,2012-03-27,12000000,66.67,22.343394999999997,114.18308999999999
+60,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 1,2019-09-29,M,,,6,D,0,651,22020000,2020-09-14,,0,0.0,22.330961,114.18567
+61,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,H,3,2,8,C,746,631,9630000,2020-09-08,,0,0.0,22.341852,114.1825
+62,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 12,2004-02-09,L,3,,5,B,1469,1086,30280000,2020-09-07,2014-04-10,22000000,37.64,22.342387,114.175242
+63,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 1,1969-10-22,H,3,2,11,A1,1050,761,11950000,2020-09-07,2014-09-05,9700000,23.2,22.343899,114.177246
+64,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block B (Clifford Mansion),1978-08-15,H,,,5,D,0,728,12800000,2020-09-02,2009-06-05,5100000,150.98,22.3429,114.182699
+65,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,28 La Salle Road,House E,2004-05-04,,,,,,0,5230,177000000,2020-09-02,2005-01-11,60230000,193.87,22.331073999999997,114.18247
+66,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,1,E,0,287,7747000,2020-09-01,,0,0.0,22.330969,114.18579
+67,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-26,L,2,2,1,A4,555,443,7980000,2020-08-21,2019-04-17,2000000,299.0,22.341475,114.18212
+68,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,M,,,10,1,1593,1241,26000000,2020-08-18,2015-01-23,17500000,48.57,22.343394999999997,114.18308999999999
+69,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-25,L,3,2,3,E,900,692,9990000,2020-08-12,2002-05-11,2369000,321.7,22.341288,114.18247
+70,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 7,2004-02-09,L,3,,1,C,1526,1107,28000000,2020-08-11,2006-03-28,14080000,98.86,22.341276,114.1752765
+71,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Nga Yuen Building,Nga Yuen Building,1963-12-31,L,,,3,,0,1089,18280000,2020-08-07,2007-12-28,7900000,131.39000000000001,22.327892,114.18561
+72,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Mayfair,Block 6,2011-12-28,L,4,,1,A,1632,1262,20050000,2020-08-07,2012-08-03,27548000,-27.22,22.3398724,114.1822802
+73,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 10,1980-12-24,L,3,2,2,D,1308,1212,20950000,2020-08-07,2011-01-20,12800000,63.67,22.327439,114.183459
+74,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 1,1985-06-28,L,3,2,1,A,1411,1229,21500000,2020-08-07,2012-03-28,12720000,69.03,22.327507,114.18024
+75,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block D,1977-11-23,M,3,,6,4,0,670,11500000,2020-08-04,1999-10-14,3130000,267.41,22.34206,114.1817
+76,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-27,L,3,2,3,C,850,685,10000000,2020-08-04,2008-01-21,19000000,-47.37,22.3426965,114.1829536
+77,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 7,1980-12-24,L,3,2,3,C,1308,1211,21080000,2020-08-03,2017-07-13,17100000,23.27,22.327393999999998,114.18248
+78,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,M,2,,19,B,900,673,15000000,2020-07-24,2003-10-09,4150000,261.45,22.34216,114.18356
+79,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 2,1980-12-23,L,3,2,1,D,1308,1212,19800000,2020-07-21,2010-04-29,10380000,90.75,22.327738,114.182495
+80,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-25,L,2,2,3,A4,555,443,8000000,2020-07-21,2010-07-28,4090000,95.60000000000001,22.341475,114.18212
+81,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Lasalle,One Lasalle,2009-03-31,M,,,6,B,3025,2203,62800000,2020-07-21,2009-08-12,55800000,12.540000000000001,22.328096,114.18166
+82,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,3,B,0,403,11596000,2020-07-17,,0,0.0,22.330969,114.18579
+83,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,3,C,0,265,7913000,2020-07-17,,0,0.0,22.330969,114.18579
+84,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fung Wah Court,Fung Wah Court,1972-03-03,M,,,6,D,0,1061,17500000,2020-07-17,2014-06-25,14200000,23.240000000000002,22.327858,114.18484
+85,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Nos.9 9A & 9B La Salle Road,9-9B La Salle Road,1962-03-28,,,,2,C,0,1454,26980000,2020-07-17,2008-10-03,16000000,68.63,22.32891,114.18167
+86,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Violet Court,Violet Court,1964-03-17,M,,,4,3,0,1044,14000000,2020-07-17,2011-09-19,11500000,21.740000000000002,22.340669,114.177588
+87,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Nos.9 9A & 9B La Salle Road,9-9B La Salle Road,1962-03-28,,,,1,C,0,1454,23000000,2020-07-17,2008-10-03,16000000,43.75,22.32891,114.18167
+88,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block B,1971-10-12,M,3,2,6,E,850,654,10500000,2020-07-16,2020-03-19,11180000,-6.08,22.342668999999997,114.18130000000001
+89,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Mayfair,Block 6,2011-12-28,M,,,7,C,1352,1052,30980000,2020-07-15,2011-11-22,24170000,28.18,22.3398724,114.1822802
+90,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D2,1987-01-13,,3,,3,B,1202,1004,20680000,2020-07-15,1997-06-14,10500000,96.95,22.329855,114.183205
+91,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block C,1977-05-04,,3,,G,C1,0,735,13000000,2020-07-10,2006-11-16,4800000,170.83,22.342747,114.18206
+92,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block A,2000-03-22,M,,,9,6,1431,1115,22080000,2020-07-08,2014-03-18,12880000,71.43,22.343526999999998,114.18278
+93,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lung Cheung Court,Block 8,1969-04-14,H,,,5,6A,0,1204,17500000,2020-07-08,,0,0.0,22.34237,114.17963
+94,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Inverness Villa,Block A,1977-01-22,L,3,,1,3,635,548,10300000,2020-07-07,2009-09-29,3900000,164.1,22.331194,114.185745
+95,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lilac Court,Lilac Court,1978-04-05,H,3,2,9,A,1100,1012,16780000,2020-07-06,2012-05-07,10500000,59.81,22.32754,114.18527
+96,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block A,2000-03-22,M,,,10,5,1405,1101,22330000,2020-07-06,2004-09-20,8080000,176.36,22.343526999999998,114.18278
+97,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block B (Clifford Mansion),1978-08-15,L,,,2,E,0,546,9700000,2020-07-06,,0,0.0,22.3429,114.182699
+98,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Bloomsville,The Bloomsville,2002-05-22,L,3,,11,C,1078,787,18800000,2020-07-06,2003-01-29,4850000,287.63,22.328941,114.18577
+99,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 2,1969-10-22,M,3,2,8,D2,1050,758,12850000,2020-07-06,2005-04-06,1000000,1185.0,22.343735,114.17746
+100,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,181-181C Boundary Street,181C Boundary Street,1957-09-16,,,,4,,1000,666,7380000,2020-06-30,,0,0.0,22.327413999999997,114.18579
+101,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,M,3,,5,3,0,753,12500000,2020-06-26,,0,0.0,22.342283,114.18151
+102,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Inverness Villa,Block A,1977-01-22,L,3,,2,4,635,548,9950000,2020-06-22,2012-04-05,5800000,71.55,22.331194,114.185745
+103,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 1,1971-11-24,L,3,2,3,A,900,698,10000000,2020-06-22,2005-08-03,3500000,185.71,22.3425066,114.1806516
+104,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,2,B,0,403,11356000,2020-06-19,,0,0.0,22.330969,114.18579
+105,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 1,2019-09-29,L,,,3,D,0,651,19198000,2020-06-18,,0,0.0,22.330961,114.18567
+106,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,1,C,0,228,6825000,2020-06-17,,0,0.0,22.330969,114.18579
+107,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,H,1,,7,D,0,278,8647000,2020-06-16,,0,0.0,22.330969,114.18579
+108,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,1,D,0,242,7493000,2020-06-16,,0,0.0,22.330969,114.18579
+109,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,2,D,0,278,7992000,2020-06-12,,0,0.0,22.330969,114.18579
+110,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,2,C,0,265,7745000,2020-06-12,,0,0.0,22.330969,114.18579
+111,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,3,A,0,616,17792000,2020-06-12,,0,0.0,22.330969,114.18579
+112,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ayton,Tower 2,2019-09-29,L,,,3,D,0,278,8157000,2020-06-11,,0,0.0,22.330969,114.18579
+113,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,7,F,0,306,7968000,2020-06-10,,0,0.0,22.32613,114.18214
+114,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block D,1977-05-03,,3,,G,D2,0,653,9900000,2020-06-10,2016-08-29,7100000,39.44,22.342662999999998,114.18217
+115,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 1,1985-06-28,H,3,2,10,B,1459,1274,26280000,2020-06-08,,0,0.0,22.327507,114.18024
+116,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Violet Court,Violet Court,1964-03-17,H,,,7,1,0,992,18200000,2020-06-08,,0,0.0,22.340669,114.177588
+117,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Mayfair,Block 1,2011-12-27,L,,,3,C,1365,1045,31500000,2020-06-04,2011-11-20,22518000,39.89,22.340035999999998,114.18156
+118,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-25,M,3,2,5,C,615,531,9990000,2020-06-03,2005-08-12,2565000,289.47,22.340737999999998,114.18152
+119,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Wah Hing Building,Wah Hing Building,1966-10-26,M,3,2,5,A,1500,828,11000000,2020-06-01,2018-02-01,10800000,1.85,22.327557,114.18567
+120,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Crystal Mansion,Crystal Mansion,1971-01-18,M,3,2,6,A,1600,1516,30188000,2020-06-01,,0,0.0,22.3438059,114.1769336
+121,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block B (Clifford Mansion),1978-08-14,L,,,2,H,0,531,9680000,2020-05-31,,0,0.0,22.3429,114.182699
+122,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-27,L,3,2,3,A,850,685,11800000,2020-05-29,,0,0.0,22.3426965,114.1829536
+123,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block A,2000-03-22,M,,,7,1,1593,1241,20000000,2020-05-29,2007-08-27,7400000,170.27,22.343526999999998,114.18278
+124,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block D,1977-11-23,M,3,,4,3,0,710,9980000,2020-05-29,,0,0.0,22.34206,114.1817
+125,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-30,L,1,2,1,1,530,445,7130000,2020-05-28,2015-02-25,5200000,37.12,22.341606,114.181915
+126,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,M,3,2,5,C,746,631,9980000,2020-05-28,2013-11-21,7630000,30.8,22.341852,114.1825
+127,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block A (Rockford Mansion),1978-08-15,H,2,2,5,E,585,517,9470000,2020-05-26,2011-03-07,5160000,83.53,22.3293065,114.1862196
+128,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Belmont Heights,Belmont Heights,1977-02-07,L,3,2,3,E,789,688,12338000,2020-05-25,2013-02-21,9000000,37.09,22.341223,114.18206
+129,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 10,1980-12-24,L,3,2,3,C,1308,1211,21500000,2020-05-22,2007-09-25,7480000,187.43,22.327439,114.183459
+130,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 2,1985-06-28,L,4,2,3,A,1613,1393,24200000,2020-05-20,2013-04-03,18150000,33.33,22.327332,114.18024
+131,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-26,M,2,2,5,A4,555,443,8280000,2020-05-18,,0,0.0,22.341475,114.18212
+132,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Moonbeam Terrace,Block B,1968-02-19,M,,,4,2,0,1211,17000000,2020-05-13,2014-08-20,13550000,25.46,22.342624999999998,114.17833
+133,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,M,3,,8,F,1371,1014,24080000,2020-05-11,2004-09-08,10941000,120.09,22.3410134,114.174675
+134,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,H,3,2,11,A3,800,694,12300000,2020-05-11,2015-05-21,10380000,18.5,22.340533999999998,114.1815444
+135,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-25,H,,,12,B,0,2350,99000000,2020-05-10,,0,0.0,22.34094,114.17815
+136,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,H,,,33,B,2300,1764,47000000,2020-05-08,2005-08-25,23070000,103.73,22.34216,114.18356
+137,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 1,2011-04-28,L,,,1,A,2107,1600,25500000,2020-05-07,2010-10-07,26759000,-4.7,22.342988,114.1838095
+138,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kwong Fai Court,Kwong Fai Court,1976-02-19,H,3,,8,E,854,767,14880000,2020-05-07,2000-09-26,3560000,317.98,22.341852,114.182816
+139,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,M,3,,9,C,1498,1112,31000000,2020-05-06,2004-03-26,14680000,111.17,22.3410134,114.174675
+140,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lung Cheung Court,Block 4,1970-03-04,,,,5,6H,0,1222,20330000,2020-04-29,,0,0.0,22.34266,114.18039
+141,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-25,M,3,2,4,A3,770,614,10500000,2020-04-28,,0,0.0,22.341475,114.18212
+142,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 5,1981-01-18,H,3,2,12,C,1308,1211,17300000,2020-04-26,2013-07-03,14800000,16.89,22.327778,114.183483
+143,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 2,2011-04-28,L,,,1,D,2029,1542,22800000,2020-04-24,2010-10-07,25363000,-10.11,22.3427309,114.18387799999999
+144,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-27,M,3,2,6,C,850,685,10000000,2020-04-17,2007-02-12,3200000,212.5,22.3426965,114.1829536
+145,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,H,3,2,7,G,559,475,8480000,2020-04-16,2017-04-13,7200000,17.78,22.341852,114.1825
+146,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ho Tung House,4 Ho Tung Road,1960-01-18,M,,,6,,0,902,13080000,2020-04-16,2005-11-11,4880000,168.03,22.327402,114.17988
+147,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fairyland Garden,Fairyland Garden,1973-07-12,L,3,2,2,D,1233,1076,7000000,2020-04-15,2002-07-22,3230000,116.72,22.340605999999998,114.181868
+148,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,M,3,2,4,D,746,629,10000000,2020-04-14,1997-08-05,2000000,400.0,22.341852,114.1825
+149,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-24,M,2,2,6,A,507,440,8880000,2020-04-08,2014-12-18,6100000,45.57,22.340737999999998,114.18152
+150,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fung Wah Court,Fung Wah Court,1972-03-02,L,,,2,A,0,1061,16000000,2020-04-07,1998-05-08,6680000,139.52,22.327858,114.18484
+151,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,4,,9,D,0,1534,35000000,2020-04-06,,0,0.0,22.33369,114.186134
+152,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block A (Rockford Mansion),1978-08-15,H,3,2,5,D,760,688,11700000,2020-04-02,2007-12-17,3900000,200.0,22.3293065,114.1862196
+153,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,House C,2016-03-18,,,,,,0,3436,132133000,2020-03-31,,0,0.0,,
+154,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 3,2016-03-18,H,4,,9,A,0,1513,34018000,2020-03-30,,0,0.0,22.333755,114.18652
+155,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lung Cheung Court,Block 2,1970-03-04,L,,,1,2G,0,803,12008800,2020-03-27,,0,0.0,22.343035,114.179565
+156,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-24,M,2,2,6,H,507,440,8798000,2020-03-26,2013-01-22,5220000,68.54,22.340737999999998,114.18152
+157,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C3,1967-06-16,,,,4,3,0,675,18623250,2020-03-25,,0,0.0,22.343177999999998,114.1768
+158,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,3,,10,E,0,1459,40280000,2020-03-25,,0,0.0,22.33369,114.186134
+159,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 3,1980-12-23,H,3,2,10,C,1308,1211,19000000,2020-03-24,2011-02-13,13280000,43.07,22.327749,114.182842
+160,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block D,1977-05-04,L,3,,2,D2,0,661,10300000,2020-03-24,2010-10-25,5700000,80.7,22.342662999999998,114.18217
+161,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Yee Yuen,Yee Yuen,1962-04-28,,,,3,,0,1619,19000000,2020-03-24,,0,0.0,22.331978,114.185875
+162,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,3,,10,D,0,1534,41728000,2020-03-23,,0,0.0,22.33369,114.186134
+163,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 5,1985-06-28,L,3,2,1,C,1021,882,15300000,2020-03-20,1997-04-08,7500000,104.0,22.327441999999998,114.18083
+164,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 3,2016-03-18,H,3,,10,A,0,1513,38700000,2020-03-20,,0,0.0,22.333755,114.18652
+165,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 3,2011-04-28,M,,,5,B,2094,1609,30800000,2020-03-20,2010-03-22,31410000,-1.94,22.3424935,114.183826
+166,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Happy Garden,Block B,1976-02-05,H,3,2,6,2,907,799,13100000,2020-03-19,,0,0.0,22.341569999999997,114.183264
+167,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block B,1971-10-12,M,3,2,6,E,850,654,11180000,2020-03-19,,0,0.0,22.342668999999997,114.18130000000001
+168,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,10,C,0,1516,36900000,2020-03-19,,0,0.0,22.333958,114.18655
+169,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,M,,,8,C,0,403,10155000,2020-03-15,,0,0.0,22.32613,114.18214
+170,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 1,2011-04-28,L,,,1,D,2099,1614,22500000,2020-03-12,2010-10-20,27287000,-17.54,22.342988,114.1838095
+171,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-24,L,3,2,1,H,900,712,9980000,2020-03-11,2007-12-11,4180000,138.76,22.341288,114.18247
+172,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,3,,9,E,0,1459,34600000,2020-03-11,,0,0.0,22.33369,114.186134
+173,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 1,1969-10-22,H,3,2,10,B3,1050,758,12000000,2020-03-03,,0,0.0,22.343899,114.177246
+174,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boundary Crest,Boundary Crest,1978-02-04,M,2,2,7,A,722,574,7000000,2020-03-02,,0,0.0,22.3272339,114.1848153
+175,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ho Tung House,6 Ho Tung Road,1960-01-18,M,,,6,,0,902,12880000,2020-02-28,,0,0.0,22.327420999999998,114.17989
+176,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 7,2004-02-09,M,3,,8,C,1526,1107,32000000,2020-02-12,2016-01-21,25000000,28.0,22.341276,114.1752765
+177,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,M,3,,6,C,1435,1068,26900000,2020-01-16,2003-04-03,7280000,269.51,22.341952,114.175237
+178,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,3,D,0,400,9680000,2020-01-15,,0,0.0,22.32613,114.18214
+179,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 7,1980-12-24,H,3,2,10,C,1308,1211,21880000,2020-01-15,2009-05-19,9000000,143.11,22.327393999999998,114.18248
+180,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,H,3,,10,B,1469,1086,32980000,2020-01-14,2003-05-29,7238000,355.65000000000003,22.3421705,114.175239
+181,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Comfort Court,Comfort Court,1977-03-03,H,3,2,8,D,1560,1149,18280000,2020-01-09,2009-08-25,8080000,126.24000000000001,22.341019,114.18241
+182,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,5,A,0,420,11276000,2020-01-06,,0,0.0,22.32613,114.18214
+183,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kwong Fai Court,Kwong Fai Court,1976-02-19,L,2,,1,B,500,411,3250000,2020-01-02,2015-04-23,4600000,-29.35,22.341852,114.182816
+184,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,M,3,,6,D,1326,990,25500000,2019-12-31,2003-06-11,5850000,335.90000000000003,22.3421705,114.175239
+185,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ava Court,Ava Court,1973-09-27,L,3,,3,F,1100,976,6750000,2019-12-30,,0,0.0,22.342523999999997,114.18324799999999
+186,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 3,2011-04-28,M,,,6,A,2086,1602,25280000,2019-12-24,2010-03-24,31290000,-19.21,22.3424935,114.183826
+187,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,M,2,,22,B,900,673,16500000,2019-12-20,2003-11-26,4480000,268.3,22.34216,114.18356
+188,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,6,A,0,420,11434000,2019-12-19,,0,0.0,22.32613,114.18214
+189,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,M,,,8,3,1405,1101,19700000,2019-12-18,2008-01-24,7700000,155.84,22.343394999999997,114.18308999999999
+190,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 15,2004-02-09,L,,,2,A,1954,1456,37500000,2019-12-17,2005-07-04,22471000,66.88,22.3426465,114.175337
+191,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,7,A,0,420,11591000,2019-12-12,,0,0.0,22.32613,114.18214
+192,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Westland Heights,Westland Heights,1976-11-10,L,3,2,3,B,1080,987,16680000,2019-12-12,,0,0.0,22.343016,114.18175
+193,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,5,B,0,414,10914000,2019-12-11,,0,0.0,22.32613,114.18214
+194,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,2,E,0,259,6311000,2019-12-10,,0,0.0,22.32613,114.18214
+195,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,6,F,0,306,7929000,2019-12-10,,0,0.0,22.32613,114.18214
+196,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,5,C,0,403,9671000,2019-12-10,,0,0.0,22.32613,114.18214
+197,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 18,2004-02-09,H,,,9,A,1954,1456,40000000,2019-12-09,2003-05-23,11880000,236.70000000000002,22.3429949,114.17594
+198,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 18,2004-02-09,H,,,10,B,1947,1447,48000000,2019-12-06,2003-03-27,13480000,256.08,22.3429949,114.17594
+199,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-30,M,1,2,3,1,530,445,7680000,2019-12-05,,0,0.0,22.341606,114.181915
+200,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1966-10-07,L,,,4,D,0,1190,17500000,2019-12-04,,0,0.0,22.3441574,114.1782899
+201,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,7,C,0,403,9958000,2019-12-03,,0,0.0,22.32613,114.18214
+202,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 1,1974-05-24,M,2,,6,1G,0,547,9718000,2019-12-03,2012-04-23,5780000,68.13,22.342551999999998,114.18247
+203,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,2,F,0,269,6529000,2019-12-02,,0,0.0,22.32613,114.18214
+204,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1976-04-06,M,3,2,6,A,0,1070,15400000,2019-11-29,,0,0.0,22.327531999999998,114.18597
+205,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jumbo Court,Jumbo Court,1976-06-09,L,3,2,1,C,1200,906,12000000,2019-11-28,2011-09-08,8450000,42.01,22.342793999999998,114.181682
+206,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sunderland Estate,House 106,1983-04-14,,,,,,0,2822,64500000,2019-11-28,2009-02-13,27680000,133.02,22.334478,114.17991
+207,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,3,C,0,403,9527000,2019-11-28,,0,0.0,22.32613,114.18214
+208,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,L,3,,3,D,1326,990,23000000,2019-11-28,2003-07-11,5800000,296.55,22.3421705,114.175239
+209,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,5,D,0,400,9824000,2019-11-27,,0,0.0,22.32613,114.18214
+210,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-14,L,,,6,E,0,297,7589000,2019-11-27,,0,0.0,22.32613,114.18214
+211,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,6,C,0,403,9815000,2019-11-26,,0,0.0,22.32613,114.18214
+212,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,M,4,,8,D,0,1533,33384800,2019-11-26,,0,0.0,22.33369,114.186134
+213,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Salle Residence,La Salle Residence,2018-06-13,L,,,6,D,0,400,9967000,2019-11-25,,0,0.0,22.32613,114.18214
+214,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,3,,10,B,0,1732,75766560,2019-11-21,,0,0.0,22.33369,114.186134
+215,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,9,B,0,1505,36743000,2019-11-19,,0,0.0,22.333958,114.18655
+216,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,10,B,0,1498,42635800,2019-11-19,,0,0.0,22.333958,114.18655
+217,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,,,10,C,0,898,27343000,2019-11-18,,0,0.0,22.33369,114.186134
+218,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,4,,10,A,0,1719,56608000,2019-11-18,,0,0.0,22.33369,114.186134
+219,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Happy Garden,Block A,1976-02-05,M,3,2,5,1,966,827,10000000,2019-11-15,2009-08-26,5880000,70.07000000000001,22.341333,114.183401
+220,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Carlton Court,Carlton Court,1977-09-01,M,3,2,5,F,1066,935,7500000,2019-11-15,2003-05-15,1300000,476.92,22.3411536,114.1817404
+221,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 3,2016-03-18,H,4,,8,A,0,1514,33530000,2019-11-12,,0,0.0,22.333755,114.18652
+222,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Arcadia Gardens,Arcadia Gardens,1965-04-28,H,,,12,B,0,1693,24800000,2019-10-29,2019-06-24,26000000,-4.62,22.341285,114.178786
+223,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Grampian,The Grampian,2016-06-22,M,4,,5,A,0,2135,59000000,2019-10-28,,0,0.0,22.328829,114.186295
+224,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D2,1968-02-14,,,,3,2,0,1003,25157246,2019-10-28,2014-04-10,20000000,25.79,22.343187,114.1768
+225,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Grampian,The Grampian,2016-06-21,H,4,,7,B,0,2135,68000000,2019-10-27,,0,0.0,22.328829,114.186295
+226,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Grampian,The Grampian,2016-06-21,H,3,,8,A,0,2214,123000000,2019-10-27,,0,0.0,22.328829,114.186295
+227,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Grampian,The Grampian,2016-06-21,H,4,,8,B,0,2214,93500000,2019-10-27,,0,0.0,22.328829,114.186295
+228,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,South Court,South Court,1973-10-11,L,,,1,F,0,1008,16080000,2019-10-20,2010-02-02,7880000,104.06,22.328353999999997,114.18582
+229,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,L,2,,3,D,0,886,19689890,2019-10-17,2017-05-24,17095400,15.18,22.33369,114.186134
+230,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block D,1977-11-23,H,3,,8,4,0,670,11750000,2019-10-16,,0,0.0,22.34206,114.1817
+231,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block A (Rockford Mansion),1978-08-14,M,3,2,4,D,760,688,12380000,2019-10-15,2008-04-16,4700000,163.4,22.3293065,114.1862196
+232,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 1,2016-03-18,H,3,,10,C,0,1340,40206000,2019-10-15,,0,0.0,22.333938999999997,114.186264
+233,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 1,2016-03-18,H,3,,10,D,0,1596,53507400,2019-10-14,,0,0.0,22.333938999999997,114.186264
+234,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-25,H,3,2,,F,900,692,11280000,2019-10-14,,0,0.0,22.341288,114.18247
+235,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 1,2016-03-18,H,3,,9,C,0,1336,36511200,2019-10-10,,0,0.0,22.333938999999997,114.186264
+236,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-25,L,,,3,A,0,1464,48300000,2019-10-07,,0,0.0,22.34094,114.17815
+237,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,3,,9,B,0,1732,52600000,2019-09-30,,0,0.0,22.33369,114.186134
+238,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 1,1971-11-24,H,3,2,8,D,900,700,11500000,2019-09-26,2007-05-15,3950000,191.14000000000001,22.3425066,114.1806516
+239,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 18,2004-02-09,H,,,11,B,0,2268,95000000,2019-09-17,2007-07-24,44000000,115.91,22.3429949,114.17594
+240,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-25,L,,,5,A,0,1464,50000000,2019-09-16,,0,0.0,22.34094,114.17815
+241,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 6,2004-02-09,L,3,,3,C,1427,1054,32900000,2019-09-16,2015-04-08,25300000,30.04,22.3411355,114.1750349
+242,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,H,3,,11,A,1363,1008,27000000,2019-09-11,2004-10-10,12300000,119.51,22.3410134,114.174675
+243,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block A,2000-03-22,H,,,17,7,1545,1212,25000000,2019-09-11,2006-03-16,9380000,166.52,22.343526999999998,114.18278
+244,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-25,L,3,2,2,A2,765,624,8000000,2019-09-10,,0,0.0,22.341475,114.18212
+245,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sau Chuk Yuen,Sau Chuk Yuen,1983-10-11,H,3,,8,B,0,1105,25000000,2019-08-30,2009-12-18,8000000,212.5,22.327835,114.18456
+246,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 19,2004-02-09,M,,,6,A,1954,1451,36000000,2019-08-29,2004-08-30,19000000,89.47,22.342962999999997,114.176187
+247,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,L,3,2,2,A,1133,945,18300000,2019-08-23,2005-06-22,5100000,258.82,22.341852,114.1825
+248,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,L,2,1,3,B4,500,432,8000000,2019-08-23,,0,0.0,22.340533999999998,114.1815444
+249,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lung Cheung Villa,Lung Cheung Villa,1966-06-05,M,3,2,5,B,1680,1343,22680000,2019-08-22,2013-03-04,14550000,55.88,22.34393,114.17599
+250,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1966-10-07,H,,,9,A,0,1846,10000000,2019-08-20,2019-08-19,10000000,0.0,22.3441574,114.1782899
+251,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Grampian Crest,Grampian Crest,1973-08-13,H,3,2,5,B,1200,876,15500000,2019-08-20,,0,0.0,22.330109999999998,114.18625
+252,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block A,1971-10-11,M,3,2,5,A,1100,753,14138000,2019-08-19,,0,0.0,22.342897,114.18119
+253,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 5,1985-06-28,H,3,2,7,E,1021,882,18650000,2019-08-19,2005-04-29,5500000,239.09,22.327441999999998,114.18083
+254,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1966-10-07,H,,,9,A,0,1846,10000000,2019-08-19,2011-03-23,6000000,66.67,22.3441574,114.1782899
+255,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 15,2004-02-09,H,,,11,B,1947,1451,47000000,2019-08-15,2003-09-17,11800000,298.31,22.3426465,114.175337
+256,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kowloon Tong Court,Kowloon Tong Court,1965-06-03,M,,,4,B3,0,978,17500000,2019-08-13,,0,0.0,22.330144999999998,114.179634
+257,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,L,3,2,2,B,746,631,10500000,2019-08-12,,0,0.0,22.341852,114.1825
+258,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Luso Apartments,Block D,1965-03-09,H,,,8,85,0,1318,30000000,2019-08-08,2005-05-19,23000000,30.43,22.34223,114.177417
+259,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sunderland Estate,House 27,1983-04-14,,,,,,0,2375,60000000,2019-08-08,,0,0.0,22.334567999999997,114.18066400000001
+260,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lok Yuen,Lok Yuen,1961-08-03,,3,2,4,D,1350,968,15200000,2019-08-07,2005-07-05,5000000,204.0,22.328267999999998,114.18426
+261,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 3,1980-12-24,L,3,2,3,C,1308,1211,23880000,2019-08-06,2006-06-14,7180000,232.59,22.327749,114.182842
+262,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block A (Rockford Mansion),1978-08-14,L,3,2,2,C,900,702,10900000,2019-07-31,1997-02-19,4438000,145.61,22.3293065,114.1862196
+263,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,10,A,0,1156,43180000,2019-07-31,,0,0.0,22.333958,114.18655
+264,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,L,3,,3,A,1473,1104,35700000,2019-07-29,2003-05-12,7350000,385.71000000000004,22.3421705,114.175239
+265,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-27,,2,,UG,A,0,615,9680000,2019-07-26,,0,0.0,22.3426965,114.1829536
+266,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-26,M,3,2,4,D,850,685,12680000,2019-07-25,2006-04-23,3530000,259.21,22.3426965,114.1829536
+267,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Inverness Villa,Block B,1977-01-22,L,3,,1,1,740,651,9000000,2019-07-23,,0,0.0,22.331186,114.18599
+268,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,M,3,,22,A,1368,1039,27500000,2019-07-11,2007-06-28,12600000,118.25,22.34216,114.18356
+269,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block A,1971-10-11,L,2,2,1,D,686,534,9750000,2019-07-09,2005-07-14,2300000,323.91,22.342897,114.18119
+270,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Crystal Mansion,Crystal Mansion,1971-01-18,M,3,2,5,A,1600,1516,29500000,2019-07-09,2005-03-02,6700000,340.3,22.3438059,114.1769336
+271,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lung Cheung Court,Block 1,1970-03-04,M,,,3,4A,0,809,10800000,2019-07-08,,0,0.0,22.34319,114.179245
+272,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block C,1977-11-23,L,2,,2,2,0,575,9000000,2019-07-08,,0,0.0,22.341898,114.18159
+273,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sheffield Garden,Sheffield Garden,1974-04-30,M,3,,7,A2,1471,1293,23880000,2019-07-04,2010-08-09,11000000,117.09,22.32759,114.18386
+274,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,M,,,9,5,1405,1101,16000000,2019-07-03,2002-07-09,5500000,190.91,22.343394999999997,114.18308999999999
+275,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastbourne Court,Eastbourne Court,1965-12-30,H,,,10,D,0,926,20180000,2019-07-03,2009-05-11,7180000,181.06,22.343757999999998,114.17684
+276,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Cherry Court,Cherry Court,1992-07-17,H,3,2,7,B,1088,792,18000000,2019-07-02,,0,0.0,22.3278,114.18426
+277,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastbourne Court,Eastbourne Court,1965-12-30,M,,,8,E,0,1088,24500000,2019-06-28,1996-01-04,6080000,302.96,22.343757999999998,114.17684
+278,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 2,1975-08-18,L,3,,3,2C,0,679,8000000,2019-06-28,2011-03-10,6000000,33.33,22.342377,114.182755
+279,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block F,1977-10-18,H,3,,8,2,0,670,11500000,2019-06-28,,0,0.0,22.342271999999998,114.182014
+280,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fung Wah Court,Fung Wah Court,1972-03-02,H,,,7,D,0,1061,14000000,2019-06-25,,0,0.0,22.327858,114.18484
+281,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Joy Garden,Block 1,1975-09-11,H,2,,7,A,0,821,11500000,2019-06-24,2012-04-26,7600000,51.32,22.343453999999998,114.17807
+282,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Arcadia Gardens,Arcadia Gardens,1965-04-28,H,,,12,B,0,1693,26000000,2019-06-24,2007-07-15,12000000,116.67,22.341285,114.178786
+283,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,M,3,,7,E,0,1459,37326360,2019-06-20,,0,0.0,22.33369,114.186134
+284,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,1-3 Ede Road,Block 1,2014-04-17,H,,,15,,0,2527,185800000,2019-06-20,2015-10-22,156034000,19.080000000000002,22.340792,114.17791
+285,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sheffield Garden,Sheffield Garden,1974-05-01,M,3,,7,1,1237,1081,20448800,2019-06-18,,0,0.0,22.32759,114.18386
+286,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,H,2,,9,C,0,898,27540000,2019-06-17,,0,0.0,22.33369,114.186134
+287,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fairyland Garden,Fairyland Garden,1973-07-13,M,3,2,7,D,1233,1076,18250000,2019-06-14,2006-04-18,6300000,189.68,22.340605999999998,114.181868
+288,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 1,2016-03-18,H,3,,9,A,0,1696,63800000,2019-06-11,,0,0.0,22.333938999999997,114.186264
+289,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 05,1981-01-19,H,3,2,,C,1308,1211,23830000,2019-06-05,,0,0.0,22.327778,114.183483
+290,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ava Court,Ava Court,1973-09-27,H,,,9,F,1100,981,14800000,2019-06-05,,0,0.0,22.342523999999997,114.18324799999999
+291,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Mayfair,Block 1,2011-12-27,M,,,7,C,1365,1045,33200000,2019-06-03,2011-11-23,22604000,46.88,22.340035999999998,114.18156
+292,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D6,1987-01-13,,,,G,,1304,1154,24800000,2019-05-30,2003-10-17,3980000,523.12,22.329378,114.18359
+293,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,M,3,,6,C,1435,1068,30980000,2019-05-30,2003-05-29,6110000,407.04,22.3421705,114.175239
+294,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1976-04-06,L,3,2,1,A,0,1070,17500000,2019-05-28,2008-02-27,7250000,141.38,22.327531999999998,114.18597
+295,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,M,3,,8,B,1509,1121,30000000,2019-05-20,2004-10-28,14486000,107.10000000000001,22.3410134,114.174675
+296,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Violet Court,Violet Court,1964-03-17,H,,,7,3,0,1044,22800000,2019-05-16,,0,0.0,22.340669,114.177588
+297,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-27,H,3,2,8,E,1250,846,14000000,2019-05-14,2003-02-12,3300000,324.24,22.3426965,114.1829536
+298,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 5,1981-01-18,M,3,2,6,D,1308,1212,18000000,2019-05-06,2006-02-08,6700000,168.66,22.327778,114.183483
+299,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D4,1987-01-13,,,,G,A,1152,1024,19800000,2019-05-06,,0,0.0,22.329629999999998,114.18339
+300,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C4,1967-06-16,,,,4,C4,0,753,20775270,2019-05-05,2018-11-12,20775270,0.0,,
+301,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,M,3,,6,D,1326,990,27000000,2019-05-02,2003-06-11,6080000,344.08,22.341952,114.175237
+302,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Grand Court,Grand Court,1965-04-07,L,,,,A,1331,1256,18680000,2019-05-02,,0,0.0,22.331093,114.18638
+303,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,L,3,,5,D,1326,990,33800000,2019-05-02,2005-03-29,10500000,221.9,22.341952,114.175237
+304,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastland Heights,Eastland Heights,1976-11-11,M,3,2,3,F,900,830,10000000,2019-05-02,2010-10-07,6950000,43.88,22.343256,114.18194
+305,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,28 La Salle Road,House B,2004-05-03,,,,,,0,4991,150000000,2019-05-01,,0,0.0,22.331243999999998,114.18218
+306,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Fessenden Court,Fessenden Court,1976-03-31,H,3,2,7,D,746,629,9300000,2019-04-30,2017-02-03,8550000,8.77,22.341852,114.1825
+307,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ava Court,Ava Court,1973-09-27,M,3,,4,F,1100,976,15560000,2019-04-26,2005-11-19,4400000,253.64000000000001,22.342523999999997,114.18324799999999
+308,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jumbo Court,Jumbo Court,1976-06-10,L,3,2,3,B,1127,1013,17880000,2019-04-26,,0,0.0,22.342793999999998,114.181682
+309,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 9,1980-12-24,M,4,2,6,A,1742,1609,28650000,2019-04-24,2004-10-29,8680000,230.07,22.327444,114.183147
+310,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-30,L,1,2,1,1,530,445,7180000,2019-04-23,2014-12-14,5180000,38.61,22.341606,114.181915
+311,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 2,1971-11-24,H,3,2,7,E,900,686,12100000,2019-04-23,,0,0.0,22.342558,114.18066999999999
+312,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-26,L,3,,,B1,781,638,12380000,2019-04-23,,0,0.0,22.341475,114.18212
+313,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kwong Fai Court,Kwong Fai Court,1976-02-19,H,3,,9,A,775,675,10580000,2019-04-23,2012-10-03,6900000,53.33,22.341852,114.182816
+314,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,H,,,37,A,2300,1764,51150000,2019-04-18,2003-12-03,14280000,258.19,22.34216,114.18356
+315,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 3,2011-04-28,M,3,,6,C,1286,989,24800000,2019-04-17,2010-03-22,19804000,25.23,22.3424935,114.183826
+316,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 3,2016-03-18,H,2,,8,C,0,883,27990000,2019-04-16,,0,0.0,22.333755,114.18652
+317,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kwong Fai Court,Kwong Fai Court,1976-02-19,L,3,,1,D,835,745,11680000,2019-04-12,2014-09-25,8560000,36.45,22.341852,114.182816
+318,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,No. 12 Sau Chuk Yuen Road,No. 12 Sau Chuk Yuen Road,1962-08-15,,,,1,C,0,1562,21500000,2019-04-10,,0,0.0,22.328287,114.1849
+319,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Wai Yick Building,Wai Yick Building,1977-08-17,L,3,2,3,B,900,753,12800000,2019-04-08,2007-08-06,5380000,137.92000000000002,22.327579999999998,114.184281
+320,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Belmont Heights,Belmont Heights,1977-02-07,H,2,2,8,C,621,547,5089500,2019-04-08,2010-02-09,4130000,23.23,22.341223,114.18206
+321,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lilac Court,Lilac Court,1978-04-05,L,3,2,1,D,929,851,13800000,2019-04-03,1997-06-05,5500000,150.91,22.32754,114.18527
+322,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-24,L,3,2,3,F,900,692,11800000,2019-04-02,2014-06-16,8180000,44.25,22.341288,114.18247
+323,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Mayfair,Block 5,2011-12-27,,4,,G,A,1882,1479,55000000,2019-04-01,2014-05-14,46200000,19.05,22.339869999999998,114.181967
+324,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 1,1971-11-24,L,3,2,3,C,900,686,11380000,2019-03-29,,0,0.0,22.3425066,114.1806516
+325,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sau Chuk Yuen,Sau Chuk Yuen,1983-10-10,L,3,,1,A,0,1069,18000000,2019-03-28,2013-10-23,12400000,45.160000000000004,22.327835,114.18456
+326,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kwong Fai Court,Kwong Fai Court,1976-02-19,H,2,,7,C,500,386,7780000,2019-03-28,2013-04-08,5200000,49.620000000000005,22.341852,114.182816
+327,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 2,1969-10-22,,3,2,11,D2,1050,758,12600000,2019-03-27,2009-05-08,5250000,140.0,22.343735,114.17746
+328,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-25,M,3,2,6,C,615,531,9630000,2019-03-26,2012-10-09,6020000,59.97,22.340737999999998,114.18152
+329,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lockoo Gardens,Lockoo Gardens,1988-02-07,L,3,2,1,D,1309,1174,27800000,2019-03-24,2008-01-24,9450000,194.18,22.340550999999998,114.176765
+330,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Gala Garden,Gala Garden,1963-05-21,,,,1,D,0,1119,16280000,2019-03-22,,0,0.0,22.32951,114.18624
+331,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,L,2,,2,1,0,556,8800000,2019-03-22,,0,0.0,22.341953,114.18215000000001
+332,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,M,3,,9,A,1473,1104,37500000,2019-03-22,2003-04-29,7730000,385.12,22.3421705,114.175239
+333,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 1,1969-10-21,L,3,2,1,A2,1050,803,13800000,2019-03-20,2007-06-04,4600000,200.0,22.343899,114.177246
+334,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,8,B,0,1462,41180000,2019-03-19,,0,0.0,22.333958,114.18655
+335,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,,3,,G,B,0,1677,45760000,2019-03-18,,0,0.0,22.33369,114.186134
+336,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block G,1977-10-18,L,2,,1,1,0,428,6600000,2019-03-18,2014-06-16,5000000,32.0,22.342095999999998,114.18223
+337,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D1,1987-01-13,,3,,2,B,1202,1011,16000000,2019-03-14,2004-06-10,4200000,280.95,22.329985,114.183105
+338,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,H,3,,7,2,0,802,12729000,2019-03-11,1997-11-20,6715000,89.56,22.342283,114.18151
+339,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Avon Court,Avon Court,1974-01-18,L,3,2,2,D,1023,926,14300000,2019-03-06,2009-03-17,5700000,150.88,22.342081,114.182945
+340,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,L,1,,1,2,0,379,5500000,2019-03-01,2016-01-06,4700000,17.02,22.341953,114.18215000000001
+341,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Tang Court,Block D1,1987-01-13,,3,,3,B,1202,1011,18200000,2019-03-01,2000-01-15,5800000,213.79,22.329985,114.183105
+342,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Albion Gardens,Albion Gardens,1981-10-09,L,3,2,1,H,1811,1623,38988888,2019-02-28,2001-09-26,11230000,247.19,22.32975,114.18181
+343,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-25,L,,,2,A,0,1464,55000000,2019-02-26,,0,0.0,22.34094,114.17815
+344,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 16,2004-02-09,M,,,8,A,1954,1456,46000000,2019-02-26,2003-06-10,1500000,2966.67,22.342844,114.1754711
+345,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Supreme House,House A,2000-10-31,,,,,,0,5005,157680000,2019-02-21,,0,0.0,22.330439,114.18154
+346,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Grand Court,Grand Court,1965-04-07,L,,,2,C,0,1004,16000000,2019-02-20,2013-03-01,12280000,30.29,22.331093,114.18638
+347,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Moonbeam Terrace,Block B,1968-02-19,M,,,4,1,0,1211,8500000,2019-02-19,,0,0.0,22.342624999999998,114.17833
+348,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverley Heights,Beverley Heights,1970-03-11,H,4,2,12,B3,1300,939,14500000,2019-02-19,2015-08-11,6500000,123.08,22.344451,114.17722
+349,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Gala Garden,Gala Garden,1963-05-21,,,,3,B,0,1119,15500000,2019-02-13,,0,0.0,22.32951,114.18624
+350,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block A,1971-10-11,H,3,2,8,A,1100,753,13180000,2019-02-10,2000-01-10,3550000,271.27,22.342897,114.18119
+351,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,University Court,University Court,2001-05-08,L,,,2,C,799,550,6000000,2019-01-29,2010-12-01,6650000,-9.77,22.327403999999998,114.18474
+352,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,H,3,,12,D,1326,990,27500000,2019-01-28,2003-06-11,6200000,343.55,22.341952,114.175237
+353,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block A,1977-05-03,,3,,G,A2,0,653,10800000,2019-01-21,2012-08-26,6968000,54.99,22.342798,114.18230000000001
+354,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,L,2,,10,C,900,673,17200000,2019-01-16,2012-03-23,9820000,75.15,22.34216,114.18356
+355,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,L,,,2,5,1405,1101,16000000,2019-01-15,2000-05-02,5848000,173.6,22.343394999999997,114.18308999999999
+356,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,M,3,2,6,B3,800,570,10280000,2019-01-10,2013-05-15,7080000,45.2,22.340533999999998,114.1815444
+357,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kent Court,Block 5,1985-06-28,H,3,2,8,F,1021,882,13460000,2019-01-03,2010-08-18,9200000,46.300000000000004,22.327441999999998,114.18083
+358,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-24,H,3,2,8,B,900,712,12060000,2018-12-30,2012-08-30,7650000,57.65,22.341288,114.18247
+359,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D2,1968-02-14,,,,2,2,0,1003,25157246,2018-12-27,,0,0.0,22.343187,114.1768
+360,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,No.1 Oxford Road,House 15,2009-12-03,,,,,,7283,5468,176500000,2018-12-14,2012-07-25,176500000,0.0,22.330519,114.1799
+361,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,3-3A La Salle Road,3-3A La Salle Road,1965-05-25,,,,G,A,0,899,14280000,2018-12-13,2012-07-09,10850000,31.61,22.3282586,114.1818245
+362,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,,3,,G,E,0,1373,42800000,2018-11-29,,0,0.0,22.33369,114.186134
+363,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Mayfair,Block 1,2011-12-28,L,,,3,B,1902,1473,45000000,2018-11-29,2011-11-25,36785000,22.330000000000002,22.340035999999998,114.18156
+364,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Comfort Court,Comfort Court,1977-03-03,M,3,2,5,B,1560,1149,14000000,2018-11-28,2015-11-12,1650000,748.48,22.341019,114.18241
+365,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 19,2004-02-09,M,,,7,A,1954,1451,50000000,2018-11-22,2004-09-06,18950000,163.85,22.342962999999997,114.176187
+366,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 2,1971-11-23,L,3,2,2,F,900,700,9000000,2018-11-21,2017-02-26,13500000,-33.33,22.342558,114.18066999999999
+367,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Bloomsville,The Bloomsville,2002-05-22,M,3,,21,C,1078,779,21000000,2018-11-21,2002-11-13,6500000,223.08,22.328941,114.18577
+368,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Moonbeam Terrace,Block B,1968-02-20,H,,,6,2,0,1211,19500000,2018-11-19,,0,0.0,22.342624999999998,114.17833
+369,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastbourne Court,Eastbourne Court,1965-12-30,L,,,2,D,0,926,20230000,2018-11-16,2003-07-26,2780000,627.7,22.343757999999998,114.17684
+370,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Grand View Terrace,Grand View Terrace,1989-01-19,,3,,3,C,825,724,11400000,2018-11-16,,0,0.0,22.32866,114.18468
+371,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Nga Yuen Building,Nga Yuen Building,1963-12-30,,,,G,,0,721,15080000,2018-11-15,2010-07-22,5500000,174.18,22.327892,114.18561
+372,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,9,C,0,1516,40681500,2018-11-13,,0,0.0,22.333958,114.18655
+373,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C4,1967-06-16,,,,4,4,0,753,20775270,2018-11-12,2018-02-06,20775270,0.0,,
+374,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,8 Lasalle,8 Lasalle,2014-07-08,L,2,,7,C,0,599,15600000,2018-11-11,2014-11-04,14593400,6.9,22.326636999999998,114.18209
+375,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 1,1974-05-23,H,,,8,1E,0,517,8500000,2018-10-24,2010-03-28,3750000,126.67,22.342551999999998,114.18247
+376,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastbourne Court,Eastbourne Court,1965-12-30,L,,,3,E,0,1088,21000000,2018-10-22,2006-01-26,5800000,262.07,22.343757999999998,114.17684
+377,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Yee Yuen,Yee Yuen,1962-04-28,,,,2,,0,1121,18000000,2018-10-11,2007-12-06,8300000,116.87,22.331978,114.185875
+378,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 15,2004-02-09,H,,,10,B,1947,1451,30000000,2018-09-27,2003-10-29,11700000,156.41,22.3426465,114.175337
+379,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,,3,,G,D,0,1601,46000000,2018-09-24,,0,0.0,22.33369,114.186134
+380,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 2,1975-08-17,H,,,8,2D,0,685,10900000,2018-09-18,2010-09-09,5380000,102.60000000000001,22.342377,114.182755
+381,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 6,2004-02-09,M,3,,6,A,1378,1026,28100000,2018-09-18,2004-11-12,8952500,213.88,22.3411355,114.1750349
+382,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,L,3,,3,2,0,617,10280000,2018-09-13,,0,0.0,22.341953,114.18215000000001
+383,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-24,H,3,2,8,A,900,652,9600000,2018-09-12,2008-05-19,4650000,106.45,22.341288,114.18247
+384,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 6,2004-02-09,H,3,,15,E,1416,1040,35000000,2018-09-11,2003-10-09,7428000,371.19,22.3411355,114.1750349
+385,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-24,H,3,2,8,F,615,1646,10050000,2018-09-10,2013-09-11,6800000,47.79,22.340737999999998,114.18152
+386,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,L,3,,2,3,0,649,11180000,2018-09-10,1997-07-31,4850000,130.52,22.341953,114.18215000000001
+387,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 1,1971-11-24,L,3,2,2,D,900,700,10800000,2018-09-07,,0,0.0,22.3425066,114.1806516
+388,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,,4,,G,A,0,1650,59000000,2018-09-07,,0,0.0,22.33369,114.186134
+389,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 1,2016-03-18,H,3,,9,D,0,1583,58059400,2018-09-04,,0,0.0,22.333938999999997,114.186264
+390,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Grampian,The Grampian,2016-06-22,H,4,,7,A,0,2135,106000000,2018-08-28,,0,0.0,22.328829,114.186295
+391,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Louise Garden,Louise Garden,1998-08-05,,,,2,B,0,4918,150000000,2018-08-27,,0,0.0,22.3320013,114.1861282
+392,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sunderland Estate,Block B,1983-04-14,,4,2,1,1,2009,1912,43150000,2018-08-23,2010-12-10,25800000,67.25,22.334507,114.17956
+393,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,L,3,,4,1,0,800,12800000,2018-08-16,2003-10-17,2038000,528.07,22.342283,114.18151
+394,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block D,1977-11-23,H,3,,8,2,0,648,11000000,2018-08-15,2004-12-24,2600000,323.08,22.34206,114.1817
+395,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Luso Apartments,Block D,1965-03-09,L,,,3,32,0,1318,30000000,2018-08-09,2005-05-17,23000000,30.43,22.34223,114.177417
+396,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 1,2004-02-09,L,3,,2,F,1391,1029,29000000,2018-08-09,2003-03-28,7000000,314.29,22.341095,114.176432
+397,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 2,2011-04-28,M,3,,6,A,1296,991,20180000,2018-08-09,2010-04-21,19800000,1.92,22.3427309,114.18387799999999
+398,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block B,1971-10-11,L,2,2,1,G,558,442,7470000,2018-08-06,,0,0.0,22.342668999999997,114.18130000000001
+399,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Rockford Mansion & Clifford Mansion,Block B (Clifford Mansion),1978-08-14,H,,,5,C,0,742,10500000,2018-08-05,2012-10-15,8420000,24.7,22.3429,114.182699
+400,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D1,1968-02-14,,,,2,1,0,925,23200850,2018-07-31,2006-02-18,2000000,1060.04,22.343190999999997,114.176796
+401,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 1,2004-02-09,L,3,,1,E,1493,1104,29680000,2018-07-31,2004-01-21,8780000,238.04,22.341095,114.176432
+402,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 7,1980-12-24,L,3,2,4,C,1308,1211,22500000,2018-07-30,1997-07-16,10000000,125.0,22.327393999999998,114.18248
+403,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block C,1977-05-04,M,2,,3,C,0,385,6688000,2018-07-26,,0,0.0,22.342747,114.18206
+404,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Inverness Villa,Block B,1977-01-22,M,3,,4,1,760,651,11570000,2018-07-26,,0,0.0,22.331186,114.18599
+405,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 5,2016-03-18,M,4,,7,D,0,1534,44760800,2018-07-24,,0,0.0,22.33369,114.186134
+406,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,M,2,,4,1,0,556,8600000,2018-07-23,2004-10-14,2100000,309.52,22.341953,114.18215000000001
+407,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Comfort Court,Comfort Court,1977-03-03,M,3,2,7,C,1450,1057,15900000,2018-07-23,2005-01-27,5330000,198.31,22.341019,114.18241
+408,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,M,2,,5,H,0,556,9700000,2018-07-19,2001-06-30,2100000,361.90000000000003,22.341953,114.18215000000001
+409,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marple Court,Marple Court,1972-04-04,L,3,2,1,F,1050,781,11300000,2018-07-19,,0,0.0,22.342674,114.180984
+410,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,L,3,,3,D,1326,990,26200000,2018-07-19,2013-05-23,19500000,34.36,22.341952,114.175237
+411,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,House A,2016-03-18,,,,,,0,4380,296300000,2018-07-18,,0,0.0,,
+412,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sheffield Garden,Sheffield Garden,1974-04-30,M,3,,8,1,1237,1081,16880000,2018-07-16,,0,0.0,22.32759,114.18386
+413,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block D,1977-11-23,L,1,,1,3,0,457,6680000,2018-07-16,2014-12-08,5473800,22.04,22.34206,114.1817
+414,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ming Yuen Court,Ming Yuen Court,1980-09-30,,,,G,C,0,1123,21000000,2018-07-15,1997-07-03,7480000,180.75,22.329144,114.185684
+415,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Inverness Villa,Block B,1977-01-22,M,3,,4,4,640,537,9400000,2018-07-12,,0,0.0,22.331186,114.18599
+416,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,L,,,2,2,0,765,15200000,2018-07-12,,0,0.0,22.342283,114.18151
+417,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Lasalle,One Lasalle,2009-03-31,M,,,5,B,3025,2203,70800000,2018-07-10,,0,0.0,22.328096,114.18166
+418,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 1,1969-10-22,H,3,2,12,B2,1050,758,15000000,2018-07-06,,0,0.0,22.343899,114.177246
+419,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Ming Yuen Court,Ming Yuen Court,1980-10-01,L,3,2,2,B,1330,1082,18680000,2018-07-05,2004-11-03,4280000,336.45,22.329144,114.185684
+420,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Le Chateau,Le Chateau,2012-11-23,,,,1,D,1701,1352,24300000,2018-07-05,2012-10-30,29005000,-16.22,22.343206,114.17833
+421,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1966-10-07,L,,,3,C,0,1190,18000000,2018-07-04,2010-08-12,10880000,65.44,22.3441574,114.1782899
+422,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Bloomsville,The Bloomsville,2002-05-21,M,3,,15,B,741,704,14000000,2018-07-03,2002-12-23,4900000,185.71,22.328941,114.18577
+423,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block H,1977-10-18,M,3,,4,3,0,649,10900000,2018-07-03,,0,0.0,22.341953,114.18215000000001
+424,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-25,M,,,6,A,0,1464,66396500,2018-07-02,,0,0.0,22.34094,114.17815
+425,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,H,2,1,9,B4,500,432,8450000,2018-06-29,2014-06-04,6000000,40.83,22.340533999999998,114.1815444
+426,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 2,2011-04-28,M,,,6,D,2029,1542,31800000,2018-06-29,2010-10-26,28000000,13.57,22.3427309,114.18387799999999
+427,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block A,1971-10-12,M,3,2,,B,777,777,15980000,2018-06-29,,0,0.0,22.342897,114.18119
+428,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,1,3A,0,834,20433000,2018-06-28,,0,0.0,22.3431495,114.1772869
+429,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-24,H,3,2,9,B,900,712,12380000,2018-06-21,,0,0.0,22.341288,114.18247
+430,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 1,1969-10-22,L,3,2,4,A3,1050,803,15600000,2018-06-21,2007-11-07,5400000,188.89000000000001,22.343899,114.177246
+431,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,House B,2014-06-25,,,,,,0,3442,200000000,2018-06-20,,0,0.0,22.340785999999998,114.17831
+432,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastbourne Court,Eastbourne Court,1965-12-30,H,,,10,E,0,1088,23080000,2018-06-20,,0,0.0,22.343757999999998,114.17684
+433,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 3,2016-03-18,M,2,,7,C,0,883,24280700,2018-06-20,,0,0.0,22.333755,114.18652
+434,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 8,2004-02-09,L,3,,2,B,1469,1114,31800000,2018-06-15,2004-10-15,10480000,203.44,22.341552,114.175236
+435,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,2,1,0,1239,30975000,2018-06-14,,0,0.0,22.3431495,114.1772869
+436,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Comfort Court,Comfort Court,1977-03-03,M,3,2,5,C,1450,1057,16550000,2018-06-14,2006-11-15,5950000,178.15,22.341019,114.18241
+437,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 1,1969-10-22,M,3,2,6,B1,1050,761,12500000,2018-06-14,,0,0.0,22.343899,114.177246
+438,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,M,3,,7,E,1473,1086,34480000,2018-06-13,2004-11-11,14214000,142.58,22.3410134,114.174675
+439,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 5,1981-01-19,H,4,2,10,A,1742,1609,35000000,2018-06-13,2008-06-12,17900000,95.53,22.327778,114.183483
+440,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Vista Panorama,Block B,1966-07-13,H,,,11,1,0,1631,38000000,2018-06-13,2018-05-31,38000000,0.0,22.344032,114.17859
+441,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sui Wah Building,Sui Wah Building,1956-04-25,,,,1,4,0,756,11500000,2018-06-12,2010-12-16,6000000,91.67,22.3274654,114.184522
+442,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Vista Panorama,Block A,1966-07-13,H,,,11,1,0,1631,30000000,2018-06-11,,0,0.0,22.344019,114.178604
+443,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block C,1977-11-23,M,2,,6,2,0,575,8600000,2018-06-08,,0,0.0,22.341898,114.18159
+444,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverley Heights,Beverley Heights,1970-03-10,L,4,2,1,B3,1300,939,14300000,2018-06-07,,0,0.0,22.344451,114.17722
+445,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A2,1967-08-01,,,,4,2,0,912,25162080,2018-06-06,,0,0.0,22.343194999999998,114.17679
+446,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Gladland Court,Gladland Court,1981-02-22,,3,2,1,A,978,894,14300000,2018-06-06,,0,0.0,22.328625,114.18508
+447,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-26,L,,,2,B,0,1260,51641400,2018-06-06,,0,0.0,22.34094,114.17815
+448,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Inverness Villa,Block B,1977-01-22,M,3,,3,2,760,651,11380000,2018-06-06,,0,0.0,22.331186,114.18599
+449,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Crystal Mansion,Crystal Mansion,1971-01-18,H,3,2,12,C,1200,922,18000000,2018-06-06,,0,0.0,22.3438059,114.1769336
+450,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lok Yuen,Lok Yuen,1961-08-03,,3,2,1,A,1350,1152,21300000,2018-06-05,2007-05-08,7200000,195.83,22.328267999999998,114.18426
+451,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,H,2,,9,3,0,578,10500000,2018-06-01,2007-11-22,3180000,230.19,22.342283,114.18151
+452,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,15 Grampian Road,15 Grampian Road,1966-07-08,L,,,1,B,0,610,10230000,2018-06-01,2015-04-14,8860000,15.46,22.3292037,114.186434
+453,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,3,4B,0,872,21364000,2018-05-31,,0,0.0,22.3431495,114.1772869
+454,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,4,3A,0,834,20433000,2018-05-31,,0,0.0,22.3431495,114.1772869
+455,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Marconi Court,Marconi Court,1975-04-24,M,3,2,5,C,900,670,11100000,2018-05-31,,0,0.0,22.341288,114.18247
+456,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Vista Panorama,Block B,1966-07-13,H,,,11,1,0,1631,38000000,2018-05-31,,0,0.0,22.344032,114.17859
+457,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-25,M,,,7,A,0,1464,63919100,2018-05-30,,0,0.0,22.34094,114.17815
+458,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,8,C,0,1516,37587700,2018-05-29,,0,0.0,22.333958,114.18655
+459,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C3,1967-06-16,,,,1,3,0,675,16930350,2018-05-28,2015-06-14,9000000,88.12,22.343177999999998,114.1768
+460,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A2,1967-08-02,,,,2,A2,0,912,22874784,2018-05-28,,0,0.0,22.343194999999998,114.17679
+461,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D3,1968-02-14,,,,2,D3,0,1101,27615282,2018-05-28,,0,0.0,22.343185,114.176796
+462,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C3,1967-06-17,,,,2,C3,0,675,16930350,2018-05-28,2010-04-19,5000000,238.61,22.343177999999998,114.1768
+463,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C3,1967-06-17,,,,3,C3,0,675,16930350,2018-05-28,,0,0.0,22.343177999999998,114.1768
+464,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block B2,1967-06-17,,,,2,B2,0,759,19037238,2018-05-28,,0,0.0,22.343185,114.17679
+465,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,L,2,,15,C,900,673,15000000,2018-05-28,2012-11-05,11800000,27.12,22.34216,114.18356
+466,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A2,1967-08-02,,,,3,A2,0,912,22874784,2018-05-28,,0,0.0,22.343194999999998,114.17679
+467,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C2,1967-06-17,,,,3,C2,0,645,16177890,2018-05-28,,0,0.0,22.343190999999997,114.17681
+468,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C4,1967-06-17,,,,3,C4,0,753,18886746,2018-05-28,,0,0.0,,
+469,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block B1,1967-06-17,,,,3,B1,0,755,18936910,2018-05-28,,0,0.0,22.343187,114.17681
+470,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block B,1971-10-12,H,3,2,8,F,850,654,10100000,2018-05-28,,0,0.0,22.342668999999997,114.18130000000001
+471,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block B1,1967-06-17,,,,2,B1,0,755,18936910,2018-05-28,,0,0.0,22.343187,114.17681
+472,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 1,2014-06-26,H,,,12,A,0,3029,185725000,2018-05-28,,0,0.0,22.340934999999998,114.17815
+473,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C1,1967-06-17,,,,2,C1,0,662,16604284,2018-05-28,,0,0.0,22.343185,114.1768
+474,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D3,1968-02-14,,,,3,D3,0,1101,27615282,2018-05-28,,0,0.0,22.343185,114.176796
+475,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C1,1967-06-16,,,,1,C1,0,662,16604284,2018-05-27,,0,0.0,22.343185,114.1768
+476,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block B1,1967-06-16,,,,4,B1,0,755,20830450,2018-05-27,,0,0.0,22.343187,114.17681
+477,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A1,1967-08-01,,,,4,A1,0,972,26817480,2018-05-27,,0,0.0,22.343190999999997,114.17677
+478,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D1,1968-02-13,,,,1,D1,0,925,23200850,2018-05-27,,0,0.0,22.343190999999997,114.176796
+479,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Twilight Court,Twilight Court,1975-06-25,L,3,,1,B1,0,638,9480000,2018-05-27,2006-03-20,3132000,202.68,22.341475,114.18212
+480,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D3,1968-02-13,,,,4,D3,0,1101,30376590,2018-05-27,2010-05-19,10600000,186.57,22.343185,114.176796
+481,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C2,1967-06-16,,,,4,C2,0,645,17795550,2018-05-27,,0,0.0,22.343190999999997,114.17681
+482,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A2,1967-08-01,,,,1,A2,0,912,22874784,2018-05-27,2010-07-22,6650000,243.98000000000002,22.343194999999998,114.17679
+483,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block B2,1967-06-16,,,,4,B2,0,759,20940810,2018-05-27,,0,0.0,22.343185,114.17679
+484,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A1,1967-08-01,,,,1,A1,0,972,24379704,2018-05-27,,0,0.0,22.343190999999997,114.17677
+485,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 2,2014-06-26,M,,,8,A,0,1464,65349100,2018-05-25,,0,0.0,22.34094,114.17815
+486,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,1,6B,0,1046,25836200,2018-05-24,,0,0.0,22.3431495,114.1772869
+487,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,2,5,0,1077,26411000,2018-05-24,,0,0.0,22.3431495,114.1772869
+488,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,2,3A,0,834,20433000,2018-05-24,,0,0.0,22.3431495,114.1772869
+489,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,1-3 Ede Road,Block 2,2014-04-17,L,,,6,B,0,1409,50000000,2018-05-24,2016-06-15,55822000,-10.43,22.340923,114.17761
+490,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,L,2,1,4,A,500,432,8030000,2018-05-24,1997-08-08,3120000,157.37,22.340533999999998,114.1815444
+491,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-24,L,2,2,2,H,507,440,7000000,2018-05-23,2012-10-31,4970000,40.85,22.340737999999998,114.18152
+492,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Boland Court,Boland Court,1975-10-24,H,3,2,8,B,615,531,9380000,2018-05-22,,0,0.0,22.340737999999998,114.18152
+493,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Hamburg Villa,Hamburg Villa,1970-06-28,,,,2,6B,0,1046,25627000,2018-05-20,2009-06-07,6800000,276.87,22.3431495,114.1772869
+494,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kwong Fai Court,Kwong Fai Court,1976-02-19,L,3,,2,A,800,702,11500000,2018-05-18,2006-02-17,3610000,218.56,22.341852,114.182816
+495,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,18 Hampshire Road,18 Hampshire Road,2002-03-28,,,,,,0,5180,195500000,2018-05-18,,0,0.0,22.331771999999997,114.18035
+496,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block E,1977-10-18,L,3,,1,3,0,612,9250000,2018-05-17,,0,0.0,22.342173,114.18191
+497,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,L,3,,2,B,1469,1086,31280000,2018-05-17,2003-07-03,6888000,354.12,22.341952,114.175237
+498,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,9,A,0,1149,40933700,2018-05-11,,0,0.0,22.333958,114.18655
+499,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1966-10-07,M,,,7,C,0,1190,22180000,2018-05-10,2009-11-02,10950000,102.56,22.3441574,114.1782899
+500,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Sunderland Estate,House 10,1983-04-14,,,,,,0,2059,58800000,2018-05-10,,0,0.0,22.335005,114.180016
+501,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,H,2,1,10,A4,500,432,8480000,2018-05-09,2015-01-12,6500000,30.46,22.340533999999998,114.1815444
+502,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 2,2011-04-28,L,3,,2,A,1296,991,20880000,2018-05-04,2010-03-26,18403000,13.46,22.3427309,114.18387799999999
+503,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pearl Court,Pearl Court,1966-10-07,M,,,6,D,0,1190,22000000,2018-04-30,,0,0.0,22.3441574,114.1782899
+504,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block B,1977-10-18,L,3,,4,2,0,802,12500000,2018-04-30,2008-01-25,5000000,150.0,22.342283,114.18151
+505,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 3,1980-12-24,L,3,2,4,C,1308,1211,20300000,2018-04-27,1999-08-21,5800000,250.0,22.327749,114.182842
+506,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,College Crest,Block A,1978-11-02,L,,,2,2,0,845,16900000,2018-04-27,,0,0.0,22.328236,114.18385
+507,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverley Heights,Beverley Heights,1970-03-11,L,4,2,4,B2,1350,1090,16000000,2018-04-27,2001-11-06,3300000,384.85,22.344451,114.17722
+508,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Pine Tree Gardens,Pine Tree Gardens,1973-05-03,H,,,11,A,0,1859,39800000,2018-04-26,2010-05-03,19680000,102.24000000000001,22.3405161,114.1787625
+509,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,M,3,,9,D,1326,990,26900000,2018-04-23,2003-07-03,6180000,335.28000000000003,22.3421705,114.175239
+510,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,L,,,2,7,1578,1232,22800000,2018-04-20,2007-03-20,9030000,152.49,22.343394999999997,114.18308999999999
+511,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Alice Court,Block B,1971-10-12,L,2,2,,G,553,442,7470000,2018-04-20,,0,0.0,22.342668999999997,114.18130000000001
+512,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-30,H,1,2,6,3,530,445,7200000,2018-04-16,2013-09-25,5300000,35.85,22.341606,114.181915
+513,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,House A,2014-06-26,,,,,,0,3099,193800000,2018-04-12,,0,0.0,22.340929,114.17818
+514,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Jade Court,Block B,1977-05-04,L,3,,2,B,0,661,3800000,2018-04-12,2011-04-19,5830000,-34.82,22.342896,114.18218
+515,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,H,,,42,A,2300,1792,52800000,2018-04-12,2005-07-09,26500000,99.25,22.34216,114.18356
+516,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,H,,,31,A,2300,1764,44000000,2018-04-12,2013-08-29,38800000,13.4,22.34216,114.18356
+517,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lilac Court,Lilac Court,1978-04-05,L,3,2,4,A,1100,1012,14800000,2018-04-11,2007-10-29,5400000,174.07,22.32754,114.18527
+518,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 8,2004-02-09,M,3,,7,B,1469,1114,33700000,2018-04-11,2003-09-23,7430000,353.57,22.341552,114.175236
+519,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 17,2004-02-09,L,,,2,B,1947,1451,36500000,2018-04-09,2005-02-07,18638001,95.84,22.34298,114.17568299999999
+520,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Happy Garden,Block B,1976-02-05,L,3,2,1,1,954,795,12200000,2018-04-09,,0,0.0,22.341569999999997,114.183264
+521,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,Block 1,2014-06-25,L,,,3,B,0,1260,57097600,2018-04-08,,0,0.0,22.340934999999998,114.17815
+522,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Palace,The Palace,2002-09-27,M,3,,21,A,1368,1039,26300000,2018-04-06,2003-04-16,7345500,258.04,22.34216,114.18356
+523,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,181-181C Boundary Street,181B Boundary Street,1957-09-16,,,,3,,1000,839,8680000,2018-03-29,,0,0.0,22.327413999999997,114.18579
+524,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,L,3,,2,B,1469,1086,30880000,2018-03-29,2004-11-11,11060000,179.20000000000002,22.3421705,114.175239
+525,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Joy Garden,Block 2,1975-09-11,M,2,,4,D,0,821,13300000,2018-03-25,2007-08-30,6000000,121.67,22.343307,114.17784
+526,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 1,1974-05-23,H,,,8,1G,0,547,8550000,2018-03-25,2012-07-03,5805000,47.29,22.342551999999998,114.18247
+527,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastland Heights,Eastland Heights,1976-11-11,H,3,2,6,D,900,830,11100000,2018-03-23,1996-12-18,4480000,147.77,22.343256,114.18194
+528,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 2,2011-04-28,L,3,,3,A,1296,991,20560000,2018-03-20,2010-03-19,19180000,7.19,22.3427309,114.18387799999999
+529,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Peninsula Heights,Block B,2000-03-22,,,,G,5,1405,1101,23680000,2018-03-19,,0,0.0,22.343394999999997,114.18308999999999
+530,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Kalam Court,Kalam Court,1965-01-29,H,,,5,E,0,1032,17900000,2018-03-13,2007-01-24,5500000,225.45000000000002,22.32788,114.1867913
+531,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Cornwall Terrace,Cornwall Terrace,1957-07-19,,,,3,2E,0,1786,28000000,2018-03-07,2007-05-22,13930000,101.01,22.340317,114.1784855
+532,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eden Gate,House C,2014-06-26,,,,,,0,3533,221200000,2018-03-07,,0,0.0,22.340853,114.17808
+533,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Phoenix Court,Block E,1977-10-18,M,3,,5,3,0,612,9840000,2018-03-06,2001-05-26,2150000,357.67,22.342173,114.18191
+534,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 9,2004-02-09,L,3,,2,B,1469,1091,28000000,2018-03-06,2005-01-27,12280000,128.01,22.3417396,114.175235
+535,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 1,2004-02-09,M,3,,5,F,1391,1054,27300000,2018-02-28,2007-11-26,12780000,113.62,22.341095,114.176432
+536,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merlin Court,Merlin Court,1975-03-27,H,3,2,8,B,1250,918,13068000,2018-02-28,2009-09-22,6100000,114.23,22.3426965,114.1829536
+537,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lung Cheung Court,Block 1,1970-03-04,L,,,2,3B,0,803,11680000,2018-02-28,,0,0.0,22.34319,114.179245
+538,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Parc Inverness,Block 2,2016-03-18,H,3,,8,A,0,1286,39444900,2018-02-27,,0,0.0,22.333958,114.18655
+539,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,L,3,,5,E,1473,1086,30600000,2018-02-26,2005-09-27,15596000,96.2,22.3410134,114.174675
+540,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 5,2004-02-08,L,3,,3,B,1509,1121,29800000,2018-02-26,2012-05-24,19680000,51.42,22.3410134,114.174675
+541,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 10,2004-02-09,M,3,,8,A,1473,1104,35000000,2018-02-26,2003-04-03,8338000,319.76,22.341952,114.175237
+542,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Faber Garden,Faber Garden,1977-03-30,M,1,2,3,3,530,445,6850000,2018-02-20,2015-01-29,5850000,17.09,22.341606,114.181915
+543,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Villa,La Villa,1986-12-04,,,,,,4784,3863,83800000,2018-02-13,,0,0.0,22.331495,114.17905999999999
+544,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Eastbourne Court,Eastbourne Court,1965-12-30,H,,,12,D,0,926,23300000,2018-02-13,2006-05-06,7768000,199.95000000000002,22.343757999999998,114.17684
+545,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 6,1980-12-24,H,3,2,12,D,1308,1212,19000000,2018-02-12,2004-03-12,5000000,280.0,22.327401,114.182157
+546,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C2,1967-06-17,,,,2,C2,0,645,16177890,2018-02-07,,0,0.0,22.343190999999997,114.17681
+547,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C1,1967-06-17,,,,3,C1,0,662,16604284,2018-02-07,,0,0.0,22.343185,114.1768
+548,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A1,1967-08-02,,,,3,A1,0,972,24379704,2018-02-07,,0,0.0,22.343190999999997,114.17677
+549,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block B2,1967-06-17,,,,3,B2,0,759,19037238,2018-02-07,,0,0.0,22.343185,114.17679
+550,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C4,1967-06-17,,,,2,C4,0,753,18886746,2018-02-07,2005-10-28,4380000,331.2,,
+551,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block A1,1967-08-02,,,,2,A1,0,972,24379704,2018-02-07,,0,0.0,22.343190999999997,114.17677
+552,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C4,1967-06-16,,,,4,C4,0,753,20775270,2018-02-06,2013-09-24,9500000,118.69,,
+553,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block D3,1968-02-13,,,,1,D3,0,1101,27615282,2018-02-06,2013-04-11,8980000,207.52,22.343185,114.176796
+554,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Dragon Court,Block C4,1967-06-16,,,,1,C4,0,753,18886746,2018-02-06,,0,0.0,,
+555,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,8 Lasalle,8 Lasalle,2014-07-08,M,3,,10,A,0,926,21500000,2018-02-04,2014-11-13,21512600,-0.06,22.326636999999998,114.18209
+556,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,La Villa,La Villa,1986-12-03,,,,,B,4805,3899,82880000,2018-02-01,,0,0.0,22.331495,114.17905999999999
+557,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Wah Hing Building,Wah Hing Building,1966-10-26,M,3,2,5,A,1500,828,10800000,2018-02-01,,0,0.0,22.327557,114.18567
+558,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 1,1974-05-24,L,2,,2,1H,0,547,8930000,2018-02-01,2012-05-29,5560000,60.61,22.342551999999998,114.18247
+559,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Welcome Gardens,Block 2,1971-11-24,M,3,2,5,G,900,698,10180000,2018-01-30,2011-11-24,6000000,69.67,22.342558,114.18066999999999
+560,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Chermain Heights,Block 2,1969-10-22,L,3,2,3,D1,1050,761,13800000,2018-01-26,2007-03-05,5080000,171.65,22.343735,114.17746
+561,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,The Bloomsville,The Bloomsville,2002-05-21,M,3,,17,B,741,704,16200000,2018-01-24,2002-02-10,5442600,197.65,22.328941,114.18577
+562,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Lockoo Gardens,Lockoo Gardens,1988-02-07,H,3,2,7,A,1312,1171,23200000,2018-01-22,2010-12-15,14000000,65.71000000000001,22.340550999999998,114.176765
+563,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,One Beacon Hill,Block 11,2004-02-09,M,3,,8,B,1469,1086,28000000,2018-01-22,2014-08-15,22280000,25.67,22.3421705,114.175239
+564,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 4,1980-12-23,L,3,2,4,D,1308,1212,19000000,2018-01-21,2013-12-23,16800000,13.1,22.327783999999998,114.18315799999999
+565,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Merry Court,Phase 2,1975-08-18,L,2,,3,2A,0,685,11200000,2018-01-19,2011-03-28,6540000,71.25,22.342377,114.182755
+566,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Meridian Hill,Block 2,2011-04-28,L,3,,2,C,1293,990,20000000,2018-01-16,2010-03-19,20688000,-3.33,22.3427309,114.18387799999999
+567,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Beverly Villas,Block 4,1980-12-23,M,3,2,8,C,1308,1211,19700000,2018-01-11,2007-06-10,7928000,148.49,22.327783999999998,114.18315799999999
+568,Kowloon,Kowloon City,Kowloon Tong / Beacon Hill,Broadway Towers,Broadway Towers,1973-05-03,H,3,2,9,B3,800,570,9600000,2018-01-08,,0,0.0,22.340533999999998,114.1815444
