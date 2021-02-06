@@ -236,7 +236,12 @@ The use of machine learning
 
 Macroeconomic data
 ^^^^^^^^^^^^^^^^^^^^^^
+| The stock prices are often moved by some macroeconomic indicators, and hence it is 
+  good to keep track of macroeconomic indicators. 
 
+| Macroeconomic analysis is the study of relation between stock prices and macroeconomic
+  indicators. 
+  
 *(To-be edited)*
 
 Sentiment analysis
