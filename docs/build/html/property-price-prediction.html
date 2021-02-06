@@ -114,6 +114,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#the-hong-kong-real-estate-market">The Hong Kong real estate market</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-pre-processing">Data pre-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#economic-indicator-analysis">Economic indicator analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#transaction-record-analysis">Transaction record analysis</a></li>
 </ul>
@@ -206,12 +207,13 @@
 <ul class="simple">
 <li><p>The basics in macroeconomic analysis</p></li>
 <li><p>The ways of analyzing macroeconomic indicators</p></li>
+<li><p>The ways of analyzing real estate market data</p></li>
 <li><p>How to build a property price prediction model</p></li>
 </ul>
 <div class="section" id="intro-to-macroeconomic-analysis">
 <h2>Intro to macroeconomic analysis<a class="headerlink" href="#intro-to-macroeconomic-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
-<div class="line">As we have discussed in the first tutorial, macroeconomic analysis is a ways of
+<div class="line">As we have discussed in the first tutorial, macroeconomic analysis is a way of
 investigating the macroeconomic indicators that influence the stock market.</div>
 </div>
 <div class="line-block">
@@ -327,21 +329,158 @@ the real estate market data is a source of volatility in the Hong Kong stock mar
 </div>
 <div class="line-block">
 <div class="line">While Hong Kong’s real estate market is a constant topic of discussion, it will be worth
-analyzing the Hong Kong real estate market data itself. Using the same data analysis
-technique used for the above analysis, we will now analyze the house price of Hong Kong.</div>
+analyzing the Hong Kong real estate market data. Using the same data analysis
+technique used for the above analysis, we will now analyze Hong Kong residential
+market transaction records.</div>
+</div>
+<div class="section" id="data-pre-processing">
+<h3>Data pre-processing<a class="headerlink" href="#data-pre-processing" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Before analyzing the transaction records:</div>
+</div>
+<p>1. Derive some useful features from existing features.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add new features</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RegDate&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RegDate&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+<p>2. Drop unmeaningful features and features with too many missing values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop unnecessary columns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">feature_name</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>3. Handle missing values by replacing NAN with a mean value of a feature</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Handling missinig values</span>
+<span class="c1"># Fill with mean</span>
+<span class="n">feature_name_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">feature_name_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Label encode categorical features</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">processed_df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="n">processed_df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">processed_df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="economic-indicator-analysis">
 <h3>Economic indicator analysis<a class="headerlink" href="#economic-indicator-analysis" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line">In this analysis, we will explore how the macroeconomic indicators affect the monthly average
-house price per saleable area in Hong Kong.</div>
+<div class="line">In economic indicator analysis, we will explore how the macroeconomic indicators affect the
+monthly average house price per saleable area in Hong Kong.</div>
+</div>
+<div class="line-block">
+<div class="line">The transaction records from Centaline Property will be used for this analysis.</div>
+</div>
+<div class="figure align-center" id="id4">
+<img alt="&quot;Transaction records - Centaline Property&quot;" src="_images/transaction_record_centaline.png" style="width: 700px;" />
+<p class="caption"><span class="caption-text">The data structure of transaction record (Centaline Property).</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line">Before analyzing the data, calculate the monthly average house price per saleable area.
+Then, join the data with economic indicators by year and month.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the monthly average house price</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">],</span><span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;UnitPricePerSaleableArea&#39;</span><span class="p">:</span> <span class="s1">&#39;AveragePricePerSaleableArea&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Using the bivariate analysis method we learned, a pairwise correlation of features
+is computed and visualized. The result shows that population, GDP, composite consumer price index,
+population, year, imports, month, and total exports are positively correlated to the
+monthly average house price per saleable area in Hong Kong, while both unemployment
+rates are not correlated to the monthly average house price per saleable area in Hong Kong.</div>
+</div>
+<div class="figure align-center" id="id5">
+<img alt="&quot;Heatmap - economic indicator analysis&quot;" src="_images/corr_economic_indicator_analysis.png" style="width: 620px;" />
+<p class="caption"><span class="caption-text">Heatmap - economic indicators analysis.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="transaction-record-analysis">
 <h3>Transaction record analysis<a class="headerlink" href="#transaction-record-analysis" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line">In this analysis, we will examine the relationship between features describing the house
-and the individual housing prices of Hong Kong.</div>
+<div class="line">In transaction record analysis, we will examine the relationship between features describing
+the house and the individual housing prices of Hong Kong.</div>
+</div>
+<div class="line-block">
+<div class="line">The transaction records from Midland Realty will be used for this analysis.</div>
+</div>
+<div class="figure align-center" id="id6">
+<img alt="&quot;Transaction records - Midland Realty - Part 1&quot;" src="_images/transaction_record_midland1.png" style="width: 650px;" />
+<p class="caption"><span class="caption-text">The data structure of transaction record (Midland Realty) - Part 1.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id7">
+<img alt="&quot;Transaction records - Midland Realty - Part 2&quot;" src="_images/transaction_record_midland2.png" style="width: 650px;" />
+<p class="caption"><span class="caption-text">The data structure of transaction record (Midland Realty) - Part 2.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line">In univariate analysis, the distribution of Hong Kong’s house price is examined.
+The housing price of Hong Kong has a mean of 9 million HKD and a standard deviation
+of 13 million HKD. The skewness and kurtosis were 26.9 and 1526.4 respectively,
+showing that the housing price of Hong Kong is skewed positively to a very high
+degree.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Distribution</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># Skewness and kurtosis</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skewness: &quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kurtosis: &quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">kurt</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#output:</span>
+
+<span class="n">count</span>    <span class="mf">1.664090e+05</span>
+<span class="n">mean</span>     <span class="mf">9.133268e+06</span>
+<span class="n">std</span>      <span class="mf">1.310856e+07</span>
+<span class="nb">min</span>      <span class="mf">5.500000e+05</span>
+<span class="mi">25</span><span class="o">%</span>      <span class="mf">5.200000e+06</span>
+<span class="mi">50</span><span class="o">%</span>      <span class="mf">6.830000e+06</span>
+<span class="mi">75</span><span class="o">%</span>      <span class="mf">9.500000e+06</span>
+<span class="nb">max</span>      <span class="mf">1.399000e+09</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">price</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">Skewness</span><span class="p">:</span>  <span class="mf">26.927207752922435</span>
+<span class="n">Kurtosis</span><span class="p">:</span>  <span class="mf">1526.4066673335874</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">In order to get a better result for the bivariate analysis, outliers are
+removed by using standard deviation.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate mean and standard deviation</span>
+<span class="n">data_mean</span><span class="p">,</span> <span class="n">data_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">])</span>
+
+<span class="c1"># Calculate upper boundary</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="n">data_mean</span> <span class="o">+</span> <span class="n">data_std</span> <span class="o">*</span> <span class="mi">3</span>
+
+<span class="c1"># Remove outliers</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">upper</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">In bivariate analysis, the correlation coefficient between the features describing
+the house and the house price is computed. 7 features with the highest correlation
+is selected and shown below.</div>
+</div>
+<div class="figure align-center" id="id8">
+<img alt="&quot;Heatmap - transaction data analysis&quot;" src="_images/corr_transaction_data.png" style="width: 500px;" />
+<p class="caption"><span class="caption-text">Heatmap - transaction data analysis.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line">According to the above figure, the housing price in Hong Kong has (1) a strong positive
+correlation with saleable area; (2) a moderate positive correlation with last
+transaction price; (3) a moderate positive correlation with gross area; (4) a moderate
+positive correlation with number of bedrooms; (5) a weak positive correlation with
+floor; (6) a weak negative correlation with region; and (7) a weak negative correlation
+with building age.</div>
+</div>
+<div class="line-block">
+<div class="line">The full implementation of the economic indicator analysis and transaction data analysis
+could be found in <code class="code docutils literal notranslate"><span class="pre">code/macroeconomic-analysis/</span></code> in the repository.</div>
 </div>
 </div>
 </div>
@@ -357,8 +496,8 @@ and the individual housing prices of Hong Kong.</div>
 of 8:2. The input variables are the top 7 features selected from the analysis, and
 the output feature is the house price.</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feat_col</span> <span class="o">=</span> <span class="p">[</span> <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="p">]</span>
-<span class="n">x_df</span><span class="p">,</span> <span class="n">y_df</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="n">feat_col</span><span class="p">],</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feat_col</span> <span class="o">=</span> <span class="p">[</span> <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="p">]</span>
+<span class="n">x_df</span><span class="p">,</span> <span class="n">y_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feat_col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
 
 <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x_df</span><span class="p">,</span> <span class="n">y_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">RAND_SEED</span><span class="p">)</span>
 </pre></div>
@@ -436,9 +575,9 @@ The below figure shows the graph of actual and predicted property price for XGBo
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id9">
 <img alt="&quot;The prediction graph for XGBoost.&quot;" src="_images/prediction_graph_xgb.png" style="width: 300px;" />
-<p class="caption"><span class="caption-text">The graph of actual and predicted house price for XGBoost.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">The graph of actual and predicted house price for XGBoost.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
