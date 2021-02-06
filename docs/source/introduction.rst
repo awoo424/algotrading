@@ -9,6 +9,7 @@ In this tutorial, you will learn:
 * Definition of technical analysis
 * Definition of fundamental analysis
 * Difference between technical analysis and fundamental analysis
+* How machine learning could assist algo trading
 
 What is algo trading?
 ---------------------
