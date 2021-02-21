@@ -31,6 +31,14 @@ Welcome to the algo trading learning repo
    fundamental-analysis
    evaluation-metrics
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Bonus: Julia for algo trading
+
+   introduction-to-julia
+   julia-data-science-basics
+   julia-technical-analysis
+
 
 
 .. toctree::

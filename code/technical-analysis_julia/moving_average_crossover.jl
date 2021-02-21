@@ -107,7 +107,7 @@ ax1 = fig.add_subplot(111, ylabel="Price in \$") # Add a subplot and label for y
 
 plt.plot(signals.Date, signals.short_mavg, color="blue", linewidth=1.0, label="Short MA")
 plt.plot(signals.Date, signals.long_mavg, color="orange", linewidth=1.0, label="Long MA")
-plt.plot(signals.Date, signals.Close, color="red", linewidth=0.8, label="Closing price")
+#plt.plot(signals.Date, signals.Close, color="red", linewidth=0.8, label="Closing price")
 plt.plot(buy_signals.Date, buy_signals.Price, marker=10, markersize=7, color="m", linestyle="None", label="Buy signal")
 plt.plot(sell_signals.Date, sell_signals.Price, marker=11, markersize=7, color="k", linestyle="None", label="Sell signal")
 
