@@ -26,7 +26,8 @@ def sentiment_filter(ticker, signals):
 
     # check if sentiment label contrasting with buy/sell signals
     signals = signals.reset_index(level="Date")
-    merged_df = signals.merge(sentiment_scores, how='inner', left_on='Date', right_on='dates')
+    merged_df = signals.merge(sentiment_scores, how='left', left_on='Date', right_on='dates')
+    #print(merged_df.head())
 
     # create new column for filtered signals
     merged_df['filtered_signal'] = merged_df['signal']
@@ -44,8 +45,15 @@ def sentiment_filter(ticker, signals):
     # generate positions with filtered signals
     merged_df['filtered_positions'] = merged_df['filtered_signal'].diff()
 
-    filtered_signals = merged_df.drop(['compound_vader_score', 'hsi_average'], axis=1)
-
+    merged_df = merged_df.drop(['dates', 'compound_vader_score', 'hsi_average', 'signal', 'positions'], axis=1)
+    #print(merged_df)
+    
+    filtered_signals = pd.merge(signals, merged_df, how="left", on="Date")
+    filtered_signals = filtered_signals.drop(columns=['positions', 'signal'])
+    filtered_signals = filtered_signals.set_index('Date')
+    #print(filtered_signals)
+    filtered_signals = filtered_signals.rename({'filtered_positions': 'positions', 'vader_label': 'vader_label', 'filtered_signal': 'signal'}, axis=1)
+    
     return filtered_signals
 
 
