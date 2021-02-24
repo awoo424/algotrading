@@ -9,7 +9,6 @@ sys.path.append("../technical-analysis_python/")
 mpl.use('tkagg')  # issues with Big Sur
 
 # technical analysis
-import matplotlib.pyplot as plt
 from strategy.macd_crossover import macdCrossover
 from backtest import Backtest
 from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
@@ -17,45 +16,63 @@ from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 # macroeconomic analysis
 # sentiment analysis
 
-# load data
-df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
+"""
+Technical analysis
+-
+Generate signals with MACD crossover strategy
+"""
 
-# select time range
-df = df.loc[pd.Timestamp('2017-01-01'):pd.Timestamp('2019-01-01')]
+# load price data
+df_whole = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
+
+# select time range (for trading)
+start_date = pd.Timestamp('2017-01-01')
+end_date = pd.Timestamp('2019-01-01')
+df = df_whole.loc[start_date:end_date]
+
+# get filtered df for macro analysis
+filtered_df = df_whole.loc[:start_date]
 
 ticker = "0005.HK"
 
-# choose one indicator
+# apply MACD crossover strategy
+macd_cross = macdCrossover(df)
+macd_fig = macd_cross.plot_MACD()
+#plt.close() # hide figure
 
-# optimisation of parameter for the TA indicator (e.g. time window)
+signals = macd_cross.gen_signals()
+signal_fig = macd_cross.plot_signals(signals)
+#plt.close()
 
-# macroeconomic indicator to determine trade volume
+"""
+Macroecnomic analysis
+-
+Adjust trading quantity with macroeconomic data
+"""
 
-# sentiment analysis to adjust/filter buying signals
+# s_gdp, s_unemploy, s_property = get_sensitivity(filtered_df)
+
+# traverse signals dataframe
+## gdp, unemploy, property = get_macrodata(date)
+## adj_factor = s_gdp * gdp + s_unemploy * unemploy s_property * property
+
+# signals['signal'] = signals['signal] * adj_factor
+
+
+"""
+Sentiment analysis
+- 
+Filter out signals that show large contrast to the sentiment indicator
+"""
+
 
 
 
 ####### BELOW - code for reference #######
 
-# MACD
-macd_cross = macdCrossover(df)
-macd_fig = macd_cross.plot_MACD()
-macd_fig.suptitle('HK.0005 - MACD', fontsize=14)
-macd_fig.savefig('./figures/macd-plot')
-plt.show()
-
-signals = macd_cross.gen_signals()
-signal_fig = macd_cross.plot_signals(signals)
-signal_fig.suptitle('MACD crossovers - Signals', fontsize=14)
-signal_fig.savefig('./figures/macd-crossover_signals')
-plt.show()
-
-signal_fig = macd_cross.plot_signals_MACD()
-signal_fig.suptitle('MACD crossovers - Signals', fontsize=14)
-plt.show()
-
 # Backtesting
 
+"""
 portfolio, backtest_fig = Backtest(ticker, signals, df)
 print("Final total value: {value:.4f} ".format(value = portfolio['total'][-1]))
 print("Total return: {value:.4f}%".format(value = (portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]*100))
@@ -87,3 +104,4 @@ plt.show()
 # 4. Compound Annual Growth Rate
 cagr = CAGR(portfolio)
 print("CAGR: {cagr:.4f} ".format(cagr = cagr))
+"""
