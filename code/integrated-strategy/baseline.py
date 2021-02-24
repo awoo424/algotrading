@@ -14,7 +14,10 @@ from backtest import Backtest
 from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 
 # macroeconomic analysis
+# to-type
+
 # sentiment analysis
+from sentiment_analysis import sentiment_filter
 
 """
 Technical analysis
@@ -64,8 +67,7 @@ Sentiment analysis
 - 
 Filter out signals that show large contrast to the sentiment indicator
 """
-
-
+filtered_signals = sentiment_filter(ticker, signals)
 
 
 ####### BELOW - code for reference #######
