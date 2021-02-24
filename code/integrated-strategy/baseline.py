@@ -29,8 +29,8 @@ Generate signals with MACD crossover strategy
 df_whole = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range (for trading)
-start_date = pd.Timestamp('2017-01-01')
-end_date = pd.Timestamp('2019-01-01')
+start_date = pd.Timestamp('2021-01-01')
+end_date = pd.Timestamp('2021-02-05')
 df = df_whole.loc[start_date:end_date]
 
 # get filtered df for macro analysis
@@ -73,6 +73,8 @@ filtered_signals = sentiment_filter(ticker, signals)
 ####### BELOW - code for reference #######
 
 # Backtesting
+portfolio, backtest_fig = Backtest(ticker, signals, df)
+print("Final total value: {value:.4f} ".format(value=portfolio['total'][-1]))
 
 """
 portfolio, backtest_fig = Backtest(ticker, signals, df)

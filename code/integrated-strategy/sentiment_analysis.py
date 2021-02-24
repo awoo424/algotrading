@@ -18,13 +18,33 @@ analyser = SentimentIntensityAnalyzer()
 
 # input: @signals, signals dataframe
 # output: @filtered_signals, filtered signals dataframe
+
+
 def sentiment_filter(ticker, signals):
     sentiment_scores = starter_vader(ticker)
+    sentiment_scores['dates'] = pd.to_datetime(sentiment_scores['dates'])
 
     # check if sentiment label contrasting with buy/sell signals
-    # to-type
+    signals = signals.reset_index(level="Date")
+    merged_df = signals.merge(sentiment_scores, how='inner', left_on='Date', right_on='dates')
 
-    filtered_signals = signals # to-delete
+    # create new column for filtered signals
+    merged_df['filtered_signal'] = merged_df['signal']
+
+    buy_signal = (merged_df['signal'] == 1.0)
+    sell_signal = (merged_df['signal'] == -1.0)
+    pos_label = (merged_df['vader_label'] == 0)
+    neg_label = (merged_df['vader_label'] == 2)
+
+    # when there is a buy signal but a -ve label
+    merged_df[(buy_signal) & (neg_label)]['filtered_signal'] = 0.0
+    # when there is a sell signal but a +ve label
+    merged_df[(sell_signal) & (pos_label)]['filtered_signal'] = 0.0
+
+    # generate positions with filtered signals
+    merged_df['filtered_positions'] = merged_df['filtered_signal'].diff()
+
+    filtered_signals = merged_df.drop(['compound_vader_score', 'hsi_average'], axis=1)
 
     return filtered_signals
 
@@ -52,10 +72,12 @@ def starter_vader(ticker_full):
     # store to csv file if the dataset is not empty
     if (df.empty == False):
         df.to_csv(result_path, index=False)
-    
+
     return df
 
 # append the compound vader score to the corresponding news
+
+
 def read_news_path(df):
     #print('Reading in datasets...')
     cs = []
