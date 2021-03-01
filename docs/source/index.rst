@@ -40,7 +40,6 @@ Welcome to the algo trading learning repo
    julia-technical-analysis
 
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Part 3: Machine Learning
@@ -48,6 +47,12 @@ Welcome to the algo trading learning repo
    bankruptcy-prediction
    property-price-prediction
    sentiment-analysis
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Bonus: Trade execution
+
+   introduction-to-paper-trading
 
 
 Resources
