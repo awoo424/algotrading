@@ -8,9 +8,9 @@ def Backtest(ticker, signals, df, initial_capital=float(100000.0)):
     positions = pd.DataFrame(index=signals.index).fillna(0.0)
 
     # Buy a 100 shares
-    positions[ticker] = 100*signals['signal']   
+    positions[ticker] = 100 * signals['signal']   
     
-    # Initialize the portfolio with value owned   
+    # Initialise the portfolio with value owned   
     portfolio = positions.multiply(df['Close'], axis=0)
 
     # Store the difference in shares owned 
