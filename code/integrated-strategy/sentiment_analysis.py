@@ -20,7 +20,7 @@ analyser = SentimentIntensityAnalyzer()
 # output: @filtered_signals, filtered signals dataframe
 
 
-def sentiment_filter(ticker, signals):
+def SentimentFilter(ticker, signals):
     sentiment_scores = starter_vader(ticker)
     sentiment_scores['dates'] = pd.to_datetime(sentiment_scores['dates'])
 

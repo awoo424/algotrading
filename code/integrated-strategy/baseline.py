@@ -14,10 +14,10 @@ from backtest import Backtest
 from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 
 # macroeconomic analysis
-from macro_analysis import get_macrodata
+from macro_analysis import GetSensitivity, GetMacrodata
 
 # sentiment analysis
-from sentiment_analysis import sentiment_filter
+from sentiment_analysis import SentimentFilter
 
 """
 Technical analysis
@@ -53,10 +53,10 @@ Macroecnomic analysis
 Adjust bias in signals with macroeconomic data
 """
 
-# s_gdp, s_unemploy, s_property = get_sensitivity(filtered_df)
+s_gdp, s_unemploy, s_property = GetSensitivity(filtered_df)
 
 # traverse signals dataframe
-gdp, unemploy, property_price = get_macrodata("2019-01-01")
+gdp, unemploy, property_price = GetMacrodata("2019-01-01")
 print(gdp, unemploy, property_price)
 ## adj_factor = s_gdp * gdp + s_unemploy * unemploy s_property * property_price --> need to normalise, [0,1]
 
@@ -68,7 +68,7 @@ Sentiment analysis
 - 
 Filter out signals that contrasts with the sentiment label
 """
-filtered_signals = sentiment_filter(ticker, signals)
+filtered_signals = SentimentFilter(ticker, signals)
 
 
 # round signals['signal'] to the nearest integer
