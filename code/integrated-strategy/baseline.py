@@ -54,6 +54,7 @@ Adjust bias in signals with macroeconomic data
 """
 
 s_gdp, s_unemploy, s_property = GetSensitivity(filtered_df)
+print(s_gdp, s_unemploy, s_property)
 
 # traverse signals dataframe
 gdp, unemploy, property_price = GetMacrodata("2019-01-01")
