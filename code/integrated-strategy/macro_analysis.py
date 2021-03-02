@@ -195,9 +195,9 @@ def GetMacrodata(signals):
                         'Unemployment rate'] = ur_values[ur_counter]
             lower_date = ur_dates[ur_counter]
             upper_date = ur_dates[ur_counter + 1]
-        elif (date >= upper_date) and (gdp_counter == (len(ur_values) - 2)):
+        elif (date >= upper_date) and (ur_counter == (len(ur_values) - 2)):
             signals.loc[signals['Date'] == date,
-                        'GDP'] = ur_values[ur_counter]
+                        'Unemployment rate'] = ur_values[ur_counter]
 
     # UR column pre-processing
     signals['Unemployment rate'] = signals['Unemployment rate'].astype(float)
@@ -205,7 +205,7 @@ def GetMacrodata(signals):
     signals['Unemployment rate'] = (signals['Unemployment rate'] - signals['Unemployment rate'].min()) / \
         (signals['Unemployment rate'].max() - signals['Unemployment rate'].min())  # min-max normalisation
 
-    print(signals.tail())
+    #print(signals.tail())
 
     """
     Avg monthly property price (normalised)
@@ -243,5 +243,5 @@ def GetMacrodata(signals):
         (signals['Property price'].max() - signals['Property price'].min())  # min-max normalisation
 
 
-    #print(signals.tail())
+    print(signals.tail())
     return signals

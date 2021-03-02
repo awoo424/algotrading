@@ -50,6 +50,7 @@ def SentimentFilter(ticker, signals):
     filtered_signals = pd.merge(signals, merged_df, how="left", on="Date")
     filtered_signals = filtered_signals.drop(columns=['positions', 'signal'])
     filtered_signals = filtered_signals.set_index('Date')
+    filtered_signals = filtered_signals[~filtered_signals.index.duplicated()] # remove duplicate rows
     #print(filtered_signals)
     filtered_signals = filtered_signals.rename({'filtered_positions': 'positions', 'vader_label': 'vader_label', 'filtered_signal': 'signal'}, axis=1)
     
