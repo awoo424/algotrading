@@ -59,14 +59,16 @@ class macdCrossover(Indicator):
         # Plot MACD and signal line
         self.df[['MACD', 'Signal line']].plot(ax=ax1, lw=1.2)
 
+        MACD_array = self.df['MACD'].to_numpy()
+
         # Plot the buy signals
         ax1.plot(self.signals.loc[self.signals.positions == 1.0].index, 
-                self.df['MACD'][self.signals.positions == 1.0],
+                 MACD_array[self.signals.positions == 1.0],
                 '^', markersize=8, color='g')
                 
         # Plot the sell signals
         ax1.plot(self.signals.loc[self.signals.positions == -1.0].index, 
-                self.df['MACD'][self.signals.positions == -1.0],
+                 MACD_array[self.signals.positions == -1.0],
                 'v', markersize=8, color='r')
 
         return fig
