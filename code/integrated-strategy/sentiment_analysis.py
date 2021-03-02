@@ -25,7 +25,6 @@ def SentimentFilter(ticker, signals):
     sentiment_scores['dates'] = pd.to_datetime(sentiment_scores['dates'])
 
     # check if sentiment label contrasting with buy/sell signals
-    signals = signals.reset_index(level="Date")
     merged_df = signals.merge(sentiment_scores, how='left', left_on='Date', right_on='dates')
     #print(merged_df.head())
 

@@ -12,8 +12,8 @@ mpl.use('tkagg')  # issues with Big Sur
 def GetSensitivity(price_df):
     # Stock price dataframe pre-processing
     price_df = price_df.reset_index(level='Date')
+    price_df['Date'] = pd.to_datetime(price_df['Date'])
     price_dates = price_df['Date'].tolist()
-    #print(price_df.head())
 
     """
     Correlation between stock price and quarterly nominal GDP
@@ -25,15 +25,21 @@ def GetSensitivity(price_df):
     gdp_dates = gdp_df['Date'].tolist()
     gdp_values = gdp_df['GDP_current_market_prices'].tolist()
     gdp_counter = 0
+    #price_df['GDP'] = "0.0" # initialisation
 
     # merge dataframes by adding GDP column in price_df
+    lower_date = gdp_dates[gdp_counter]
+    upper_date = gdp_dates[gdp_counter + 1]
+    
     for date in price_dates:
-        target_date = gdp_dates[gdp_counter]
-        if (target_date <= date) and (gdp_counter < len(gdp_values)):
-            #print(target_date, date)
-            price_df.loc[price_df['Date'] == date, 'GDP'] = gdp_values[gdp_counter]
-        elif (gdp_counter < (len(gdp_values) - 1)):
+        if (lower_date <= date) and (date < upper_date) and (gdp_counter < len(gdp_values)):
+            price_df.loc[price_df['Date'] == str(date), 'GDP'] = gdp_values[gdp_counter]
+
+        elif (date >= upper_date) and (gdp_counter < (len(gdp_values) - 2)):
             gdp_counter = gdp_counter + 1
+            price_df.loc[price_df['Date'] == date,'GDP'] = gdp_values[gdp_counter]
+            lower_date = gdp_dates[gdp_counter]
+            upper_date = gdp_dates[gdp_counter + 1]
 
     # GDP column pre-processing
     price_df['GDP'] = price_df['GDP'].str.replace(',', '')
@@ -55,16 +61,21 @@ def GetSensitivity(price_df):
     ue_dates = unemploy_df['Date'].tolist()
     ue_values = unemploy_df['Unemployment_rate_seasonally_adjusted'].tolist()
     ue_counter = 0
+    #price_df['Unemployment rate'] = "0.0"  # initialisation
 
     # merge dataframes by adding GDP column in price_df
+    lower_date = ue_dates[ue_counter]
+    upper_date = ue_dates[ue_counter + 1]
+
     for date in price_dates:
-        target_date = ue_dates[ue_counter]
-        if (target_date <= date) and (ue_counter < len(ue_values)):
-            #print(target_date, date)
-            price_df.loc[price_df['Date'] == date,
-                         'Unemployment rate'] = ue_values[ue_counter]
-        elif (ue_counter < (len(ue_values) - 1)):
+        if (lower_date <= date) and (date < upper_date) and (ue_counter < len(ue_values)):
+            price_df.loc[price_df['Date'] == date, 'Unemployment rate'] = ue_values[ue_counter]
+
+        elif (date >= upper_date) and (ue_counter < (len(ue_values) - 2)):
             ue_counter = ue_counter + 1
+            price_df.loc[price_df['Date'] == date,'Unemployment rate'] = ue_values[ue_counter]
+            lower_date = ue_dates[ue_counter]
+            upper_date = ue_dates[ue_counter + 1]
 
     # unemployment column pre-processing
     price_df['Unemployment rate'] = price_df['Unemployment rate'].astype(float)
@@ -81,57 +92,156 @@ def GetSensitivity(price_df):
     # load property index data
     property_df = pd.read_csv('../../database_real/macroeconomic_data/determinants/property_price.csv', header=0)
 
-    return price_gdp_corr, price_urate_corr, 1
+    property_df['Date'] = pd.to_datetime(property_df['Date'])
+    pp_dates = property_df['Date'].tolist()
+    pp_values = property_df['average_price_per_sqft'].tolist()
+    pp_counter = 0
+    #price_df['Property price'] = "0.0"  # initialisation
+
+    # merge dataframes by adding GDP column in price_df
+    lower_date = pp_dates[pp_counter]
+    upper_date = pp_dates[pp_counter + 1]
+
+    for date in price_dates:
+        #print(lower_date, upper_date)
+        if (lower_date <= date) and (date < upper_date) and (pp_counter < len(pp_values)):
+            price_df.loc[price_df['Date'] == date, 'Property price'] = pp_values[pp_counter]
+
+        elif (date >= upper_date) and (pp_counter < (len(pp_values) - 2)):
+            pp_counter = pp_counter + 1
+            price_df.loc[price_df['Date'] == date, 'Property price'] = pp_values[pp_counter]
+            lower_date = pp_dates[pp_counter]
+            upper_date = pp_dates[pp_counter + 1]
+
+    #print(price_df.tail())
+
+    # pprice column pre-processing
+    price_df['Property price'] = price_df['Property price'].astype(float)
+    price_df = price_df.fillna(value={'Property price': 0})
+
+    # Calculate price-urate correlation
+    price = price_df['Close']
+    pp = price_df['Property price']
+    price_pp_corr = price.corr(pp)
+
+    return price_gdp_corr, price_urate_corr, price_pp_corr
 
 
-# input: @date, date to get macro data normalised to [0,1]
-# output: gdp, unemploy, property
-def GetMacrodata(target_date):
+# input: signals dataframe
+# output: signals dataframe with gdp, unemploy, property cols added
+def GetMacrodata(signals):
+    signals = signals.reset_index(level='Date')
+    signals['Date'] = pd.to_datetime(signals['Date'])
+    signals_dates = signals['Date'].tolist()
 
+    """
+    Nominal GDP (normalised)
+    """
     # get nominal GDP for target_date
     gdp_df = pd.read_csv('../../database_real/macroeconomic_data/determinants/quarterly_gdp.csv', header=0)
+    gdp_df['Date'] = pd.to_datetime(gdp_df['Date'])
     gdp_dates = gdp_df['Date'].tolist()
+    gdp_values = gdp_df['GDP_current_market_prices'].tolist()
+    gdp_counter = 0
 
+    # merge dataframes by adding GDP column in signals
+    lower_date = gdp_dates[gdp_counter]
+    upper_date = gdp_dates[gdp_counter + 1]
+
+    for date in signals_dates:
+        if (lower_date <= date) and (date < upper_date) and (gdp_counter < len(gdp_values)):
+            signals.loc[signals['Date'] == date,
+                        'GDP'] = gdp_values[gdp_counter]
+        elif (date >= upper_date) and (gdp_counter < (len(gdp_values) - 2)):
+            gdp_counter = gdp_counter + 1
+            signals.loc[signals['Date'] == date,
+                         'GDP'] = gdp_values[gdp_counter]
+            lower_date = gdp_dates[gdp_counter]
+            upper_date = gdp_dates[gdp_counter + 1]
+        elif (date >= upper_date) and (gdp_counter == (len(gdp_values) - 2)):
+            signals.loc[signals['Date'] == date,
+                        'GDP'] = gdp_values[gdp_counter]
+    
     # GDP column pre-processing
-    gdp_df['GDP'] = gdp_df['GDP_current_market_prices'].str.replace(',', '')
-    gdp_df['GDP'] = gdp_df['GDP'].astype(float)
-    gdp_df['GDP'] = (gdp_df['GDP'] - gdp_df['GDP'].mean()) / gdp_df['GDP'].std()  # mean normalisation
+    signals['GDP'] = signals['GDP'].str.replace(',', '')
+    signals['GDP'] = signals['GDP'].astype(float)
+    signals = signals.fillna(value={'GDP': 0})
+    signals['GDP'] = (signals['GDP'] - signals['GDP'].min()) / \
+        (signals['GDP'].max() - signals['GDP'].min()) # min-max normalisation
 
-    for date in gdp_dates:
-        if (target_date < date):
-            #print(target_date, date)
-            gdp_series = gdp_df.loc[gdp_df['Date'] == date, 'GDP']
-            gdp = gdp_series.values[0]
-            break
-
+    #print(signals.tail())
+    """
+    Unemployment rate (normalised)
+    """
     # get unemployment rate for target date
-    unemploy_df = pd.read_csv('../../database_real/macroeconomic_data/determinants/unemployment_rate.csv', header=0)
-    ur_dates = unemploy_df['Date'].tolist()
+    ur_df = pd.read_csv(
+        '../../database_real/macroeconomic_data/determinants/unemployment_rate.csv', header=0)
+    ur_df['Date'] = pd.to_datetime(ur_df['Date'])
+    ur_dates = ur_df['Date'].tolist()
+    ur_values = ur_df['Unemployment_rate_seasonally_adjusted'].tolist()
+    ur_counter = 0
 
-    for date in ur_dates:
-        if (target_date < date):
-            #print(target_date, date)
-            ur_series = unemploy_df.loc[unemploy_df['Date']
-                                         == date, 'Unemployment_rate_seasonally_adjusted']
-            urate = ur_series.values[0]
-            break
+    # merge dataframes by adding urate column in signals
+    lower_date = ur_dates[ur_counter]
+    upper_date = ur_dates[ur_counter + 1]
 
+    for date in signals_dates:
+        if (lower_date <= date) and (date < upper_date) and (ur_counter < len(ur_values)):
+            signals.loc[signals['Date'] == date,
+                        'Unemployment rate'] = ur_values[ur_counter]
+        elif (date >= upper_date) and (ur_counter < (len(ur_values) - 2)):
+            ur_counter = ur_counter + 1
+            signals.loc[signals['Date'] == date,
+                        'Unemployment rate'] = ur_values[ur_counter]
+            lower_date = ur_dates[ur_counter]
+            upper_date = ur_dates[ur_counter + 1]
+        elif (date >= upper_date) and (gdp_counter == (len(ur_values) - 2)):
+            signals.loc[signals['Date'] == date,
+                        'GDP'] = ur_values[ur_counter]
+
+    # UR column pre-processing
+    signals['Unemployment rate'] = signals['Unemployment rate'].astype(float)
+    signals = signals.fillna(value={'Unemployment rate': 0})
+    signals['Unemployment rate'] = (signals['Unemployment rate'] - signals['Unemployment rate'].min()) / \
+        (signals['Unemployment rate'].max() - signals['Unemployment rate'].min())  # min-max normalisation
+
+    print(signals.tail())
+
+    """
+    Avg monthly property price (normalised)
+    """
     # get monthly property price for target date
-    property_df = pd.read_csv('../../database_real/macroeconomic_data/determinants/property_price.csv', header=0)
-    pp_dates = property_df['Date'].tolist()
+    pp_df = pd.read_csv(
+        '../../database_real/macroeconomic_data/determinants/property_price.csv', header=0)
+    pp_df['Date'] = pd.to_datetime(pp_df['Date'])
+    pp_dates = pp_df['Date'].tolist()
+    pp_values = pp_df['average_price_per_sqft'].tolist()
+    pp_counter = 0
 
-    for date in pp_dates:
-        if (target_date < date):
-            #print(target_date, date)
-            pp_series = property_df.loc[property_df['Date']
-                                        == date, 'average_price_per_sqft']
-            pprice = pp_series.values[0]
-            break
+    # merge dataframes by adding GDP column in price_df
+    lower_date = pp_dates[pp_counter]
+    upper_date = pp_dates[pp_counter + 1]
 
-    return gdp, urate, pprice
+    for date in signals_dates:
+        if (lower_date <= date) and (date < upper_date) and (pp_counter < len(pp_values)):
+            signals.loc[signals['Date'] == date,
+                        'Property price'] = pp_values[pp_counter]
+        elif (date >= upper_date) and (pp_counter < (len(pp_values) - 2)):
+            pp_counter = pp_counter + 1
+            signals.loc[signals['Date'] == date,
+                        'Property price'] = pp_values[pp_counter]
+            lower_date = pp_dates[pp_counter]
+            upper_date = pp_dates[pp_counter + 1]
+        elif (date >= upper_date) and (pp_counter == (len(pp_values) - 2)):
+            signals.loc[signals['Date'] == date,
+                        'Property price'] = pp_values[pp_counter]
+
+    # PP column pre-processing
+    signals['Property price'] = signals['Property price'].astype(float)
+    signals = signals.fillna(value={'Property price': 0})
+    signals['Property price'] = (signals['Property price'] - signals['Property price'].min()) / \
+        (signals['Property price'].max() - signals['Property price'].min())  # min-max normalisation
 
 
-# monthly avg property price
-def get_avg_property(date):
-    # to type
-    return True
+    #print(signals.tail())
+    return signals

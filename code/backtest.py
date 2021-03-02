@@ -39,14 +39,13 @@ def Backtest(ticker, signals, df, initial_capital=float(100000.0)):
     # Plot the equity curve in dollars
     portfolio['total'].plot(ax=ax1, lw=1.2, label='Total value (including cash)')
     
-
     positions = signals.positions.to_numpy()
 
-    ax1.plot(portfolio.loc[positions == 1.0].index, 
-            portfolio.total[positions == 1.0],
+    ax1.plot(portfolio.loc[signals.positions == 1.0].index,
+             portfolio.total[signals.positions == 1.0],
             '^', markersize=8, color='g', label='Buy signal')
-    ax1.plot(portfolio.loc[positions == -1.0].index, 
-            portfolio.total[positions == -1.0],
+    ax1.plot(portfolio.loc[signals.positions == -1.0].index,
+             portfolio.total[signals.positions == -1.0],
             'v', markersize=8, color='r', label='Sell signal')
 
     plt.legend()

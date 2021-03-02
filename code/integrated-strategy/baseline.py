@@ -31,54 +31,56 @@ df_whole = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, 
 # select time range (for trading)
 start_date = pd.Timestamp('2021-01-01')
 end_date = pd.Timestamp('2021-02-05')
+#start_date = pd.Timestamp('2017-01-01')
+#end_date = pd.Timestamp('2019-02-05')
 df = df_whole.loc[start_date:end_date]
 
 # get filtered df for macro analysis
-filtered_df = df_whole.loc[:start_date]
+filtered_df = df_whole.loc[:end_date]
 
 ticker = "0005.HK"
 
 # apply MACD crossover strategy
 macd_cross = macdCrossover(df)
 macd_fig = macd_cross.plot_MACD()
-#plt.close() # hide figure
+plt.close() # hide figure
 
 signals = macd_cross.gen_signals()
 signal_fig = macd_cross.plot_signals(signals)
-#plt.close()
+plt.close()  # hide figure
 
 """
 Macroecnomic analysis
 -
 Adjust bias in signals with macroeconomic data
 """
-
+# get ticker's sensiticity to macro data
 s_gdp, s_unemploy, s_property = GetSensitivity(filtered_df)
-print(s_gdp, s_unemploy, s_property)
 
-# traverse signals dataframe
-gdp, unemploy, property_price = GetMacrodata("2019-01-01")
-print(gdp, unemploy, property_price)
-## adj_factor = s_gdp * gdp + s_unemploy * unemploy s_property * property_price --> need to normalise, [0,1]
+# append signals with macro data
+signals = GetMacrodata(signals)
 
-# signals['signal'] = signals['signal'] * adj_factor
+# calculate adjusting factor
+signals['macro_factor'] = s_gdp * signals['GDP'] + s_unemploy * signals['Unemployment rate'] + s_property * signals['Property price']
+signals['signal'] = signals['signal'] + signals['macro_factor']
 
+# round off signals['signal'] to the nearest integer
+signals['signal'] = signals['signal'].round(0)
 
 """
 Sentiment analysis
 - 
-Filter out signals that contrasts with the sentiment label
+Filter out signals that contrast with the sentiment label
 """
 filtered_signals = SentimentFilter(ticker, signals)
-
-
-# round signals['signal'] to the nearest integer
+filtered_signals.set_index('Date')
 
 
 """
 Backtesting & evaluation
 """
 portfolio, backtest_fig = Backtest(ticker, filtered_signals, df)
+plt.close() # hide figure
 print("Final total value: {value:.4f} ".format(value=portfolio['total'][-1]))
 print("Total return: {value:.4f}%".format(value=(
     portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]*100))
@@ -87,18 +89,19 @@ print("No. of trade: {value}".format(
     value=len(signals[signals.positions == 1])))
 
 
-####### BELOW - code for reference #######
 """
-backtest_fig.suptitle('MACD crossovers - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/macd-crossover_portfolio-value')
+Plotting figures
+"""
+backtest_fig.suptitle('Baseline - Portfolio value', fontsize=14)
+backtest_fig.savefig('./figures/baseline_portfolio-value')
 plt.show()
 
 # Evaluate strategy
 
 # 1. Portfolio return
 returns_fig = PortfolioReturn(portfolio)
-returns_fig.suptitle('MACD crossovers - Portfolio return')
-returns_fig.savefig('./figures/trend/02-macd-crossover_portfolo-return')
+returns_fig.suptitle('Baseline - Portfolio return')
+returns_fig.savefig('./figures/baseline_portfolo-return')
 plt.show()
 
 # 2. Sharpe ratio
@@ -107,11 +110,11 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 
 # 3. Maximum drawdown
 maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
-maxDrawdown_fig.suptitle('MACD crossovers - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/trend/02-macd-crossover_maximum-drawdown')
+maxDrawdown_fig.suptitle('Baseline - Maximum drawdown', fontsize=14)
+maxDrawdown_fig.savefig('./figures/baseline_maximum-drawdown')
 plt.show()
 
 # 4. Compound Annual Growth Rate
 cagr = CAGR(portfolio)
 print("CAGR: {cagr:.4f} ".format(cagr = cagr))
-"""
+
