@@ -41,7 +41,7 @@ def run_loop():
 # Establish API connection
 # connect(ip address, port number, client id)
 app = App()
-app.connect('127.0.0.1', 7497, 123)
+app.connect('127.0.0.1', 7497, 0)
 
 # Start the socket in a thread
 api_thread = threading.Thread(target=run_loop)
