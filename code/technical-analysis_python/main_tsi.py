@@ -12,7 +12,7 @@ from backtest import Backtest
 from evaluate import SharpeRatio, MaxDrawdown, CAGR
 
 # load data
-df = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
+df = pd.read_csv('../../database/microeconomic_data/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range
 df = df.loc[pd.Timestamp('2018-01-01'):pd.Timestamp('2020-01-01')]

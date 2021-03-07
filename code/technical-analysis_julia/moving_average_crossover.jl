@@ -20,7 +20,7 @@ using RollingFunctions;
 @pyimport matplotlib.pyplot as plt
 
 # load data
-df = CSV.File("../../database/hkex_ticks_day/hkex_0001.csv") |> DataFrame
+df = CSV.File("../../database/microeconomic_data/hkex_ticks_day/hkex_0001.csv") |> DataFrame
 
 # moving average crossover
 signals = df[:,[:Date, :Close]]
