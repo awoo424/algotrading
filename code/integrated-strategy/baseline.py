@@ -54,7 +54,7 @@ Macroecnomic analysis
 -
 Adjust bias in signals with macroeconomic data
 """
-# get ticker's sensiticity to macro data
+# get ticker's sensitivity to macro data
 s_gdp, s_unemploy, s_property = GetSensitivity(filtered_df)
 
 # append signals with macro data

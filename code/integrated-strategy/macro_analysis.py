@@ -243,5 +243,5 @@ def GetMacrodata(signals):
         (signals['Property price'].max() - signals['Property price'].min())  # min-max normalisation
 
 
-    print(signals.tail())
+    #print(signals.tail())
     return signals
