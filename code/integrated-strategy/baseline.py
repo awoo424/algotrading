@@ -26,7 +26,7 @@ Generate signals with MACD crossover strategy
 """
 
 # load price data
-df_whole = pd.read_csv('../../database/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
+df_whole = pd.read_csv('../../database/microeconomic_data/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range (for trading)
 start_date = pd.Timestamp('2017-01-01')
