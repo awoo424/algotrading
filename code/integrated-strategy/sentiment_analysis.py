@@ -33,8 +33,8 @@ def SentimentFilter(ticker, signals):
 
     buy_signal = (merged_df['signal'] == 1.0)
     sell_signal = (merged_df['signal'] == -1.0)
-    pos_label = (merged_df['vader_label'] == 0)
-    neg_label = (merged_df['vader_label'] == 2)
+    pos_label = (merged_df['vader_label'] == 2)
+    neg_label = (merged_df['vader_label'] == 0)
 
     # when there is a buy signal but a -ve label
     merged_df[(buy_signal) & (neg_label)]['filtered_signal'] = 0.0
