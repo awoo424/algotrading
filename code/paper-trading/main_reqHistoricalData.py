@@ -10,7 +10,8 @@ class App(EWrapper, EClient):
         EClient.__init__(self, self)
 
     def historicalData(self, reqId, bar):
-        print(f'Time: {bar.date} Close: {bar.close}')
+        print("HistoricalData. ", reqId, " - Time: ", bar.date, ", Open: ", bar.open, ", High: ", bar.high,
+              ", Low: ", bar.low, ", Close: ", bar.close, ", Volume: ", bar.volume)
 
 
 def run_loop():

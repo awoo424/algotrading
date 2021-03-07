@@ -1,6 +1,7 @@
 from ibapi.client import EClient
 from ibapi.wrapper import EWrapper
 from ibapi.contract import Contract
+from ibapi.ticktype import TickTypeEnum
 
 import threading
 import time
@@ -9,34 +10,13 @@ class App(EWrapper, EClient):
     def __init__(self):
         EClient.__init__(self, self)
 
-    def tickPrice(self, reqId, tickType, price, attrib):
-        if tickType == 1 and reqId == 1:
-            print('The current bid price is: ', price)
-        if tickType == 2 and reqId == 1:
-            print('The current ask price is: ', price)
-        if tickType == 9 and reqId == 1:
-            print('The current close price is: ', price)
-        if tickType == 14 and reqId == 1:
-            print('The current open price is: ', price)
-
-        if tickType == 66 and reqId == 1:
-            print('The delayed bid price is: ', price)
-        if tickType == 67 and reqId == 1:
-            print('The delayed ask price is: ', price)
-        if tickType == 68 and reqId == 1:
-            print('The delayed last price is: ', price)
-        if tickType == 72 and reqId == 1:
-            print('The delayed high price is: ', price)
-        if tickType == 73 and reqId == 1:
-            print('The delayed low price is: ', price)
-        if tickType == 75 and reqId == 1:
-            print('The delayed close price is: ', price)
-        if tickType == 76 and reqId == 1:
-            print('The delayed open price is: ', price)
-
+    def tickPrice(self, tickerId, field, price, attribs):
+        print("Tick Price. Ticker Id:", tickerId, ", Field: ", field, ", TickType: ", TickTypeEnum.to_str(field),
+              ", Price: ", price, ", CanAutoExecute: ", attribs.canAutoExecute, ", PastLimit: ", attribs.pastLimit,
+              ", PreOpen: ", attribs.preOpen)
 
 def run_loop():
-	app.run()
+    app.run()
 
 # Establish API connection
 # connect(ip address, port number, client id)

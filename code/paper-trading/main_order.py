@@ -16,18 +16,22 @@ class App(EWrapper, EClient):
         self.nextorderId = orderId
         print('The next valid order id is: ', self.nextorderId)
 
-    def orderStatus(self, orderId, status, filled, remaining, avgFullPrice, permId, parentId, lastFillPrice, clientId,
-                    whyHeld, mktCapPrice):
-        print('Order Status - orderId:', orderId, 'status:', status, 'filled', filled, 'remaining', remaining,
-              'lastFillPrice', lastFillPrice)
+    def orderStatus(self, orderId, status, filled, remaining, avgFillPrice, permId, parentId, lastFillPrice,
+                    clientId, whyHeld, mktCapPrice):
+        print("OrderStatus. Id: ", orderId, ", Status: ", status, ", Filled: ", filled, ", Remaining: ", remaining,
+                ", AvgFillPrice: ", avgFillPrice, ", PermId: ", permId, ", ParentId: ", parentId, ", LastFillPrice: ",
+              lastFillPrice, ", ClientId: ", clientId, ", WhyHeld: ", whyHeld, ", MktCapPrice: ", mktCapPrice)
 
     def openOrder(self, orderId, contract, order, orderState):
-        print('Open Order id:', orderId, contract.symbol, contract.secType, '@', contract.exchange, ':', order.action,
-              order.orderType, order.totalQuantity, orderState.status)
+        print("OpenOrder. PermID: ", order.permId, ", ClientId: ", order.clientId, ", OrderId: ", orderId, ", Account: ", order.account, ", Symbol: ", contract.symbol, ", SecType: ",
+              contract.secType, " , Exchange: ", contract.exchange, ", Action: ", order.action, ", OrderType: ",
+              order.orderType, ", TotalQty: ", order.totalQuantity, ", CashQty: ", order.cashQty, ", LmtPrice: ",
+              order.lmtPrice, ", AuxPrice: ", order.auxPrice, ", Status: ", orderState.status)
+
 
     def execDetails(self, reqId, contract, execution):
-        print('Order Executed: ', reqId, contract.symbol, contract.secType, contract.currency, execution.execId,
-              execution.orderId, execution.shares, execution.lastLiquidity)
+        print("ExecDetails. ", reqId, " - ", contract.symbol, ", ", contract.secType, ", ", contract.currency,
+              " - ", execution.execId, ", ", execution.orderId, ", ", execution.shares , ", ", execution.lastLiquidity)
 
 
 def run_loop():
@@ -66,21 +70,25 @@ app.placeOrder(app.nextorderId, eurgbp_contract, order)
 
 time.sleep(5)
 
+"""
 # Modify order
-#print('modifying order')
-#order_id = 20
-#order.lmtPrice = '0.82'
-#app.placeOrder(order_id, eurgbp_contract, order)
+print('modifying order')
+order_id = 20
+order.lmtPrice = '0.82'
+app.placeOrder(order_id, eurgbp_contract, order)
 
-#time.sleep(3)
+time.sleep(5)
+"""
 
 # Cancel order by order Id
 print('cancelling order')
 app.cancelOrder(app.nextorderId)
 
+"""
 # Cancel all open orders
-#print('cancelling all open orders')
-#app.reqGlobalCancel()
+print('cancelling all open orders')
+app.reqGlobalCancel()
+"""
 
-time.sleep(3)
+time.sleep(5)
 app.disconnect()
