@@ -8,3 +8,4 @@ tickers/
 ._.DS_Store
 .idea/
 database_real/
+generate-training-data/
