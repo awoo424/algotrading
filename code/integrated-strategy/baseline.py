@@ -26,7 +26,7 @@ Generate signals with MACD crossover strategy
 """
 
 # load price data
-df_whole = pd.read_csv('../../database/microeconomic_data/hkex_ticks_day/hkex_0005.csv', header=0, index_col='Date', parse_dates=True)
+df_whole = pd.read_csv('../../database/microeconomic_data/hkex_ticks_day/hkex_0001.csv', header=0, index_col='Date', parse_dates=True)
 
 # select time range (for trading)
 start_date = pd.Timestamp('2017-01-01')
@@ -81,7 +81,7 @@ portfolio, backtest_fig = Backtest(ticker, filtered_signals, df)
 plt.close() # hide figure
 print("Final total value: {value:.4f} ".format(value=portfolio['total'][-1]))
 print("Total return: {value:.4f}%".format(value=(
-    portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]*100))
+    ((portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]) * 100))
 # for analysis
 print("No. of trade: {value}".format(
     value=len(signals[signals.positions == 1])))

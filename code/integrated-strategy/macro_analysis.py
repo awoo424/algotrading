@@ -25,7 +25,7 @@ def GetSensitivity(price_df):
     gdp_dates = gdp_df['Date'].tolist()
     gdp_values = gdp_df['GDP_current_market_prices'].tolist()
     gdp_counter = 0
-    #price_df['GDP'] = "0.0" # initialisation
+    price_df['GDP'] = "0.0" # initialisation
 
     # merge dataframes by adding GDP column in price_df
     lower_date = gdp_dates[gdp_counter]
@@ -61,7 +61,7 @@ def GetSensitivity(price_df):
     ue_dates = unemploy_df['Date'].tolist()
     ue_values = unemploy_df['Unemployment_rate_seasonally_adjusted'].tolist()
     ue_counter = 0
-    #price_df['Unemployment rate'] = "0.0"  # initialisation
+    price_df['Unemployment rate'] = "0.0"  # initialisation
 
     # merge dataframes by adding GDP column in price_df
     lower_date = ue_dates[ue_counter]
@@ -96,7 +96,7 @@ def GetSensitivity(price_df):
     pp_dates = property_df['Date'].tolist()
     pp_values = property_df['average_price_per_sqft'].tolist()
     pp_counter = 0
-    #price_df['Property price'] = "0.0"  # initialisation
+    price_df['Property price'] = "0.0"  # initialisation
 
     # merge dataframes by adding GDP column in price_df
     lower_date = pp_dates[pp_counter]
@@ -133,6 +133,11 @@ def GetMacrodata(signals):
     signals = signals.reset_index(level='Date')
     signals['Date'] = pd.to_datetime(signals['Date'])
     signals_dates = signals['Date'].tolist()
+
+    # Initialisation
+    # signals['GDP'] = "0.0"
+    # signals['Unemployment rate'] = "0.0"
+    # signals['Property price'] = "0.0"
 
     """
     Nominal GDP (normalised)
