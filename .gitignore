@@ -9,3 +9,4 @@ tickers/
 .idea/
 database_real/
 generate-training-data/
+baseline_results.txt
