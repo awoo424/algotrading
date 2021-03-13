@@ -133,7 +133,7 @@ def baseline_strategy(symbol, start, end):
     print("CAGR: {cagr:.4f} ".format(cagr=cagr))
 
     # Write to output file
-    f = open("baseline_results.txt", "a")
+    f = open("baseline_results.csv", "a")
     f.write(ticker + ',' + start + ',' + end + ',' + str(portfolio_return) + ',' +
             str(sharpe_ratio) + ',' + str(cagr) + ',' + str(trade_signals_num) + '\n')
     f.close()
