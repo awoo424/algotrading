@@ -16,11 +16,14 @@ using Statistics;
 using Plots;
 using PyCall;
 using RollingFunctions;
+using Printf;
 
 @pyimport matplotlib.pyplot as plt
 
 # load data
 df = CSV.File("../../database/microeconomic_data/hkex_ticks_day/hkex_0001.csv") |> DataFrame
+
+ticker = "0001.HK"
 
 # moving average crossover
 signals = df[:,[:Date, :Close]]
@@ -38,7 +41,7 @@ long_window = 100
 long_mavg = runmean(vec(close), long_window)
 insertcols!(signals, 1, :long_mavg => long_mavg)
 
-# create signals
+# Create signals
 signal = Float64[]
         
 for i in 1:length(short_mavg)
@@ -116,3 +119,84 @@ plt.show()
 
 # save fig
 fig.savefig("./figures/moving-average-crossover_signals", dpi=100)
+
+
+# ============== Backtest ============== #
+
+initial_capital = 100000.0
+
+# Initialise the portfolio with value owned
+portfolio = signals[:,[:Date, :Close, :positions]]
+portfolio[:trade] = signals[:Close] .* (100 .* signals[:positions])
+
+# Add `holdings` to portfolio
+portfolio[:quantity] = cumsum(100 .* signals[:positions])
+portfolio[:holdings] = portfolio[:Close] .* portfolio[:quantity]
+
+# Add `cash` to portfolio
+portfolio[:cash] = initial_capital .- cumsum(portfolio[:trade])
+
+#  # Add `total` to portfolio
+portfolio[:total] = portfolio[:cash] .+ portfolio[:holdings]
+
+portfolio_total = Array(portfolio[:total])
+
+# Generate returns
+function gen_returns(portfolio_total)
+    returns = zeros(length(portfolio_total))
+    returns[1] = 0
+    for i in 2:length(portfolio_total)
+        returns[i] = (portfolio_total[i] - portfolio_total[i-1]) / portfolio_total[i-1]
+    end
+    return returns
+end
+
+returns = gen_returns(portfolio_total)
+insertcols!(portfolio, 1, :returns => returns)
+
+#print(first(portfolio, 100))
+@printf("Final total value: %f\n", portfolio.total[size(portfolio,1)])
+
+total_return = (portfolio.total[size(portfolio,1)] - portfolio.total[1]) / portfolio.total[1]
+@printf("Total return: %f\n", total_return)
+
+# ============== Evaluation metrics ============== #
+
+function portfolio_return(portfolio)
+    fig = plt.figure() # Initialise the plot figure
+    ax1 = fig.add_subplot(111, ylabel="Total in \$") # Add a subplot and label for y-axis
+
+    plt.plot(portfolio.Date, portfolio.returns, color="blue", linewidth=1.0, label="Returns")
+
+    plt.title("MA crossover portfolio return")
+    plt.show()
+
+    # save fig
+    fig.savefig("./figures/moving-average-crossover_returns", dpi=100)
+end
+
+function sharpe_ratio(portfolio)
+    # Annualised Sharpe ratio
+    sharpe_ratio = sqrt(252) * (mean(returns) / std(returns))
+
+    return sharpe_ratio
+end
+
+function CAGR(portfolio)
+    # Get the number of days in df
+    format = DateFormat("y-m-d")
+    days = portfolio.Date[size(portfolio,1)] - portfolio.Date[1]
+
+    # Calculate the CAGR
+    cagr = ^((portfolio.total[size(portfolio,1)] / portfolio.total[1]), (252.0 / Dates.value(days))) - 1
+    
+    return cagr
+end
+
+
+portfolio_return(portfolio)
+sharpe = sharpe_ratio(portfolio)
+cagr = CAGR(portfolio)
+
+@printf("Sharpe ratio: %f\n", sharpe)
+@printf("CAGR: %f\n", cagr)
