@@ -27,7 +27,7 @@ def SharpeRatio(portfolio):
     # Isolate the returns of your strategy
     returns = portfolio['returns']
 
-    # annualized Sharpe ratio
+    # annualised Sharpe ratio
     sharpe_ratio = np.sqrt(252) * (returns.mean() / returns.std())
 
     return sharpe_ratio
@@ -40,7 +40,7 @@ Maximum drawdown
 def MaxDrawdown(df, window=252):
     # Calculate the max drawdown in the past window days for each day 
     rolling_max = df['Close'].rolling(window, min_periods=1).max()
-    daily_drawdown = df['Close']/rolling_max - 1.0
+    daily_drawdown = df['Close'] / rolling_max - 1.0
 
     # Calculate the minimum (negative) daily drawdown
     max_daily_drawdown = daily_drawdown.rolling(window, min_periods=1).min()
@@ -68,7 +68,7 @@ def CAGR(portfolio):
     days = (portfolio.index[-1] - portfolio.index[0]).days
 
     # Calculate the CAGR 
-    cagr = ((((portfolio['total'][-1]) / portfolio['total'][0])) ** (252.0/days)) - 1
+    cagr = (((portfolio['total'][-1] / portfolio['total'][0])) ** (252.0 / days)) - 1
 
     return cagr
 
