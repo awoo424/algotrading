@@ -224,31 +224,66 @@
 buying and selling without risking real money.</div>
 </div>
 </div>
-<p><em>Under construction</em></p>
+<div class="line-block">
+<div class="line">In this module, we will first set up a connection to Interactive Brokers Trader
+Workstation (IB TWS).</div>
+</div>
+<div class="line-block">
+<div class="line">Then, we will learn how to create basic contracts, request market data, manage
+orders, and request account summary.</div>
+</div>
 </div>
 <div class="section" id="setup-interactive-brokers-api">
 <h2>Setup Interactive Brokers API<a class="headerlink" href="#setup-interactive-brokers-api" title="Permalink to this headline">¶</a></h2>
-<p><em>Under construction</em></p>
+<div class="line-block">
+<div class="line">Before setting up a connection to IB TWS, there are few tasks to be completed:</div>
+</div>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://www.interactivebrokers.com.hk/en/home.php">InteractiveBrokers</a> website, and open an account</p></li>
+<li><p>Download IB API software from <a class="reference external" href="http://interactivebrokers.github.io/">InteractiveBrokers GitHub account</a></p></li>
+<li><p>Download TWS software from <a class="reference external" href="https://www.interactivebrokers.com/en/index.php?f=16042">InteractiveBrokers TWS</a></p></li>
+<li><p>Choose an IDE that you code in</p></li>
+<li><p>Subscribe to market data</p></li>
+</ol>
+<div class="line-block">
+<div class="line">For detailed instructions, please refer to <a class="reference external" href="https://interactivebrokers.github.io/tws-api/initial_setup.html">InteractiveBrokers Initial Setup</a>.</div>
+</div>
 </div>
 <div class="section" id="connect-to-interactive-brokers-tws">
 <h2>Connect to Interactive Brokers TWS<a class="headerlink" href="#connect-to-interactive-brokers-tws" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Once finish the setup, it’s time to connect to IB TWS. Use <code class="code docutils literal notranslate"><span class="pre">app.connect()</span></code>
+to establish an API connection.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">EWrapper</span><span class="p">,</span> <span class="n">EClient</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">EClient</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
+<span class="c1"># Establish API connection</span>
+<span class="c1"># app.connect(ipAddress, portNumber, clientId)</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">7497</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="n">app</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><em>Under construction</em></p>
+<div class="line-block">
+<div class="line">If you are successfully connected to IB TWS, you will get the below output in your
+terminal.</div>
+</div>
+<div class="figure align-default">
+<img alt="&quot;Terminal output.&quot;" src="_images/tws_connection_terminal.png" style="width: 400px;" />
+</div>
 </div>
 <div class="section" id="create-basic-contracts">
 <h2>Create Basic Contracts<a class="headerlink" href="#create-basic-contracts" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create contracts - stocks</span>
+<div class="line-block">
+<div class="line">Then, let’s create basic contract objects (trading instruments) such as stocks,
+or fx pairs.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ibapi.contract</span> <span class="k">import</span> <span class="n">Contract</span>
+
+<span class="c1"># Create contracts - stocks</span>
 <span class="n">tsla_contract</span> <span class="o">=</span> <span class="n">Contract</span><span class="p">()</span>
 <span class="n">tsla_contract</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;TSLA&quot;</span>
 <span class="n">tsla_contract</span><span class="o">.</span><span class="n">secType</span> <span class="o">=</span> <span class="s2">&quot;STK&quot;</span>
@@ -263,12 +298,17 @@ buying and selling without risking real money.</div>
 <span class="n">eurgbp_contract</span><span class="o">.</span><span class="n">exchange</span> <span class="o">=</span> <span class="s2">&quot;IDEALPRO&quot;</span>
 </pre></div>
 </div>
-<p><em>Under construction</em></p>
 </div>
 <div class="section" id="request-market-data">
 <h2>Request Market Data<a class="headerlink" href="#request-market-data" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Using the contract objects, we can request both streaming and historical market data.</div>
+</div>
 <div class="section" id="request-streaming-market-data">
 <h3>Request Streaming Market Data<a class="headerlink" href="#request-streaming-market-data" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Use <code class="code docutils literal notranslate"><span class="pre">app.reqMktData()</span></code> to request streaming market data.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">EWrapper</span><span class="p">,</span> <span class="n">EClient</span><span class="p">):</span>
 
     <span class="c1"># Receive market data</span>
@@ -278,12 +318,26 @@ buying and selling without risking real money.</div>
               <span class="s2">&quot;, PastLimit: &quot;</span><span class="p">,</span> <span class="n">attribs</span><span class="o">.</span><span class="n">pastLimit</span><span class="p">,</span> <span class="s2">&quot;, PreOpen: &quot;</span><span class="p">,</span> <span class="n">attribs</span><span class="o">.</span><span class="n">preOpen</span><span class="p">)</span>
 
 <span class="c1"># Request market data</span>
+<span class="c1"># app.reqMktData(tickerId, contract, genericTickList, snapshot, regulatorySnaphsot, mktDataOptions)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">reqMktData</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tsla_contract</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Note that if you haven’t subscribed the market data, you will receive 10-15 minute
+delayed streaming data. Before getting the delayed streaming data, make sure you use
+<code class="code docutils literal notranslate"><span class="pre">app.reqMarketDataType(3)</span></code> to switch market data type to delayed data.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Switch market data type</span>
+<span class="c1"># 3 for delayed data</span>
+<span class="n">app</span><span class="o">.</span><span class="n">reqMarketDataType</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="request-historical-market-data">
 <h3>Request Historical Market Data<a class="headerlink" href="#request-historical-market-data" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Use <code class="code docutils literal notranslate"><span class="pre">app.reqHistoricalData()</span></code> to request historical bar data.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">EWrapper</span><span class="p">,</span> <span class="n">EClient</span><span class="p">):</span>
 
     <span class="c1"># Receive historical bar data</span>
@@ -291,14 +345,21 @@ buying and selling without risking real money.</div>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HistoricalData. ReqId:&quot;</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="s2">&quot;BarData.&quot;</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span>
 
 <span class="c1"># Request historical bar data</span>
+<span class="c1"># app.reqHistoricalData(tickerId, contract, endDateTime, durationString, barSizeSetting, whatToShow, useRTH, formatDate, keepUpToDate)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">reqHistoricalData</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eurgbp_contract</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;1 M&#39;</span><span class="p">,</span> <span class="s1">&#39;1 day&#39;</span><span class="p">,</span> <span class="s1">&#39;ASK&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Under construction</em></p>
 </div>
 </div>
 <div class="section" id="manage-orders">
 <h2>Manage Orders<a class="headerlink" href="#manage-orders" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Now, let’s try to make an order!</div>
+</div>
+<div class="line-block">
+<div class="line">First, write some methods in EWrapper that are required for receiving all relevant
+information on order opening, order status, and order execution.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">EWrapper</span><span class="p">,</span> <span class="n">EClient</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">nextValidId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orderId</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -330,15 +391,23 @@ buying and selling without risking real money.</div>
 </div>
 <div class="section" id="place-orders">
 <h3>Place Orders<a class="headerlink" href="#place-orders" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">To place an order, use <code class="code docutils literal notranslate"><span class="pre">app.placeOrder()</span></code> to submit an order.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place order</span>
+<span class="c1"># app.placeOrder(orderId, contract, order)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">placeOrder</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">nextorderId</span><span class="p">,</span> <span class="n">eurgbp_contract</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="modify-orders">
 <h3>Modify Orders<a class="headerlink" href="#modify-orders" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">To modify the order, call <code class="code docutils literal notranslate"><span class="pre">app.placeOrder()</span></code> again with the order id to be
+modified and the updated parameters.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify order</span>
-<span class="n">order_id</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">order_id</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">order</span><span class="o">.</span><span class="n">lmtPrice</span> <span class="o">=</span> <span class="s1">&#39;0.82&#39;</span>
 <span class="n">app</span><span class="o">.</span><span class="n">placeOrder</span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span> <span class="n">eurgbp_contract</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
 </pre></div>
@@ -346,6 +415,12 @@ buying and selling without risking real money.</div>
 </div>
 <div class="section" id="cancel-orders">
 <h3>Cancel Orders<a class="headerlink" href="#cancel-orders" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">To cancel an order by its order id, use <code class="code docutils literal notranslate"><span class="pre">app.cancelOrder()</span></code>.</div>
+</div>
+<div class="line-block">
+<div class="line">To cancel all open orders, use <code class="code docutils literal notranslate"><span class="pre">app.reqGlobalCancel()</span></code>.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cancel order by order Id</span>
 <span class="n">app</span><span class="o">.</span><span class="n">cancelOrder</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">nextorderId</span><span class="p">)</span>
 
@@ -353,11 +428,13 @@ buying and selling without risking real money.</div>
 <span class="n">app</span><span class="o">.</span><span class="n">reqGlobalCancel</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><em>Under construction</em></p>
 </div>
 </div>
 <div class="section" id="request-account-summary">
 <h2>Request Account Summary<a class="headerlink" href="#request-account-summary" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Lastly, use <code class="code docutils literal notranslate"><span class="pre">app.reqAccountSummary()</span></code> to get the summarized account information.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">EWrapper</span><span class="p">,</span> <span class="n">EClient</span><span class="p">):</span>
 
     <span class="c1"># Receive account summary</span>
@@ -372,11 +449,11 @@ buying and selling without risking real money.</div>
 <span class="n">app</span><span class="o">.</span><span class="n">reqAccountSummary</span><span class="p">(</span><span class="mi">9002</span><span class="p">,</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;$LEDGER:HKD&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><em>Under construction</em></p>
 <p><strong>References</strong>
 (TO-EDIT)</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.investopedia.com/terms/p/papertrade.asp/">Investopedia - Paper Trade</a></p></li>
+<li><p><a class="reference external" href="https://interactivebrokers.github.io/tws-api/">Trader Workstation API</a></p></li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
