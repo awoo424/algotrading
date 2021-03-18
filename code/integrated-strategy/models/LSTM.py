@@ -1,3 +1,6 @@
+import numpy as np
+from numpy import zeros, newaxis
+
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
@@ -35,3 +38,23 @@ class LSTM(nn.Module):
         out = self.fc(out[:, -1, :]) 
         # out.size() --> 100, 10
         return out
+
+def predict_price(data, model, scaler):
+    #print(data)
+
+    actual_output = data.values 
+    
+    actual_output = torch.from_numpy(actual_output).type(torch.Tensor)
+    train_input = actual_output[:,:,newaxis]
+    train_input = np.array(train_input)
+    train_input = torch.from_numpy(train_input).type(torch.Tensor)
+
+    # make prediction of the input 
+    pred = model(train_input)
+
+    # invert predictions
+    pred = scaler.inverse_transform(pred.detach().numpy())
+    actual_output = scaler.inverse_transform(actual_output.detach().numpy())
+    #print(pred.shape)
+    
+    return pred, actual_output

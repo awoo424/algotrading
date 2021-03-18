@@ -5,15 +5,20 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 
-def read_data(data_dir, symbols, dates):
+def read_data(data_dir, symbol, dates):
   df = pd.DataFrame(index=dates)
-  for symbol in symbols:
-    new_df = pd.read_csv(data_dir+ "hkex_" + symbol  +".csv", index_col='Date', parse_dates=True, usecols=['Date', 'Close'], na_values=['nan'])
-    new_df = new_df.rename(columns={'Close': symbol})
-    df = df.join(new_df)
+  
+  new_df = pd.read_csv(data_dir+ "hkex_" + symbol  +".csv", index_col='Date', parse_dates=True, usecols=['Date', 'Close'], na_values=['nan'])
+  new_df = new_df.rename(columns={'Close': symbol})
+  df = df.join(new_df)
+
+  # data pre-processing
+  df = df.rename(columns={symbol: 'Close'})
+  df = df.fillna(method='ffill')  
+
   return df
 
-# function to create train, test data given stock data and sequence length
+# create train, test data given stock data and sequence length
 def load_data(stock, look_back):
 
     data_raw = stock.values # convert to numpy array
@@ -36,9 +41,9 @@ def load_data(stock, look_back):
     
     return [x_train, y_train, x_test, y_test]
 
-# Visualising the results
-def visualise(df,y_test,y_test_pred):
-  
+
+def visualise(df, y_test, y_test_pred, output_file):
+
     figure, axes = plt.subplots(figsize=(15, 6))
     axes.xaxis_date()
     print(y_test.shape)
@@ -50,5 +55,24 @@ def visualise(df,y_test,y_test_pred):
     plt.xlabel('Time')
     plt.ylabel('HKEX_0001 Stock Price')
     plt.legend()
-    plt.savefig('ML-model-output/HKEX_0001_pred.png')
+
+    plt.savefig(output_file)
     #plt.show()
+  
+def gen_signal(pred, actual_output):
+    signal = []
+    
+    for p,a in zip(pred,actual_output):
+
+        if (abs(p - a) < 1.0):
+            signal.append(0)
+            
+        # shows that current price is overvalued, sell the stock
+        elif (p > a):
+            signal.append(-1)
+            
+        # shows that current price is undervalued, buy the stock
+        elif (p < a):
+            signal.append(1)
+            
+    return signal
