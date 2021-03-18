@@ -14,10 +14,10 @@ from backtest import Backtest
 from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 
 # macroeconomic analysis
-from macro_analysis import GetSensitivity, GetMacrodata
+from filters.macro_analysis import GetSensitivity, GetMacrodata
 
 # sentiment analysis
-from sentiment_analysis import SentimentFilter
+from filters.sentiment_analysis import SentimentFilter
 
 
 def baseline_strategy(symbol, start, end):
@@ -102,7 +102,7 @@ def baseline_strategy(symbol, start, end):
     """
     Plotting figures
     """
-
+    
     backtest_fig.suptitle('Baseline - Portfolio value', fontsize=14)
     backtest_filename = "./figures/" + symbol + "-baseline_portfolio-value"
     backtest_fig.savefig(backtest_filename)

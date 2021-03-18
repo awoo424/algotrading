@@ -69,7 +69,7 @@ def starter_vader(ticker_full):
     # pass in the threshold to get the vader label
     df = find_news_pred_label(df, 0.01)
 
-    result_path = 'results/' + ticker_full + '-sentiment-scores.csv'
+    result_path = 'sentiment_scores/' + ticker_full + '-sentiment-scores.csv'
 
     # get the full path of the hang seng index average csv file
     hsi_movement_path = os.path.join(
