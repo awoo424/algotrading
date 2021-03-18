@@ -5,8 +5,7 @@ jupyter_example.ipynb
 ._jupyter_example.ipynb
 tickers/
 .vscode/
-._.DS_Store
-._DS_Store
+*DS_Store
 .idea/
 database_real/
 generate-training-data/
