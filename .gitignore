@@ -9,8 +9,9 @@ tickers/
 .idea/
 database_real/
 generate-training-data/
-baseline_results.csv
-LSTM_results.csv
 ML-model-input/
 ML-model-output/
+LSTM_results.csv
+output/
 *_output.csv
+*_results.csv
