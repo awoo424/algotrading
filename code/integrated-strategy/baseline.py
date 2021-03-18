@@ -14,10 +14,10 @@ from backtest import Backtest
 from evaluate import PortfolioReturn, SharpeRatio, MaxDrawdown, CAGR
 
 # macroeconomic analysis
-from macro_analysis import GetSensitivity, GetMacrodata
+from filters.macro_analysis import GetSensitivity, GetMacrodata
 
 # sentiment analysis
-from sentiment_analysis import SentimentFilter
+from filters.sentiment_analysis import SentimentFilter
 
 """
 Technical analysis
@@ -89,7 +89,7 @@ print("No. of trade: {value}".format(value=len(signals[signals.positions == 1]))
 Plotting figures
 """
 backtest_fig.suptitle('Baseline - Portfolio value', fontsize=14)
-backtest_fig.savefig('./figures/baseline_portfolio-value')
+#backtest_fig.savefig('./figures/baseline_portfolio-value')
 plt.show()
 
 # Evaluate strategy
@@ -97,7 +97,7 @@ plt.show()
 # 1. Portfolio return
 returns_fig = PortfolioReturn(portfolio)
 returns_fig.suptitle('Baseline - Portfolio return')
-returns_fig.savefig('./figures/baseline_portfolo-return')
+#returns_fig.savefig('./figures/baseline_portfolo-return')
 plt.show()
 
 # 2. Sharpe ratio
@@ -107,7 +107,7 @@ print("Sharpe ratio: {ratio:.4f} ".format(ratio = sharpe_ratio))
 # 3. Maximum drawdown
 maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
 maxDrawdown_fig.suptitle('Baseline - Maximum drawdown', fontsize=14)
-maxDrawdown_fig.savefig('./figures/baseline_maximum-drawdown')
+#maxDrawdown_fig.savefig('./figures/baseline_maximum-drawdown')
 plt.show()
 
 # 4. Compound Annual Growth Rate
