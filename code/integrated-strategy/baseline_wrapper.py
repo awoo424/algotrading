@@ -84,8 +84,6 @@ def baseline_strategy(symbol, start, end):
     """
     Backtesting & evaluation
     """
-    print("############ Ticker: " + ticker + " ############")
-
     portfolio, backtest_fig = Backtest(ticker, filtered_signals, df)
     plt.close()  # hide figure
     print("Final total value: {value:.4f} ".format(
@@ -146,7 +144,10 @@ def main():
     for ticker in ticker_list:
         start = '2017-01-01'
         end = '2021-01-01'
+
+        print("############ Ticker: " + ticker + " ############")
         baseline_strategy(ticker, start, end)
+        print('\n')
 
 
 if __name__ == "__main__":
