@@ -35,3 +35,20 @@ def load_data(stock, look_back):
     y_test = data[train_set_size:,-1,:]
     
     return [x_train, y_train, x_test, y_test]
+
+# Visualising the results
+def visualise(df,y_test,y_test_pred):
+  
+    figure, axes = plt.subplots(figsize=(15, 6))
+    axes.xaxis_date()
+    print(y_test.shape)
+
+    axes.plot(df[len(df)-len(y_test):].index, y_test, color = 'red', label = 'Real HKEX_0001 Stock Price')
+    axes.plot(df[len(df)-len(y_test):].index, y_test_pred, color = 'blue', label = 'Predicted HKEX_0001 Stock Price')
+    #axes.xticks(np.arange(0,394,50))
+    plt.title('HKEX_0001 Stock Price Prediction')
+    plt.xlabel('Time')
+    plt.ylabel('HKEX_0001 Stock Price')
+    plt.legend()
+    plt.savefig('ML-model-output/HKEX_0001_pred.png')
+    #plt.show()

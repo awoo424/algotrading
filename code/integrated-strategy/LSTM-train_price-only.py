@@ -29,7 +29,8 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 
-from utils.data_utils import read_data, load_data
+from utils import read_data, load_data, visualise
+from models.LSTM import LSTM
 
 
 # load data
@@ -91,41 +92,6 @@ hidden_dim = 32
 num_layers = 2 
 output_dim = 1
 
-
-# Here we define our model as a class
-class LSTM(nn.Module):
-    def __init__(self, input_dim, hidden_dim, num_layers, output_dim):
-        super(LSTM, self).__init__()
-        # Hidden dimensions
-        self.hidden_dim = hidden_dim
-
-        # Number of hidden layers
-        self.num_layers = num_layers
-
-        # batch_first=True causes input/output tensors to be of shape
-        # (batch_dim, seq_dim, feature_dim)
-        self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers, batch_first=True)
-
-        # Readout layer
-        self.fc = nn.Linear(hidden_dim, output_dim)
-
-    def forward(self, x):
-        # Initialize hidden state with zeros
-        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_dim).requires_grad_()
-
-        # Initialize cell state
-        c0 = torch.zeros(self.num_layers, x.size(0), self.hidden_dim).requires_grad_()
-
-        # We need to detach as we are doing truncated backpropagation through time (BPTT)
-        # If we don't, we'll backprop all the way to the start even after going through another batch
-        out, (hn, cn) = self.lstm(x, (h0.detach(), c0.detach()))
-
-        # Index hidden state of last time step
-        # out.size() --> 100, 32, 100
-        # out[:, -1, :] --> 100, 100 --> just want last time step hidden states! 
-        out = self.fc(out[:, -1, :]) 
-        # out.size() --> 100, 10
-        return out
     
 model = LSTM(input_dim=input_dim, hidden_dim=hidden_dim, output_dim=output_dim, num_layers=num_layers)
 
@@ -190,21 +156,5 @@ trainScore = math.sqrt(mean_squared_error(y_train[:,0], y_train_pred[:,0]))
 print('Train Score: %.2f RMSE' % (trainScore))
 testScore = math.sqrt(mean_squared_error(y_test[:,0], y_test_pred[:,0]))
 print('Test Score: %.2f RMSE' % (testScore))
-
-# Visualising the results
-def visualization(df,y_test,y_test_pred):
-    figure, axes = plt.subplots(figsize=(15, 6))
-    axes.xaxis_date()
-    print(y_test.shape)
-
-    axes.plot(df[len(df)-len(y_test):].index, y_test, color = 'red', label = 'Real HKEX_0001 Stock Price')
-    axes.plot(df[len(df)-len(y_test):].index, y_test_pred, color = 'blue', label = 'Predicted HKEX_0001 Stock Price')
-    #axes.xticks(np.arange(0,394,50))
-    plt.title('HKEX_0001 Stock Price Prediction')
-    plt.xlabel('Time')
-    plt.ylabel('HKEX_0001 Stock Price')
-    plt.legend()
-    plt.savefig('ML-model-output/HKEX_0001_pred.png')
-    #plt.show()
 
 visualization(df_0001,y_test,y_test_pred)
