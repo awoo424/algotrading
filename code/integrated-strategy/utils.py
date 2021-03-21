@@ -15,6 +15,7 @@ def read_data(data_dir, symbol, dates):
   # data pre-processing
   df = df.rename(columns={symbol: 'Close'})
   df = df.fillna(method='ffill')  
+  df = df.fillna(0.0)
 
   return df
 

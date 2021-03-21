@@ -9,6 +9,7 @@ tickers/
 .idea/
 database_real/
 generate-training-data/
+integrated-strategy/figures/
 ML-model-input/
 ML-model-output/
 LSTM_results.csv
