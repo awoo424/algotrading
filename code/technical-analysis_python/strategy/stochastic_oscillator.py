@@ -65,7 +65,11 @@ class stc_oscillator(Indicator):
         kvalues = [0] * length
 
         for i in range(self.k - 1, length):
-            k = ((array_close[i] - array_lowest[i]) * 100 ) / (array_highest[i] - array_lowest[i])
+            if (array_highest[i] - array_lowest[i]) != 0: # check division by zero
+                k = ((array_close[i] - array_lowest[i]) * 100 ) / (array_highest[i] - array_lowest[i])
+            else:
+                kvalues[i] = 0.0
+                
             # Kvalue.append(k)
             kvalues[i] = k
 
