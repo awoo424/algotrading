@@ -92,7 +92,7 @@ def backtest(symbol):
 
 
     # Write to file
-    f = open("LSTM_results.csv", "a")
+    f = open("LSTM-train_price-only_results.csv", "a")
     f.write(ticker + ',' + start + ',' + end + ',' + str(portfolio_return) + ',' +
             str(sharpe_ratio) + ',' + str(cagr) + ',' + str(trade_signals_num) + '\n')
     f.close()
