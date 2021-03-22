@@ -9,6 +9,7 @@ Code reference:
 https://www.kaggle.com/taronzakaryan/predicting-stock-price-using-lstm-model-pytorch
 """
 
+import os
 import numpy as np
 import random
 import pandas as pd
@@ -30,47 +31,39 @@ import torch.nn as nn
 from torch.autograd import Variable
 
 from models.LSTM import LSTM, predict_price
-from utils import read_data, load_data, visualise, gen_signal
+from utils import read_strategy_data, load_data, merge_data, visualise, gen_signal
 
 
 def LSTM_predict(symbol):
 
-    data_dir = "../../database/microeconomic_data/hkex_ticks_day/"
+    data_dir = "../../database_real/machine_learning_data/"
+    sentiment_data_dir = "../../database/sentiment_data/data-result/"
 
     # select date range
-    dates = pd.date_range('2010-01-02','2016-12-31',freq='B')
     test_dates = pd.date_range('2017-01-03','2021-03-03',freq='B')
-
-    # select ticker
-    symbol = symbol
-
-    # load data
-    df = read_data(data_dir, symbol, dates)
-    df_test = read_data(data_dir, symbol, test_dates)
-
-    scaler = MinMaxScaler(feature_range=(-1, 1))
-
-    df['Close'] = scaler.fit_transform(df['Close'].values.reshape(-1,1))
-    df_test['Close'] = scaler.fit_transform(df_test['Close'].values.reshape(-1,1))
+    
+    # Get merged df with stock tick and sentiment scores
+    df, scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, 'macd-crossover')
 
     look_back = 60 # choose sequence length
 
-    x_train, y_train, x_test, y_test = load_data(df, look_back)
+    x_train, y_train, x_test_df, y_test_df = load_data(df, look_back)
     print('x_train.shape = ',x_train.shape)
     print('y_train.shape = ',y_train.shape)
-    print('x_test.shape = ',x_test.shape)
-    print('y_test.shape = ',y_test.shape)
+    print('x_test.shape = ',x_test_df.shape)
+    print('y_test.shape = ',y_test_df.shape)
 
     # make training and test sets in torch
     x_train = torch.from_numpy(x_train).type(torch.Tensor)
-    x_test = torch.from_numpy(x_test).type(torch.Tensor)
+    x_test = torch.from_numpy(x_test_df).type(torch.Tensor)
     y_train = torch.from_numpy(y_train).type(torch.Tensor)
-    y_test = torch.from_numpy(y_test).type(torch.Tensor)
+    y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
 
     n_steps = look_back - 1
     batch_size = 32
     num_epochs = 100 # n_iters / (len(train_X) / batch_size)
 
+    
     train = torch.utils.data.TensorDataset(x_train,y_train)
     test = torch.utils.data.TensorDataset(x_test,y_test)
 
@@ -83,22 +76,16 @@ def LSTM_predict(symbol):
                                             shuffle=False)
 
     # Hyperparameters
-    input_dim = 1
-    hidden_dim = 32
-    num_layers = 2 
-    output_dim = 1
+    input_dim = 7
+    hidden_dim = 64 # default = 32
+    num_layers = 4 # default = 2 
+    output_dim = 7
     torch.manual_seed(1) # set seed
 
     model = LSTM(input_dim=input_dim, hidden_dim=hidden_dim, output_dim=output_dim, num_layers=num_layers)
 
     loss_fn = torch.nn.MSELoss()
     optimiser = torch.optim.Adam(model.parameters(), lr=0.01)
-
-    # check dimensions
-    # print(model)
-    # print(len(list(model.parameters())))
-    # for i in range(len(list(model.parameters()))):
-    #     print(list(model.parameters())[i].size())
 
     hist = np.zeros(num_epochs)
 
@@ -146,31 +133,33 @@ def LSTM_predict(symbol):
     print('Test Score: %.2f RMSE' % (testScore))
 
     # Plot predictions
-    pred_filename = 'LSTM-price-only_output/' + symbol + '_pred.png'
-    visualise(df, y_test, y_test_pred, pred_filename)
+    pred_filename = 'LSTM_output/' + symbol + '_pred.png'
+    visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
 
     # Inferencing
-    y_inf_pred, y_inf = predict_price(df_test, model, scaler)
-    signal = gen_signal(y_inf_pred, y_inf)
-
+    signal = gen_signal(y_test_pred[:,0], y_test[:,0])
+    
     # Save signals as csv file
-    output_df = pd.DataFrame(index=df_test.index)
+    output_df = pd.DataFrame()
+    #output_df = pd.DataFrame(index=test_dates)
     output_df['signal'] = signal
     output_df.index.name = "Date"
 
-    output_filename = 'LSTM-price-only_output/' + symbol + '_output.csv'
+    output_filename = 'LSTM_output/' + symbol + '_output.csv'
     output_df.to_csv(output_filename)
 
     # Plot inferencing results
-    inf_filename = 'LSTM-price-only_output/' + symbol + '_inf.png'
-    visualise(df_test, y_inf, y_inf_pred, inf_filename)
-
+    inf_filename = 'LSTM_output/' + symbol + '_inf.png'
+    visualise(df,y_test[:,0],y_test_pred[:,0], inf_filename)
+    
 
 
 def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
-                   '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
+    # ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
+    #                '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
     
+    ticker_list = ['0001', '0002']
+
     for ticker in ticker_list:
 
         print("############ Ticker: " + ticker + " ############")

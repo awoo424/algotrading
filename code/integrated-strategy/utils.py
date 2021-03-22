@@ -1,14 +1,33 @@
+import os
 import numpy as np
 import random
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+from sklearn.preprocessing import MinMaxScaler
+
 
 def read_data(data_dir, symbol, dates):
+    
   df = pd.DataFrame(index=dates)
   
   new_df = pd.read_csv(data_dir+ "hkex_" + symbol  +".csv", index_col='Date', parse_dates=True, usecols=['Date', 'Close'], na_values=['nan'])
+  new_df = new_df.rename(columns={'Close': symbol})
+  df = df.join(new_df)
+
+  # data pre-processing
+  df = df.rename(columns={symbol: 'Close'})
+  df = df.fillna(method='ffill')  
+  df = df.fillna(0.0)
+
+  return df
+
+def read_strategy_data(data_dir, symbol, dates, strategy):
+
+  df = pd.DataFrame(index=dates)
+  
+  new_df = pd.read_csv(data_dir + symbol  + ".HK_" + strategy + ".csv", index_col='Date', parse_dates=True, usecols=['Date', 'Close'], na_values=['nan'])
   new_df = new_df.rename(columns={'Close': symbol})
   df = df.join(new_df)
 
@@ -41,6 +60,28 @@ def load_data(stock, look_back):
     
     return [x_train, y_train, x_test, y_test]
 
+# return dataframe with stock tick and sentiment scores 
+def merge_data(ticker, data_dir, sentiment_data_dir, strategy):
+    merge_path = os.path.join(data_dir,ticker.zfill(4)+'.HK_' + strategy + '.csv') 
+    sentiment_path = os.path.join(sentiment_data_dir,'data-'+ticker.zfill(5)+'-result.csv') 
+
+    merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
+
+    merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
+    sentiment_df = pd.read_csv(sentiment_path,index_col='dates',parse_dates=['dates'], na_values=['nan'])
+    df = pd.merge(merge_df,sentiment_df, how='inner', left_index=True, right_index=True)
+
+    # pre-processing
+    df = df.fillna(method='ffill')
+    values = df.values
+
+    # ensure all data is float
+    values = values.astype('float32')
+    # normalise features
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    scaled = scaler.fit_transform(values)
+
+    return df, scaled, scaler
 
 def visualise(df, y_test, y_test_pred, output_file):
 

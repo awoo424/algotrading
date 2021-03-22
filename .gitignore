@@ -10,8 +10,8 @@ tickers/
 database_real/
 generate-training-data/
 integrated-strategy/figures/
-ML-model-input/
-ML-model-output/
+LSTM_output/
+LSTM-price-only_output/
 LSTM_results.csv
 output/
 *_output.csv

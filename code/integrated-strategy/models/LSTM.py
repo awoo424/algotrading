@@ -41,10 +41,11 @@ class LSTM(nn.Module):
 
 def predict_price(data, model, scaler):
     #print(data)
-
-    actual_output = data.values 
     
-    actual_output = torch.from_numpy(actual_output).type(torch.Tensor)
+    actual_output = data.values
+    #print(actual_output)
+    
+    #actual_output = torch.from_numpy(actual_output).type(torch.Tensor)
     train_input = actual_output[:,:,newaxis]
     train_input = np.array(train_input)
     train_input = torch.from_numpy(train_input).type(torch.Tensor)
