@@ -7,6 +7,10 @@ In this tutorial, you will learn to:
 * Conduct Exploratory Data Analysis (EDA)
 * Visualise data
 
+You could run the code this tutorial in :code:`code/technical-analysis_julia/data-science-basics.ipynb`. 
+Make sure you have installed Julia and all the required dependencies 
+for Julia (follow instructions `here <https://github.com/JuliaLang/julia>`_). 
+
 
 **Requirements:**
 

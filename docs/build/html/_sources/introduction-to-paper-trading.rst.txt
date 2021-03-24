@@ -230,7 +230,6 @@ Request Account Summary
 
 
 **References**
-(TO-EDIT)
 
 * `Investopedia - Paper Trade <https://www.investopedia.com/terms/p/papertrade.asp/>`_
 * `Trader Workstation API <https://interactivebrokers.github.io/tws-api/>`_

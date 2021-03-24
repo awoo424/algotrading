@@ -9,7 +9,6 @@ In this tutorial, you will learn to:
 * Calculate and plot distribution of percentage change
 * Use moving windows
 
-
 **Requirements:**
 
 * `pandas <https://pypi.org/project/pandas/>`__

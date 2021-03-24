@@ -33,7 +33,7 @@ This repo is built as part of the Final Year Project (FYP) at the Department of 
 
 All the code could be found in the `/code` directory and the documentation could be accessed at [https://algo-trading.readthedocs.io/](https://algo-trading.readthedocs.io/).
 
-*Note that the `\database` directory only contains example files. The actual database is stored in the HKU Department of Computer Science server.*  
+(Note that the `/database` directory only contains example files. The actual database is stored in the HKU Department of Computer Science server.)  
 
 ## Code overview
 
@@ -102,10 +102,9 @@ The following indicators have been implemented in Python:
 * Bankruptcy prediction
 * Property price prediction
 * Sentiment analysis
+* Multi-feature trading strategy
 
 ## Contact
-
-Angel Woo - awoo424@connect.hku.hk
 
 Project Link: https://awoo424.github.io/algotrading_fyp/
 

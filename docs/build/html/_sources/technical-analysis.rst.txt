@@ -1,4 +1,4 @@
-Techinical analysis
+Technical analysis
 ====================
 
 In this tutorial, you will learn:

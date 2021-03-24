@@ -47,6 +47,8 @@ Welcome to the algo trading learning repo
    bankruptcy-prediction
    property-price-prediction
    sentiment-analysis
+   multi-feature-strategy
+   
 
 .. toctree::
    :maxdepth: 2
