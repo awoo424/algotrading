@@ -4,7 +4,9 @@ Multi-feature trading strategy
 Putting it together
 ----------------------------
 
-| *Under construction*
+| In this part we'll look into how to put everything together in order to build a strategy that
+  incorporates different features (technical indicator, macroeconomic trends and sentiment indicator) that
+  comprehensively examine the market as a whole.
 
 
 Simple approach
