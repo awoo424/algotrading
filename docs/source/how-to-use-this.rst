@@ -18,7 +18,7 @@ What this is
 
 | We recommend beginners to start with the :any:`Introduction`, and for coders who have a 
   basic understanding of technical analysis & fundamental analysis could 
-  jump right into :any:`Techinical analysis`.
+  jump right into :any:`Technical analysis`.
 
 
 Why we built this

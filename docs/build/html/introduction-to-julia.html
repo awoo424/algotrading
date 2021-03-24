@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Introduction to Julia &mdash; algotrading 0.0.1 documentation</title>
   
@@ -17,10 +17,7 @@
 
   
   
-
   
-  
-
   
 
   
@@ -30,11 +27,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -56,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> algotrading
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> algotrading
           
 
           
@@ -99,7 +96,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Part 2: Core trading strategies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="technical-analysis.html">Techinical analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical-analysis.html">Technical analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamental-analysis.html">Fundamental analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="evaluation-metrics.html">Evaluation metrics</a></li>
 </ul>
@@ -107,6 +104,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Julia</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-use-julia">Why use Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="julia-data-science-basics.html">Data science basics</a></li>
@@ -166,8 +164,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -179,7 +175,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/introduction-to-julia.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -195,13 +191,33 @@
             
   <div class="section" id="introduction-to-julia">
 <h1>Introduction to Julia<a class="headerlink" href="#introduction-to-julia" title="Permalink to this headline">¶</a></h1>
-<p><em>Under construction</em></p>
+<p>Julia is a high-level, high-performance programming language that is designed for numerical analysis and computational science.
+<a class="reference external" href="https://www.nature.com/articles/d41586-019-02310-3">Nature</a> describes it as the “<em>best of both worlds</em>” - a language that combines the interactivity and syntax of ‘scripting’ languages,
+such as Python, Matlab and R, with the speed of ‘compiled’ languages such as Fortran and C.</p>
 <div class="section" id="why-use-julia">
 <h2>Why use Julia<a class="headerlink" href="#why-use-julia" title="Permalink to this headline">¶</a></h2>
-<p><em>Under construction</em></p>
+<p>Julia is designed for speed, performance and scalability. Here are some highlights about the best features of Julia:</p>
+<ul class="simple">
+<li><p>It has a legible syntax and is easy to learn.</p></li>
+<li><p>It incorporates vector notations and DataFrames as part of the language.</p></li>
+<li><p>It compiles codes in advance and thus is designed to be fast.</p></li>
+</ul>
+<p>Many financial firms including BlackRock and State Street are using Julia as their primary development language.
+With the belief that the community for Julia will continue to grow, here we would like to introduce
+some examples of using Julia to write algorithmic trading strategies.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The official repo and installation instructions could be found <a class="reference external" href="https://github.com/JuliaLang/julia/">here</a>.</p>
+<p>Here are some good tutorials for picking up the language:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://juliabyexample.helpmanual.io/">Julia By Example</a></p></li>
+<li><p><a class="reference external" href="https://julialang.org/learning/tutorials/">Julia Tutorials (from official website)</a></p></li>
+</ul>
 <p><strong>References</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/technical-analysis/">CFI - Technical Analysis: A Beginner’s Guide</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/best-language-for-quantitative-finance-here-are-my-findings-f1f458be48b7">Is Julia the best language for quantitave finance?</a></p></li>
+<li><p><a class="reference external" href="https://juliacomputing.com/industries/banking-and-finance/">Why Julia for Finance?</a></p></li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -219,29 +235,37 @@ All final investment decisions are yours and as a result you could make or lose 
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="julia-data-science-basics.html" class="btn btn-neutral float-right" title="Data science basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="evaluation-metrics.html" class="btn btn-neutral float-left" title="Evaluation metrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="julia-data-science-basics.html" class="btn btn-neutral float-right" title="Data science basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="evaluation-metrics.html" class="btn btn-neutral float-left" title="Evaluation metrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Angel Woo.
+        
+        &copy; Copyright 2020, Angel Woo
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
