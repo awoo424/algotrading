@@ -136,7 +136,7 @@ portfolio[:holdings] = portfolio[:Close] .* portfolio[:quantity]
 # Add `cash` to portfolio
 portfolio[:cash] = initial_capital .- cumsum(portfolio[:trade])
 
-#  # Add `total` to portfolio
+# Add `total` to portfolio
 portfolio[:total] = portfolio[:cash] .+ portfolio[:holdings]
 
 portfolio_total = Array(portfolio[:total])
