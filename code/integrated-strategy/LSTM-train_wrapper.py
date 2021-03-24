@@ -36,18 +36,19 @@ from utils import read_strategy_data, load_data, merge_data, visualise, gen_sign
 
 def LSTM_predict(symbol):
 
-    data_dir = "../../database_real/machine_learning_data/"
+    data_dir = "../../database/machine_learning_data/"
     sentiment_data_dir = "../../database/sentiment_data/data-result/"
+
 
     # select date range
     test_dates = pd.date_range('2017-01-03','2021-03-03',freq='B')
-    
+ 
     # Get merged df with stock tick and sentiment scores
     df, scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, 'macd-crossover')
 
     look_back = 60 # choose sequence length
 
-    x_train, y_train, x_test_df, y_test_df = load_data(df, look_back)
+    x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
     print('x_train.shape = ',x_train.shape)
     print('y_train.shape = ',y_train.shape)
     print('x_test.shape = ',x_test_df.shape)
@@ -134,6 +135,7 @@ def LSTM_predict(symbol):
 
     # Plot predictions
     pred_filename = 'LSTM_output/' + symbol + '_pred.png'
+    print(pred_filename)
     visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
 
     # Inferencing
@@ -158,7 +160,7 @@ def main():
     # ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
     #                '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
     
-    ticker_list = ['0001', '0002']
+    ticker_list = ['0001']
 
     for ticker in ticker_list:
 
@@ -167,4 +169,4 @@ def main():
         print('\n')
 
 if __name__ == "__main__":
-    main()
+    main() 

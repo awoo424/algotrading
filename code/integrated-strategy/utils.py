@@ -39,9 +39,7 @@ def read_strategy_data(data_dir, symbol, dates, strategy):
   return df
 
 # create train, test data given stock data and sequence length
-def load_data(stock, look_back):
-
-    data_raw = stock.values # convert to numpy array
+def load_data(data_raw, look_back):
     data = []
     
     # create all possible sequences of length seq_len
@@ -59,16 +57,18 @@ def load_data(stock, look_back):
     y_test = data[train_set_size:,-1,:]
     
     return [x_train, y_train, x_test, y_test]
+ 
 
 # return dataframe with stock tick and sentiment scores 
 def merge_data(ticker, data_dir, sentiment_data_dir, strategy):
     merge_path = os.path.join(data_dir,ticker.zfill(4)+'.HK_' + strategy + '.csv') 
+ 
     sentiment_path = os.path.join(sentiment_data_dir,'data-'+ticker.zfill(5)+'-result.csv') 
-
+    sentiment_df = pd.read_csv(sentiment_path,index_col='dates',parse_dates=['dates'], na_values=['nan'])
     merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
 
     merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
-    sentiment_df = pd.read_csv(sentiment_path,index_col='dates',parse_dates=['dates'], na_values=['nan'])
+    
     df = pd.merge(merge_df,sentiment_df, how='inner', left_index=True, right_index=True)
 
     # pre-processing
@@ -84,13 +84,13 @@ def merge_data(ticker, data_dir, sentiment_data_dir, strategy):
     return df, scaled, scaler
 
 def visualise(df, y_test, y_test_pred, output_file):
-
+    pd.plotting.register_matplotlib_converters()
     figure, axes = plt.subplots(figsize=(15, 6))
     axes.xaxis_date()
     #print(y_test.shape)
 
-    axes.plot(df[len(df)-len(y_test):].index, y_test, color = 'red', label = 'Real HKEX_0001 Stock Price')
-    axes.plot(df[len(df)-len(y_test):].index, y_test_pred, color = 'blue', label = 'Predicted HKEX_0001 Stock Price')
+    axes.plot(df[len(df)-len(y_test):].index, y_test, color = 'red', label = 'Real Stock Price')
+    axes.plot(df[len(df)-len(y_test):].index, y_test_pred, color = 'blue', label = 'Predicted Stock Price')
     
     plt.title('Stock Price Prediction')
     plt.xlabel('Time')
@@ -98,7 +98,7 @@ def visualise(df, y_test, y_test_pred, output_file):
     plt.legend()
 
     plt.savefig(output_file)
-    #plt.show()
+    # plt.show()
   
 def gen_signal(pred, actual_output):
     signal = []
