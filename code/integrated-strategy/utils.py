@@ -60,7 +60,7 @@ def load_data(data_raw, look_back):
  
 
 # return dataframe with stock tick and sentiment scores 
-def merge_data(ticker, data_dir, sentiment_data_dir, strategy):
+def merge_data(ticker, data_dir, sentiment_data_dir, strategy, start_date=None, end_date=None):
     merge_path = os.path.join(data_dir,ticker.zfill(4)+'.HK_' + strategy + '.csv') 
  
     sentiment_path = os.path.join(sentiment_data_dir,'data-'+ticker.zfill(5)+'-result.csv') 
@@ -70,6 +70,9 @@ def merge_data(ticker, data_dir, sentiment_data_dir, strategy):
     merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
     
     df = pd.merge(merge_df,sentiment_df, how='inner', left_index=True, right_index=True)
+
+    if (start_date != None) and (end_date != None):
+        df = df.loc[pd.Timestamp(start_date):pd.Timestamp(end_date)]
 
     # pre-processing
     df = df.fillna(method='ffill')

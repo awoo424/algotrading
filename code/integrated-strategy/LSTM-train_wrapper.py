@@ -11,6 +11,7 @@ https://www.kaggle.com/taronzakaryan/predicting-stock-price-using-lstm-model-pyt
 
 import os
 import numpy as np
+from numpy import zeros, newaxis
 import random
 import pandas as pd
 import matplotlib as mpl
@@ -36,13 +37,10 @@ from utils import read_strategy_data, load_data, merge_data, visualise, gen_sign
 
 def LSTM_predict(symbol):
 
-    data_dir = "../../database/machine_learning_data/"
+    data_dir = "../../database_real/machine_learning_data/"
     sentiment_data_dir = "../../database/sentiment_data/data-result/"
 
 
-    # select date range
-    test_dates = pd.date_range('2017-01-03','2021-03-03',freq='B')
- 
     # Get merged df with stock tick and sentiment scores
     df, scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, 'macd-crossover')
 
@@ -62,7 +60,7 @@ def LSTM_predict(symbol):
 
     n_steps = look_back - 1
     batch_size = 32
-    num_epochs = 100 # n_iters / (len(train_X) / batch_size)
+    num_epochs = 20 # n_iters / (len(train_X) / batch_size)
 
     
     train = torch.utils.data.TensorDataset(x_train,y_train)
@@ -138,12 +136,37 @@ def LSTM_predict(symbol):
     print(pred_filename)
     visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
 
-    # Inferencing
-    signal = gen_signal(y_test_pred[:,0], y_test[:,0])
+    #### Inferencing ####
+    """
+    # select date range
+    start_date = '2017-01-03'
+    end_date = '2021-03-03'
+    test_dates = pd.date_range(start_date, end_date, freq='B')
+ 
+    # Get merged df within selected date range with stock tick and sentiment scores
+    df_inf, df_inf_scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, 'macd-crossover', start_date, end_date)
+    #print(df_inf.tail())
+
+    # load data
+    actual_output = df_inf['Close'].values
+    #print(actual_output)
+
+    x_inf = df_inf.values[:,:,newaxis]
+    x_inf = np.array(x_inf)
+    x_inf = torch.from_numpy(x_inf).type(torch.Tensor)
+
+    # make predictions
+    y_inf_pred = model(x_inf)
+
+    # invert predictions
+    y_inf_pred = scaler.inverse_transform(y_inf_pred.detach().numpy())
+    y_inf = scaler.inverse_transform(actual_output.detach().numpy())
+
+    signal = gen_signal(y_inf_pred[:,0], y_inf[:,0])
     
     # Save signals as csv file
     output_df = pd.DataFrame()
-    #output_df = pd.DataFrame(index=test_dates)
+    output_df = pd.DataFrame(index=df_inf.index)
     output_df['signal'] = signal
     output_df.index.name = "Date"
 
@@ -153,6 +176,7 @@ def LSTM_predict(symbol):
     # Plot inferencing results
     inf_filename = 'LSTM_output/' + symbol + '_inf.png'
     visualise(df,y_test[:,0],y_test_pred[:,0], inf_filename)
+    """
     
 
 
