@@ -1,6 +1,8 @@
 Fundamental analysis
 ==============================
 
+.. highlight:: Python
+  
 In this tutorial, you will learn:
 
 * The basics of fundamental analysis

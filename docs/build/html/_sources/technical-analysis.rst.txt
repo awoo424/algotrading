@@ -1,6 +1,8 @@
 Technical analysis
 ====================
 
+.. highlight:: Python
+  
 In this tutorial, you will learn:
 
 * The basics of technical analysis

@@ -1,6 +1,8 @@
 Sentiment analysis
 ===================
 
+.. highlight:: Python
+
 
 In this tutorial, you will learn:
 

@@ -146,8 +146,9 @@
 <p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property price prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-feature-strategy.html">Multi-feature trading strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Bonus: Trade execution</span></p>
 <ul>
@@ -541,7 +542,7 @@ to its total assets.</div>
 <div class="line-block">
 <div class="line">With the equations above, it would be easy to compute the ratios just with column manipulations:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># take equity ratio as an example</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># take equity ratio as an example</span>
 <span class="n">equity_ratio</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total stockholders</span><span class="se">\&#39;</span><span class="s2"> equity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
                <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Total Assets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># Total stockholders&#39; equity / Total Assets</span>
 
@@ -553,7 +554,7 @@ to its total assets.</div>
 <div class="line">After calculating these ratios, we would want to create screening masks to filter out stocks that
 have a relatively better performance.</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># e.g. filter out stocks with profitability ratio greater than overall mean</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># e.g. filter out stocks with profitability ratio greater than overall mean</span>
 <span class="n">mask1</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;EPS&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;EPS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="n">mask2</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROE&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="n">mask3</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ratios</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
@@ -562,7 +563,7 @@ have a relatively better performance.</div>
 <div class="line-block">
 <div class="line">We could apply these masks on the ratios dataframe to get the filtered stocks eventually:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># apply the masks</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># apply the masks</span>
 <span class="n">ratios</span><span class="p">[(</span><span class="n">mask1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mask2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mask3</span><span class="p">)]</span>
 </pre></div>
 </div>

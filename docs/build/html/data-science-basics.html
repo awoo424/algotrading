@@ -117,8 +117,9 @@
 <p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property price prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-feature-strategy.html">Multi-feature trading strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Bonus: Trade execution</span></p>
 <ul>
@@ -226,8 +227,8 @@ summary statistics and graphical representations.</div>
 <li><p>What is the data type of each column?</p></li>
 <li><p>Are there null values in the data?</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import AAPL csv file</span>
-<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../database/nasdaq_ticks_day/nasdaq_AAPL.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import AAPL csv file</span>
+<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../database/nasdaq_ticks_day/nasdaq_AAPL.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># inspect first 5 rows (default)</span>
 <span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -236,14 +237,14 @@ summary statistics and graphical representations.</div>
 <span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check name of columns</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># check name of columns</span>
 <span class="n">aapl</span><span class="o">.</span><span class="n">columns</span>
 
 <span class="c1"># output</span>
 <span class="c1"># aapl.columns</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate descriptive statistics, e.g. central tendency and dispersion of the dataset</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate descriptive statistics, e.g. central tendency and dispersion of the dataset</span>
 <span class="c1"># (excl. NaN values)</span>
 <span class="n">aapl</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 
@@ -251,8 +252,8 @@ summary statistics and graphical representations.</div>
 <span class="n">aapl</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># print rows between two specific dates</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-17&#39;</span><span class="p">)])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print rows between two specific dates</span>
+<span class="k">print</span><span class="p">(</span><span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-17&#39;</span><span class="p">)])</span>
 
 <span class="c1"># select only data between 2006 and 2019</span>
 <span class="n">aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">)]</span>
@@ -277,9 +278,9 @@ to costly to process them altogether. Thus, we use sampling as a solution - to s
 to observe, so that we can infer something about the whole population.</p>
 <p>For example, we can conduct <strong>Simple Random Sampling</strong>, which means that each row (or observation) is drawn
 with a uniform probability from the dataset.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take 10 rows from the dataframe randomly</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take 10 rows from the dataframe randomly</span>
 <span class="n">sample</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now that we understand what sampling is, let’s go back to resampling.</p>
@@ -304,9 +305,9 @@ Therefore, we could try estimate the population parameter <em>multiple times</em
 <strong>resampling</strong>.</p>
 <p>With regards to the <em>resample</em> function in pandas, it is used for changing the time interval of a dataset. Thus, we
 need a datetime type index or column in order to use the function.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to monthly level</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to monthly level</span>
 <span class="n">monthly_aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">monthly_aapl</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">monthly_aapl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As shown in the code above, there are two steps in calling the function:</p>
@@ -318,9 +319,9 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 <p>In the above example, as we are resampling that data to a wider time frame (from days to months), we are actually
 <strong>“downsampling”</strong> the data.</p>
 <p>On the other hand, if we resample the data to a shorter time frame (from days to minutes), it will be called <strong>“upsampling”</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to minutely level</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to minutely level</span>
 <span class="n">minutely_aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">minutely_aapl</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">minutely_aapl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As we end up having additional empty rows in the resulting table, we need to decide how to fill in them with numeric values:</p>
@@ -332,27 +333,27 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 <div class="section" id="calculate-percentage-change">
 <h2>Calculate percentage change<a class="headerlink" href="#calculate-percentage-change" title="Permalink to this headline">¶</a></h2>
 <p>We can just directly use the <code class="code docutils literal notranslate"><span class="pre">pct_change()</span></code> function to do this.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">daily_close</span> <span class="o">=</span> <span class="n">aapl</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">daily_close</span> <span class="o">=</span> <span class="n">aapl</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
 
 <span class="c1"># Calculate daily returns</span>
 <span class="n">daily_pct_change</span> <span class="o">=</span> <span class="n">daily_close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
 
 <span class="c1"># Replace NA values with 0</span>
-<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Inspect daily returns</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate daily log returns</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate daily log returns</span>
 <span class="n">daily_log_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">daily_close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Print daily log returns</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">daily_log_returns</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">daily_log_returns</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>We can also combine with the operation of resampling to get the percentage change of different time intervals.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to business months, take last observation as value</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to business months, take last observation as value</span>
 <span class="n">monthly</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;BM&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Calculate monthly percentage change</span>
@@ -360,7 +361,7 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 </pre></div>
 </div>
 <p>This example takes the mean instead of the last observation in each bin as the value.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to quarters, take the mean as value per quarter</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to quarters, take the mean as value per quarter</span>
 <span class="n">quarter</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;4M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># Calculate quarterly percentage change</span>
@@ -368,7 +369,7 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 </pre></div>
 </div>
 <p>It is also good to learn how to manually do the calculation, without using the <code class="code docutils literal notranslate"><span class="pre">pct_change()</span></code> function.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daily returns</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daily returns</span>
 <span class="n">daily_pct_change</span> <span class="o">=</span> <span class="n">daily_close</span> <span class="o">/</span> <span class="n">daily_close</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
 <span class="c1"># Print `daily_pct_change`</span>
@@ -380,26 +381,26 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 <h2>Visualise time series data<a class="headerlink" href="#visualise-time-series-data" title="Permalink to this headline">¶</a></h2>
 <p>We will mainly use plotting functions provided by matplotlib. <strong>Line plot</strong> is the most common
 type of plot that we will use for analysis of stock data.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the closing prices for `aapl`</span>
-<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the closing prices for `aapl`</span>
+<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Show the line plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Here is an example of plotting a histogram:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distribution of `daily_pct_c`</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distribution of `daily_pct_c`</span>
 <span class="n">daily_pct_change</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># Show the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Pull up summary statistics</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>We can also create a new column to store the cumulative daily returns and plot the data in a graph.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the cumulative daily returns</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the cumulative daily returns</span>
 <span class="n">cum_daily_return</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">daily_pct_change</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
 
 <span class="c1"># Plot the cumulative daily returns</span>
@@ -414,7 +415,7 @@ type of plot that we will use for analysis of stock data.</p>
 <h2>Moving windows<a class="headerlink" href="#moving-windows" title="Permalink to this headline">¶</a></h2>
 <p><strong>Moving windows</strong> (also called “rolling windows”) are snapshots of a portion of a time series at an instant in time. It is common
 to use the moving window in a trading strategy, for example to calculate a moving average.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isolate the closing prices</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isolate the closing prices</span>
 <span class="n">close_px</span> <span class="o">=</span> <span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
 
 <span class="c1"># Calculate the moving average</span>
@@ -425,7 +426,7 @@ to use the moving window in a trading strategy, for example to calculate a movin
 </pre></div>
 </div>
 <p>We can now easily plot the short-term and long-term moving averages:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Short moving window rolling mean</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Short moving window rolling mean</span>
 <span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;42&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">close_px</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># Long moving window rolling mean</span>

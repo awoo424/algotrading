@@ -1,6 +1,7 @@
 Property price prediction
 ==========================
 
+.. highlight:: Python
 
 In this tutorial, you will learn:
 

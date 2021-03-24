@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction to Paper Trading" href="introduction-to-paper-trading.html" />
-    <link rel="prev" title="Property Price Prediction" href="property-price-prediction.html" /> 
+    <link rel="next" title="Multi-feature trading strategy" href="multi-feature-strategy.html" />
+    <link rel="prev" title="Property price prediction" href="property-price-prediction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,7 +109,7 @@
 <p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property price prediction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Sentiment analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#intro-to-sentiment-analysis">Intro to sentiment analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#collection-of-tweets">Collection of tweets</a><ul>
@@ -126,6 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#vader-sentiment-prediction">VADER sentiment prediction</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="multi-feature-strategy.html">Multi-feature trading strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Bonus: Trade execution</span></p>
 <ul>
@@ -229,7 +230,7 @@ and thus to find out the market sentiment.</div>
 <div class="line">4. Navigate to the <strong>‘Keys and token’</strong> page, save your API key, API secret, Access token and Access secret</div>
 </div>
 <p><strong>Code example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
 
 <span class="c1"># do not share the API key in any public platform (e.g github, public website)</span>
 <span class="n">consumer_key</span> <span class="o">=</span> <span class="n">API</span> <span class="n">secret</span>
@@ -241,7 +242,7 @@ and thus to find out the market sentiment.</div>
 <span class="c1"># authorisation of consumer key and consumer secret</span>
 <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
 <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">wait_on_rate_limit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wait_on_rate_limit_notify</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Access the relevant tweets using the Twitter API</strong></p>
@@ -261,7 +262,7 @@ user’s timeline via the the <code class="code docutils literal notranslate"><s
 please visit the official documentation: <a class="reference external" href="https://docs.tweepy.org/en/v3.5.0/api.html">https://docs.tweepy.org/en/v3.5.0/api.html</a></div>
 </div>
 <p><strong>Code example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an empty list</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an empty list</span>
 <span class="n">alltweets</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># extract data from the API</span>
@@ -284,7 +285,7 @@ please visit the official documentation: <a class="reference external" href="htt
 Use <code class="code docutils literal notranslate"><span class="pre">tweepy.Cursor()</span></code> to access data from hashtag and cashtags.</div>
 </div>
 <p><strong>Code example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract data from the API</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract data from the API</span>
 <span class="n">hashtags</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -298,7 +299,7 @@ Use <code class="code docutils literal notranslate"><span class="pre">tweepy.Cur
 <div class="line-block">
 <div class="line">If you want to collect tweets for a period of time, we could further amend the code snippet in the following way:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">hashtags</span><span class="p">:</span>
         <span class="c1"># Add this line</span>
@@ -319,12 +320,12 @@ tweets, or for creating a live feed using a site stream. For more information wi
 <ol class="arabic simple">
 <li><p>Create a class inheriting from StreamListener</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># override tweepy.StreamListener</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># override tweepy.StreamListener</span>
 <span class="k">class</span> <span class="nc">MyStreamListener</span><span class="p">(</span><span class="n">tweepy</span><span class="o">.</span><span class="n">StreamListener</span><span class="p">):</span>
     <span class="c1"># add logic to the on_staus method</span>
     <span class="k">def</span> <span class="nf">on_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tweet_count</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_tweets</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="bp">False</span>
         <span class="c1"># collect tweets</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">tweet_text</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">text</span>
@@ -333,7 +334,7 @@ tweets, or for creating a live feed using a site stream. For more information wi
             <span class="bp">self</span><span class="o">.</span><span class="n">tweet_count</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="c1"># add logic to the initialisation function</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="n">input_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MyStreamListener</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_tweets</span> <span class="o">=</span> <span class="mi">200</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tweet_count</span> <span class="o">=</span> <span class="mi">100</span>
@@ -343,7 +344,7 @@ tweets, or for creating a live feed using a site stream. For more information wi
 <ol class="arabic simple" start="2">
 <li><p>Create a stream</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># add an output_file parameter to store the output tweets</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># add an output_file parameter to store the output tweets</span>
 <span class="n">myStreamListener</span> <span class="o">=</span> <span class="n">MyStreamListener</span><span class="p">(</span><span class="n">output_file</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="n">firm</span><span class="p">)</span>
 <span class="n">myStream</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">api</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">,</span> <span class="n">listener</span><span class="o">=</span><span class="n">myStreamListener</span><span class="p">,</span> <span class="n">languages</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">])</span>
 </pre></div>
@@ -351,7 +352,7 @@ tweets, or for creating a live feed using a site stream. For more information wi
 <ol class="arabic simple" start="3">
 <li><p>Start a stream</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">target_firm</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">myStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">target_firm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -371,7 +372,7 @@ to read the latest financial news collected from different major newsagents such
 <ol class="arabic simple">
 <li><p>Access the website of each ticker through the <code class="code docutils literal notranslate"><span class="pre">urllib.request</span></code> module</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">finviz_url</span> <span class="o">=</span> <span class="s1">&#39;https://finviz.com/quote.ashx?t=&#39;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="n">finviz_url</span> <span class="o">+</span> <span class="n">ticker</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
@@ -380,20 +381,20 @@ to read the latest financial news collected from different major newsagents such
 <ol class="arabic simple" start="2">
 <li><p>Get the HTML document using Beautiful Soup</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Get the information of &lt;div&gt; id=’news-table’ in the website</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">news_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;news-table&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">news_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;news-table&#39;</span><span class="p">)</span>
 <span class="n">news_tables</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_table</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>Find all the news under the &lt;tr&gt; tag in the news-table</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
     <span class="n">date_scrape</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">date_scrape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
@@ -407,14 +408,14 @@ to read the latest financial news collected from different major newsagents such
 <ol class="arabic simple" start="5">
 <li><p>Convert the date format to ‘YYYY-MM-dd’</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_time_str</span><span class="p">,</span> <span class="s1">&#39;%b-</span><span class="si">%d</span><span class="s1">-%y %I:%M%p&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">date_time_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_time_str</span><span class="p">,</span> <span class="s1">&#39;%b-</span><span class="si">%d</span><span class="s1">-%y %I:%M%p&#39;</span><span class="p">)</span>
 <span class="n">date_time</span><span class="o">=</span><span class="n">date_time_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
 <li><p>Append all the news together</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">date_time</span><span class="p">,</span><span class="n">text</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">allnews</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">date_time</span><span class="p">,</span><span class="n">text</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -440,7 +441,7 @@ Click ‘inspect’ and you can view the front-end code of the website. (Or visi
 <ol class="arabic simple">
 <li><p>Access the website of each ticker through <code class="code docutils literal notranslate"><span class="pre">urllib.request</span></code> module</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefix_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.aastocks.com/en/stocks/analysis/stock-aafn/&#39;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">prefix_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.aastocks.com/en/stocks/analysis/stock-aafn/&#39;</span>
 <span class="n">postfix_url</span> <span class="o">=</span> <span class="s1">&#39;/0/all/1&#39;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="n">prefix_url</span> <span class="o">+</span> <span class="n">fill_ticker</span> <span class="o">+</span> <span class="n">postfix_url</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;my-app/0.0.1&#39;</span><span class="p">})</span>
@@ -450,7 +451,7 @@ Click ‘inspect’ and you can view the front-end code of the website. (Or visi
 <ol class="arabic simple" start="2">
 <li><p>Get the HTML document using Beautiful Soup</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
 
 <span class="c1"># get the html code containing the dates and news</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;inline_block&quot;</span><span class="p">})</span>
@@ -460,7 +461,7 @@ Click ‘inspect’ and you can view the front-end code of the website. (Or visi
 <ol class="arabic simple" start="3">
 <li><p>Find all the news and corresponding dates from the html code from step 2</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># track the index in the news list</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># track the index in the news list</span>
 <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_tweets.csv&#39;</span> <span class="o">%</span> <span class="n">screen_name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -513,10 +514,10 @@ any value for your own analysis</div>
 <ol class="arabic simple">
 <li><p>Import these libraries</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="k">import</span> <span class="n">SentimentIntensityAnalyzer</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">twitter_samples</span>
+<span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">twitter_samples</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -529,7 +530,7 @@ any value for your own analysis</div>
 <li><p>compound (computed by normalising the scores above, ranging from -1 to 1)</p></li>
 </ul>
 <p>Let us analyse the data that we have collected through the sentimental analyser.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the path where you stored the csv file containing the data</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the path where you stored the csv file containing the data</span>
 <span class="k">def</span> <span class="nf">read_tweets_us_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
     <span class="c1"># could change to your own path</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_name</span><span class="p">,</span><span class="s1">&#39;train-data/&#39;</span><span class="o">+</span><span class="n">path</span><span class="p">)</span>
@@ -542,7 +543,7 @@ any value for your own analysis</div>
 
     <span class="c1"># create a new column for the calculated results</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;compound_vader_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cs</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
@@ -559,8 +560,8 @@ any value for your own analysis</div>
 </ul>
 </div></blockquote>
 <p>Code example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_tweets_pred_label</span><span class="p">(</span><span class="n">grouped_data</span><span class="p">,</span><span class="n">file_name</span><span class="p">,</span><span class="n">perc_change</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;find_pred_label&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_tweets_pred_label</span><span class="p">(</span><span class="n">grouped_data</span><span class="p">,</span><span class="n">file_name</span><span class="p">,</span><span class="n">perc_change</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;find_pred_label&#39;</span><span class="p">)</span>
     <span class="n">tweets</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="p">[</span><span class="s1">&#39;tweets&#39;</span><span class="p">]</span>
 
 <span class="c1"># group the tweets within the csv using [&#39;dates&#39;,&#39;ticker&#39;] index,</span>
@@ -599,16 +600,16 @@ any value for your own analysis</div>
 <li><p><code class="code docutils literal notranslate"><span class="pre">label_data</span></code>: the label data contains the actual label from yahoo finance</p></li>
 </ul>
 <p><strong>Code example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_actual_label</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">label_data</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_actual_label</span> <span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">label_data</span><span class="p">):</span>
 
     <span class="n">vader_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">vader_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span><span class="s2">&quot;ticker&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">vader_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span><span class="s2">&quot;ticker&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
     <span class="n">label_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">label_data</span><span class="p">)</span>
-    <span class="n">label_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span><span class="s2">&quot;ticker&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">label_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span><span class="s2">&quot;ticker&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
     <span class="c1"># merge the actual label and the predicted label into a single pandas data frame</span>
-    <span class="n">merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">vader_data</span><span class="p">,</span><span class="n">label_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">vader_data</span><span class="p">,</span><span class="n">label_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">merge</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0_y&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">merge</span>
@@ -623,8 +624,8 @@ any value for your own analysis</div>
 <li><p><code class="code docutils literal notranslate"><span class="pre">name</span></code>: the output csv file containing all the merged information with dates, tweets, vader label and actual label</p></li>
 </ul>
 <p><strong>Code illustration</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">validation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
     <span class="n">pred_label</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;vader_label&#39;</span><span class="p">])</span>
@@ -660,10 +661,10 @@ All final investment decisions are yours and as a result you could make or lose 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction-to-paper-trading.html" class="btn btn-neutral float-right" title="Introduction to Paper Trading" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="multi-feature-strategy.html" class="btn btn-neutral float-right" title="Multi-feature trading strategy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="property-price-prediction.html" class="btn btn-neutral float-left" title="Property Price Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="property-price-prediction.html" class="btn btn-neutral float-left" title="Property price prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

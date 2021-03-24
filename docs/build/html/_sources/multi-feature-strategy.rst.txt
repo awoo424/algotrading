@@ -1,6 +1,8 @@
 Multi-feature trading strategy
 ==================================
 
+.. highlight:: Python
+
 Putting it together
 ----------------------------
 
