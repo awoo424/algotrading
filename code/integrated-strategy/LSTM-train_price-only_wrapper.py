@@ -151,10 +151,10 @@ def LSTM_predict(symbol):
 
     # Inferencing
     y_inf_pred, y_inf = predict_price(df_test, model, scaler)
-    signal = gen_signal(y_inf_pred, y_inf)
+    signal = gen_signal(y_inf_pred, y_inf, df_test.index)
 
     # Save signals as csv file
-    output_df = pd.DataFrame(index=df_test.index)
+    output_df = pd.DataFrame()
     output_df['signal'] = signal
     output_df.index.name = "Date"
 

@@ -103,7 +103,7 @@ def visualise(df, y_test, y_test_pred, output_file):
     plt.savefig(output_file)
     # plt.show()
   
-def gen_signal(pred, actual_output, dates=None, by_trend=False):
+def gen_signal(pred, actual_output, dates, by_trend=False):
     output_df = pd.DataFrame()
     signal = []
 
@@ -150,8 +150,7 @@ def gen_signal(pred, actual_output, dates=None, by_trend=False):
                 signal.append(1)
          
     #print(len(signal))
-    if (dates != None):
-        output_df['Date'] = dates
+    output_df['Date'] = dates
 
     output_df['signal']=  signal  
     
