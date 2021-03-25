@@ -1,6 +1,8 @@
 Data science basics
 ====================
 
+.. highlight:: Python
+    
 In this tutorial, you will learn to:
 
 * Conduct Exploratory Data Analysis (EDA)

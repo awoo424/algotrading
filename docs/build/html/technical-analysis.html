@@ -153,8 +153,9 @@
 <p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property price prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-feature-strategy.html">Multi-feature trading strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Bonus: Trade execution</span></p>
 <ul>
@@ -289,7 +290,7 @@ to plot a security’s closing prices over time.</div>
 <div class="line-block">
 <div class="line">Using matplotlib, we could also plot the moving average and volume of a security:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 
 <span class="c1"># Initialise the plot figure</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -299,7 +300,7 @@ to plot a security’s closing prices over time.</div>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;50ma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;50ma&#39;</span><span class="p">])</span>
@@ -335,7 +336,7 @@ Explanation of candlestick components. <a class="footnote-reference brackets" hr
 <div class="line-block">
 <div class="line">We could use <code class="code docutils literal notranslate"><span class="pre">mpl_finance</span></code> to plot candlestick charts:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">18.5</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">)</span>
 
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -418,14 +419,14 @@ in the plot more accurately to provide a holistic view.</p></li>
 <p>Therefore, semi-logarithmic charts can be of immense help especially when plotting <strong>long-term charts</strong>,
 or when the price points show significant volatility even in short-term charts. The underlying chart patterns
 will be revealed more clearly in semi-logarithmic scale charts.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">18.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">)</span>
 
 <span class="c1">### Subplot 1 - Semi-logarithmic ###</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
 
 <span class="c1"># Linear X axis, Logarithmic Y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -485,7 +486,7 @@ to historical data in order to evaluate the performance of the strategy.</div>
 <div class="line-block">
 <div class="line">You could try running a strategy in the repository by:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># in terminal</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># in terminal</span>
 <span class="n">cd</span> <span class="n">code</span><span class="o">/</span><span class="n">technical</span><span class="o">-</span><span class="n">analysis_python</span>
 <span class="n">python</span> <span class="n">main_macd_crossover</span><span class="o">.</span><span class="n">py</span> <span class="c1"># run macd in the backtester</span>
 </pre></div>
@@ -524,11 +525,11 @@ duration of a trend in a stock’s price.</div>
 </ul>
 </div>
 <p>It is easy to calculate the EMA with pandas:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get adjusted close column</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get adjusted close column</span>
 <span class="n">close</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
 
-<span class="n">exp1</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">exp2</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">exp1</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">exp2</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MACD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp1</span> <span class="o">-</span> <span class="n">exp2</span>
 </pre></div>
 </div>
@@ -540,7 +541,7 @@ a decaying adjustment factor for beginning periods).</div>
 <div class="math notranslate nohighlight">
 \[\text{Signal Line} = \text{9-day EMA of MACD Line}\]</div>
 <p>To plot the signal line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Signal line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MACD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Signal line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MACD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -559,11 +560,11 @@ to set up support and resistance levels.</div>
 </ul>
 </div>
 <p>Here is an example of how to plotting the two MAs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create short simple moving average over the short window</span>
-<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;short_mavg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">short_window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create short simple moving average over the short window</span>
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;short_mavg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">short_window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># Create long simple moving average over the long window</span>
-<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;long_mavg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">long_window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">signals</span><span class="p">[</span><span class="s1">&#39;long_mavg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">long_window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -571,7 +572,7 @@ to set up support and resistance levels.</div>
 <code class="code docutils literal notranslate"><span class="pre">short_window</span> <span class="pre">=</span> <span class="pre">40</span></code> and <code class="code docutils literal notranslate"><span class="pre">long_window</span> <span class="pre">=</span> <span class="pre">40</span></code>.</div>
 </div>
 <p>And then we could generate signals based on the two line plots:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate signals</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate signals</span>
 <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">][</span><span class="n">short_window</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;short_mavg&#39;</span><span class="p">][</span><span class="n">short_window</span><span class="p">:]</span>
                                             <span class="o">&gt;</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;long_mavg&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">short_window</span><span class="p">:],</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 
@@ -631,15 +632,15 @@ Should SAR be below one of those highs, use the highest of the two for SAR.</div
 <div class="line">In the code, we first need to extract the high / low / closing prices column from the dataframe,
 and initialise the arrays for storing the rising SAR and falling SAR:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array_high</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">array_high</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
 <span class="n">array_low</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span>
 <span class="n">array_close</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
 
 <span class="n">psar</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">psarbull</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">psarbear</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">psarbull</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">psarbear</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
-<span class="n">bull</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># flag to indicate saving value for rising SAR</span>
+<span class="n">bull</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># flag to indicate saving value for rising SAR</span>
 <span class="n">af</span> <span class="o">=</span> <span class="n">initial_af</span> <span class="c1"># initialise acceleration factor</span>
 <span class="n">max_af</span> <span class="o">=</span> <span class="mf">0.2</span>
 <span class="n">ep</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># extreme price</span>
@@ -648,7 +649,7 @@ and initialise the arrays for storing the rising SAR and falling SAR:</div>
 </pre></div>
 </div>
 <p>Then, traversing each row in the dataframe, we could calculate rising SAR and falling SAR at the same time:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
   <span class="k">if</span> <span class="n">bull</span><span class="p">:</span>
       <span class="c1"># Rising SAR</span>
       <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">af</span> <span class="o">*</span> <span class="p">(</span><span class="n">hp</span> <span class="o">-</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -656,20 +657,20 @@ and initialise the arrays for storing the rising SAR and falling SAR:</div>
       <span class="c1"># Falling SAR</span>
       <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">af</span> <span class="o">*</span> <span class="p">(</span><span class="n">lp</span> <span class="o">-</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-    <span class="n">reverse</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">reverse</span> <span class="o">=</span> <span class="bp">False</span>
 
     <span class="c1"># Check reversion point</span>
     <span class="k">if</span> <span class="n">bull</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">bull</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">bull</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">reverse</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hp</span>
             <span class="n">lp</span> <span class="o">=</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">af</span> <span class="o">=</span> <span class="n">initial_af</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">bull</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">bull</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">reverse</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="n">psar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lp</span>
             <span class="n">hp</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">af</span> <span class="o">=</span> <span class="n">initial_af</span>
@@ -746,19 +747,19 @@ from taking a trade, or add to an existing position.</div>
 <div class="line-block">
 <div class="line">We could first compute the the subcomponents of CCI:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
 
 <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;SMA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
-                 <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                 <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;mean_deviation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
-                            <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+                            <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line">Then calculate CCI using the formula:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;CCI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;SMA&#39;</span><span class="p">])</span> <span class="o">/</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;CCI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;Typical price&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;SMA&#39;</span><span class="p">])</span> <span class="o">/</span>
                  <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">*</span> <span class="n">signals</span><span class="p">[</span><span class="s1">&#39;mean_deviation&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -773,7 +774,7 @@ from taking a trade, or add to an existing position.</div>
 <div class="line-block">
 <div class="line">To implement this rule in code:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate buy signal</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate buy signal</span>
 <span class="n">signals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">signals</span><span class="p">[</span><span class="s1">&#39;CCI&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;signal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 
 <span class="c1"># Generate sell signal</span>
@@ -802,7 +803,7 @@ similar to that used in calculating an exponential moving average. Thus, the RSI
 more accurate as the calculation period extends.</div>
 </div>
 <p>In the dataset, we need to extract gains and losses from the price column respectively:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get adjusted close column</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get adjusted close column</span>
 <span class="n">close</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
 
 <span class="c1"># Get the difference in price from previous step</span>
@@ -817,7 +818,7 @@ more accurate as the calculation period extends.</div>
 </pre></div>
 </div>
 <p>To calculate RS, as well as RSI:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate SMA using &#39;rolling&#39; function</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate SMA using &#39;rolling&#39; function</span>
 <span class="n">roll_up</span> <span class="o">=</span> <span class="n">up</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window_size</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">roll_down</span> <span class="o">=</span> <span class="n">down</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window_size</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
@@ -866,7 +867,7 @@ and decreasing values indicate waning momentum.</div>
 </ul>
 </div>
 <p>And here is one of the possible ways to calculate ROC:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># set time period</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># set time period</span>
 
 <span class="n">diff</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -897,7 +898,7 @@ and decreasing values indicate waning momentum.</div>
 <div class="line-block">
 <div class="line">We could traverse the dataframe and store all highests highs, lowest lows in two separate arrays:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array_highest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span> <span class="c1"># store highest highs</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">array_highest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span> <span class="c1"># store highest highs</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
     <span class="n">highest</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">13</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># k-day lookback period</span>
@@ -917,7 +918,7 @@ and decreasing values indicate waning momentum.</div>
 <div class="line-block">
 <div class="line">Then, we can calculate %K and %D:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># find %K line values</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># find %K line values</span>
 <span class="n">kvalues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
@@ -927,7 +928,7 @@ and decreasing values indicate waning momentum.</div>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;%K&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kvalues</span>
 
 <span class="c1"># find %D line values</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;%D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;%K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;%D&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;%K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -966,11 +967,11 @@ tries to filter out noises.</div>
 <li><p>Second Smoothing = 13-period EMA of 25-period EMA of | PC |</p></li>
 </ul>
 <p>Based on the above formulae, the code is shown as follow:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed PC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span>
-                                <span class="n">span</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed PC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span>
+                                <span class="n">span</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed Abs PC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span>
-                                    <span class="n">span</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed Abs PC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span>
+                                    <span class="n">span</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TSI&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed PC&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Double Smoothed Abs PC&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
@@ -1002,7 +1003,7 @@ oversold signals using both prices and volume data.</div>
 \\
 \text{Money Flow Ratio} &amp;= \frac{\text{14-period Positive Money Flow}}{\text{14-period Negative Money Flow}} \\\end{split}\]</div>
 <p>It is pretty straightforward to calculate typical price:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical price</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical price</span>
 <span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mf">3.0</span>
 </pre></div>
 </div>
@@ -1010,7 +1011,7 @@ oversold signals using both prices and volume data.</div>
 <div class="line">With regards to the positive and negative money flows, we will first want to compute the raw money flow,
 then label which of them belong to positive / negative respectively:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># positive = 1, negative = -1</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># positive = 1, negative = -1</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sign&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tp</span> <span class="o">&gt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tp</span> <span class="o">&lt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="c1"># Raw money flow</span>
@@ -1018,15 +1019,15 @@ then label which of them belong to positive / negative respectively:</div>
 
 <span class="c1"># Positive money flow with n periods</span>
 <span class="n">n_positive_mf</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Money flow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span>
-                <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Negative money flow with n periods</span>
 <span class="n">n_negative_mf</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Money flow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span>
-                <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+                <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>With the money flows, it would be easy to compute the MFI:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mf_ratio</span> <span class="o">=</span> <span class="n">n_positive_mf</span> <span class="o">/</span> <span class="n">n_negative_mf</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mf_ratio</span> <span class="o">=</span> <span class="n">n_positive_mf</span> <span class="o">/</span> <span class="n">n_negative_mf</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="mi">100</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mf_ratio</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1058,7 +1059,7 @@ then label which of them belong to positive / negative respectively:</div>
 The default setting for the lookback period is 14, which can be days, weeks, months or an intraday timeframe.</div>
 </div>
 <p>The code for implementing %R is shown as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lbp</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># set lookback period</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">lbp</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># set lookback period</span>
 
 <span class="n">hh</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">lbp</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>  <span class="c1"># highest high over lookback period</span>
 <span class="n">ll</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">lbp</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># lowest low over lookback period</span>
@@ -1099,7 +1100,7 @@ relative to previous trades.</div>
 <div class="line-block">
 <div class="line">We could first compute the middle band and the 20-day standard deviation:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">20</span>
 
 <span class="c1"># Compute middle band</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Middle band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1111,7 +1112,7 @@ relative to previous trades.</div>
 <div class="line-block">
 <div class="line">Then we could get the outer bands:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computer upper and lower bands</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computer upper and lower bands</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Upper band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Middle band&#39;</span><span class="p">]</span>  <span class="o">+</span> <span class="n">mstd</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lower band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Middle band&#39;</span><span class="p">]</span>  <span class="o">-</span> <span class="n">mstd</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
@@ -1144,10 +1145,10 @@ relative to previous trades.</div>
 <div class="line-block">
 <div class="line">The True Range could be computed by:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array_high</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">array_high</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
 <span class="n">array_low</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span>
 
-<span class="n">tr</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># initialisation</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># initialisation</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
     <span class="n">tr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">array_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -1156,7 +1157,7 @@ relative to previous trades.</div>
 <div class="line-block">
 <div class="line">We would first calculate the first n-day ATR:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atr</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># initialisation</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">atr</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># initialisation</span>
 <span class="n">window</span> <span class="o">=</span> <span class="mi">14</span>
 
 <span class="n">atr</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">])</span> <span class="o">/</span> <span class="n">window</span>
@@ -1165,7 +1166,7 @@ relative to previous trades.</div>
 <div class="line-block">
 <div class="line">Then for the following ATRs:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)):</span>
     <span class="n">atr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">atr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">window</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">window</span>
 </pre></div>
 </div>
@@ -1189,7 +1190,7 @@ relative to previous trades.</div>
 <div class="line">Standard Deviation measures expected risk and determines the significance of certain price movements.</div>
 </div>
 <p>As an example, we could set <code class="code docutils literal notranslate"><span class="pre">window=21</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">21</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">21</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1226,25 +1227,25 @@ By comparing money flow to price action, it helps identify tops and bottoms in s
 <div class="line-block">
 <div class="line">We would first calculate the Money Flow Multiplier:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
             <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line">Then use it to calculate Money Flow Volume:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line">Following, we could compute ADL and the Chaikin Oscillator:</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFV&#39;</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MFV&#39;</span><span class="p">]</span>
 
 <span class="n">short_w</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">long_w</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">ema_long</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">ignore_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">com</span><span class="o">=</span><span class="n">short_w</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">ema_short</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">ignore_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">com</span><span class="o">=</span><span class="n">long_w</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ema_long</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">ignore_na</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">com</span><span class="o">=</span><span class="n">short_w</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ema_short</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ADL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">ignore_na</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">com</span><span class="o">=</span><span class="n">long_w</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Chaikin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ema_short</span> <span class="o">-</span> <span class="n">ema_long</span>
 </pre></div>
@@ -1277,7 +1278,7 @@ distribution by comparing volume to price movements.</div>
 <div class="math notranslate nohighlight">
 \[\text{Current OBV} = \text{Previous OBV (no change)}\]</div>
 <p>We could traverse the dataframe, and use if-else statements to capture the 3 conditions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obv</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># for storing the on-balance volume</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">obv</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span> <span class="c1"># for storing the on-balance volume</span>
 
 <span class="n">array_close</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
 <span class="n">array_volume</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">])</span>
@@ -1312,7 +1313,7 @@ at most significant market tops, bottoms and breakouts.</div>
 <div class="math notranslate nohighlight">
 \[\text{Volume Rate of Change} = \frac{\text{Volume (today)} - \text{Volume (n days ago)}}{\text{Volume (n days ago)}}\]</div>
 <p>The way of calculating Volume ROC is similar to ROC:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># example time period</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># example time period</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume ROC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">/</span>
                     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>

@@ -1,6 +1,8 @@
 Introduction to Paper Trading
 ===============================
 
+.. highlight:: Python
+  
 In this tutorial, you will learn:
 
 * What is paper trading
