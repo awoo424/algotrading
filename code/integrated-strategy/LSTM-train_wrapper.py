@@ -43,7 +43,7 @@ def LSTM_predict(symbol):
 
     # Get merged df with stock tick and sentiment scores
     df, scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, 'macd-crossover')
-
+    # print(df.index)
     look_back = 60 # choose sequence length
 
     x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
@@ -60,7 +60,7 @@ def LSTM_predict(symbol):
 
     n_steps = look_back - 1
     batch_size = 32
-    num_epochs = 20 # n_iters / (len(train_X) / batch_size)
+    num_epochs = 100 # n_iters / (len(train_X) / batch_size)
 
     
     train = torch.utils.data.TensorDataset(x_train,y_train)
@@ -133,63 +133,33 @@ def LSTM_predict(symbol):
 
     # Plot predictions
     pred_filename = 'LSTM_output/' + symbol + '_pred.png'
-    print(pred_filename)
+ 
     visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
 
-    #### Inferencing ####
-    """
-    # select date range
-    start_date = '2017-01-03'
-    end_date = '2021-03-03'
-    test_dates = pd.date_range(start_date, end_date, freq='B')
- 
-    # Get merged df within selected date range with stock tick and sentiment scores
-    df_inf, df_inf_scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, 'macd-crossover', start_date, end_date)
-    #print(df_inf.tail())
-
-    # load data
-    actual_output = df_inf['Close'].values
-    #print(actual_output)
-
-    x_inf = df_inf.values[:,:,newaxis]
-    x_inf = np.array(x_inf)
-    x_inf = torch.from_numpy(x_inf).type(torch.Tensor)
-
-    # make predictions
-    y_inf_pred = model(x_inf)
-
-    # invert predictions
-    y_inf_pred = scaler.inverse_transform(y_inf_pred.detach().numpy())
-    y_inf = scaler.inverse_transform(actual_output.detach().numpy())
-
-    signal = gen_signal(y_inf_pred[:,0], y_inf[:,0])
     
-    # Save signals as csv file
-    output_df = pd.DataFrame()
-    output_df = pd.DataFrame(index=df_inf.index)
-    output_df['signal'] = signal
-    output_df.index.name = "Date"
+    signal_dataframe=gen_signal(df[len(df)-len(y_test):].index,y_test_pred[:,0],y_test[:,0])
+    print(signal_dataframe)
 
-    output_filename = 'LSTM_output/' + symbol + '_output.csv'
-    output_df.to_csv(output_filename)
+   # Save signals as csv file
+    output_filename = 'LSTM_output' + symbol + '_output.csv'
+    signal_dataframe .to_csv(output_filename,index=False)
 
-    # Plot inferencing results
-    inf_filename = 'LSTM_output/' + symbol + '_inf.png'
-    visualise(df,y_test[:,0],y_test_pred[:,0], inf_filename)
-    """
-    
+    # # Plot inferencing results
+    # inf_filename = 'LSTM_output/' + symbol + '_inf.png'
+    # visualise(df,y_test[:,0],y_test_pred[:,0], inf_filename)
 
 
 def main():
     # ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
     #                '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
-    
+  
     ticker_list = ['0001']
 
     for ticker in ticker_list:
 
         print("############ Ticker: " + ticker + " ############")
         LSTM_predict(ticker)
+        
         print('\n')
 
 if __name__ == "__main__":
