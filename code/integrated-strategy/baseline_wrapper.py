@@ -102,17 +102,17 @@ def baseline_strategy(symbol, start, end):
     """
     
     backtest_fig.suptitle('Baseline - Portfolio value', fontsize=14)
-    backtest_filename = "./figures/" + symbol + "-baseline_portfolio-value"
-    backtest_fig.savefig(backtest_filename)
+    #backtest_filename = "./figures/" + symbol + "-baseline_portfolio-value"
+    #backtest_fig.savefig(backtest_filename)
     #plt.show()
 
     # Evaluate strategy
 
     # 1. Portfolio return
     returns_fig = PortfolioReturn(portfolio)
-    returns_fig.suptitle('Baseline - Portfolio return')
-    returns_filename = './figures/' + symbol + '-baseline_portfolo-return'
-    returns_fig.savefig(returns_filename)
+    #returns_fig.suptitle('Baseline - Portfolio return')
+    #returns_filename = './figures/' + symbol + '-baseline_portfolo-return'
+    #returns_fig.savefig(returns_filename)
     #plt.show()
 
     # 2. Sharpe ratio
@@ -121,9 +121,9 @@ def baseline_strategy(symbol, start, end):
 
     # 3. Maximum drawdown
     maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
-    maxDrawdown_fig.suptitle('Baseline - Maximum drawdown', fontsize=14)
-    maxDrawdown_filename = './figures/' + symbol + '-baseline_maximum-drawdown'
-    maxDrawdown_fig.savefig(maxDrawdown_filename)
+    #maxDrawdown_fig.suptitle('Baseline - Maximum drawdown', fontsize=14)
+    #maxDrawdown_filename = './figures/' + symbol + '-baseline_maximum-drawdown'
+    #maxDrawdown_fig.savefig(maxDrawdown_filename)
     #plt.show()
 
     # 4. Compound Annual Growth Rate
@@ -138,11 +138,11 @@ def baseline_strategy(symbol, start, end):
 
 
 def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
+    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0388', '0669', '0700',
                    '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
 
     for ticker in ticker_list:
-        start = '2017-01-03'
+        start = '2020-06-10'
         end = '2021-03-03'
 
         print("############ Ticker: " + ticker + " ############")
