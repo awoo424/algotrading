@@ -103,25 +103,56 @@ def visualise(df, y_test, y_test_pred, output_file):
     plt.savefig(output_file)
     # plt.show()
   
-def gen_signal(dates, pred, actual_output):
+def gen_signal(pred, actual_output, dates=None, by_trend=False):
     output_df = pd.DataFrame()
     signal = []
-    
-    for p,a in zip(pred,actual_output):
 
-        if (abs(p - a) < 1.0):
-            signal.append(0)
-            
-        # shows that current price is overvalued, sell the stock
-        elif (p > a):
-            signal.append(-1)
-            
-        # shows that current price is undervalued, buy the stock
-        elif (p < a):
-            signal.append(1)
-        
-    print(len(signal))
-    output_df['dates'] = dates
+    # print(pred)
+    # print(actual_output)
+
+    if (by_trend): # generate signals by trend
+
+        pred_trend = [ (j - i) / j for i, j in zip(pred[:-1], pred[1:]) ]
+        pred_trend.append(0.0) # for last element
+
+        actual_trend = [ (j - i) / j for i, j in zip(actual_output[:-1], actual_output[1:]) ]
+        actual_trend.append(0.0) # for last element
+
+        for p,a in zip(pred_trend, actual_trend):
+
+            if np.sign(p) == np.sign(a):
+                signal.append(0)
+                
+            # shows that current price is overvalued, sell the stock
+            elif (np.sign(p) == -1) and (np.sign(a) == 1):
+                signal.append(-1)
+                
+            # shows that current price is undervalued, buy the stock
+            elif (np.sign(p) == 1) and (np.sign(a) == -1):
+                signal.append(1)
+
+            else: # in case of zeroes
+                signal.append(0)
+
+    else: # generate signals by abs price
+
+        for p,a in zip(pred, actual_output):
+
+            if (abs(p - a) < 1.0):
+                signal.append(0)
+                
+            # shows that current price is overvalued, sell the stock
+            elif (p > a):
+                signal.append(-1)
+                
+            # shows that current price is undervalued, buy the stock
+            elif (p < a):
+                signal.append(1)
+         
+    #print(len(signal))
+    if (dates != None):
+        output_df['Date'] = dates
+
     output_df['signal']=  signal  
     
     return output_df

@@ -132,23 +132,23 @@ def LSTM_predict(symbol):
     print('Test Score: %.2f RMSE' % (testScore))
 
     # Plot predictions
-    pred_filename = 'LSTM_output/' + symbol + '_pred.png'
+    pred_filename = 'LSTM_output_abs-price/' + symbol + '_pred.png'
  
     visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
     
-    signal_dataframe = gen_signal(df[len(df)-len(y_test):].index, y_test_pred[:,0], y_test[:,0])
+    signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index)
     #print(signal_dataframe)
 
     # Save signals as csv file
-    output_filename = 'LSTM_output/' + symbol + '_output.csv'
+    output_filename = 'LSTM_output_abs-price/' + symbol + '_output.csv'
     signal_dataframe.to_csv(output_filename,index=False)
 
 
 def main():
-    # ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
+    # ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0388', '0669', '0700',
     #                '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
   
-    ticker_list = ['0001']
+    ticker_list = ['0001', '0002', '0003', '0004', '0005']
 
     for ticker in ticker_list:
 

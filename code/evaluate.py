@@ -27,9 +27,12 @@ def SharpeRatio(portfolio):
     # Isolate the returns of your strategy
     returns = portfolio['returns']
 
-    # annualised Sharpe ratio
-    sharpe_ratio = np.sqrt(252) * (returns.mean() / returns.std())
-
+    if (returns.std() != 0):
+        # annualised Sharpe ratio
+        sharpe_ratio = np.sqrt(252) * (returns.mean() / returns.std())
+    else:
+        sharpe_ratio = 0
+        
     return sharpe_ratio
 
 """

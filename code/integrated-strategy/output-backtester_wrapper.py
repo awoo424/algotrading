@@ -21,7 +21,8 @@ def backtest(symbol):
     df_whole = pd.read_csv(price_file, header=0, index_col='Date', parse_dates=True)
 
     # select time range (for trading)
-    start = '2017-01-03'
+    #start = '2017-01-03'
+    start = '2020-06-10'
     end = '2021-03-03'
     start_date = pd.Timestamp(start)
     end_date = pd.Timestamp(end)
@@ -31,7 +32,7 @@ def backtest(symbol):
     ticker = symbol + ".HK"
 
     # load signals csv (output from ML model)
-    signals_file = './output/' + symbol + '_output.csv'
+    signals_file = './LSTM_price-only_output/' + symbol + '_output.csv'
 
     signals = pd.read_csv(signals_file,
                         header=0, index_col='Date', parse_dates=True)
@@ -62,17 +63,17 @@ def backtest(symbol):
     """
     Plotting figures
     """
-    backtest_fig.suptitle('Baseline - Portfolio value', fontsize=14)
-    backtest_fig.savefig('./figures/' + symbol + '-LSTM_portfolio-value')
+    backtest_fig.suptitle('Portfolio value', fontsize=14)
+    #backtest_fig.savefig('./figures_LSTM-price-only/' + symbol + '-portfolio-value')
     #plt.show()
 
     # Evaluate strategy
 
     # 1. Portfolio return
     returns_fig = PortfolioReturn(portfolio)
-    returns_fig.suptitle('Baseline - Portfolio return')
-    returns_filename = './figures/' + symbol + '-LSTM_portfolo-return'
-    returns_fig.savefig(returns_filename)
+    returns_fig.suptitle('Portfolio return')
+    #returns_filename = './figures_LSTM-price-only/' + symbol + '-portfolo-return'
+    #returns_fig.savefig(returns_filename)
     #plt.show()
 
     # 2. Sharpe ratio
@@ -82,8 +83,8 @@ def backtest(symbol):
     # 3. Maximum drawdown
     maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
     maxDrawdown_fig.suptitle('Baseline - Maximum drawdown', fontsize=14)
-    maxDrawdown_filename = './figures/' + symbol + '-LSTM_maximum-drawdown'
-    maxDrawdown_fig.savefig(maxDrawdown_filename)
+    #maxDrawdown_filename = './figures/' + symbol + '-LSTM_maximum-drawdown'
+    #maxDrawdown_fig.savefig(maxDrawdown_filename)
     #plt.show()
 
     # 4. Compound Annual Growth Rate
@@ -92,14 +93,16 @@ def backtest(symbol):
 
 
     # Write to file
-    f = open("LSTM-train_price-only_results.csv", "a")
+    f = open("LSTM_price-only_results.csv", "a")
     f.write(ticker + ',' + start + ',' + end + ',' + str(portfolio_return) + ',' +
             str(sharpe_ratio) + ',' + str(cagr) + ',' + str(trade_signals_num) + '\n')
     f.close()
 
 def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0113', '0168', '0175', '0386', '0388', '0669', '0700',
+    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0388', '0669', '0700',
                    '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
+
+    #ticker_list = ['0001', '0002', '0003', '0004', '0005']
 
     for ticker in ticker_list:
 
