@@ -47,10 +47,10 @@ def LSTM_predict(symbol):
     look_back = 60 # choose sequence length
 
     x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
-    print('x_train.shape = ',x_train.shape)
-    print('y_train.shape = ',y_train.shape)
-    print('x_test.shape = ',x_test_df.shape)
-    print('y_test.shape = ',y_test_df.shape)
+    #print('x_train.shape = ',x_train.shape)
+    #print('y_train.shape = ',y_train.shape)
+    #print('x_test.shape = ',x_test_df.shape)
+    #print('y_test.shape = ',y_test_df.shape)
 
     # make training and test sets in torch
     x_train = torch.from_numpy(x_train).type(torch.Tensor)
@@ -58,33 +58,24 @@ def LSTM_predict(symbol):
     y_train = torch.from_numpy(y_train).type(torch.Tensor)
     y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
 
-    n_steps = look_back - 1
-    batch_size = 32
-    num_epochs = 100 # n_iters / (len(train_X) / batch_size)
-
-    
-    train = torch.utils.data.TensorDataset(x_train,y_train)
-    test = torch.utils.data.TensorDataset(x_test,y_test)
-
-    train_loader = torch.utils.data.DataLoader(dataset=train, 
-                                            batch_size=batch_size, 
-                                            shuffle=False)
-
-    test_loader = torch.utils.data.DataLoader(dataset=test, 
-                                            batch_size=batch_size, 
-                                            shuffle=False)
-
     # Hyperparameters
     input_dim = 7
     hidden_dim = 64 # default = 32
     num_layers = 4 # default = 2 
     output_dim = 7
     torch.manual_seed(1) # set seed
+    num_epochs = 100  # n_iters / (len(train_X) / batch_size)
+    lr = 0.01
+
+    print("Hyperparameters:")
+    print("input_dim: ", input_dim, ", hidden_dim: ", hidden_dim, ", num_layers: ", num_layers, ", output_dim", output_dim)
+    print("num_epochs: ", num_epochs, ", lr: ", lr)
 
     model = LSTM(input_dim=input_dim, hidden_dim=hidden_dim, output_dim=output_dim, num_layers=num_layers)
 
     loss_fn = torch.nn.MSELoss()
-    optimiser = torch.optim.Adam(model.parameters(), lr=0.01)
+    optimiser = torch.optim.Adam(model.parameters(), lr=lr)
+    #optimizer = torch.optim.SGD(model.parameters(), lr=lr)
 
     hist = np.zeros(num_epochs)
 

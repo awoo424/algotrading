@@ -16,7 +16,7 @@ class LSTM(nn.Module):
 
         # batch_first=True causes input/output tensors to be of shape
         # (batch_dim, seq_dim, feature_dim)
-        self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers, batch_first=True)
+        self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers, dropout=0.4, batch_first=True)
 
         # Readout layer
         self.fc = nn.Linear(hidden_dim, output_dim)
