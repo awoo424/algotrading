@@ -103,7 +103,7 @@ def visualise(df, y_test, y_test_pred, output_file):
     plt.savefig(output_file)
     # plt.show()
   
-def gen_signal(dates,pred, actual_output):
+def gen_signal(dates, pred, actual_output):
     output_df = pd.DataFrame()
     signal = []
     
@@ -119,8 +119,9 @@ def gen_signal(dates,pred, actual_output):
         # shows that current price is undervalued, buy the stock
         elif (p < a):
             signal.append(1)
+        
     print(len(signal))
-    output_df['dates']=dates
-    
+    output_df['dates'] = dates
     output_df['signal']=  signal  
+    
     return output_df

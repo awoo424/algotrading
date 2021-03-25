@@ -135,18 +135,13 @@ def LSTM_predict(symbol):
     pred_filename = 'LSTM_output/' + symbol + '_pred.png'
  
     visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
-
     
-    signal_dataframe=gen_signal(df[len(df)-len(y_test):].index,y_test_pred[:,0],y_test[:,0])
-    print(signal_dataframe)
+    signal_dataframe = gen_signal(df[len(df)-len(y_test):].index, y_test_pred[:,0], y_test[:,0])
+    #print(signal_dataframe)
 
-   # Save signals as csv file
-    output_filename = 'LSTM_output' + symbol + '_output.csv'
-    signal_dataframe .to_csv(output_filename,index=False)
-
-    # # Plot inferencing results
-    # inf_filename = 'LSTM_output/' + symbol + '_inf.png'
-    # visualise(df,y_test[:,0],y_test_pred[:,0], inf_filename)
+    # Save signals as csv file
+    output_filename = 'LSTM_output/' + symbol + '_output.csv'
+    signal_dataframe.to_csv(output_filename,index=False)
 
 
 def main():
