@@ -66,16 +66,27 @@ def LSTM_predict(symbol):
     torch.manual_seed(1) # set seed
     num_epochs = 100  # n_iters / (len(train_X) / batch_size)
     lr = 0.01
+    batch_size = 72
 
     print("Hyperparameters:")
     print("input_dim: ", input_dim, ", hidden_dim: ", hidden_dim, ", num_layers: ", num_layers, ", output_dim", output_dim)
-    print("num_epochs: ", num_epochs, ", lr: ", lr)
+    print("num_epochs: ", num_epochs, ", batch_size: ", batch_size, ", lr: ", lr)
+
+    train = torch.utils.data.TensorDataset(x_train,y_train)
+    test = torch.utils.data.TensorDataset(x_test,y_test)
+
+    train_loader = torch.utils.data.DataLoader(dataset=train,
+                                           batch_size=batch_size,
+                                           shuffle=False)
+
+    test_loader = torch.utils.data.DataLoader(dataset=test,
+                                          batch_size=batch_size,
+                                          shuffle=False)
 
     model = LSTM(input_dim=input_dim, hidden_dim=hidden_dim, output_dim=output_dim, num_layers=num_layers)
 
     loss_fn = torch.nn.MSELoss()
     optimiser = torch.optim.Adam(model.parameters(), lr=lr)
-    #optimizer = torch.optim.SGD(model.parameters(), lr=lr)
 
     hist = np.zeros(num_epochs)
 
@@ -83,24 +94,27 @@ def LSTM_predict(symbol):
     seq_dim = look_back - 1  
 
     # Train model
-    for t in range(num_epochs):    
-        # Forward pass
-        y_train_pred = model(x_train)
-        loss = loss_fn(y_train_pred, y_train)
+    for t in range(num_epochs):
+        for i, (train_data, train_label) in enumerate(train_loader):
+            # Forward pass
+            train_pred = model(train_data)
+            loss = loss_fn(train_pred, train_label)
 
-        if t % 10 == 0 and t !=0:
+            hist[t] = loss.item()
+
+            # Zero out gradient, else they will accumulate between epochs
+            optimiser.zero_grad()
+
+            # Backward pass
+            loss.backward()
+
+            # Update parameters
+            optimiser.step()
+
+        if t % 10 == 0 and t != 0:
+            y_train_pred = model(x_train)
+            loss = loss_fn(y_train_pred, y_train)
             print("Epoch ", t, "MSE: ", loss.item())
-
-        hist[t] = loss.item()
-
-        # Zero out gradient, else they will accumulate between epochs
-        optimiser.zero_grad()
-
-        # Backward pass
-        loss.backward()
-
-        # Update parameters
-        optimiser.step()
     
     # plt.plot(hist, label="Training loss")
     # plt.legend()
@@ -139,6 +153,7 @@ def main():
     # ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0388', '0669', '0700',
     #                '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
   
+    #ticker_list = ['0001', '0005', '0700', '0823', '0968']
     ticker_list = ['0001', '0002', '0003', '0004', '0005']
 
     for ticker in ticker_list:
