@@ -942,7 +942,7 @@ Average True Range
 
 .. math::
 
-  \text{Current ATR} = \frac{(Prior ATR \times 13) + Current TR}{n}
+  \text{Current ATR} = \frac{(\text{Prior ATR} \times 13) + \text{Current TR}}{n}
 
 | where:
 
