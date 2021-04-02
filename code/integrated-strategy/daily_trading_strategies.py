@@ -45,7 +45,7 @@ def collect_individual_sentiment(ticker):
     
 def main():
 
-    collect_news('0001',4)
+    collect_news('0001',3)
 
     collect_individual_sentiment('0001')
 

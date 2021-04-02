@@ -67,9 +67,10 @@ def get_news_aastock(ticker,postfix_url,newstype,days):
 
                         date_time_obj = datetime.datetime.strptime(date, '%Y/%m/%d')
                         date_time=date_time_obj.strftime('%Y-%m-%d')
+                        date_now=datetime.datetime.now().strftime('%Y-%m-%d')
                         if(datetime.datetime.now()-date_time_obj).days<=days:
                             print(text)
-                            writer.writerow([date_time,text,ticker,newstype])
+                            writer.writerow([date_now,text,ticker,newstype])
                         idx+=1
     except Exception as e:
         print(e)
