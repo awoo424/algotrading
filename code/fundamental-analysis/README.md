@@ -1,5 +1,4 @@
-
-### Fundamental analysis
+## Fundamental analysis
 The following ratios will be useful for stock screening:
 
 #### Short-term solvency ratios

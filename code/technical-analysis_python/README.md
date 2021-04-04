@@ -1,4 +1,4 @@
-### Technical analysis
+## Technical analysis
 The following indicators have been implemented in Python:
 
 #### Trend
