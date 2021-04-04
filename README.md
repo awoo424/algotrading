@@ -82,6 +82,10 @@ All the code could be found in the `/code` directory and the documentation could
 * Trading signal generation with LSTM (single-feature)
 * Trading signal generation with LSTM (multi-feature)
 
+### 7. Trade Execution
+`paper-trading`
+* Paper Trading using Interactive Brokers
+
 ## Development
 
 The source code of the Sphinx documentation website could be found in the `/docs` directory. After updating any of the `*.rst` files in `/docs/source/`, run the following to generate the HTML files:
@@ -96,7 +100,8 @@ Project Link: https://awoo424.github.io/algotrading_fyp/
 
 ## Acknowledgements
 
-TO-EDIT
+* [Investopedia](https://www.investopedia.com/)
+* [StockCharts](https://stockcharts.com/)
 * [Technical Analysis Library in Python](https://github.com/bukosabino/ta) 
 
 ## License
