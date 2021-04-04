@@ -5,6 +5,9 @@ import sys
 import pandas as pd
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+mpl.use('tkagg')  # issues with Big Sur
+
 from models.sentiment.sentiment_vader import starter_vader
 from models.sentiment.sentiment_text_blob import starter_textblob
 from models.sentiment.collect_news_aastock import get_news_aastock
@@ -46,7 +49,6 @@ def collect_individual_sentiment(ticker):
 def main():
 
     collect_news('0001',3)
-
     collect_individual_sentiment('0001')
 
 
