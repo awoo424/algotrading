@@ -36,72 +36,51 @@ All the code could be found in the `/code` directory and the documentation could
 
 ## Code overview
 
-#### 1. Technical analysis
-The following indicators have been implemented in Python:
+### 1. Introduction
+`intro-to-algotrading/`
+* Basic data science
+* Data scrapping
 
-#### Trend
-* Moving Average Crossovers
-* Moving Average Convergence Divergence (MACD)
-* Parabolic Stop and Reverse (Parabolic SAR)
-  
-#### Momentum
-* Commodity Channel Index (CCI)
-* Relative Strength Index (RSI)
-* Rate of Change (ROC) 
-* Stochastic Oscillator (STC)
-* True Strength Index (TSI)
-* Money Flow Index (MFI)
-* Williams %R
 
-#### Volatility
-* Bollinger Bands
-* Average True Range (ATR)
-* Standard Deviation
+### 2. Technical Analysis
+`technical-analysis_basics/`
+* Chart analysis
+* Trend analysis
+* Basics of technical analysis
 
-#### Volume
-* Chaikin Oscillator
-* On-Balance Volume (BOV)
-* Volume Rate of Change
+`technical-analysis_python/`
+* Technical indicators implementation
 
-<br/>
+`technical-analysis_julia/`
+* Moving Average strategy implementation
 
-#### 2. Fundamental analysis
 
-#### Short-term solvency ratios
-* Current ratio
-* Quick ratio
-* Cash ratio
-* Networking capital to current liabilities
+### 3. Fundamental Analysis
+`fundamental-analysis/`
+* Ratio analysis & stock screening
 
-#### Turnover ratios
-* Average collection period
-* Inventory turnover ratios
-* Receivable turnover
-* Fixed asset turnover
-* Total asset turnover
+`bankruptcy-prediction/`
+* Prediction with machine learning models
 
-#### Financial leverage ratios
-* Total debt ratio
-* Debt to equity
-* Equity ratio
-* Long-term debt ratio
-* Times interest earned ratio
-
-#### Profitability ratios
-* Gross profit margin
-* Net profit margin
-* Return on assets (ROA)
-* Return on equity (ROE)
-* Earning per share (EPS)
-
-<br/>
-
-#### 3. Machine Learning
-
-* Bankruptcy prediction
+### 4. Macroeconomic Analysis
+`macroeconomic-analysis/`
+* Property transaction data scrapping
+* Property transaction data analysis
+* Macroeconomic indicators analysis
 * Property price prediction
-* Sentiment analysis
-* Multi-feature trading strategy
+
+### 5. Sentiment Analysis
+`sentiment-analysis/`
+* News data collection
+* Tweets data collection
+* VADER sentiment analysis
+* Textblob sentiment analysis
+
+### 6. Integrated Strategies
+`integrated-strategy/`
+* Baseline model with data filters
+* Trading signal generation with LSTM (single-feature)
+* Trading signal generation with LSTM (multi-feature)
 
 ## Development
 
