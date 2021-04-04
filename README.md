@@ -19,6 +19,7 @@
 * [About this repo](#about-this-repo)
 * [How to use](#how-to-use)
 * [Code overview](#code-overview)
+* [Development](#development)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
@@ -28,8 +29,6 @@
 This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of The University of Hong Kong (HKU). 
 
 ## How to use
-
-⚠️ Work in progress
 
 All the code could be found in the `/code` directory and the documentation could be accessed at [https://algo-trading.readthedocs.io/](https://algo-trading.readthedocs.io/).
 
@@ -103,6 +102,14 @@ The following indicators have been implemented in Python:
 * Property price prediction
 * Sentiment analysis
 * Multi-feature trading strategy
+
+## Development
+
+The source code of the Sphinx documentation website could be found in the `/docs` directory. After updating any of the `*.rst` files in `/docs/source/`, run the following to generate the HTML files:
+
+```
+make html
+```
 
 ## Contact
 
