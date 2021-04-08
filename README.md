@@ -16,13 +16,13 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About this repo](#about-this-repo)
+* [About this repo](#-about-this-repo)
 * [How to use](#-how-to-use)
 * [Code overview](#-code-overview)
 * [Development](#-development)
 * [Contact](#-contact)
 * [Acknowledgements](#-acknowledgements)
-* [License](#-license)
+* [License](#%EF%B8%8F-license)
 
 ## 💻 About this repo 
 
