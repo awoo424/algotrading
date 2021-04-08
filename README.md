@@ -17,24 +17,24 @@
 ## Table of Contents
 
 * [About this repo](#about-this-repo)
-* [How to use](#how-to-use)
-* [Code overview](#code-overview)
-* [Development](#development)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
-* [License](#license)
+* [How to use](#-how-to-use)
+* [Code overview](#-code-overview)
+* [Development](#-development)
+* [Contact](#-contact)
+* [Acknowledgements](#-acknowledgements)
+* [License](#-license)
 
-## About this repo 
+## 💻 About this repo 
 
 This repo is built as part of the Final Year Project (FYP) at the Department of Computer Science of The University of Hong Kong (HKU). 
 
-## How to use
+## 🤔 How to use
 
 All the code could be found in the `/code` directory and the documentation could be accessed at [https://algo-trading.readthedocs.io/](https://algo-trading.readthedocs.io/).
 
 (Note that the `/database` directory only contains example files. The actual database is stored in the HKU Department of Computer Science server.)  
 
-## Code overview
+## 📁 Code overview
 
 ### 1. Introduction
 `intro-to-algotrading/`
@@ -86,7 +86,7 @@ All the code could be found in the `/code` directory and the documentation could
 `paper-trading`
 * Paper Trading using Interactive Brokers
 
-## Development
+## 🔧 Development
 
 The source code of the Sphinx documentation website could be found in the `/docs` directory. After updating any of the `*.rst` files in `/docs/source/`, run the following to generate the HTML files:
 
@@ -94,17 +94,17 @@ The source code of the Sphinx documentation website could be found in the `/docs
 make html
 ```
 
-## Contact
+## 📮 Contact
 
 Project Link: https://awoo424.github.io/algotrading_fyp/
 
-## Acknowledgements
+## 📚 Acknowledgements
 
 * [Investopedia](https://www.investopedia.com/)
 * [StockCharts](https://stockcharts.com/)
 * [Technical Analysis Library in Python](https://github.com/bukosabino/ta) 
 
-## License
+## ⚖️ License
 Licensed under the Creative Commons Zero v1.0 Universal.
 [Copy of the license](https://github.com/awoo424/algotrading/blob/master/LICENSE).
 
