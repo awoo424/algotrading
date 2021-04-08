@@ -68,7 +68,9 @@ class rsi(Indicator):
         # Initialize the `signals` DataFrame with the `signal` column
         signals = pd.DataFrame(index=self.df.index)
         signals['signal'] = 0.0
-        signals['RSI'] = self.RSI
+   
+        self.RSI = pd.concat([pd.Series([0.0]), self.RSI])
+        signals['RSI'] = self.RSI.values
 
         # Generate buy signal
         signals.loc[signals['RSI'] < self.lower, 'signal'] = 1.0

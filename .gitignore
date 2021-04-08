@@ -12,8 +12,13 @@ generate-training-data/
 integrated-strategy/figures/
 LSTM_output_trend/
 LSTM_output_abs-price/
+LSTM_output_abs-price_*/
 LSTM_output_price-only/
-LSTM_results.csv
+LSTM_*.csv
 output/
+baseline_wrapper_*.py
+LSTM-train_price_only_wrapper_*.py
+LSTM-train_wrapper_*.py
+*baseline_results*.csv
 *_output.csv
 *_results.csv
