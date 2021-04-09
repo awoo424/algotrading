@@ -26,8 +26,8 @@ def read_data(data_dir, symbol, dates):
 def read_strategy_data(data_dir, symbol, dates, strategy):
 
   df = pd.DataFrame(index=dates)
-  
   new_df = pd.read_csv(data_dir + symbol  + ".HK_" + strategy + ".csv", index_col='Date', parse_dates=True, usecols=['Date', 'Close'], na_values=['nan'])
+  
   new_df = new_df.rename(columns={'Close': symbol})
   df = df.join(new_df)
 
@@ -57,6 +57,21 @@ def load_data(data_raw, look_back):
     y_test = data[train_set_size:,-1,:]
     
     return [x_train, y_train, x_test, y_test]
+def load_test_data (df):
+    
+    # pre-processing
+    df = df.fillna(method='ffill')
+    values = df.values
+    # print(values)
+    
+    # ensure all data is float
+    values = values.astype('float32')
+    # normalise features
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    scaled = scaler.fit_transform(values)
+  
+    return df, scaled, scaler
+
  
 
 # return dataframe with stock tick and sentiment scores 
@@ -65,8 +80,8 @@ def merge_data(ticker, data_dir, sentiment_data_dir, strategy, start_date=None, 
  
     sentiment_path = os.path.join(sentiment_data_dir,'data-'+ticker.zfill(5)+'-result.csv') 
     sentiment_df = pd.read_csv(sentiment_path,index_col='dates',parse_dates=['dates'], na_values=['nan'])
-    merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
-
+    # merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
+    merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date',"oscillator_signal","rsi_signal","williams_R_signal","macd_signal",'GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
     merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
     
     df = pd.merge(merge_df,sentiment_df, how='inner', left_index=True, right_index=True)
@@ -86,6 +101,35 @@ def merge_data(ticker, data_dir, sentiment_data_dir, strategy, start_date=None, 
 
     return df, scaled, scaler
 
+# return dataframe with stock tick and sentiment scores 
+def merge_data_daily(ticker, data_dir, sentiment_data_dir, strategy, start_date=None, end_date=None):
+    merge_path = os.path.join(data_dir,ticker.zfill(4)+'.HK_' + strategy + '.csv') 
+ 
+    sentiment_path = os.path.join(sentiment_data_dir,'data-'+ticker.zfill(5)+'-result.csv') 
+    sentiment_df = pd.read_csv(sentiment_path,index_col='dates',parse_dates=['dates'], na_values=['nan'])
+    # merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
+    merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date',"Close",'GDP','Unemployment rate','Property price'],parse_dates=['Date'], na_values=['nan'])
+    merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
+    
+    df = pd.merge(merge_df,sentiment_df, how='inner', left_index=True, right_index=True)
+
+    if (start_date != None) and (end_date != None):
+        df = df.loc[pd.Timestamp(start_date):pd.Timestamp(end_date)]
+
+    # pre-processing
+    df = df.fillna(method='ffill')
+    values = df.values
+
+    # ensure all data is float
+    values = values.astype('float32')
+    # normalise features
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    scaled = scaler.fit_transform(values)
+
+    return df, scaled, scaler
+
+
+
 def visualise(df, y_test, y_test_pred, output_file):
     pd.plotting.register_matplotlib_converters()
     figure, axes = plt.subplots(figsize=(15, 6))
@@ -102,6 +146,21 @@ def visualise(df, y_test, y_test_pred, output_file):
 
     plt.savefig(output_file)
     # plt.show()
+
+def visualise(df, y_test, y_test_pred):
+    pd.plotting.register_matplotlib_converters()
+    figure, axes = plt.subplots(figsize=(15, 6))
+    axes.xaxis_date()
+    #print(y_test.shape)
+
+    axes.plot(df[len(df)-len(y_test):].index, y_test, color = 'red', label = 'Real Stock Price')
+    axes.plot(df[len(df)-len(y_test):].index, y_test_pred, color = 'blue', label = 'Predicted Stock Price')
+    
+    plt.title('Stock Price Prediction')
+    plt.xlabel('Time')
+    plt.ylabel('Stock Price')
+    plt.legend()
+    plt.show()
   
 def gen_signal(pred, actual_output, dates, by_trend=False):
     output_df = pd.DataFrame()
@@ -148,6 +207,28 @@ def gen_signal(pred, actual_output, dates, by_trend=False):
             # shows that current price is undervalued, buy the stock
             elif (p < a):
                 signal.append(1)
+         
+    #print(len(signal))
+    output_df['Date'] = dates
+
+    output_df['signal']=  signal  
+    
+    return output_df
+def gen_signal_daily(pred,actual_output, dates, by_trend=False):
+    output_df = pd.DataFrame()
+    signal = []
+
+ 
+    if (abs(pred - actual_output) < 1.0):
+        signal.append(0)
+                
+    # shows that current price is overvalued, sell the stock
+    elif (pred > actual_output):
+        signal.append(-1)
+                
+    # shows that current price is undervalued, buy the stock
+    elif (pred < actual_output):
+        signal.append(1)
          
     #print(len(signal))
     output_df['Date'] = dates

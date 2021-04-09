@@ -48,9 +48,14 @@ def get_news_aastock(ticker,postfix_url,newstype,days):
         news=html.findAll("div", {"class": "newshead4"})
         
         idx=0
-        path=os.path.join(dir_name,'data-news/data-aastock/'+'data-'+ticker.zfill(4)+'-aastock.csv')
+        path=os.path.join(dir_name,'data-news/'+'data-'+ticker.zfill(4)+'-aastock.csv')
+        action='a'
+        if (newstype=='news-daily'):
+            action='w'
+       
+
         if (len(dates)>0):
-            with open(path,'a') as f:
+            with open(path,action) as f:
                 writer = csv.writer(f)
                 for i in dates:
                     
