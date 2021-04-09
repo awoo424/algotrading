@@ -137,25 +137,24 @@ def LSTM_predict(symbol,strategy):
     print('Test Score: %.2f RMSE' % (testScore))
 
     # Plot predictions
-    pred_filename = os.path(dir_name,'LSTM_output_abs-price/' + symbol +strategy+ '_pred.png')
+    pred_filename = 'LSTM_output_trend/' + symbol + '_pred.png'
  
     visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
     
-    signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index)
+    signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index, by_trend=True)
     #print(signal_dataframe)
 
     # Save signals as csv file
-    output_filename = os.path(dir_name,'LSTM_output_abs-price/' + symbol + strategy+'_output.csv')
+    output_filename = 'LSTM_output_trend/' + symbol + '_output.csv'
     signal_dataframe.to_csv(output_filename,index=False)
     
 
 
-
 def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386',  '0669', '0700',
-                    '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
-                    
-    # for ticker in ticker_list:
+    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0669', '0700',
+                   '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
+  
+    for ticker in ticker_list:
 
     #     print("############ Ticker: " + ticker + " ############")
     #     LSTM_predict(ticker,'macd-crossover')

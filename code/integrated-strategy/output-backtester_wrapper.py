@@ -32,7 +32,7 @@ def backtest(symbol):
     ticker = symbol + ".HK"
 
     # load signals csv (output from ML model)
-    signals_file = './LSTM_price-only_output/' + symbol + '_output.csv'
+    signals_file = './LSTM_output_abs-price/' + symbol + '_output.csv'
 
     signals = pd.read_csv(signals_file,
                         header=0, index_col='Date', parse_dates=True)
@@ -82,7 +82,7 @@ def backtest(symbol):
 
     # 3. Maximum drawdown
     maxDrawdown_fig, max_daily_drawdown, daily_drawdown = MaxDrawdown(df)
-    maxDrawdown_fig.suptitle('Baseline - Maximum drawdown', fontsize=14)
+    maxDrawdown_fig.suptitle('Maximum drawdown', fontsize=14)
     #maxDrawdown_filename = './figures/' + symbol + '-LSTM_maximum-drawdown'
     #maxDrawdown_fig.savefig(maxDrawdown_filename)
     #plt.show()
@@ -93,13 +93,13 @@ def backtest(symbol):
 
 
     # Write to file
-    f = open("LSTM_price-only_results.csv", "a")
+    f = open("LSTM_abs-price_results_MACD.csv", "a")
     f.write(ticker + ',' + start + ',' + end + ',' + str(portfolio_return) + ',' +
             str(sharpe_ratio) + ',' + str(cagr) + ',' + str(trade_signals_num) + '\n')
     f.close()
 
 def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0388', '0669', '0700',
+    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0669', '0700',
                    '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
 
     #ticker_list = ['0001', '0002', '0003', '0004', '0005']
