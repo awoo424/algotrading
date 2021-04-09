@@ -77,7 +77,7 @@ if(df['signal'].iloc[0]==1):
     order.orderType = 'MKT'
     # order.lmtPrice = '100'
     print(today)
-    order.goodAfterTime = today+" 16:59:00 "
+    order.goodAfterTime = today+" 16:29:00 "
     print('placing order')
     app.placeOrder(app.nextorderId, contract, order)
 
@@ -88,7 +88,7 @@ elif(df['signal'].iloc[0]==-1):
     order.totalQuantity = 500
     order.orderType = 'MKT'
     # order.lmtPrice = '100'
-    order.goodAfterTime = today+" 13:59:00 "
+    order.goodAfterTime = today+" 16:29:00 "
     print('placing order')
     app.placeOrder(app.nextorderId, contract, order)
 

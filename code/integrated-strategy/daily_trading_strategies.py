@@ -6,7 +6,7 @@ import pandas as pd
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-mpl.use('tkagg')  # issues with Big Sur
+# mpl.use('tkagg')  # issues with Big Sur
 
 from models.sentiment.sentiment_vader import starter_vader
 from models.sentiment.sentiment_text_blob import starter_textblob
