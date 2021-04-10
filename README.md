@@ -77,9 +77,9 @@ All the code could be found in the `/code` directory and the documentation could
 * Textblob sentiment analysis
 
 ### 6. Trade Execution
-`paper-trading`
+`paper-trading/`
 * Paper Trading using Interactive Brokers (IB)
-* 
+
 ### 7. Integrated Strategies
 `integrated-strategy/`
 * Baseline model with data filters
