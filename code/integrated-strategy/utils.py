@@ -57,6 +57,7 @@ def load_data(data_raw, look_back):
     y_test = data[train_set_size:,-1,:]
     
     return [x_train, y_train, x_test, y_test]
+
 def load_test_data (df):
     
     # pre-processing
@@ -73,18 +74,18 @@ def load_test_data (df):
     return df, scaled, scaler
 
  
-
 # return dataframe with stock tick and sentiment scores 
 def merge_data(ticker, data_dir, sentiment_data_dir, strategy, start_date=None, end_date=None):
-    merge_path = os.path.join(data_dir,ticker.zfill(4)+'.HK_' + strategy + '.csv') 
+    merge_path = os.path.join(data_dir,ticker.zfill(4) + '.HK_' + strategy + '.csv') 
  
-    sentiment_path = os.path.join(sentiment_data_dir,'data-'+ticker.zfill(5)+'-result.csv') 
-    sentiment_df = pd.read_csv(sentiment_path,index_col='dates',parse_dates=['dates'], na_values=['nan'])
-    # merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
-    merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date',"oscillator_signal","rsi_signal","williams_R_signal","macd_signal",'GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
+    sentiment_path = os.path.join(sentiment_data_dir,'data-' + ticker.zfill(5) + '-result.csv') 
+    sentiment_df = pd.read_csv(sentiment_path, index_col='dates',parse_dates=['dates'], na_values=['nan'])
+    merge_df = pd.read_csv(merge_path,index_col='Date', usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'], parse_dates=['Date'], na_values=['nan'])
+    
+    # merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date',"oscillator_signal","rsi_signal","williams_R_signal","macd_signal",'GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
     merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
     
-    df = pd.merge(merge_df,sentiment_df, how='inner', left_index=True, right_index=True)
+    df = pd.merge(merge_df, sentiment_df, how='inner', left_index=True, right_index=True)
 
     if (start_date != None) and (end_date != None):
         df = df.loc[pd.Timestamp(start_date):pd.Timestamp(end_date)]

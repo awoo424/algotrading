@@ -35,8 +35,8 @@ from models.LSTM import LSTM, predict_price
 from utils import read_strategy_data, load_data, merge_data, visualise, gen_signal
 
 
-def LSTM_predict(symbol,strategy):
-    dir_name= os.getcwd()
+def LSTM_predict(symbol, strategy):
+    dir_name = os.getcwd()
     data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
     sentiment_data_dir=os.path.join(dir_name,"database/sentiment_data/data-result/")
   
@@ -59,10 +59,10 @@ def LSTM_predict(symbol,strategy):
     y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
 
     # Hyperparameters
-    input_dim = 10
+    input_dim = 7
     hidden_dim = 64 # default = 32
     num_layers = 4 # default = 2 
-    output_dim = 10
+    output_dim = 7
     torch.manual_seed(1) # set seed
     num_epochs = 100  # n_iters / (len(train_X) / batch_size)
     lr = 0.01
@@ -156,11 +156,12 @@ def main():
   
     for ticker in ticker_list:
 
-    #     print("############ Ticker: " + ticker + " ############")
-    #     LSTM_predict(ticker,'macd-crossover')
+        print("############ Ticker: " + ticker + " ############")
+        LSTM_predict(ticker, 'macd-crossover')
+        #LSTM_predict('0001','all')
         
-    #     print('\n')    
-    LSTM_predict('0001','all')
+        print('\n')    
+    
   
 
 

@@ -37,8 +37,6 @@ from utils import read_strategy_data, load_data, merge_data_daily, visualise, ge
 
 def LSTM_predict(symbol,strategy,dir_name):
 
-
-
     data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
     sentiment_data_dir=os.path.join(dir_name,"database/sentiment_data/data-result/")
 
@@ -140,7 +138,6 @@ def LSTM_predict(symbol,strategy,dir_name):
     y_train = scaler.inverse_transform(y_train.detach().numpy())
     y_test_pred = scaler.inverse_transform(y_test_pred.detach().numpy())
     y_test = scaler.inverse_transform(y_test.detach().numpy())
-
    
     # Calculate root mean squared error
     trainScore = math.sqrt(mean_squared_error(y_train[:,0], y_train_pred[:,0]))
@@ -148,12 +145,11 @@ def LSTM_predict(symbol,strategy,dir_name):
     testScore = math.sqrt(mean_squared_error(y_test[:,0], y_test_pred[:,0]))
     print('Test Score: %.2f RMSE' % (testScore))
 
-  
- 
     # visualise(df, y_test[:,0], y_test_pred[:,0])
     return y_train_pred,y_train,y_test_pred,y_test,model
 
-def gen_daily_signal (y_train_pred,y_train,y_test_pred,y_test):
+
+def gen_daily_signal(y_train_pred,y_train,y_test_pred,y_test):
     signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index)
 
 
@@ -161,21 +157,15 @@ def main():
     ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386',  '0669', '0700',
                     '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
                     
-    # for ticker in ticker_list:
+    dir_name = os.getcwd()
+    ticker = '0001'
 
-    #     print("############ Ticker: " + ticker + " ############")
-    #     LSTM_predict(ticker,'macd-crossover')
-        
-    #     print('\n')
-    dir_name= os.getcwd()
-    ticker='0001'
-    y_train_pred,y_train,y_test_pred,y_test,model= LSTM_predict('0001','all',dir_name)
+    y_train_pred,y_train,y_test_pred,y_test,model = LSTM_predict('0001', 'all', dir_name)
     # visualization (y_train_pred,y_train,y_test_pred,y_test)
     torch.save(model, '0001_model') 
-    print('hello')
-    model_path=os.path.join(dir_name,'/models'+ticker+'_model')
-    
 
+    model_path = os.path.join(dir_name,'/models' + ticker + '_model')
+    
     # torch.save(model, model_path) 
 
 
