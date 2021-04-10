@@ -32,37 +32,48 @@ import torch.nn as nn
 from torch.autograd import Variable
 
 from models.LSTM import LSTM, predict_price
-from utils import read_strategy_data, load_data, merge_data, visualise, gen_signal
+from utils import read_strategy_data, load_data, merge_data_daily, visualise, gen_signal
 
 
-def LSTM_predict(symbol,strategy):
-    dir_name= os.getcwd()
+def LSTM_predict(symbol,strategy,dir_name):
+
+
+
     data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
     sentiment_data_dir=os.path.join(dir_name,"database/sentiment_data/data-result/")
-  
+
+    
+    # data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
+    # data_dir = os.path.join(dir_name,'data-results/')
 
     # Get merged df with stock tick and sentiment scores
-    df, scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, strategy)
+    df, scaled, scaler = merge_data_daily(symbol, data_dir, sentiment_data_dir, strategy)
     # print(df.index)
+    print(scaled)
+
     look_back = 60 # choose sequence length
 
     x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
-    #print('x_train.shape = ',x_train.shape)
-    #print('y_train.shape = ',y_train.shape)
-    #print('x_test.shape = ',x_test_df.shape)
-    #print('y_test.shape = ',y_test_df.shape)
+    print('x_train.shape = ',x_train.shape)
+    print('y_train.shape = ',y_train.shape)
+    print('x_test.shape = ',x_test_df.shape)
+    print('y_test.shape = ',y_test_df.shape)
 
     # make training and test sets in torch
     x_train = torch.from_numpy(x_train).type(torch.Tensor)
     x_test = torch.from_numpy(x_test_df).type(torch.Tensor)
     y_train = torch.from_numpy(y_train).type(torch.Tensor)
     y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
+    print('x_train.shape = ',x_train)
+    print('y_train.shape = ',y_train)
+    print('x_test.shape = ',x_test_df)
+    print('y_test.shape = ',y_test_df)
 
     # Hyperparameters
-    input_dim = 10
+    input_dim = 6
     hidden_dim = 64 # default = 32
     num_layers = 4 # default = 2 
-    output_dim = 10
+    output_dim = 6
     torch.manual_seed(1) # set seed
     num_epochs = 100  # n_iters / (len(train_X) / batch_size)
     lr = 0.01
@@ -129,39 +140,43 @@ def LSTM_predict(symbol,strategy):
     y_train = scaler.inverse_transform(y_train.detach().numpy())
     y_test_pred = scaler.inverse_transform(y_test_pred.detach().numpy())
     y_test = scaler.inverse_transform(y_test.detach().numpy())
- 
+
+   
     # Calculate root mean squared error
     trainScore = math.sqrt(mean_squared_error(y_train[:,0], y_train_pred[:,0]))
     print('Train Score: %.2f RMSE' % (trainScore))
     testScore = math.sqrt(mean_squared_error(y_test[:,0], y_test_pred[:,0]))
     print('Test Score: %.2f RMSE' % (testScore))
 
-    # Plot predictions
-    pred_filename = 'LSTM_output_trend/' + symbol + '_pred.png'
+  
  
-    visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
-    
-    signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index, by_trend=True)
-    #print(signal_dataframe)
+    # visualise(df, y_test[:,0], y_test_pred[:,0])
+    return y_train_pred,y_train,y_test_pred,y_test,model
 
-    # Save signals as csv file
-    output_filename = 'LSTM_output_trend/' + symbol + '_output.csv'
-    signal_dataframe.to_csv(output_filename,index=False)
-    
+def gen_daily_signal (y_train_pred,y_train,y_test_pred,y_test):
+    signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index)
 
 
 def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386', '0669', '0700',
-                   '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
-  
-    for ticker in ticker_list:
+    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386',  '0669', '0700',
+                    '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
+                    
+    # for ticker in ticker_list:
 
     #     print("############ Ticker: " + ticker + " ############")
     #     LSTM_predict(ticker,'macd-crossover')
         
-    #     print('\n')    
-    LSTM_predict('0001','all')
-  
+    #     print('\n')
+    dir_name= os.getcwd()
+    ticker='0001'
+    y_train_pred,y_train,y_test_pred,y_test,model= LSTM_predict('0001','all',dir_name)
+    # visualization (y_train_pred,y_train,y_test_pred,y_test)
+    torch.save(model, '0001_model') 
+    print('hello')
+    model_path=os.path.join(dir_name,'/models'+ticker+'_model')
+    
+
+    # torch.save(model, model_path) 
 
 
 if __name__ == "__main__":
