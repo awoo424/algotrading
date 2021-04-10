@@ -10,10 +10,11 @@ import os
 import csv
 import pandas as pd
 
-dir_name = os.getcwd()+'/database/daily_trading_data/'
+dir_name = os.getcwd() + '/database/daily_trading_data/'
 
 def get_news_aastock(ticker,postfix_url,newstype,days):
-        # initialize chrome setting from collecting stock using chrome driver
+    
+    # initialise chrome settings for collecting stock using chrome driver
     chrome_options = Options()  
     chrome_options.add_argument("--headless")  
     chrome_options.add_argument('no-sandbox')  
@@ -42,13 +43,10 @@ def get_news_aastock(ticker,postfix_url,newstype,days):
             if new_height == last_height:
                 break
             last_height = new_height
-#         req = Request(url=url,headers={'user-agent': 'my-app/0.0.1'}) 
-#         resp = urlopen(req) 
-     
+
+        # get HTML document with BeautifulSoup
         html = BeautifulSoup(driver.page_source, 'lxml')
-      
-        dates = html.findAll("div", {"class": "newstime4"})
-        
+        dates = html.findAll("div", {"class": "newstime4"})        
         news = html.findAll("div", {"class": "newshead4"})
         
         idx = 0
@@ -57,9 +55,9 @@ def get_news_aastock(ticker,postfix_url,newstype,days):
 
         if (newstype == 'news-daily'):
             action = 'w'
-       
 
         if (len(dates) > 0):
+
             with open(path,action) as f:
                 writer = csv.writer(f)
                 
@@ -75,11 +73,15 @@ def get_news_aastock(ticker,postfix_url,newstype,days):
                         # print(date)
                         text = news[idx].get_text()
 
+                        # get date
                         date_time_obj = datetime.datetime.strptime(date, '%Y/%m/%d')
                         date_time = date_time_obj.strftime('%Y-%m-%d')
                         date_now = datetime.datetime.now().strftime('%Y-%m-%d')
+
                         if (datetime.datetime.now()-date_time_obj).days <= days:
                             print(text)
+
+                            # write to file
                             writer.writerow([date_now,text,ticker,newstype])
                         idx += 1
 

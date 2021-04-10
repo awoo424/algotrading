@@ -80,9 +80,6 @@ def collect_individual_sentiment(ticker):
 
 
 def main():
-    # load directory for storing daily trading signals
-    #dir_name = os.getcwd() + '/database/daily_trading_data/'
-
     # set ticker to trade
     ticker = '0001'
     result_path = os.path.join(dir_name, 'signal/' + ticker.zfill(4) + '-signal.csv')

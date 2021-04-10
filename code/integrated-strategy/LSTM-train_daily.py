@@ -50,20 +50,12 @@ def LSTM_predict(symbol, strategy, dir_name):
     look_back = 60 # choose sequence length
 
     x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
-    # print('x_train.shape = ',x_train.shape)
-    # print('y_train.shape = ',y_train.shape)
-    # print('x_test.shape = ',x_test_df.shape)
-    # print('y_test.shape = ',y_test_df.shape)
 
     # make training and test sets in torch
     x_train = torch.from_numpy(x_train).type(torch.Tensor)
     x_test = torch.from_numpy(x_test_df).type(torch.Tensor)
     y_train = torch.from_numpy(y_train).type(torch.Tensor)
     y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
-    # print('x_train.shape = ',x_train)
-    # print('y_train.shape = ',y_train)
-    # print('x_test.shape = ',x_test_df)
-    # print('y_test.shape = ',y_test_df)
 
     # Hyperparameters
     input_dim = 6
@@ -123,6 +115,7 @@ def LSTM_predict(symbol, strategy, dir_name):
             loss = loss_fn(y_train_pred, y_train)
             print("Epoch ", t, "MSE: ", loss.item())
     
+    # Plot training loss
     # plt.plot(hist, label="Training loss")
     # plt.legend()
     # plt.show()
@@ -156,10 +149,7 @@ def main():
     
     # save model
     torch.save(model, 'saved_models/' + ticker + '_model') 
-
     model_path = os.path.join(dir_name,'/models' + ticker + '_model')
-    
-    # torch.save(model, model_path) 
 
 
 if __name__ == "__main__":

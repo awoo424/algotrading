@@ -40,7 +40,7 @@ class App(EWrapper, EClient):
 def run_loop():
     app.run()
 
-# connect to IB TWS
+# Connect to IB TWS
 app = App()
 app.connect('127.0.0.1', 7497, 0)
 
