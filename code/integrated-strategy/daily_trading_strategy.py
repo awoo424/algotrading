@@ -7,8 +7,6 @@ import pandas as pd
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-# mpl.use('tkagg')  # issues with Big Sur
-
 from models.sentiment.sentiment_vader import starter_vader
 from models.sentiment.sentiment_text_blob import starter_textblob
 from models.sentiment.collect_news_aastock import get_news_aastock
@@ -64,22 +62,27 @@ def collect_macro_data(df, dir_name, ticker):
 # collect individual sentiment label for tickers in hkex
 def collect_individual_sentiment(ticker):
     try:
-        print(ticker)
-        path = os.path.join(dir_name, 'data-news/'+'data-' +
-                            ticker.zfill(4)+'-aastock.csv')
+        #print(ticker)
+        path = os.path.join(dir_name, 'data-news/' + 'data-' +
+                            ticker.zfill(4) + '-aastock.csv')
+
         result_path = os.path.join(
-            dir_name, 'data-results/'+ticker.zfill(4)+'-result.csv')
+            dir_name, 'data-results/' + ticker.zfill(4) + '-result.csv')
+
         vader_df = starter_vader(path, result_path)
         text_blob_df = starter_textblob(path, result_path)
-        print(text_blob_df)
+        #print(text_blob_df)
+
     except Exception as e:
         print(e)
         pass
 
 
 def main():
+    # load directory for storing daily trading signals
     dir_name = os.getcwd() + '/database_daily/'
 
+    # set ticker to trade
     ticker = '0001'
     result_path = os.path.join(
         dir_name, 'signal/' + ticker.zfill(4) + '-signal.csv')
@@ -107,7 +110,8 @@ def main():
         y_inf_pred[:, 2], df.iloc[0, 2], df.index)
 
     signal_dataframe['pred_price'] = y_inf_pred[:, 2]
-    print(signal_dataframe)
+    # print(signal_dataframe)
+
     signal_dataframe.to_csv(result_path, index=False)
 
 

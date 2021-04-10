@@ -1,28 +1,32 @@
 import os 
 import pandas as pd
 from textblob import TextBlob
+
 # !pip install textblob
+
 # append the normalize textblob (-1 to 1) score to the corresponding news
 def read_news_textblob_path(df):
-    print('read in datasets')
-    cs=[]
+
+    print('Reading in TextBlob sentiment datasets...')
+    cs = []
     # append a compound score to every news row
     for row in range(len(df)):
         cs.append(TextBlob(df['news'].iloc[row]).sentiment[0])
     # append the column to original dataset
-    df['compound_textblob_score']=cs
+    df['compound_textblob_score'] = cs
 #     print(df)
+
     return df
 
 
 # group by the mean compound textblob score by dates
-def find_news_textblob_pred_label(df,threshold):
-    print('find_pred_label')
+def find_news_textblob_pred_label(df, threshold):
+    print('Finding predicted label...')
 #     print(df)
     news = df['news']
     # group the data by dates
     df = df.groupby(['dates'])['compound_textblob_score'].mean().reset_index()
-    final_label=[]
+    final_label = []
     
     # convert the vader score using a threshold to a sentiment label
     for i in range(len(df)):
@@ -36,15 +40,18 @@ def find_news_textblob_pred_label(df,threshold):
             final_label.append(1)
 
     df['textblob_label'] = final_label
+
     return df
 
 # merge the dataset with the hang seng index daily moving average
 def merge_textblob_actual_label (df,hsi_movement_df):
-    print('merge_actual_label')
+
+    print('Merging dataset with HSI daily MA...')
     textblob_data = df
     textblob_data.set_index(keys = ["dates"],inplace=True)
     label_data = pd.read_csv(hsi_movement_df)
     label_data.set_index(keys = ["dates"],inplace=True)
+    
     # inner join the two datasets using the date index
     merge = pd.merge(textblob_data,label_data, how='inner', left_index=True, right_index=True)
     merge = merge.reset_index()
@@ -63,12 +70,13 @@ def starter_textblob(path,result_path):
     # pass in the threshold to get the vader label
     df = find_news_textblob_pred_label(df,0.01)
     
-    db_df=pd.read_csv(result_path)
+    db_df = pd.read_csv(result_path)
 
     db_df['textblob_label']=df['textblob_label']
     
     # store to the csv file if the dataset is not empty
-#     print(db_df)
+    #     print(db_df)  
     if (db_df.empty == False):
         db_df.to_csv(result_path,index=False)
+
     return db_df

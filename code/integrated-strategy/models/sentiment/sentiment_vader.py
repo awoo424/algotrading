@@ -11,7 +11,7 @@ analyser = SentimentIntensityAnalyzer()
 
 # read from vader scores
 def read_news_vader_path(df):
-    print('read in datasets')
+    print('Reading in VADER datasets...')
     cs=[]
     # append a compound score to every news row
     for row in range(len(df)):
@@ -23,7 +23,8 @@ def read_news_vader_path(df):
 
 # group by the mean compound vader score by dates
 def find_news_vader_pred_label(df,threshold):
-    print('find_pred_label')
+    print('Finding predicted VADER sentiment label...')
+
     news = df['news']
     # group the data by dates
     df = df.groupby(['dates'])['compound_vader_score'].mean().reset_index()
@@ -46,7 +47,8 @@ def find_news_vader_pred_label(df,threshold):
 
 # merge the dataset with the hang seng index daily moving average
 def merge_vader_actual_label (df,hsi_movement_df):
-    print('merge_actual_label')
+    print('Merging dataset with HSI daily MA...')
+
     vader_data = df
     vader_data.set_index(keys = ["dates"],inplace=True)
     label_data = pd.read_csv(hsi_movement_df)

@@ -2,7 +2,8 @@ from ibapi.client import EClient
 from ibapi.wrapper import EWrapper
 from ibapi.contract import Contract
 from ibapi.order import *
-from daily_trading_strategies import main
+from daily_trading_strategy import main as run_daily_trading_strategy
+
 import threading
 import datetime, time
 from datetime import date
@@ -39,6 +40,7 @@ class App(EWrapper, EClient):
 def run_loop():
     app.run()
 
+# connect to IB TWS
 app = App()
 app.connect('127.0.0.1', 7497, 0)
 
@@ -50,15 +52,19 @@ api_thread.start()
 
 # Allow time for server connection
 time.sleep(1)
-# call the dail_trading_strategoes.py main() function to capture the signal
-main()
-# read in today's signal
-dir_name= os.getcwd()+'/database_daily/'
+
+# Call main() function in daily _trading_strategy.py to capture signal
+run_daily_trading_strategy()
+
+# Read in today's signal
+dir_name = os.getcwd() + '/database_daily/'
     
-ticker='0001'
-result_path = os.path.join(dir_name,'signal/'+ticker.zfill(4)+'-signal.csv')
-df=pd.read_csv(result_path)
-    # Create contracts - hk stock
+# Set ticker to trade
+ticker = "0001"
+result_path = os.path.join(dir_name,'signal/' + ticker.zfill(4) + '-signal.csv')
+df = pd.read_csv(result_path)
+
+# Create contracts - HK stock
 today = date.today()
 today = today.strftime("%Y%m%d")
 contract = Contract()
@@ -66,36 +72,41 @@ contract.symbol = "1"
 contract.secType = "STK"
 contract.exchange = "SEHK"
 contract.currency = "HKD"
-order = Order()
-print(df['signal'].iloc[0])
-if(df['signal'].iloc[0]==1):
 
-    # Create orders
-    
+order = Order()
+
+print("############ Summary ############")
+print("Today's signal is: " + str(df['signal'].iloc[0]))
+
+# BUY signal detected
+if (df['signal'].iloc[0] == 1):
+
+    # Create BUY order    
     order.action = 'BUY'
     order.totalQuantity = 500
     order.orderType = 'MKT'
-    # order.lmtPrice = '100'
+    
     print(today)
-    order.goodAfterTime = today+" 16:29:00 "
-    print('placing order')
+    order.goodAfterTime = today + " 16:29:00 "
+
+    print('Placing BUY order...')
     app.placeOrder(app.nextorderId, contract, order)
 
-elif(df['signal'].iloc[0]==-1):
-    # Create orders
+# SELL signal detected
+elif (df['signal'].iloc[0] == -1):
     
+    # Create SELL order
     order.action = 'SELL'
     order.totalQuantity = 500
     order.orderType = 'MKT'
-    # order.lmtPrice = '100'
-    order.goodAfterTime = today+" 16:29:00 "
-    print('placing order')
+    
+    order.goodAfterTime = today + " 16:29:00 "
+
+    print('Placing SELL order...')
     app.placeOrder(app.nextorderId, contract, order)
 
-# Place order
-# placeOrder(orderId, contract, order)
-
+else:
+    print('As signal == 0, no order is made.')
 
 time.sleep(5)
-
 app.disconnect()
