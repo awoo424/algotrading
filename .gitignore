@@ -22,4 +22,4 @@ LSTM-train_wrapper_*.py
 *baseline_results*.csv
 *_output.csv
 *_results.csv
-0001_model
+saved_models/

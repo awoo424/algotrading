@@ -35,37 +35,35 @@ from models.LSTM import LSTM, predict_price
 from utils import read_strategy_data, load_data, merge_data_daily, visualise, gen_signal
 
 
-def LSTM_predict(symbol,strategy,dir_name):
+def LSTM_predict(symbol, strategy, dir_name):
 
     data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
     sentiment_data_dir=os.path.join(dir_name,"database/sentiment_data/data-result/")
 
-    
     # data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
     # data_dir = os.path.join(dir_name,'data-results/')
 
     # Get merged df with stock tick and sentiment scores
     df, scaled, scaler = merge_data_daily(symbol, data_dir, sentiment_data_dir, strategy)
     # print(df.index)
-    print(scaled)
 
     look_back = 60 # choose sequence length
 
     x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
-    print('x_train.shape = ',x_train.shape)
-    print('y_train.shape = ',y_train.shape)
-    print('x_test.shape = ',x_test_df.shape)
-    print('y_test.shape = ',y_test_df.shape)
+    # print('x_train.shape = ',x_train.shape)
+    # print('y_train.shape = ',y_train.shape)
+    # print('x_test.shape = ',x_test_df.shape)
+    # print('y_test.shape = ',y_test_df.shape)
 
     # make training and test sets in torch
     x_train = torch.from_numpy(x_train).type(torch.Tensor)
     x_test = torch.from_numpy(x_test_df).type(torch.Tensor)
     y_train = torch.from_numpy(y_train).type(torch.Tensor)
     y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
-    print('x_train.shape = ',x_train)
-    print('y_train.shape = ',y_train)
-    print('x_test.shape = ',x_test_df)
-    print('y_test.shape = ',y_test_df)
+    # print('x_train.shape = ',x_train)
+    # print('y_train.shape = ',y_train)
+    # print('x_test.shape = ',x_test_df)
+    # print('y_test.shape = ',y_test_df)
 
     # Hyperparameters
     input_dim = 6
@@ -146,23 +144,18 @@ def LSTM_predict(symbol,strategy,dir_name):
     print('Test Score: %.2f RMSE' % (testScore))
 
     # visualise(df, y_test[:,0], y_test_pred[:,0])
-    return y_train_pred,y_train,y_test_pred,y_test,model
+
+    return y_train_pred, y_train, y_test_pred, y_test,model
 
 
-def gen_daily_signal(y_train_pred,y_train,y_test_pred,y_test):
-    signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index)
-
-
-def main():
-    ticker_list = ['0001', '0002', '0003', '0004', '0005', '0016', '0019', '0168', '0175', '0386',  '0669', '0700',
-                    '0762', '0823', '0857', '0868', '0883', '0939', '0941', '0968', '1211', '1299', '1818', '2319', '2382', '2688', '2689', '2899']
-                    
-    dir_name = os.getcwd()
+def main():         
+    dir_name = os.getcwd() # get current working directory
     ticker = '0001'
 
-    y_train_pred,y_train,y_test_pred,y_test,model = LSTM_predict('0001', 'all', dir_name)
-    # visualization (y_train_pred,y_train,y_test_pred,y_test)
-    torch.save(model, '0001_model') 
+    y_train_pred, y_train, y_test_pred, y_test,model = LSTM_predict(ticker, 'macd-crossover', dir_name)
+    
+    # save model
+    torch.save(model, 'saved_models/' + ticker + '_model') 
 
     model_path = os.path.join(dir_name,'/models' + ticker + '_model')
     

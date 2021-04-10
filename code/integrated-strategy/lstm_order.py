@@ -57,7 +57,7 @@ time.sleep(1)
 run_daily_trading_strategy()
 
 # Read in today's signal
-dir_name = os.getcwd() + '/database_daily/'
+dir_name = os.getcwd() + '/database/daily_trading_data/'
     
 # Set ticker to trade
 ticker = "0001"

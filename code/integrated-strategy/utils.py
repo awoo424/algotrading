@@ -58,7 +58,7 @@ def load_data(data_raw, look_back):
     
     return [x_train, y_train, x_test, y_test]
 
-def load_test_data (df):
+def load_test_data(df):
     
     # pre-processing
     df = df.fillna(method='ffill')
@@ -80,9 +80,12 @@ def merge_data(ticker, data_dir, sentiment_data_dir, strategy, start_date=None, 
  
     sentiment_path = os.path.join(sentiment_data_dir,'data-' + ticker.zfill(5) + '-result.csv') 
     sentiment_df = pd.read_csv(sentiment_path, index_col='dates',parse_dates=['dates'], na_values=['nan'])
-    merge_df = pd.read_csv(merge_path,index_col='Date', usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'], parse_dates=['Date'], na_values=['nan'])
     
-    # merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date',"oscillator_signal","rsi_signal","williams_R_signal","macd_signal",'GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
+    if (strategy == 'all'):
+        merge_df = pd.read_csv(merge_path,index_col='Date',usecols=['Date',"oscillator_signal","rsi_signal","williams_R_signal","macd_signal",'GDP','Unemployment rate','Property price','Close'],parse_dates=['Date'], na_values=['nan'])
+    elif (strategy == 'macd-crossover'):
+        merge_df = pd.read_csv(merge_path,index_col='Date', usecols=['Date','signal','GDP','Unemployment rate','Property price','Close'], parse_dates=['Date'], na_values=['nan'])
+        
     merge_df = merge_df.rename(columns={'signal': 'technical_signal'})
     
     df = pd.merge(merge_df, sentiment_df, how='inner', left_index=True, right_index=True)
