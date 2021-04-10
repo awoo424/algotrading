@@ -5,6 +5,7 @@ from ibapi.order import *
 
 import threading
 import time
+from datetime import date
 
 
 class App(EWrapper, EClient):
@@ -49,30 +50,33 @@ api_thread.start()
 # Allow time for server connection
 time.sleep(1)
 
-# Create contracts - fx pairs
-eurgbp_contract = Contract()
-eurgbp_contract.symbol = "EUR"
-eurgbp_contract.secType = "CASH"
-eurgbp_contract.currency = "GBP"
-eurgbp_contract.exchange = "IDEALPRO"
+# Create contracts - HK stock
+contract = Contract()
+contract.symbol = "1"
+contract.secType = "STK"
+contract.exchange = "SEHK"
+contract.currency = "HKD"
 
 # Create orders
-order = Order()
+order = Order()    
 order.action = 'BUY'
-order.totalQuantity = 20000
-order.orderType = 'LMT'
-order.lmtPrice = '0.84'
+order.totalQuantity = 500
+order.orderType = 'MKT'
+    
+today = date.today()
+today = today.strftime("%Y%m%d")
+print(today)
+order.goodAfterTime = today + " 16:29:00 "
 
 # Place order
-# placeOrder(orderId, contract, order)
-print('placing order')
-app.placeOrder(app.nextorderId, eurgbp_contract, order)
+print('Placing order')
+app.placeOrder(app.nextorderId, contract, order)
 
 time.sleep(5)
 
 """
 # Modify order
-print('modifying order')
+print('Modifying order')
 order_id = 20
 order.lmtPrice = '0.82'
 app.placeOrder(order_id, eurgbp_contract, order)
@@ -81,12 +85,12 @@ time.sleep(5)
 """
 
 # Cancel order by order Id
-print('cancelling order')
+print('Cancelling order')
 app.cancelOrder(app.nextorderId)
 
 """
 # Cancel all open orders
-print('cancelling all open orders')
+print('Cancelling all open orders')
 app.reqGlobalCancel()
 """
 
