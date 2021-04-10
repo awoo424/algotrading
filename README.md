@@ -81,6 +81,7 @@ All the code could be found in the `/code` directory and the documentation could
 * Baseline model with data filters
 * Trading signal generation with LSTM (single-feature)
 * Trading signal generation with LSTM (multi-feature)
+* Daily trading signal generation with LSTM + trade execution with IB
 
 ### 7. Trade Execution
 `paper-trading`
