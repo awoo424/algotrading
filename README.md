@@ -76,16 +76,17 @@ All the code could be found in the `/code` directory and the documentation could
 * VADER sentiment analysis
 * Textblob sentiment analysis
 
-### 6. Integrated Strategies
+### 6. Trade Execution
+`paper-trading`
+* Paper Trading using Interactive Brokers (IB)
+* 
+### 7. Integrated Strategies
 `integrated-strategy/`
 * Baseline model with data filters
 * Trading signal generation with LSTM (single-feature)
 * Trading signal generation with LSTM (multi-feature)
 * Daily trading signal generation with LSTM + trade execution with IB
 
-### 7. Trade Execution
-`paper-trading`
-* Paper Trading using Interactive Brokers
 
 ## 🔧 Development
 
