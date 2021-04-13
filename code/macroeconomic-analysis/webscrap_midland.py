@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import json
 import math
+import time
 
 region_hk = [
     ["Chai_wan", 100404],
@@ -66,7 +67,7 @@ region_new_territory = [
     ["Tai_po", 301601],
     ["North", 301502],
     ["Sheung_shui_fanling", 301501],
-    ["Hung_shui_kiu", 301403]
+    ["Hung_shui_kiu", 301403],
     ["Fairview_palm_springs_the_vineyard", 301404],
     ["Tin_shui_wai", 301401],
     ["Yuen_long", 301402],
@@ -106,30 +107,36 @@ params = {
 }
 
 
-def get_property_list(region_list, reg_period):
+def get_property_list(region_name, region_list, reg_period):
 
     params['tx_date'] = reg_period
 
     for region in region_list:
-        file_name = region[0] + ".csv"
+        file_name = "midland/" + region_name + "/" + region[0] + ".csv"
+        print("File name: ", file_name)
 
-        print(file_name)
+        # open file to be updated
+        original_df = pd.read_csv(file_name, index_col=0)
+        last_updated_date = original_df["tx_date"].iloc[1]
+        print("Last updated date: ", last_updated_date)
 
         params['dist_ids'] = region[1]
 
         req = requests.get(url, headers=headers, params=params)
         soup = BeautifulSoup(req.content, 'html.parser')
+        # time to load the data
+        time.sleep(1)
         json_data = json.loads(soup.text)
 
         total_no = json_data["count"]
-        print(total_no)
+        print("Total no. of records: ",total_no)
 
         property_list = []
         total_page_no = math.ceil(total_no/50)
         page = 1
 
         while(page < (total_page_no+1)):
-            print(page)
+            print("page: ", page)
 
             params['page'] = page
             req = requests.get(url, headers=headers, params=params)
@@ -138,6 +145,10 @@ def get_property_list(region_list, reg_period):
             items = json_data["result"]
 
             for item in items:
+                tx_date = item['tx_date'][:10]
+                if tx_date == last_updated_date:
+                    break
+
                 item_list = []
 
                 #region
@@ -178,7 +189,7 @@ def get_property_list(region_list, reg_period):
                 #price
                 item_list.append(item['price'])
                 #tx_date
-                item_list.append(item['tx_date'][:10])
+                item_list.append(tx_date)
                 #last_tx_date
                 item_list.append(item['last_tx_date'][:10])
                 #last_price
@@ -198,15 +209,24 @@ def get_property_list(region_list, reg_period):
 
                 property_list.append(item_list)
 
-            page += 1
+            else:
+                page += 1
+                continue
+            break
 
-        dataFrame = pd.DataFrame(data=property_list)
-        dataFrame.columns = ['region', 'subregion', 'district', 'estate', 'building', 'first_op_date',
-                             'floor_level', 'bedroom', 'sitting_room', 'floor', 'flat', 'area', 'net_area',
-                             'price', 'tx_date', 'last_tx_date', 'last_price', 'gain', 'lat', 'lon']
-        dataFrame.to_csv(file_name)
+        if len(property_list) > 1:
+            dataFrame = pd.DataFrame(data=property_list)
+            dataFrame.columns = ['region', 'subregion', 'district', 'estate', 'building', 'first_op_date',
+                                 'floor_level', 'bedroom', 'sitting_room', 'floor', 'flat', 'area', 'net_area',
+                                 'price', 'tx_date', 'last_tx_date', 'last_price', 'gain', 'lat', 'lon']
+            dataFrame = dataFrame.append(original_df, ignore_index=True)
+            dataFrame.to_csv(file_name)
+            ("updated")
+        else:
+            print("up to date")
+        print("---------------------------------------")
 
 # get_property_list(region_list, reg_period (30days, 90days, 180days, 1year, 3year))
-get_property_list(region_hk, '30days')
-get_property_list(region_kowloon, '30days')
-get_property_list(region_new_territory, '30days')
+get_property_list("hk_island", region_hk, '90days')
+get_property_list("kowloon", region_kowloon, '90days')
+get_property_list("new_territory", region_new_territory, '90days')
