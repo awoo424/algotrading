@@ -78,7 +78,7 @@ def get_property_list(region_name, region_list, reg_period):
 
     for region in region_list:
         page = 0
-        file_name = region_name + "/" + region[0] + ".csv"
+        file_name = "centaline/" + region_name + "/" + region[0] + ".csv"
         code = region[1]
 
         print(file_name)

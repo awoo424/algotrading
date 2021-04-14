@@ -103,7 +103,7 @@ def get_property_list(region_name, region_list, reg_period):
     data['day'] = reg_period
 
     for region in region_list:
-        file_name = "centaline/" + region_name + "/" + region[0] + ".csv"
+        file_name = "centaline_chinese/" + region_name + "/" + region[0] + ".csv"
         print("File name: ", file_name)
 
         # open file to be updated
