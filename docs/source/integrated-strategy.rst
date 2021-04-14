@@ -25,9 +25,17 @@ Simple approach
 Baseline model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| The implementation of the baseline model could be found in :code:`integrated-strategy/baseline.py`.
+| We have created the *Baseline model* example to demonstrate how we could generate signals using a technical
+  analysis strategy, then filter it by macroeconomic data and sentiment labels. The implementation of the 
+  baseline model could be found in :code:`integrated-strategy/baseline.py`.
 
-| *WIP*
+| The workflow of the baseline model is as follows:
+
+* Generate the signals dataframe using a technical analysis strategy (e.g. MACD)
+* Pass the signals to the macroeconomic filter
+* Pass the signals to the sentiment filter
+* Backtest with the filtered signals dataframe
+
 
 Machine learning approach
 --------------------------------------

@@ -223,11 +223,19 @@ algorithmic trading pipeline.</div>
 <div class="section" id="baseline-model">
 <h3>Baseline model<a class="headerlink" href="#baseline-model" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line">The implementation of the baseline model could be found in <code class="code docutils literal notranslate"><span class="pre">integrated-strategy/baseline.py</span></code>.</div>
+<div class="line">We have created the <em>Baseline model</em> example to demonstrate how we could generate signals using a technical
+analysis strategy, then filter it by macroeconomic data and sentiment labels. The implementation of the
+baseline model could be found in <code class="code docutils literal notranslate"><span class="pre">integrated-strategy/baseline.py</span></code>.</div>
 </div>
 <div class="line-block">
-<div class="line"><em>WIP</em></div>
+<div class="line">The workflow of the baseline model is as follows:</div>
 </div>
+<ul class="simple">
+<li><p>Generate the signals dataframe using a technical analysis strategy (e.g. MACD)</p></li>
+<li><p>Pass the signals to the macroeconomic filter</p></li>
+<li><p>Pass the signals to the sentiment filter</p></li>
+<li><p>Backtest with the filtered signals dataframe</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="machine-learning-approach">
