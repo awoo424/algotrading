@@ -74,11 +74,11 @@ url = "http://www1.centadata.com/eptest.aspx?type=22&code="
 url_reg_period = "&info=tr&code2=regperiod:"
 url_page = "&page="
 
-def get_property_list(region_list, reg_period):
+def get_property_list(region_name, region_list, reg_period):
 
     for region in region_list:
         page = 0
-        file_name = region[0] + ".csv"
+        file_name = "centaline/" + region_name + "/" + region[0] + ".csv"
         code = region[1]
 
         print(file_name)
@@ -127,8 +127,8 @@ def get_property_list(region_list, reg_period):
         dataFrame.to_csv(file_name)
 
 
-# get_property_list(region_list, reg_period (30, 90, 180, 365))
-get_property_list(region_hk, 30)
-get_property_list(region_kowloon, 30)
-get_property_list(region_new_east, 30)
-get_property_list(region_new_west, 30)
+# get_property_list(region_name, region_list, reg_period (30, 90, 180, 365))
+get_property_list("hk", region_hk, 30)
+#get_property_list("kowloon", region_kowloon, 30)
+#get_property_list("new_east", region_new_east, 30)
+#get_property_list("new_west", region_new_west, 30)

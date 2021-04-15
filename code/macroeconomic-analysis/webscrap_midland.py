@@ -141,6 +141,8 @@ def get_property_list(region_name, region_list, reg_period):
             params['page'] = page
             req = requests.get(url, headers=headers, params=params)
             soup = BeautifulSoup(req.content, 'html.parser')
+            # time to load the data
+            time.sleep(1)
             json_data = json.loads(soup.text)
             items = json_data["result"]
 
@@ -221,12 +223,12 @@ def get_property_list(region_name, region_list, reg_period):
                                  'price', 'tx_date', 'last_tx_date', 'last_price', 'gain', 'lat', 'lon']
             dataFrame = dataFrame.append(original_df, ignore_index=True)
             dataFrame.to_csv(file_name)
-            ("updated")
+            print("updated")
         else:
             print("up to date")
         print("---------------------------------------")
 
-# get_property_list(region_list, reg_period (30days, 90days, 180days, 1year, 3year))
+# get_property_list(region_name, region_list, reg_period (30days, 90days, 180days, 1year, 3year))
 get_property_list("hk_island", region_hk, '90days')
 get_property_list("kowloon", region_kowloon, '90days')
 get_property_list("new_territory", region_new_territory, '90days')
