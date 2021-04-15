@@ -90,7 +90,7 @@ def baseline_strategy(symbol, start, end):
         value=portfolio['total'][-1]))
 
     portfolio_return = (
-        ((portfolio['total'][-1] - portfolio['total'][0]) / portfolio['total'][-1]) * 100)
+        ((portfolio['total'][-1] - portfolio['total'][0]) / portfolio['total'][0]) * 100)
     print("Total return: {value:.4f}%".format(value=portfolio_return))
 
     trade_signals_num = len(signals[signals.positions == 1])

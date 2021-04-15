@@ -19,7 +19,7 @@ df = df.loc[pd.Timestamp('2017-01-01'):pd.Timestamp('2019-01-01')]
 
 ticker = "0005.HK"
 
-# True Strength Index
+# Money Flow Index
 
 mfi = mfi(df)
 mfi_fig = mfi.plot_MFI()

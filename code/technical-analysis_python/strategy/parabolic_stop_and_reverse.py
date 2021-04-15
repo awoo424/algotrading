@@ -63,9 +63,11 @@ class ParabolicSAR(Indicator):
         
         bull = True
         af = self.initial_af # initialise acceleration factor
-        ep = array_low[0] # extreme price
-        hp = array_high[0] # extreme high
-        lp = array_low[0] # extreme low
+
+        if length > 0:
+            ep = array_low[0] # extreme price
+            hp = array_high[0] # extreme high
+            lp = array_low[0] # extreme low
 
         for i in range(2, len(self.df)):
             if bull:
@@ -133,9 +135,16 @@ class ParabolicSAR(Indicator):
 
         # Plot graph
         fig = plt.figure()
+
         self.df['Close'].plot(lw=0.8, color='black', label='Closing price')
-        self.df['psarbull'].plot(lw=1.2, color='green', label='Rising SAR')
-        self.df['psarbear'].plot(lw=1.2, color='red', label='Falling SAR')
+
+        if (self.df['psarbull'].size > 0):
+            self.df['psarbull'].plot(lw=1.2, color='green', label='Rising SAR')
+
+        if (self.df['psarbear'].size > 0):
+            self.df['psarbear'] = self.df['psarbear'].astype(float)
+            self.df['psarbear'].plot(lw=1.2, color='red', label='Falling SAR')
+
         plt.legend()
 
         return fig

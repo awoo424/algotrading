@@ -32,7 +32,7 @@ def backtest(symbol):
     ticker = symbol + ".HK"
 
     # load signals csv (output from ML model)
-    signals_file = './LSTM_output_abs-price/' + symbol + '_output.csv'
+    signals_file = './LSTM_output_trend/' + symbol + '_output.csv'
 
     signals = pd.read_csv(signals_file,
                         header=0, index_col='Date', parse_dates=True)
@@ -52,7 +52,7 @@ def backtest(symbol):
             value=portfolio['total'][-1]))
 
     portfolio_return = (
-        ((portfolio['total'][-1] - portfolio['total'][0]) / portfolio['total'][-1]) * 100)
+        ((portfolio['total'][-1] - portfolio['total'][0]) / portfolio['total'][0]) * 100)
     print("Total return: {value:.4f}%".format(value=portfolio_return))
 
     trade_signals_num = len(signals[signals.positions == 1])
@@ -93,7 +93,7 @@ def backtest(symbol):
 
 
     # Write to file
-    f = open("LSTM_abs-price_results_MACD.csv", "a")
+    f = open("LSTM_trend_results_MACD.csv", "a")
     f.write(ticker + ',' + start + ',' + end + ',' + str(portfolio_return) + ',' +
             str(sharpe_ratio) + ',' + str(cagr) + ',' + str(trade_signals_num) + '\n')
     f.close()
