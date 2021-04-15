@@ -28,7 +28,8 @@ class MovingAverageCrossover(Indicator):
         signals['long_mavg'] = self.df['Close'].rolling(window=self.long_window, min_periods=1, center=False).mean()
 
         # Generate signals
-        signals['signal'][self.short_window:] = np.where(signals['short_mavg'][self.short_window:] 
+        if (len(signals['short_mavg']) > self.short_window and len(signals['long_mavg']) > self.short_window):
+            signals['signal'][self.short_window:] = np.where(signals['short_mavg'][self.short_window:] 
                                                     > signals['long_mavg'][self.short_window:], 1.0, 0.0)   
         
         # Generate trading order, buy signal = 1, sell signal = -1
