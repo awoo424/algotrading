@@ -75,6 +75,7 @@ contract.currency = "HKD"
 
 order = Order()
 
+print("\n")
 print("############ Summary ############")
 print("Today's signal is: " + str(df['signal'].iloc[0]))
 
