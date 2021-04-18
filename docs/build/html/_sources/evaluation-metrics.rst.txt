@@ -37,7 +37,7 @@ Mathematically, it is the average return earned in excess of the risk-free rate 
   \text{Sharpe Ratio} &= \frac{R_p - R_f}{\sigma_p} \\
   \\
   R_p &= \text{Portfolio return} \\
-  R_f &= \text{Risk-free rate} \\
+  R_f &= \text{Risk-free rate} (assumed = 0 in the function)\\
   \sigma_p &= \text{Portfolio risk, i.e. standard deviation}
  
 
@@ -55,9 +55,10 @@ Maximum drawdown (MDD)
 
 .. math::
 
-    \text{MDD} = \frac{\text{P} - \text{T}}{\text{P}} \\
-    \text{P} =  \text{Peak value before largest drop} \\
-    \text{L} =   \text{Lowest value before newest high established}
+    \text{MDD} &= \frac{\text{P} - \text{T}}{\text{P}} \\
+    \\
+    \text{P} &=  \text{Peak value before largest drop} \\
+    \text{L} &=   \text{Lowest value before newest high established}
 
 
 |
@@ -78,7 +79,7 @@ Compound Annual Growth Rate (CAGR)
 
 .. math::
 
-  \text{CAGR} = \frac{\text{Ending portfolio value}}{\text{Beginning portfolio value}}^{252 \;\div\; \text{number of days}} - 1
+  \text{CAGR} = \left(\frac{\text{Ending portfolio value}}{\text{Beginning portfolio value}}\right)^{252 \;\div\; \text{number of days}} - 1
 
 | Note that "number of days" refers to the time span of the portfolio, and
   252 is the total number of trading days in one year.
@@ -92,12 +93,12 @@ Standard Deviation
 .. admonition:: Definition
    :class: myOwnStyle
 
-  | *Standard Deviation** measures the dispersion of the historical portfolio values 
+  | **Standard Deviation** measures the dispersion of the historical portfolio values 
     relative to its mean. A higher standard deviation infers higher volatility.
 
 .. math::
 
-  \text{SD} &= \sqrt{\frac{\sum (r_i - r_{avg})^2) }{n-1}} \\
+  \text{SD} &= \sqrt{\frac{\sum (r_i - r_{avg})^2 }{n-1}} \\
   \\
   r_i &= \text{Portfolio daily return} \\
   r_{avg} &= \text{Mean of portfolio daily returns}

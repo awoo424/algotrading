@@ -343,14 +343,133 @@ We'll write the training loop now:
   output_df.to_csv(output_filename)
 
 
-| (Talk about backtesting)
+| With the signals csv files, we could simply run :code:`output-backtester_wrapper.py` in the 
+  same directory that would load all the files in the output directory and run it with the backtester_wrapper
+  to compute the evaluation metrics.
+
 
 Multi-feature LSTM model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | The implememtation of the single-feature LSTM model could be found in :code:`integrated-strategy/LSTM-train_wrapper.py`.
 
-| WIP
+| We'll focus on looking at the :code:`LSTM_predict` function, as the :code:`main` function is simply a wrapper that
+  calls the :code:`LSTM_predict` function with different ticker symbols.
+
+| The code structure of the multi-feature LSTM and single-feature LSTM is largely the name, except that we'll
+  need the **merged dataframe** as the input and we'll need to change the input/output dimensions of the model.
+
+::
+
+  # load file
+  dir_name = os.getcwd()
+  data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
+  sentiment_data_dir=os.path.join(dir_name,"database/sentiment_data/data-result/")
+
+  # Get merged df with stock tick and sentiment scores
+  df, scaled, scaler = merge_data(symbol, data_dir, sentiment_data_dir, strategy)
+
+  look_back = 60 # choose sequence length
+
+  x_train, y_train, x_test_df, y_test_df = load_data(scaled, look_back)
+
+  # make training and test sets in torch
+  x_train = torch.from_numpy(x_train).type(torch.Tensor)
+  x_test = torch.from_numpy(x_test_df).type(torch.Tensor)
+  y_train = torch.from_numpy(y_train).type(torch.Tensor)
+  y_test = torch.from_numpy(y_test_df).type(torch.Tensor)
+
+  # Hyperparameters
+  num_epochs = 100
+  lr = 0.01
+  batch_size = 72
+  input_dim = 7
+  hidden_dim = 64
+  num_layers = 4
+  output_dim = 7
+  torch.manual_seed(1) # set seed
+
+  print("Hyperparameters:")
+  print("input_dim: ", input_dim, ", hidden_dim: ", hidden_dim, ", num_layers: ", num_layers, ", output_dim", output_dim)
+  print("num_epochs: ", num_epochs, ", batch_size: ", batch_size, ", lr: ", lr)
+
+  train = torch.utils.data.TensorDataset(x_train,y_train)
+  test = torch.utils.data.TensorDataset(x_test,y_test)
+
+  train_loader = torch.utils.data.DataLoader(dataset=train,
+                                        batch_size=batch_size,
+                                        shuffle=False)
+
+  test_loader = torch.utils.data.DataLoader(dataset=test,
+                                        batch_size=batch_size,
+                                        shuffle=False)
+
+  model = LSTM(input_dim=input_dim, hidden_dim=hidden_dim, output_dim=output_dim, num_layers=num_layers)
+
+  loss_fn = torch.nn.MSELoss()
+  optimiser = torch.optim.Adam(model.parameters(), lr=lr)
+
+  hist = np.zeros(num_epochs)
+
+  # Number of steps to unroll
+  seq_dim = look_back - 1  
+
+  # Train model
+  for t in range(num_epochs):
+      for i, (train_data, train_label) in enumerate(train_loader):
+          # Forward pass
+          train_pred = model(train_data)
+          loss = loss_fn(train_pred, train_label)
+
+          hist[t] = loss.item()
+
+          # Zero out gradient, else they will accumulate between epochs
+          optimiser.zero_grad()
+
+          # Backward pass
+          loss.backward()
+
+          # Update parameters
+          optimiser.step()
+
+      if t % 10 == 0 and t != 0:
+          y_train_pred = model(x_train)
+          loss = loss_fn(y_train_pred, y_train)
+          print("Epoch ", t, "MSE: ", loss.item())
+
+  # Make predictions
+  y_test_pred = model(x_test)
+
+  # Invert predictions
+  y_train_pred = scaler.inverse_transform(y_train_pred.detach().numpy())
+  y_train = scaler.inverse_transform(y_train.detach().numpy())
+  y_test_pred = scaler.inverse_transform(y_test_pred.detach().numpy())
+  y_test = scaler.inverse_transform(y_test.detach().numpy())
+
+  # Calculate root mean squared error
+  trainScore = math.sqrt(mean_squared_error(y_train[:,0], y_train_pred[:,0]))
+  print('Train Score: %.2f RMSE' % (trainScore))
+  testScore = math.sqrt(mean_squared_error(y_test[:,0], y_test_pred[:,0]))
+  print('Test Score: %.2f RMSE' % (testScore))
+
+  visualise(df, y_test[:,0], y_test_pred[:,0], pred_filename)
+
+  signal_dataframe = gen_signal(y_test_pred[:,0], y_test[:,0], df[len(df)-len(y_test):].index, by_trend=True)
+
+  # Save signals as csv file
+  output_filename = 'LSTM_output_trend/' + symbol + '_output.csv'
+  signal_dataframe.to_csv(output_filename,index=False)
+
+| Note that we'll need to pass the ticker symbol name and the name of the technical indicator (to be included in
+  the merged dataframe) to the :code:`LSTM_predict` function, for example by calling in this way:
+
+::
+
+  LSTM_predict('0001', 'macd-crossover')
+
+
+| Similarly, we could run the :code:`output-backtester_wrapper.py` file to backtest the output signals.
+
 
 **References**
 

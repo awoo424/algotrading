@@ -54,7 +54,7 @@ Welcome to the algo trading learning repo
    :maxdepth: 2
    :caption: Bonus: Trade execution
 
-   introduction-to-paper-trading
+   paper-trading
 
 
 Resources

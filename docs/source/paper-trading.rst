@@ -1,5 +1,5 @@
-Introduction to Paper Trading
-===============================
+Paper Trading with Interactive Brokers
+======================================
 
 .. highlight:: Python
   

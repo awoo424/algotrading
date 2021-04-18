@@ -111,13 +111,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-julia.html">Introduction to Julia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="julia-data-science-basics.html">Data science basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="julia-technical-analysis.html">Buliding a strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia-technical-analysis.html">Write a technical strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property price prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrated-strategy.html">Integrated trading strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Bonus: Trade execution</span></p>
 <ul>
@@ -225,7 +226,7 @@ in the backtester. The code could be found in <code class="code docutils literal
 \[\begin{split}\text{Sharpe Ratio} &amp;= \frac{R_p - R_f}{\sigma_p} \\
 \\
 R_p &amp;= \text{Portfolio return} \\
-R_f &amp;= \text{Risk-free rate} \\
+R_f &amp;= \text{Risk-free rate} (assumed = 0 in the function)\\
 \sigma_p &amp;= \text{Portfolio risk, i.e. standard deviation}\end{split}\]</div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -241,9 +242,10 @@ a trough of a portfolio. It is an indicator of downside risk over the given time
 </div>
 </div>
 <div class="math notranslate nohighlight">
-\[\begin{split}\text{MDD} = \frac{\text{P} - \text{T}}{\text{P}} \\
-\text{P} =  \text{Peak value before largest drop} \\
-\text{L} =   \text{Lowest value before newest high established}\end{split}\]</div>
+\[\begin{split}\text{MDD} &amp;= \frac{\text{P} - \text{T}}{\text{P}} \\
+\\
+\text{P} &amp;=  \text{Peak value before largest drop} \\
+\text{L} &amp;=   \text{Lowest value before newest high established}\end{split}\]</div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -263,7 +265,7 @@ were reinvested at the end of each year.</div>
 when compared to alternative investments. Risk is not taken into account.</div>
 </div>
 <div class="math notranslate nohighlight">
-\[\text{CAGR} = \frac{\text{Ending portfolio value}}{\text{Beginning portfolio value}}^{252 \;\div\; \text{number of days}} - 1\]</div>
+\[\text{CAGR} = \left(\frac{\text{Ending portfolio value}}{\text{Beginning portfolio value}}\right)^{252 \;\div\; \text{number of days}} - 1\]</div>
 <div class="line-block">
 <div class="line">Note that “number of days” refers to the time span of the portfolio, and
 252 is the total number of trading days in one year.</div>
@@ -278,12 +280,12 @@ when compared to alternative investments. Risk is not taken into account.</div>
 <p class="admonition-title">Definition
  :class: myOwnStyle</p>
 <div class="line-block">
-<div class="line"><em>Standard Deviation*</em> measures the dispersion of the historical portfolio values
+<div class="line"><strong>Standard Deviation</strong> measures the dispersion of the historical portfolio values
 relative to its mean. A higher standard deviation infers higher volatility.</div>
 </div>
 </div>
 <div class="math notranslate nohighlight">
-\[\begin{split}\text{SD} &amp;= \sqrt{\frac{\sum (r_i - r_{avg})^2) }{n-1}} \\
+\[\begin{split}\text{SD} &amp;= \sqrt{\frac{\sum (r_i - r_{avg})^2 }{n-1}} \\
 \\
 r_i &amp;= \text{Portfolio daily return} \\
 r_{avg} &amp;= \text{Mean of portfolio daily returns}\end{split}\]</div>
