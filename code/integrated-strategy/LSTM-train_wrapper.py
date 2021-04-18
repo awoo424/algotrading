@@ -38,7 +38,7 @@ from utils import read_strategy_data, load_data, merge_data, visualise, gen_sign
 def LSTM_predict(symbol, strategy):
     dir_name = os.getcwd()
     data_dir = os.path.join(dir_name,"database_real/machine_learning_data/")
-    sentiment_data_dir=os.path.join(dir_name,"database/sentiment_data/data-result/")
+    sentiment_data_dir = os.path.join(dir_name,"database/sentiment_data/data-result/")
   
 
     # Get merged df with stock tick and sentiment scores
@@ -162,8 +162,5 @@ def main():
         
         print('\n')    
     
-  
-
-
 if __name__ == "__main__":
     main() 
