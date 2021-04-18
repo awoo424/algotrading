@@ -343,7 +343,7 @@ We'll write the training loop now:
   output_df.to_csv(output_filename)
 
 
-| (Talk about backtesting)
+| WIP (Talk about backtesting)
 
 Multi-feature LSTM model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

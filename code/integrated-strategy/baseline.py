@@ -81,7 +81,7 @@ Backtesting & evaluation
 portfolio, backtest_fig = Backtest(ticker, filtered_signals, df)
 plt.close() # hide figure
 print("Final total value: {value:.4f} ".format(value=portfolio['total'][-1]))
-print("Total return: {value:.4f}%".format(value=(((portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][-1]) * 100))) # for analysis
+print("Total return: {value:.4f}%".format(value=(((portfolio['total'][-1] - portfolio['total'][0])/portfolio['total'][0]) * 100))) # for analysis
 print("No. of trade: {value}".format(value=len(signals[signals.positions == 1])))
 
 

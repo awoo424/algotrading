@@ -218,6 +218,7 @@ def gen_signal(pred, actual_output, dates, by_trend=False):
     output_df['signal']=  signal  
     
     return output_df
+    
 def gen_signal_daily(pred,actual_output, dates, by_trend=False):
     output_df = pd.DataFrame()
     signal = []

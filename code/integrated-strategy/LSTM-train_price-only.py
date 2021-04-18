@@ -65,9 +65,15 @@ x_test = torch.from_numpy(x_test).type(torch.Tensor)
 y_train = torch.from_numpy(y_train).type(torch.Tensor)
 y_test = torch.from_numpy(y_test).type(torch.Tensor)
 
+# Hyperparameters
 n_steps = look_back - 1
 batch_size = 32
 num_epochs = 100 # n_iters / (len(train_X) / batch_size)
+input_dim = 1
+hidden_dim = 32
+num_layers = 2 
+output_dim = 1
+torch.manual_seed(1) # set seed
 
 train = torch.utils.data.TensorDataset(x_train,y_train)
 test = torch.utils.data.TensorDataset(x_test,y_test)
@@ -80,12 +86,7 @@ test_loader = torch.utils.data.DataLoader(dataset=test,
                                           batch_size=batch_size, 
                                           shuffle=False)
 
-# Hyperparameters
-input_dim = 1
-hidden_dim = 32
-num_layers = 2 
-output_dim = 1
-torch.manual_seed(1) # set seed
+
 
 model = LSTM(input_dim=input_dim, hidden_dim=hidden_dim, output_dim=output_dim, num_layers=num_layers)
 
@@ -150,7 +151,7 @@ visualise(df, y_test, y_test_pred, pred_filename)
 
 # Inferencing
 y_inf_pred, y_inf = predict_price(df_test, model, scaler)
-signal = gen_signal(y_inf_pred, y_inf)
+signal = gen_signal(y_inf_pred, y_inf, df_test.index)
 
 # Save signals as csv file
 output_df = pd.DataFrame(index=df_test.index)
