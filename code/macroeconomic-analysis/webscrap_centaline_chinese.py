@@ -108,7 +108,7 @@ def get_property_list(region_name, region_list, reg_period):
 
         # open file to be updated
         original_df = pd.read_csv(file_name, index_col=0)
-        last_updated_date = original_df["reg_date"].iloc[1]
+        last_updated_date = original_df["regDate"].iloc[1]
         print("Last updated date: ", last_updated_date)
 
         data['typeCodes'] = region[1]
@@ -230,8 +230,8 @@ def get_property_list(region_name, region_list, reg_period):
         if len(property_list) > 1:
             dataFrame = pd.DataFrame(data=property_list)
             dataFrame.columns = ['region', 'district', 'estate', 'building', 'address',
-                                 'floor', 'flat', 'price', 'gross_area', 'gross_unit_price', 'net_area',
-                                 'net_unit_price', 'reg_date', 'bedroom_count']
+                                 'floor', 'flat', 'price', 'grossArea', 'upGrossArea', 'saleableArea',
+                                 'upSaleableArea', 'regDate', 'bedroom']
             dataFrame = dataFrame.append(original_df, ignore_index=True)
             dataFrame.to_csv(file_name, encoding='utf_8_sig')
             print("updated")
