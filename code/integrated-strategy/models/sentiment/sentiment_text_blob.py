@@ -72,12 +72,15 @@ def starter_textblob(path,result_path):
     df = read_news_textblob_path(df)
 
     # pass in the threshold to get the vader label
-    df = find_news_textblob_pred_label(df,0.01)
+    df = find_news_textblob_pred_label(df, 0.01)
     
     db_df = pd.read_csv(result_path)
 
-    db_df['textblob_label']=df['textblob_label']
-    
+    if (df['textblob_label'].any()):
+        db_df['textblob_label'] = df['textblob_label']
+    else:
+        db_df['textblob_label'] = 0
+
     # store to the csv file if the dataset is not empty
     if (db_df.empty == False):
         db_df.to_csv(result_path,index=False)

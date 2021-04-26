@@ -52,7 +52,7 @@ time.sleep(1)
 
 # Create contracts - HK stock
 contract = Contract()
-contract.symbol = "1"
+contract.symbol = "2" # 0002.HK
 contract.secType = "STK"
 contract.exchange = "SEHK"
 contract.currency = "HKD"
@@ -84,9 +84,9 @@ app.placeOrder(order_id, eurgbp_contract, order)
 time.sleep(5)
 """
 
-# Cancel order by order Id
-print('Cancelling order')
-app.cancelOrder(app.nextorderId)
+# # Cancel order by order Id
+# print('Cancelling order')
+# app.cancelOrder(app.nextorderId)
 
 """
 # Cancel all open orders
