@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Data science basics &mdash; algotrading 0.0.1 documentation</title>
   
@@ -17,7 +17,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -30,8 +33,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -53,7 +54,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> algotrading
+            <a href="index.html" class="icon icon-home"> algotrading
           
 
           
@@ -112,18 +113,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction-to-julia.html">Introduction to Julia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="julia-data-science-basics.html">Data science basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="julia-technical-analysis.html">Buliding a strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia-technical-analysis.html">Write a technical strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Part 3: Machine Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bankruptcy-prediction.html">Bankruptcy prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="property-price-prediction.html">Property price prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sentiment-analysis.html">Sentiment analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multi-feature-strategy.html">Multi-feature trading strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrated-strategy.html">Integrated trading strategy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Bonus: Trade execution</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction-to-paper-trading.html">Introduction to Paper Trading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paper-trading.html">Paper Trading with Interactive Brokers</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Others</span></p>
 <ul>
@@ -169,6 +170,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -180,7 +183,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/data-science-basics.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -228,7 +231,7 @@ summary statistics and graphical representations.</div>
 <li><p>Are there null values in the data?</p></li>
 </ul>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import AAPL csv file</span>
-<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../database/nasdaq_ticks_day/nasdaq_AAPL.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../database/nasdaq_ticks_day/nasdaq_AAPL.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># inspect first 5 rows (default)</span>
 <span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -253,7 +256,7 @@ summary statistics and graphical representations.</div>
 </pre></div>
 </div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print rows between two specific dates</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-17&#39;</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-07-17&#39;</span><span class="p">)])</span>
 
 <span class="c1"># select only data between 2006 and 2019</span>
 <span class="n">aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">):</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">)]</span>
@@ -280,7 +283,7 @@ to observe, so that we can infer something about the whole population.</p>
 with a uniform probability from the dataset.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take 10 rows from the dataframe randomly</span>
 <span class="n">sample</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now that we understand what sampling is, let’s go back to resampling.</p>
@@ -307,7 +310,7 @@ Therefore, we could try estimate the population parameter <em>multiple times</em
 need a datetime type index or column in order to use the function.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to monthly level</span>
 <span class="n">monthly_aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">monthly_aapl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">monthly_aapl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As shown in the code above, there are two steps in calling the function:</p>
@@ -321,7 +324,7 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 <p>On the other hand, if we resample the data to a shorter time frame (from days to minutes), it will be called <strong>“upsampling”</strong>:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample to minutely level</span>
 <span class="n">minutely_aapl</span> <span class="o">=</span> <span class="n">aapl</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">minutely_aapl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minutely_aapl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As we end up having additional empty rows in the resulting table, we need to decide how to fill in them with numeric values:</p>
@@ -339,17 +342,17 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 <span class="n">daily_pct_change</span> <span class="o">=</span> <span class="n">daily_close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
 
 <span class="c1"># Replace NA values with 0</span>
-<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">daily_pct_change</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Inspect daily returns</span>
-<span class="k">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate daily log returns</span>
 <span class="n">daily_log_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">daily_close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Print daily log returns</span>
-<span class="k">print</span><span class="p">(</span><span class="n">daily_log_returns</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_log_returns</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>We can also combine with the operation of resampling to get the percentage change of different time intervals.</p>
@@ -382,7 +385,7 @@ In the example above, ‘M’ means by month end frequency.</p></li>
 <p>We will mainly use plotting functions provided by matplotlib. <strong>Line plot</strong> is the most common
 type of plot that we will use for analysis of stock data.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the closing prices for `aapl`</span>
-<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">aapl</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Show the line plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -396,7 +399,7 @@ type of plot that we will use for analysis of stock data.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Pull up summary statistics</span>
-<span class="k">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_pct_change</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>We can also create a new column to store the cumulative daily returns and plot the data in a graph.</p>
@@ -507,37 +510,29 @@ All final investment decisions are yours and as a result you could make or lose 
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="technical-analysis.html" class="btn btn-neutral float-right" title="Technical analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="technical-analysis.html" class="btn btn-neutral float-right" title="Technical analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Angel Woo
+        &#169; Copyright 2020, Angel Woo.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

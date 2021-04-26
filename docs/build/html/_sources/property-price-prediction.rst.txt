@@ -113,8 +113,8 @@ Bivariate analysis
 
     Heatmap - macroeconomic indicators of Hong Kong.
 
-| According to the above figure, we can see that GDP, house price, population, imports, 
-  year, total exports, and composite consumer price index are positively correlated to the 
+| According to the above figure, we can see that house price, GDP, population, imports, 
+  composite consumer price index , total exports, and year are positively correlated to the 
   Hang Seng index, while both seasonally adjusted unemployment rate and not seasonally 
   adjusted unemployment rate are negatively correlated to the Hang Seng index.
 
@@ -188,10 +188,10 @@ Economic indicator analysis
     df = df.rename(columns={'UnitPricePerSaleableArea': 'AveragePricePerSaleableArea'})
 
 | Using the bivariate analysis method we learned, a pairwise correlation of features 
-  is computed and visualized. The result shows that population, GDP, composite consumer price index, 
-  population, year, imports, month, and total exports are positively correlated to the 
-  monthly average house price per saleable area in Hong Kong, while both unemployment
-  rates are not correlated to the monthly average house price per saleable area in Hong Kong.
+  is computed and visualized. The result shows that population, year, composite consumer price index, 
+  GDP, imports, and total exports are positively correlated to the monthly average 
+  house price per saleable area in Hong Kong, while both unemployment
+  rates are negatively correlated to the monthly average house price per saleable area in Hong Kong.
 
 .. figure:: ../images/corr_economic_indicator_analysis.png
     :width: 620px
