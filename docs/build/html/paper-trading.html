@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Paper Trading with Interactive Brokers &mdash; algotrading 0.0.1 documentation</title>
   
@@ -17,10 +17,7 @@
 
   
   
-
   
-  
-
   
 
   
@@ -33,6 +30,8 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -54,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> algotrading
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> algotrading
           
 
           
@@ -180,8 +179,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -193,7 +190,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/paper-trading.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -312,13 +309,13 @@ or fx pairs.</div>
 
     <span class="c1"># Receive market data</span>
     <span class="k">def</span> <span class="nf">tickPrice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tickerId</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">attribs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tick Price. Ticker Id:&quot;</span><span class="p">,</span> <span class="n">tickerId</span><span class="p">,</span> <span class="s2">&quot;, TickType: &quot;</span><span class="p">,</span> <span class="n">TickTypeEnum</span><span class="o">.</span><span class="n">to_str</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Tick Price. Ticker Id:&quot;</span><span class="p">,</span> <span class="n">tickerId</span><span class="p">,</span> <span class="s2">&quot;, TickType: &quot;</span><span class="p">,</span> <span class="n">TickTypeEnum</span><span class="o">.</span><span class="n">to_str</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>
               <span class="s2">&quot;, Price: &quot;</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="s2">&quot;, CanAutoExecute: &quot;</span><span class="p">,</span> <span class="n">attribs</span><span class="o">.</span><span class="n">canAutoExecute</span><span class="p">,</span>
               <span class="s2">&quot;, PastLimit: &quot;</span><span class="p">,</span> <span class="n">attribs</span><span class="o">.</span><span class="n">pastLimit</span><span class="p">,</span> <span class="s2">&quot;, PreOpen: &quot;</span><span class="p">,</span> <span class="n">attribs</span><span class="o">.</span><span class="n">preOpen</span><span class="p">)</span>
 
 <span class="c1"># Request market data</span>
 <span class="c1"># app.reqMktData(tickerId, contract, genericTickList, snapshot, regulatorySnaphsot, mktDataOptions)</span>
-<span class="n">app</span><span class="o">.</span><span class="n">reqMktData</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tsla_contract</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">reqMktData</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tsla_contract</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -341,11 +338,11 @@ delayed streaming data. Before getting the delayed streaming data, make sure you
 
     <span class="c1"># Receive historical bar data</span>
     <span class="k">def</span> <span class="nf">historicalData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HistoricalData. ReqId:&quot;</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="s2">&quot;BarData.&quot;</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;HistoricalData. ReqId:&quot;</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="s2">&quot;BarData.&quot;</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span>
 
 <span class="c1"># Request historical bar data</span>
 <span class="c1"># app.reqHistoricalData(tickerId, contract, endDateTime, durationString, barSizeSetting, whatToShow, useRTH, formatDate, keepUpToDate)</span>
-<span class="n">app</span><span class="o">.</span><span class="n">reqHistoricalData</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eurgbp_contract</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;1 M&#39;</span><span class="p">,</span> <span class="s1">&#39;1 day&#39;</span><span class="p">,</span> <span class="s1">&#39;ASK&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">reqHistoricalData</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eurgbp_contract</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;1 M&#39;</span><span class="p">,</span> <span class="s1">&#39;1 day&#39;</span><span class="p">,</span> <span class="s1">&#39;ASK&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -364,17 +361,17 @@ information on order opening, order status, and order execution.</div>
     <span class="k">def</span> <span class="nf">nextValidId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orderId</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">nextValidId</span><span class="p">(</span><span class="n">orderId</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nextorderId</span> <span class="o">=</span> <span class="n">orderId</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The next valid order id is: &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nextorderId</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The next valid order id is: &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nextorderId</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">orderStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orderId</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">filled</span><span class="p">,</span> <span class="n">remaining</span><span class="p">,</span> <span class="n">avgFillPrice</span><span class="p">,</span> <span class="n">permId</span><span class="p">,</span> <span class="n">parentId</span><span class="p">,</span>
                     <span class="n">lastFillPrice</span><span class="p">,</span> <span class="n">clientId</span><span class="p">,</span> <span class="n">whyHeld</span><span class="p">,</span> <span class="n">mktCapPrice</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OrderStatus. Id: &quot;</span><span class="p">,</span> <span class="n">orderId</span><span class="p">,</span> <span class="s2">&quot;, Status: &quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="s2">&quot;, Filled: &quot;</span><span class="p">,</span> <span class="n">filled</span><span class="p">,</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;OrderStatus. Id: &quot;</span><span class="p">,</span> <span class="n">orderId</span><span class="p">,</span> <span class="s2">&quot;, Status: &quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="s2">&quot;, Filled: &quot;</span><span class="p">,</span> <span class="n">filled</span><span class="p">,</span>
               <span class="s2">&quot;, Remaining: &quot;</span><span class="p">,</span> <span class="n">remaining</span><span class="p">,</span> <span class="s2">&quot;, AvgFillPrice: &quot;</span><span class="p">,</span> <span class="n">avgFillPrice</span><span class="p">,</span>
               <span class="s2">&quot;, PermId: &quot;</span><span class="p">,</span> <span class="n">permId</span><span class="p">,</span> <span class="s2">&quot;, ParentId: &quot;</span><span class="p">,</span> <span class="n">parentId</span><span class="p">,</span> <span class="s2">&quot;, LastFillPrice: &quot;</span><span class="p">,</span> <span class="n">lastFillPrice</span><span class="p">,</span>
               <span class="s2">&quot;, ClientId: &quot;</span><span class="p">,</span> <span class="n">clientId</span><span class="p">,</span> <span class="s2">&quot;, WhyHeld: &quot;</span><span class="p">,</span> <span class="n">whyHeld</span><span class="p">,</span> <span class="s2">&quot;, MktCapPrice: &quot;</span><span class="p">,</span> <span class="n">mktCapPrice</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">openOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orderId</span><span class="p">,</span> <span class="n">contract</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderState</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OpenOrder. PermID: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">permId</span><span class="p">,</span> <span class="s2">&quot;, ClientId: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">clientId</span><span class="p">,</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;OpenOrder. PermID: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">permId</span><span class="p">,</span> <span class="s2">&quot;, ClientId: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">clientId</span><span class="p">,</span>
               <span class="s2">&quot;, OrderId: &quot;</span><span class="p">,</span> <span class="n">orderId</span><span class="p">,</span> <span class="s2">&quot;, Account: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">account</span><span class="p">,</span> <span class="s2">&quot;, Symbol: &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span>
               <span class="s2">&quot;, SecType: &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">secType</span><span class="p">,</span> <span class="s2">&quot; , Exchange: &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">exchange</span><span class="p">,</span>
               <span class="s2">&quot;, Action: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="s2">&quot;, OrderType: &quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">orderType</span><span class="p">,</span>
@@ -383,7 +380,7 @@ information on order opening, order status, and order execution.</div>
               <span class="s2">&quot;, Status: &quot;</span><span class="p">,</span> <span class="n">orderState</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">execDetails</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="n">contract</span><span class="p">,</span> <span class="n">execution</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ExecDetails. &quot;</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">secType</span><span class="p">,</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;ExecDetails. &quot;</span><span class="p">,</span> <span class="n">reqId</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">secType</span><span class="p">,</span>
               <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">contract</span><span class="o">.</span><span class="n">currency</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">,</span> <span class="n">execution</span><span class="o">.</span><span class="n">execId</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">execution</span><span class="o">.</span><span class="n">orderId</span><span class="p">,</span>
               <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">execution</span><span class="o">.</span><span class="n">shares</span> <span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">execution</span><span class="o">.</span><span class="n">lastLiquidity</span><span class="p">)</span>
 </pre></div>
@@ -438,7 +435,7 @@ modified and the updated parameters.</div>
 
     <span class="c1"># Receive account summary</span>
     <span class="k">def</span> <span class="nf">accountSummary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reqId</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">account</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">currency</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acct Summary. ReqId:&quot;</span> <span class="p">,</span> <span class="n">reqId</span> <span class="p">,</span> <span class="s2">&quot;Acct:&quot;</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="s2">&quot;Tag: &quot;</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="s2">&quot;Value:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span>
+          <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Acct Summary. ReqId:&quot;</span> <span class="p">,</span> <span class="n">reqId</span> <span class="p">,</span> <span class="s2">&quot;Acct:&quot;</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="s2">&quot;Tag: &quot;</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="s2">&quot;Value:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span>
                 <span class="s2">&quot;Currency:&quot;</span><span class="p">,</span> <span class="n">currency</span><span class="p">)</span>
 
 <span class="c1"># Request account summary in base currency</span>
@@ -469,29 +466,37 @@ All final investment decisions are yours and as a result you could make or lose 
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="acknowledgement.html" class="btn btn-neutral float-right" title="Acknowledgement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="integrated-strategy.html" class="btn btn-neutral float-left" title="Integrated trading strategy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="acknowledgement.html" class="btn btn-neutral float-right" title="Acknowledgement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="integrated-strategy.html" class="btn btn-neutral float-left" title="Integrated trading strategy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Angel Woo.
+        
+        &copy; Copyright 2020, Angel Woo
 
     </p>
   </div>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 

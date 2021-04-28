@@ -53,7 +53,7 @@ api_thread.start()
 # Allow time for server connection
 time.sleep(1)
 
-# Call main() function in daily _trading_strategy.py to capture signal
+# Call main() function in daily_trading_strategy.py to capture signal
 run_daily_trading_strategy()
 
 # Read in today's signal
@@ -68,7 +68,7 @@ df = pd.read_csv(result_path)
 today = date.today()
 today = today.strftime("%Y%m%d")
 contract = Contract()
-contract.symbol = "1"
+contract.symbol = "1" # 0001.HK
 contract.secType = "STK"
 contract.exchange = "SEHK"
 contract.currency = "HKD"

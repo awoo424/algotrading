@@ -219,11 +219,13 @@ def gen_signal(pred, actual_output, dates, by_trend=False):
     
     return output_df
     
-def gen_signal_daily(pred,actual_output, dates, by_trend=False):
+def gen_signal_daily(pred, actual_output, dates, by_trend=False):
     output_df = pd.DataFrame()
     signal = []
-
  
+    #print(pred)
+    #print(actual_output)
+
     if (abs(pred - actual_output) < 1.0):
         signal.append(0)
                 
@@ -236,8 +238,9 @@ def gen_signal_daily(pred,actual_output, dates, by_trend=False):
         signal.append(1)
          
     #print(len(signal))
-    output_df['Date'] = dates
+    #print(len(dates))
 
-    output_df['signal']=  signal  
+    output_df['Date'] = dates
+    output_df['signal'] = signal  
     
     return output_df

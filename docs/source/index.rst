@@ -2,9 +2,8 @@ Welcome to the algo trading learning repo
 =========================================
 
 .. image:: ../images/Cover.png
-    :width: 500px
+    :width: 500
     :align: center
-    :height: 380px
     :alt: "Algorithmic Trading repo"
 
 .. toctree::
