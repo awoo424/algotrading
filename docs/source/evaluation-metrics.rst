@@ -69,7 +69,7 @@ Compound Annual Growth Rate (CAGR)
 .. admonition:: Definition
    :class: myOwnStyle
    
-   | **Compoumd Annual Growth Rate (CAGR)** describes the rate at which an investment 
+   | **Compound Annual Growth Rate (CAGR)** describes the rate at which an investment 
      would have grown if it had grown the same rate every year and the profits 
      were reinvested at the end of each year.
 
