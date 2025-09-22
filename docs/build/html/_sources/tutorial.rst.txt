@@ -1,4 +1,0 @@
-Tutorial
-=========
-
-Contents of tutorial.

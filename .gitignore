@@ -24,3 +24,4 @@ LSTM-train_wrapper_*.py
 *_results.csv
 saved_models/
 */integrated-strategy/main_order_stock.py
+docs/build/
