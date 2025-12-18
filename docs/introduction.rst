@@ -250,7 +250,7 @@ Sentiment analysis
 | Market sentiment refers to the overall attitude of investors toward a particular security. Investors profit by finding
   stocks that are overvalued based on market sentiment.
 
-  There are multiple sources of data that could be used to gauge market sentiment, including:
+| There are multiple sources of data that could be used to gauge market sentiment, including:
   
   * News articles
   * Social media posts (e.g. Twitter (or X), Reddit)
