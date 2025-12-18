@@ -1,10 +1,14 @@
-Welcome to the algo trading learning repo
+Algo trading learning repo
 =========================================
 
 .. image:: ../images/Cover.png
     :width: 500
+    :class: image-margin
     :align: center
     :alt: "Algorithmic Trading repo"
+
+.. |br| raw:: html
+   <br />
 
 .. toctree::
    :maxdepth: 1

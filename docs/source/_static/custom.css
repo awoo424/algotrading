@@ -14,3 +14,7 @@ nav {
 .wy-side-nav-search>a {
     color: #263238;
 }
+
+.image-margin {
+    margin-bottom: 30px !important;
+}

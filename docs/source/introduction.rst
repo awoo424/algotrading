@@ -224,7 +224,7 @@ Technical analysis vs Fundamental analysis
   usually see their approach superior to fundamentalists'. Because, by definition, 
   if the fundamentals are reflected in the market price, then technical approach 
   includes the fundamental. Nevertheless, fundamental analysis does not include a 
-  study of market action. Therefore, whilee it is feasible to trade solely relying 
+  study of market action. Therefore, while it is feasible to trade solely relying 
   on technial approach, it is doubtful that anyone could trade off the fundamentals 
   alone without any consideration of the technical side of the market.
 
@@ -232,17 +232,17 @@ Technical analysis vs Fundamental analysis
 The use of machine learning
 ----------------------------
 
-*(To-be edited)*
-
 Macroeconomic data
 ^^^^^^^^^^^^^^^^^^^^^^
 | The stock prices are often moved by some macroeconomic indicators, and hence it is 
-  good to keep track of macroeconomic indicators. 
+  good to keep track of macroeconomic indicators to enhance forecasting accuracy. 
 
 | Macroeconomic analysis is the study of relation between stock prices and macroeconomic
-  indicators. 
-  
-*(To-be edited)*
+  indicators. The main purpose of the data analysis includes:
+
+  * Nowcasting & forecasting
+  * Risk assessment (detecting systematic risk)
+  * Economic index construction
 
 Sentiment analysis
 ^^^^^^^^^^^^^^^^^^^
@@ -250,8 +250,12 @@ Sentiment analysis
 | Market sentiment refers to the overall attitude of investors toward a particular security. Investors profit by finding
   stocks that are overvalued based on market sentiment.
 
-*(To-be edited)*
-
+  There are multiple sources of data that could be used to gauge market sentiment, including:
+  
+  * News articles
+  * Social media posts (e.g. Twitter (or X), Reddit)
+  * Financial reports
+  * Analyst ratings
 
 
 Conclusion
