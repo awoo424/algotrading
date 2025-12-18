@@ -7,9 +7,6 @@ Algo trading learning repo
     :align: center
     :alt: "Algorithmic Trading repo"
 
-.. |br| raw:: html
-   <br />
-
 .. toctree::
    :maxdepth: 1
    :caption: Getting started
