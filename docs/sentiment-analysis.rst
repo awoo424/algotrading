@@ -177,9 +177,9 @@ US news headlines
 
 |  Before the tutorial, it is important to take a look at the front-end code of the website.
 
-.. .. figure:: ../images/apple_finviz_example.png
+.. .. figure:: images/apple_finviz_example.png
 
-.. image:: ../images/apple_finviz_example.png
+.. image:: images/apple_finviz_example.png
     :width: 400px
     :align: center
     :height: 252px
@@ -247,9 +247,9 @@ HK news headlines
 | Again, before writing code to scrape the news, we need to have a look of the front-end code of the website. Take tencent (00700.HK) as an example.
   Click 'inspect' and you can view the front-end code of the website. (Or visit this link: http://www.aastocks.com/en/stocks/analysis/stock-aafn/00700/0/all/1)
 
-.. .. figure:: ../images/tencent_aastock_example.png
+.. .. figure:: images/tencent_aastock_example.png
 
-.. image:: ../images/tencent_aastock_example.png
+.. image:: images/tencent_aastock_example.png
     :width: 540px
     :align: center
     :height: 182px

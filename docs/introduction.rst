@@ -208,7 +208,7 @@ Technical analysis vs Fundamental analysis
   and fundamentals might come in conflict with each other**, and such descrepancies 
   especially occur at the most critical moments.
 
-.. image:: ../images/Buy-low-and-sell-high.jpg
+.. image:: images/Buy-low-and-sell-high.jpg
     :width: 275px
     :align: center
     :height: 162px

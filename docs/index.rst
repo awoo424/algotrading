@@ -1,7 +1,7 @@
 Algo trading learning repo
 =========================================
 
-.. image:: ../images/Cover.png
+.. image:: images/Cover.png
     :width: 500
     :class: image-margin
     :align: center

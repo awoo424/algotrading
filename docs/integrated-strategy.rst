@@ -163,7 +163,7 @@ Recurrent Neural Networks
 .. role:: raw-html(raw)
   :format: html
 
-.. figure:: ../images/LSTM.png
+.. figure:: images/LSTM.png
   :width: 500px
   :align: center
   :height: 190px

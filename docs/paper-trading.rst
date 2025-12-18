@@ -57,7 +57,7 @@ Connect to Interactive Brokers TWS
 | If you are successfully connected to IB TWS, you will get the below output in your
   terminal. 
 
-.. figure:: ../images/tws_connection_terminal.png
+.. figure:: images/tws_connection_terminal.png
     :width: 400px
     :alt: "Terminal output."
 

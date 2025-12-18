@@ -84,7 +84,7 @@ Line chart
 .. role:: raw-html(raw)
     :format: html
 
-.. figure:: ../images/Line-chart.png
+.. figure:: images/Line-chart.png
     :width: 800px
     :align: center
     :height: 420px
@@ -108,7 +108,7 @@ Candlesticks chart
   occurring patterns that help forecast the short-term direction of the price. 
   
 
-.. figure:: ../images/Candlestick.png
+.. figure:: images/Candlestick.png
     :width: 500px
     :align: center
     :height: 320px
@@ -152,7 +152,7 @@ Candlesticks chart
   plt.show()
 
 
-.. figure:: ../images/Candlestick-chart.png
+.. figure:: images/Candlestick-chart.png
     :width: 900px
     :align: center
     :height: 440px
@@ -239,7 +239,7 @@ will be revealed more clearly in semi-logarithmic scale charts.
   plt.show()
 
 
-.. figure:: ../images/Log-vs-arith-chart.png
+.. figure:: images/Log-vs-arith-chart.png
     :width: 900px
     :align: center
     :height: 290px

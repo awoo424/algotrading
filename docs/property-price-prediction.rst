@@ -47,7 +47,7 @@ Macroeconomic indicators in Hong Kong
 
 | Use :code:`df.info()` to print information of all columns.  
 
-.. figure:: ../images/macroeconomic_data.png
+.. figure:: images/macroeconomic_data.png
     :width: 400px
     :align: center
     :alt: "Macroeconomic data."
@@ -88,7 +88,7 @@ Bivariate analysis
     plt.xticks(rotation=45)
     fig = sns.regplot(x=feature_name, y="hsi", data=df)
 
-.. figure:: ../images/scatter_graph_regline.png
+.. figure:: images/scatter_graph_regline.png
     :width: 400px
     :align: center
     :alt: "Scatter graph with regline."
@@ -106,7 +106,7 @@ Bivariate analysis
     hm = sns.heatmap(cm, annot=True, square=True, annot_kws={'size':11}, yticklabels=cols.values, xticklabels=cols.values)
     plt.show()
 
-.. figure:: ../images/heatmap_macro_indicator.png
+.. figure:: images/heatmap_macro_indicator.png
     :width: 620px
     :align: center
     :alt: "Heatmap - macroeconomic indicator."
@@ -171,7 +171,7 @@ Economic indicator analysis
 
 | The transaction records from Centaline Property will be used for this analysis.
 
-.. figure:: ../images/transaction_record_centaline.png
+.. figure:: images/transaction_record_centaline.png
     :width: 700px
     :align: center
     :alt: "Transaction records - Centaline Property"
@@ -193,7 +193,7 @@ Economic indicator analysis
   house price per saleable area in Hong Kong, while both unemployment
   rates are negatively correlated to the monthly average house price per saleable area in Hong Kong.
 
-.. figure:: ../images/corr_economic_indicator_analysis.png
+.. figure:: images/corr_economic_indicator_analysis.png
     :width: 620px
     :align: center
     :alt: "Heatmap - economic indicator analysis"
@@ -207,14 +207,14 @@ Transaction record analysis
 
 | The transaction records from Midland Realty will be used for this analysis.
 
-.. figure:: ../images/transaction_record_midland1.png
+.. figure:: images/transaction_record_midland1.png
     :width: 650px
     :align: center
     :alt: "Transaction records - Midland Realty - Part 1"
 
     The data structure of transaction record (Midland Realty) - Part 1.
 
-.. figure:: ../images/transaction_record_midland2.png
+.. figure:: images/transaction_record_midland2.png
     :width: 650px
     :align: center
     :alt: "Transaction records - Midland Realty - Part 2"
@@ -271,7 +271,7 @@ Transaction record analysis
   the house and the house price is computed. 7 features with the highest correlation 
   is selected and shown below.
 
-.. figure:: ../images/corr_transaction_data.png
+.. figure:: images/corr_transaction_data.png
   :width: 500px
   :align: center
   :alt: "Heatmap - transaction data analysis"
@@ -377,7 +377,7 @@ Evaluate accuracy
     plt.ylabel('Predicted Y')
     plt.show()
 
-.. figure:: ../images/prediction_graph_xgb.png
+.. figure:: images/prediction_graph_xgb.png
     :width: 300px
     :align: center
     :alt: "The prediction graph for XGBoost."
