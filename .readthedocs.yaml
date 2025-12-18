@@ -9,9 +9,9 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.12"
-  jobs:
-    post_create_environment:
-      - python -m pip install -r requirements.txt
+  # jobs:
+  #   post_create_environment:
+  #     - python -m pip install -r requirements.txt
     # You can also specify other tool versions:
     # nodejs: "20"
     # rust: "1.70"
@@ -35,4 +35,4 @@ sphinx:
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: docs/requirements.txt
+    - requirements: requirements.txt
