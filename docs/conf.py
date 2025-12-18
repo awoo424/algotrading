@@ -35,7 +35,6 @@ master_doc = 'index'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_rtd_theme',
     'sphinx.ext.autosectionlabel'
 ]
 
