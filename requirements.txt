@@ -1,1 +1,1 @@
-sphinx-rtd-theme
+sphinx-rtd-theme==3.1.0rc1
